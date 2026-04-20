@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数码宝贝电子图鉴</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="#list" class="nav-link active" data-page="list">图鉴</a>
+      <a href="#pathfinder" class="nav-link" data-page="pathfinder">路线查询</a>
+    </div>
+    <div class="nav-right">
+      <label class="edit-toggle">
+        <input type="checkbox" id="editModeToggle">
+        <span>编辑模式</span>
+      </label>
+      <button id="dataMenuBtn" class="btn-icon" title="数据管理">&#9776;</button>
+    </div>
+  </nav>
+
+  <div id="dataMenu" class="dropdown-menu hidden">
+    <button id="exportBtn">导出JSON</button>
+    <button id="importBtn">导入JSON</button>
+    <hr>
+    <button id="saveDefaultBtn">保存为默认数据</button>
+    <button id="resetDefaultBtn">重置为默认数据</button>
+    <button id="resetBackupBtn">重置为出厂数据</button>
+  </div>
+  <input type="file" id="importFile" accept=".json" style="display:none">
+
+  <main id="app">
+    <!-- List Page -->
+    <div id="listPage" class="page">
+      <div id="stageFilter" class="stage-filter"></div>
+      <div id="digimonList" class="digimon-list"></div>
+      <button id="addDigimonBtn" class="btn-add hidden">+ 新增角色</button>
+    </div>
+
+    <!-- Detail Page -->
+    <div id="detailPage" class="page hidden">
+      <div class="detail-header">
+        <button id="backBtn" class="btn-back">&larr; 返回</button>
+        <button id="deleteDigimonBtn" class="btn-delete hidden">删除</button>
+      </div>
+      <div id="detailContent" class="detail-content"></div>
+      <div class="detail-nav">
+        <button id="prevBtn" class="btn-nav">&larr;</button>
+        <button id="nextBtn" class="btn-nav">&rarr;</button>
+      </div>
+    </div>
+
+    <!-- Pathfinder Page -->
+    <div id="pathfinderPage" class="page hidden">
+      <h2>进化路线查询</h2>
+      <div class="path-form">
+        <div class="path-select">
+          <label>起点</label>
+          <input type="text" id="pathFrom" placeholder="搜索数码宝贝..." autocomplete="off">
+          <div id="pathFromDropdown" class="search-dropdown hidden"></div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+        <div class="path-select">
+          <label>终点</label>
+          <input type="text" id="pathTo" placeholder="搜索数码宝贝..." autocomplete="off">
+          <div id="pathToDropdown" class="search-dropdown hidden"></div>
+        </div>
+        <button id="findPathBtn" class="btn-primary">查找路线</button>
+      </div>
+      <div id="pathResult" class="path-result"></div>
+    </div>
+  </main>
+
+  <!-- Add/Edit Evolution Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="data_backup.js"></script>
+  <script src="data.js"></script>
+  <script src="pathfinder.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
