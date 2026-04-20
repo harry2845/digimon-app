@@ -1,4 +1,4 @@
-const DEFAULT_DIGIMON_DB = {
+{
   "digimon": {
     "d001": {
       "uid": "d001",
@@ -5449,4 +5449,4 @@ const DEFAULT_DIGIMON_DB = {
     "究極體",
     "超究極體"
   ]
-};
+}
