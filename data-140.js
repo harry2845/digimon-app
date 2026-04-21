@@ -148,10 +148,10 @@ const DEFAULT_DIGIMON_DB = {
       "nameEN": "Garurumon",
       "stage": "成熟期",
       "evolutions": [
+        "d014",
         "d196",
         "d107",
-        "d154",
-        "d194"
+        "d154"
       ],
       "devolutions": [
         "d234",
@@ -245,7 +245,7 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d189",
         "d021",
-        "d194"
+        "d014"
       ]
     },
     "d015": {
@@ -335,7 +335,7 @@ const DEFAULT_DIGIMON_DB = {
         "d189",
         "d021",
         "d264",
-        "d194"
+        "d014"
       ],
       "devolutions": [
         "d092",
@@ -533,9 +533,7 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [
         "d219"
       ],
-      "devolutions": [
-        "d219"
-      ]
+      "devolutions": []
     },
     "d034": {
       "uid": "d034",
@@ -1078,8 +1076,7 @@ const DEFAULT_DIGIMON_DB = {
         "d105",
         "d128",
         "d128",
-        "d255",
-        "d340"
+        "d255"
       ],
       "devolutions": [
         "d108",
@@ -1214,7 +1211,7 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d003",
         "d072",
-        "d194"
+        "d014"
       ]
     },
     "d075": {
@@ -1434,7 +1431,7 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [],
       "devolutions": [
         "d254",
-        "d341"
+        "d252"
       ]
     },
     "d088": {
@@ -1621,7 +1618,7 @@ const DEFAULT_DIGIMON_DB = {
       ],
       "devolutions": [
         "d105",
-        "d340"
+        "d128"
       ]
     },
     "d100": {
@@ -1835,7 +1832,7 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d127",
         "d148",
-        "d340"
+        "d128"
       ]
     },
     "d113": {
@@ -2032,8 +2029,8 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d122",
         "d026",
-        "d194",
-        "d340"
+        "d128",
+        "d014"
       ]
     },
     "d125": {
@@ -2093,13 +2090,19 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [
         "d172",
         "d305",
-        "d022"
+        "d022",
+        "d099",
+        "d112",
+        "d124"
       ],
       "devolutions": [
         "d008",
         "d066",
         "d147",
-        "d061"
+        "d061",
+        "d161",
+        "d184",
+        "d164"
       ]
     },
     "d129": {
@@ -2620,12 +2623,7 @@ const DEFAULT_DIGIMON_DB = {
         "d303",
         "d046"
       ],
-      "devolutions": [
-        "d017",
-        "d047",
-        "d079",
-        "d158"
-      ]
+      "devolutions": []
     },
     "d160": {
       "uid": "d160",
@@ -2655,7 +2653,7 @@ const DEFAULT_DIGIMON_DB = {
         "d199",
         "d127",
         "d148",
-        "d340"
+        "d128"
       ],
       "devolutions": [
         "d041",
@@ -2708,7 +2706,7 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [
         "d191",
         "d026",
-        "d340"
+        "d128"
       ],
       "devolutions": [
         "d108",
@@ -2845,8 +2843,7 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d105",
         "d128",
-        "d128",
-        "d340"
+        "d128"
       ]
     },
     "d173": {
@@ -3025,8 +3022,8 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [
         "d021",
         "d072",
-        "d060",
-        "d194"
+        "d014",
+        "d060"
       ],
       "devolutions": [
         "d236",
@@ -3044,8 +3041,8 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [
         "d187",
         "d283",
-        "d105",
-        "d340"
+        "d128",
+        "d105"
       ],
       "devolutions": [
         "d111",
@@ -3352,7 +3349,7 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d021",
         "d283",
-        "d194"
+        "d014"
       ]
     },
     "d202": {
@@ -3377,9 +3374,7 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [
         "d294"
       ],
-      "devolutions": [
-        "d294"
-      ]
+      "devolutions": []
     },
     "d204": {
       "uid": "d204",
@@ -3596,8 +3591,7 @@ const DEFAULT_DIGIMON_DB = {
       ],
       "devolutions": [
         "d166",
-        "d288",
-        "d033"
+        "d288"
       ]
     },
     "d220": {
@@ -3650,8 +3644,8 @@ const DEFAULT_DIGIMON_DB = {
       "stage": "成熟期",
       "evolutions": [
         "d127",
-        "d237",
-        "d194"
+        "d014",
+        "d237"
       ],
       "devolutions": [
         "d108",
@@ -4139,14 +4133,15 @@ const DEFAULT_DIGIMON_DB = {
     "d252": {
       "uid": "d252",
       "dexId": 252,
-      "nameCN": "鎧甲加魯魯獸（SV）",
+      "nameCN": "鎧甲加魯魯獸",
       "nameEN": "MagnaGarurumon (SV)",
       "stage": "究極體",
       "evolutions": [
-        "d341"
+        "d252",
+        "d087"
       ],
       "devolutions": [
-        "d341"
+        "d257"
       ]
     },
     "d253": {
@@ -4219,7 +4214,7 @@ const DEFAULT_DIGIMON_DB = {
       "nameEN": "KendoGarurumon",
       "stage": "完全體",
       "evolutions": [
-        "d341"
+        "d252"
       ],
       "devolutions": [
         "d256",
@@ -4535,9 +4530,9 @@ const DEFAULT_DIGIMON_DB = {
       "stage": "成熟期",
       "evolutions": [
         "d026",
+        "d014",
         "d282",
-        "d148",
-        "d194"
+        "d148"
       ],
       "devolutions": [
         "d108",
@@ -4840,8 +4835,7 @@ const DEFAULT_DIGIMON_DB = {
       ],
       "devolutions": [
         "d195",
-        "d018",
-        "d203"
+        "d018"
       ]
     },
     "d295": {
@@ -4922,8 +4916,7 @@ const DEFAULT_DIGIMON_DB = {
       ],
       "devolutions": [
         "d190",
-        "d282",
-        "d304"
+        "d282"
       ]
     },
     "d301": {
@@ -4976,9 +4969,7 @@ const DEFAULT_DIGIMON_DB = {
       "evolutions": [
         "d300"
       ],
-      "devolutions": [
-        "d300"
-      ]
+      "devolutions": []
     },
     "d305": {
       "uid": "d305",
@@ -5447,40 +5438,6 @@ const DEFAULT_DIGIMON_DB = {
       "stage": "究極體",
       "evolutions": [],
       "devolutions": []
-    },
-    "d340": {
-      "uid": "d340",
-      "dexId": 340,
-      "nameCN": "鋼鐵巨龍獸",
-      "nameEN": "MetalTyrannomon",
-      "stage": "完全體",
-      "evolutions": [
-        "d099",
-        "d112",
-        "d124",
-        "d172"
-      ],
-      "devolutions": [
-        "d066",
-        "d161",
-        "d184",
-        "d164"
-      ]
-    },
-    "d341": {
-      "uid": "d341",
-      "dexId": 341,
-      "nameCN": "鎧甲加魯魯獸",
-      "nameEN": "MagnaGarurumon",
-      "stage": "究極體",
-      "evolutions": [
-        "d087",
-        "d252"
-      ],
-      "devolutions": [
-        "d257",
-        "d252"
-      ]
     }
   },
   "stages": [

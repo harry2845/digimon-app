@@ -2,8 +2,8 @@ const DEFAULT_DIGIMON_DB = {
   "digimon": {
     "d001": {
       "uid": "d001",
-      "dexId": 61,
-      "nameCN": "露娜獸",
+      "dexId": 1,
+      "nameCN": "月兔獸",
       "nameEN": "Lunamon",
       "stage": "成長期",
       "evolutions": [
@@ -18,8 +18,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d002": {
       "uid": "d002",
-      "dexId": 138,
-      "nameCN": "雷克斯獸",
+      "dexId": 2,
+      "nameCN": "月兔獸（成熟期）",
       "nameEN": "Lekismon",
       "stage": "成熟期",
       "evolutions": [
@@ -35,7 +35,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d003": {
       "uid": "d003",
-      "dexId": 217,
+      "dexId": 3,
       "nameCN": "新月獸",
       "nameEN": "Crescemon",
       "stage": "完全體",
@@ -52,8 +52,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d004": {
       "uid": "d004",
-      "dexId": 99,
-      "nameCN": "岩石獸",
+      "dexId": 4,
+      "nameCN": "石頭獸",
       "nameEN": "Golemon",
       "stage": "成熟期",
       "evolutions": [
@@ -69,8 +69,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d005": {
       "uid": "d005",
-      "dexId": 143,
-      "nameCN": "喪尸撒旦獸",
+      "dexId": 5,
+      "nameCN": "骷髏撒旦獸",
       "nameEN": "SkullSatamon",
       "stage": "完全體",
       "evolutions": [
@@ -87,7 +87,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d006": {
       "uid": "d006",
-      "dexId": 45,
+      "dexId": 6,
       "nameCN": "齒輪獸",
       "nameEN": "Hagurumon",
       "stage": "成長期",
@@ -104,7 +104,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d007": {
       "uid": "d007",
-      "dexId": 131,
+      "dexId": 7,
       "nameCN": "火焰獸",
       "nameEN": "Meramon",
       "stage": "成熟期",
@@ -125,7 +125,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d008": {
       "uid": "d008",
-      "dexId": 75,
+      "dexId": 8,
       "nameCN": "飛龍獸",
       "nameEN": "Airdramon",
       "stage": "成熟期",
@@ -143,15 +143,15 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d009": {
       "uid": "d009",
-      "dexId": 85,
+      "dexId": 9,
       "nameCN": "加魯魯獸",
       "nameEN": "Garurumon",
       "stage": "成熟期",
       "evolutions": [
+        "d194",
         "d196",
         "d107",
-        "d154",
-        "d194"
+        "d154"
       ],
       "devolutions": [
         "d234",
@@ -161,7 +161,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d010": {
       "uid": "d010",
-      "dexId": 124,
+      "dexId": 10,
       "nameCN": "猛鬼獸",
       "nameEN": "Bakemon",
       "stage": "成熟期",
@@ -181,7 +181,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d011": {
       "uid": "d011",
-      "dexId": 107,
+      "dexId": 11,
       "nameCN": "星星獸",
       "nameEN": "Starmon",
       "stage": "成熟期",
@@ -201,7 +201,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d012": {
       "uid": "d012",
-      "dexId": 67,
+      "dexId": 12,
       "nameCN": "亞古拉獸",
       "nameEN": "Aquilamon",
       "stage": "成熟期",
@@ -220,8 +220,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d013": {
       "uid": "d013",
-      "dexId": 109,
-      "nameCN": "强襲龍獸",
+      "dexId": 13,
+      "nameCN": "強襲龍獸",
       "nameEN": "Strikedramon",
       "stage": "成熟期",
       "evolutions": [
@@ -237,8 +237,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d014": {
       "uid": "d014",
-      "dexId": 229,
-      "nameCN": "多路龍獸",
+      "dexId": 14,
+      "nameCN": "多路暴龍獸（究極體）",
       "nameEN": "Dorugoramon",
       "stage": "究極體",
       "evolutions": [],
@@ -250,8 +250,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d015": {
       "uid": "d015",
-      "dexId": 38,
-      "nameCN": "芝蒙獸",
+      "dexId": 15,
+      "nameCN": "朱古獸",
       "nameEN": "Chuumon",
       "stage": "成長期",
       "evolutions": [
@@ -266,8 +266,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d016": {
       "uid": "d016",
-      "dexId": 175,
-      "nameCN": "巨鯨獸",
+      "dexId": 16,
+      "nameCN": "鯨魚獸",
       "nameEN": "Whamon",
       "stage": "完全體",
       "evolutions": [
@@ -284,7 +284,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d017": {
       "uid": "d017",
-      "dexId": 126,
+      "dexId": 17,
       "nameCN": "羽蝶獸",
       "nameEN": "Hudiemon",
       "stage": "成熟期",
@@ -299,7 +299,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d018": {
       "uid": "d018",
-      "dexId": 273,
+      "dexId": 18,
       "nameCN": "恐蜂獸",
       "nameEN": "Dinobeemon",
       "stage": "完全體",
@@ -314,7 +314,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d019": {
       "uid": "d019",
-      "dexId": 181,
+      "dexId": 19,
       "nameCN": "海天使獸",
       "nameEN": "MarineAngemon",
       "stage": "究極體",
@@ -327,7 +327,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d020": {
       "uid": "d020",
-      "dexId": 135,
+      "dexId": 20,
       "nameCN": "猛禽龍獸",
       "nameEN": "Raptordramon",
       "stage": "成熟期",
@@ -346,8 +346,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d021": {
       "uid": "d021",
-      "dexId": 272,
-      "nameCN": "黃金劍士獸",
+      "dexId": 21,
+      "nameCN": "格雷德獸",
       "nameEN": "Grademon",
       "stage": "完全體",
       "evolutions": [
@@ -366,7 +366,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d022": {
       "uid": "d022",
-      "dexId": 186,
+      "dexId": 22,
       "nameCN": "戰鬥暴龍獸",
       "nameEN": "WarGreymon",
       "stage": "究極體",
@@ -381,7 +381,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d023": {
       "uid": "d023",
-      "dexId": 101,
+      "dexId": 23,
       "nameCN": "血狼獸",
       "nameEN": "Sangloupmon",
       "stage": "成熟期",
@@ -399,7 +399,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d024": {
       "uid": "d024",
-      "dexId": 238,
+      "dexId": 24,
       "nameCN": "鬥牛士獸",
       "nameEN": "Matadormon",
       "stage": "完全體",
@@ -416,7 +416,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d025": {
       "uid": "d025",
-      "dexId": 185,
+      "dexId": 25,
       "nameCN": "大德古獸",
       "nameEN": "GranDracmon",
       "stage": "究極體",
@@ -429,7 +429,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d026": {
       "uid": "d026",
-      "dexId": 236,
+      "dexId": 26,
       "nameCN": "三觭龍獸",
       "nameEN": "Triceramon",
       "stage": "完全體",
@@ -447,7 +447,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d027": {
       "uid": "d027",
-      "dexId": 315,
+      "dexId": 27,
       "nameCN": "莉莉絲獸",
       "nameEN": "Lilithmon",
       "stage": "究極體",
@@ -459,7 +459,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d028": {
       "uid": "d028",
-      "dexId": 278,
+      "dexId": 28,
       "nameCN": "墮天地獄獸",
       "nameEN": "Beelzemon",
       "stage": "究極體",
@@ -473,7 +473,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d029": {
       "uid": "d029",
-      "dexId": 230,
+      "dexId": 29,
       "nameCN": "巴爾巴獸",
       "nameEN": "Barbamon",
       "stage": "究極體",
@@ -486,7 +486,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d030": {
       "uid": "d030",
-      "dexId": 227,
+      "dexId": 30,
       "nameCN": "利維亞獸",
       "nameEN": "Leviamon",
       "stage": "究極體",
@@ -499,7 +499,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d031": {
       "uid": "d031",
-      "dexId": 246,
+      "dexId": 31,
       "nameCN": "究極魔獸",
       "nameEN": "Creepymon",
       "stage": "究極體",
@@ -513,8 +513,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d032": {
       "uid": "d032",
-      "dexId": 241,
-      "nameCN": "光明獸FM（墮落型態）",
+      "dexId": 32,
+      "nameCN": "光明獸：墮落型態",
       "nameEN": "Lucemon FM",
       "stage": "完全體",
       "evolutions": [
@@ -526,7 +526,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d033": {
       "uid": "d033",
-      "dexId": 277,
+      "dexId": 33,
       "nameCN": "貝爾菲獸：憤怒型態",
       "nameEN": "Belphemon RM",
       "stage": "超究極體",
@@ -539,7 +539,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d034": {
       "uid": "d034",
-      "dexId": 152,
+      "dexId": 34,
       "nameCN": "熊貓獸",
       "nameEN": "Pandamon",
       "stage": "完全體",
@@ -557,7 +557,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d035": {
       "uid": "d035",
-      "dexId": 52,
+      "dexId": 35,
       "nameCN": "幻蜂獸",
       "nameEN": "FanBeemon",
       "stage": "成長期",
@@ -574,7 +574,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d036": {
       "uid": "d036",
-      "dexId": 128,
+      "dexId": 36,
       "nameCN": "黑迪路獸",
       "nameEN": "BlackGatomon",
       "stage": "成熟期",
@@ -593,8 +593,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d037": {
       "uid": "d037",
-      "dexId": 290,
-      "nameCN": "捕捉豆豆獸",
+      "dexId": 37,
+      "nameCN": "接球豆豆獸",
       "nameEN": "CatchMamemon",
       "stage": "完全體",
       "evolutions": [
@@ -610,7 +610,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d038": {
       "uid": "d038",
-      "dexId": 231,
+      "dexId": 38,
       "nameCN": "破滅魔龍獸",
       "nameEN": "Megidramon",
       "stage": "究極體",
@@ -624,7 +624,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d039": {
       "uid": "d039",
-      "dexId": 266,
+      "dexId": 39,
       "nameCN": "神龍獸",
       "nameEN": "Goldramon",
       "stage": "究極體",
@@ -638,7 +638,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d040": {
       "uid": "d040",
-      "dexId": 225,
+      "dexId": 40,
       "nameCN": "番長獅子獸",
       "nameEN": "BanchoLeomon",
       "stage": "究極體",
@@ -656,7 +656,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d041": {
       "uid": "d041",
-      "dexId": 18,
+      "dexId": 41,
       "nameCN": "亞古獸",
       "nameEN": "Agumon",
       "stage": "成長期",
@@ -674,8 +674,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d042": {
       "uid": "d042",
-      "dexId": 30,
-      "nameCN": "管狐獸",
+      "dexId": 42,
+      "nameCN": "古達獸",
       "nameEN": "Kudamon",
       "stage": "成長期",
       "evolutions": [
@@ -691,8 +691,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d043": {
       "uid": "d043",
-      "dexId": 105,
-      "nameCN": "大地暴龍獸",
+      "dexId": 43,
+      "nameCN": "地帶暴龍獸",
       "nameEN": "GeoGreymon",
       "stage": "成熟期",
       "evolutions": [
@@ -709,8 +709,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d044": {
       "uid": "d044",
-      "dexId": 25,
-      "nameCN": "迦奧獸",
+      "dexId": 44,
+      "nameCN": "加奧獸",
       "nameEN": "Gaomon",
       "stage": "成長期",
       "evolutions": [
@@ -727,7 +727,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d045": {
       "uid": "d045",
-      "dexId": 59,
+      "dexId": 45,
       "nameCN": "拉拉獸",
       "nameEN": "Lalamon",
       "stage": "成長期",
@@ -743,7 +743,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d046": {
       "uid": "d046",
-      "dexId": 226,
+      "dexId": 46,
       "nameCN": "薔薇獸",
       "nameEN": "Rosemon",
       "stage": "究極體",
@@ -758,8 +758,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d047": {
       "uid": "d047",
-      "dexId": 102,
-      "nameCN": "向日葵獸",
+      "dexId": 47,
+      "nameCN": "太陽花獸",
       "nameEN": "Sunflowmon",
       "stage": "成熟期",
       "evolutions": [
@@ -776,7 +776,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d048": {
       "uid": "d048",
-      "dexId": 157,
+      "dexId": 48,
       "nameCN": "火山獸",
       "nameEN": "Volcanomon",
       "stage": "完全體",
@@ -793,7 +793,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d049": {
       "uid": "d049",
-      "dexId": 275,
+      "dexId": 49,
       "nameCN": "鑽頭火山獸",
       "nameEN": "PileVolcamon",
       "stage": "究極體",
@@ -806,7 +806,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d050": {
       "uid": "d050",
-      "dexId": 165,
+      "dexId": 50,
       "nameCN": "熊仔獸",
       "nameEN": "Monzaemon",
       "stage": "完全體",
@@ -824,7 +824,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d051": {
       "uid": "d051",
-      "dexId": 6,
+      "dexId": 51,
       "nameCN": "阿卡迪獸（幼年期）",
       "nameEN": "Arcadiamon In-Tr.",
       "stage": "幼年期II",
@@ -837,8 +837,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d052": {
       "uid": "d052",
-      "dexId": 20,
-      "nameCN": "阿卡迪獸（成長期）",
+      "dexId": 52,
+      "nameCN": "阿卡迪獸",
       "nameEN": "Arcadiamon Rookie",
       "stage": "成長期",
       "evolutions": [
@@ -852,7 +852,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d053": {
       "uid": "d053",
-      "dexId": 69,
+      "dexId": 53,
       "nameCN": "阿卡迪獸（成熟期）",
       "nameEN": "Arcadiamon Champion",
       "stage": "成熟期",
@@ -869,7 +869,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d054": {
       "uid": "d054",
-      "dexId": 160,
+      "dexId": 54,
       "nameCN": "阿卡迪獸（完全體）",
       "nameEN": "Arcadiamon Ultimate",
       "stage": "完全體",
@@ -886,7 +886,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d055": {
       "uid": "d055",
-      "dexId": 176,
+      "dexId": 55,
       "nameCN": "阿卡迪獸（究極體）",
       "nameEN": "Arcadiamon Mega",
       "stage": "究極體",
@@ -901,7 +901,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d056": {
       "uid": "d056",
-      "dexId": 271,
+      "dexId": 56,
       "nameCN": "阿卡迪獸（超究極體）",
       "nameEN": "Arcadiamon Ultra",
       "stage": "超究極體",
@@ -912,8 +912,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d057": {
       "uid": "d057",
-      "dexId": 81,
-      "nameCN": "迦奧迦獸",
+      "dexId": 57,
+      "nameCN": "加奧加獸",
       "nameEN": "GaoGamon",
       "stage": "成熟期",
       "evolutions": [
@@ -929,7 +929,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d058": {
       "uid": "d058",
-      "dexId": 228,
+      "dexId": 58,
       "nameCN": "白金鼻涕獸",
       "nameEN": "PlatinumNumemon",
       "stage": "究極體",
@@ -943,7 +943,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d059": {
       "uid": "d059",
-      "dexId": 121,
+      "dexId": 59,
       "nameCN": "鼻涕獸",
       "nameEN": "Numemon",
       "stage": "成熟期",
@@ -960,8 +960,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d060": {
       "uid": "d060",
-      "dexId": 177,
-      "nameCN": "進昇暴龍獸",
+      "dexId": 60,
+      "nameCN": "升龍暴龍獸",
       "nameEN": "RizeGreymon",
       "stage": "完全體",
       "evolutions": [
@@ -979,7 +979,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d061": {
       "uid": "d061",
-      "dexId": 137,
+      "dexId": 61,
       "nameCN": "獅子獸",
       "nameEN": "Leomon",
       "stage": "成熟期",
@@ -999,8 +999,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d062": {
       "uid": "d062",
-      "dexId": 178,
-      "nameCN": "丁香獸",
+      "dexId": 62,
+      "nameCN": "百合獸",
       "nameEN": "Lilamon",
       "stage": "完全體",
       "evolutions": [
@@ -1017,8 +1017,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d063": {
       "uid": "d063",
-      "dexId": 310,
-      "nameCN": "音速迦奧迦獸",
+      "dexId": 63,
+      "nameCN": "疾風加奧加獸",
       "nameEN": "MachGaogamon",
       "stage": "完全體",
       "evolutions": [
@@ -1037,7 +1037,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d064": {
       "uid": "d064",
-      "dexId": 179,
+      "dexId": 64,
       "nameCN": "尼普頓獸",
       "nameEN": "Neptunemon",
       "stage": "究極體",
@@ -1050,7 +1050,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d065": {
       "uid": "d065",
-      "dexId": 139,
+      "dexId": 65,
       "nameCN": "鐮鼬獸",
       "nameEN": "Reppamon",
       "stage": "成熟期",
@@ -1069,7 +1069,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d066": {
       "uid": "d066",
-      "dexId": 88,
+      "dexId": 66,
       "nameCN": "古拉獸",
       "nameEN": "Growlmon",
       "stage": "成熟期",
@@ -1078,8 +1078,7 @@ const DEFAULT_DIGIMON_DB = {
         "d105",
         "d128",
         "d128",
-        "d255",
-        "d340"
+        "d255"
       ],
       "devolutions": [
         "d108",
@@ -1089,8 +1088,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d067": {
       "uid": "d067",
-      "dexId": 232,
-      "nameCN": "超級流星獸",
+      "dexId": 67,
+      "nameCN": "超級星星獸",
       "nameEN": "SuperStarmon",
       "stage": "完全體",
       "evolutions": [
@@ -1107,7 +1106,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d068": {
       "uid": "d068",
-      "dexId": 253,
+      "dexId": 68,
       "nameCN": "墨丘利獸",
       "nameEN": "Merukimon",
       "stage": "究極體",
@@ -1119,7 +1118,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d069": {
       "uid": "d069",
-      "dexId": 22,
+      "dexId": 69,
       "nameCN": "小妖獸",
       "nameEN": "Impmon",
       "stage": "成長期",
@@ -1137,8 +1136,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d070": {
       "uid": "d070",
-      "dexId": 276,
-      "nameCN": "仙鷹獸",
+      "dexId": 70,
+      "nameCN": "鷹身獅獸",
       "nameEN": "HippoGryphonmon",
       "stage": "完全體",
       "evolutions": [
@@ -1155,7 +1154,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d071": {
       "uid": "d071",
-      "dexId": 153,
+      "dexId": 71,
       "nameCN": "獅鷲獸",
       "nameEN": "Gryphonmon",
       "stage": "究極體",
@@ -1168,7 +1167,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d072": {
       "uid": "d072",
-      "dexId": 169,
+      "dexId": 72,
       "nameCN": "麒麟獸",
       "nameEN": "Chirinmon",
       "stage": "完全體",
@@ -1185,7 +1184,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d073": {
       "uid": "d073",
-      "dexId": 256,
+      "dexId": 73,
       "nameCN": "吸血魔獸",
       "nameEN": "Myotismon",
       "stage": "完全體",
@@ -1206,7 +1205,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d074": {
       "uid": "d074",
-      "dexId": 180,
+      "dexId": 74,
       "nameCN": "八腳馬獸",
       "nameEN": "Kentaurosmon",
       "stage": "究極體",
@@ -1219,7 +1218,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d075": {
       "uid": "d075",
-      "dexId": 77,
+      "dexId": 75,
       "nameCN": "天使獸",
       "nameEN": "Angemon",
       "stage": "成熟期",
@@ -1238,7 +1237,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d076": {
       "uid": "d076",
-      "dexId": 162,
+      "dexId": 76,
       "nameCN": "奧米加獸",
       "nameEN": "Omnimon",
       "stage": "超究極體",
@@ -1250,7 +1249,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d077": {
       "uid": "d077",
-      "dexId": 29,
+      "dexId": 77,
       "nameCN": "基爾獸",
       "nameEN": "Guilmon",
       "stage": "成長期",
@@ -1268,7 +1267,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d078": {
       "uid": "d078",
-      "dexId": 108,
+      "dexId": 78,
       "nameCN": "飛蟲獸",
       "nameEN": "Stingmon",
       "stage": "成熟期",
@@ -1287,7 +1286,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d079": {
       "uid": "d079",
-      "dexId": 115,
+      "dexId": 79,
       "nameCN": "迪路獸",
       "nameEN": "Gatomon",
       "stage": "成熟期",
@@ -1306,7 +1305,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d080": {
       "uid": "d080",
-      "dexId": 116,
+      "dexId": 80,
       "nameCN": "惡魔獸",
       "nameEN": "Devimon",
       "stage": "成熟期",
@@ -1326,7 +1325,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d081": {
       "uid": "d081",
-      "dexId": 244,
+      "dexId": 81,
       "nameCN": "閃光暴龍獸",
       "nameEN": "ShineGreymon",
       "stage": "究極體",
@@ -1341,7 +1340,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d082": {
       "uid": "d082",
-      "dexId": 267,
+      "dexId": 82,
       "nameCN": "幻影加奧加獸",
       "nameEN": "MirageGaogamon",
       "stage": "究極體",
@@ -1356,7 +1355,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d083": {
       "uid": "d083",
-      "dexId": 46,
+      "dexId": 83,
       "nameCN": "巴達獸",
       "nameEN": "Patamon",
       "stage": "成長期",
@@ -1374,7 +1373,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d084": {
       "uid": "d084",
-      "dexId": 49,
+      "dexId": 84,
       "nameCN": "小惡魔獸",
       "nameEN": "DemiDevimon",
       "stage": "成長期",
@@ -1391,7 +1390,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d085": {
       "uid": "d085",
-      "dexId": 218,
+      "dexId": 85,
       "nameCN": "神聖天使獸",
       "nameEN": "MagnaAngemon",
       "stage": "完全體",
@@ -1411,7 +1410,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d086": {
       "uid": "d086",
-      "dexId": 117,
+      "dexId": 86,
       "nameCN": "兔爺獸",
       "nameEN": "Turuiemon",
       "stage": "成熟期",
@@ -1427,19 +1426,19 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d087": {
       "uid": "d087",
-      "dexId": 182,
+      "dexId": 87,
       "nameCN": "金剛武神獸",
       "nameEN": "Susanomon",
       "stage": "超究極體",
       "evolutions": [],
       "devolutions": [
         "d254",
-        "d341"
+        "d252"
       ]
     },
     "d088": {
       "uid": "d088",
-      "dexId": 318,
+      "dexId": 88,
       "nameCN": "紅蓮騎士獸：真紅蓮型態",
       "nameEN": "Gallantmon CM",
       "stage": "超究極體",
@@ -1450,7 +1449,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d089": {
       "uid": "d089",
-      "dexId": 249,
+      "dexId": 89,
       "nameCN": "滅世魔獸",
       "nameEN": "Armageddemon",
       "stage": "超究極體",
@@ -1461,7 +1460,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d090": {
       "uid": "d090",
-      "dexId": 147,
+      "dexId": 90,
       "nameCN": "女惡魔獸",
       "nameEN": "LadyDevimon",
       "stage": "完全體",
@@ -1480,7 +1479,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d091": {
       "uid": "d091",
-      "dexId": 33,
+      "dexId": 91,
       "nameCN": "野人獸",
       "nameEN": "Goblimon",
       "stage": "成長期",
@@ -1498,7 +1497,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d092": {
       "uid": "d092",
-      "dexId": 44,
+      "dexId": 92,
       "nameCN": "多路獸",
       "nameEN": "Dorumon",
       "stage": "成長期",
@@ -1515,8 +1514,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d093": {
       "uid": "d093",
-      "dexId": 98,
-      "nameCN": "黃金鼻涕獸",
+      "dexId": 93,
+      "nameCN": "金鼻涕獸",
       "nameEN": "GoldNumemon",
       "stage": "成熟期",
       "evolutions": [
@@ -1533,7 +1532,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d094": {
       "uid": "d094",
-      "dexId": 53,
+      "dexId": 94,
       "nameCN": "V仔獸",
       "nameEN": "Veemon",
       "stage": "成長期",
@@ -1551,8 +1550,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d095": {
       "uid": "d095",
-      "dexId": 123,
-      "nameCN": "巴歐哈克獸",
+      "dexId": 95,
+      "nameCN": "劍獸",
       "nameEN": "BaoHuckmon",
       "stage": "成熟期",
       "evolutions": [
@@ -1568,8 +1567,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d096": {
       "uid": "d096",
-      "dexId": 144,
-      "nameCN": "救星哈克獸",
+      "dexId": 96,
+      "nameCN": "救世劍獸",
       "nameEN": "SaviorHuckmon",
       "stage": "完全體",
       "evolutions": [
@@ -1585,7 +1584,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d097": {
       "uid": "d097",
-      "dexId": 167,
+      "dexId": 97,
       "nameCN": "瓦爾德獸",
       "nameEN": "Varodurumon",
       "stage": "究極體",
@@ -1600,7 +1599,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d098": {
       "uid": "d098",
-      "dexId": 163,
+      "dexId": 98,
       "nameCN": "混沌獸：瓦爾德臂",
       "nameEN": "Chaosmon VA",
       "stage": "超究極體",
@@ -1612,7 +1611,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d099": {
       "uid": "d099",
-      "dexId": 142,
+      "dexId": 99,
       "nameCN": "紅蓮騎士獸",
       "nameEN": "Gallantmon",
       "stage": "究極體",
@@ -1621,12 +1620,12 @@ const DEFAULT_DIGIMON_DB = {
       ],
       "devolutions": [
         "d105",
-        "d340"
+        "d128"
       ]
     },
     "d100": {
       "uid": "d100",
-      "dexId": 223,
+      "dexId": 100,
       "nameCN": "大王悟空獸",
       "nameEN": "KingEtemon",
       "stage": "究極體",
@@ -1639,7 +1638,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d101": {
       "uid": "d101",
-      "dexId": 234,
+      "dexId": 101,
       "nameCN": "暴君比多獸",
       "nameEN": "TyrantKabuterimon",
       "stage": "究極體",
@@ -1650,7 +1649,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d102": {
       "uid": "d102",
-      "dexId": 260,
+      "dexId": 102,
       "nameCN": "達高獸",
       "nameEN": "Dragomon",
       "stage": "完全體",
@@ -1667,8 +1666,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d103": {
       "uid": "d103",
-      "dexId": 104,
-      "nameCN": "希拉獸",
+      "dexId": 103,
+      "nameCN": "西拉獸",
       "nameEN": "Coelamon",
       "stage": "成熟期",
       "evolutions": [
@@ -1684,8 +1683,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d104": {
       "uid": "d104",
-      "dexId": 156,
-      "nameCN": "超海龍獸",
+      "dexId": 104,
+      "nameCN": "巨大海龍獸",
       "nameEN": "MegaSeadramon",
       "stage": "完全體",
       "evolutions": [
@@ -1705,8 +1704,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d105": {
       "uid": "d105",
-      "dexId": 183,
-      "nameCN": "大古拉獸",
+      "dexId": 105,
+      "nameCN": "巨大古拉獸",
       "nameEN": "WarGrowlmon",
       "stage": "完全體",
       "evolutions": [
@@ -1725,7 +1724,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d106": {
       "uid": "d106",
-      "dexId": 292,
+      "dexId": 106,
       "nameCN": "鋼鐵加魯魯獸",
       "nameEN": "MetalGarurumon",
       "stage": "究極體",
@@ -1740,8 +1739,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d107": {
       "uid": "d107",
-      "dexId": 146,
-      "nameCN": "獸人加魯魯",
+      "dexId": 107,
+      "nameCN": "獸人加魯魯獸",
       "nameEN": "WereGarurumon",
       "stage": "完全體",
       "evolutions": [
@@ -1759,7 +1758,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d108": {
       "uid": "d108",
-      "dexId": 19,
+      "dexId": 108,
       "nameCN": "亞古獸（黑）",
       "nameEN": "Agumon (Blk)",
       "stage": "成長期",
@@ -1777,7 +1776,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d109": {
       "uid": "d109",
-      "dexId": 235,
+      "dexId": 109,
       "nameCN": "天女獸",
       "nameEN": "Angewomon",
       "stage": "完全體",
@@ -1795,7 +1794,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d110": {
       "uid": "d110",
-      "dexId": 263,
+      "dexId": 110,
       "nameCN": "混沌紅蓮騎士獸",
       "nameEN": "ChaosGallantmon",
       "stage": "究極體",
@@ -1807,7 +1806,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d111": {
       "uid": "d111",
-      "dexId": 27,
+      "dexId": 111,
       "nameCN": "加布獸",
       "nameEN": "Gabumon",
       "stage": "成長期",
@@ -1825,7 +1824,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d112": {
       "uid": "d112",
-      "dexId": 245,
+      "dexId": 112,
       "nameCN": "黑戰鬥暴龍獸",
       "nameEN": "BlackWarGreymon",
       "stage": "究極體",
@@ -1835,13 +1834,13 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d127",
         "d148",
-        "d340"
+        "d128"
       ]
     },
     "d113": {
       "uid": "d113",
-      "dexId": 319,
-      "nameCN": "藍色火焰獸",
+      "dexId": 113,
+      "nameCN": "藍火焰獸",
       "nameEN": "BlueMeramon",
       "stage": "完全體",
       "evolutions": [
@@ -1860,7 +1859,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d114": {
       "uid": "d114",
-      "dexId": 161,
+      "dexId": 114,
       "nameCN": "鋼鐵加魯魯獸（黑）",
       "nameEN": "MetalGarurumon (Blk)",
       "stage": "究極體",
@@ -1876,7 +1875,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d115": {
       "uid": "d115",
-      "dexId": 150,
+      "dexId": 115,
       "nameCN": "龍田獸",
       "nameEN": "Ryudamon",
       "stage": "成長期",
@@ -1891,7 +1890,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d116": {
       "uid": "d116",
-      "dexId": 320,
+      "dexId": 116,
       "nameCN": "銀龍獸",
       "nameEN": "Ginryumon",
       "stage": "成熟期",
@@ -1908,7 +1907,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d117": {
       "uid": "d117",
-      "dexId": 279,
+      "dexId": 117,
       "nameCN": "飛龍獸（完全體）",
       "nameEN": "Hisyaryumon",
       "stage": "完全體",
@@ -1926,7 +1925,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d118": {
       "uid": "d118",
-      "dexId": 158,
+      "dexId": 118,
       "nameCN": "王龍獸",
       "nameEN": "Ouryumon",
       "stage": "究極體",
@@ -1941,8 +1940,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d119": {
       "uid": "d119",
-      "dexId": 43,
-      "nameCN": "天龍獸",
+      "dexId": 119,
+      "nameCN": "龍仔獸",
       "nameEN": "Dracomon",
       "stage": "成長期",
       "evolutions": [
@@ -1957,7 +1956,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d120": {
       "uid": "d120",
-      "dexId": 97,
+      "dexId": 120,
       "nameCN": "核龍獸（綠）",
       "nameEN": "Coredramon (Green)",
       "stage": "成熟期",
@@ -1973,7 +1972,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d121": {
       "uid": "d121",
-      "dexId": 270,
+      "dexId": 121,
       "nameCN": "翼龍獸",
       "nameEN": "Wingdramon",
       "stage": "完全體",
@@ -1990,7 +1989,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d122": {
       "uid": "d122",
-      "dexId": 233,
+      "dexId": 122,
       "nameCN": "地龍獸",
       "nameEN": "Groundramon",
       "stage": "完全體",
@@ -2007,7 +2006,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d123": {
       "uid": "d123",
-      "dexId": 291,
+      "dexId": 123,
       "nameCN": "殺龍獸",
       "nameEN": "Slayerdramon",
       "stage": "究極體",
@@ -2022,7 +2021,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d124": {
       "uid": "d124",
-      "dexId": 250,
+      "dexId": 124,
       "nameCN": "煞車龍獸",
       "nameEN": "Brakedramon",
       "stage": "究極體",
@@ -2032,13 +2031,13 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d122",
         "d026",
-        "d194",
-        "d340"
+        "d128",
+        "d194"
       ]
     },
     "d125": {
       "uid": "d125",
-      "dexId": 184,
+      "dexId": 125,
       "nameCN": "龍皇獸",
       "nameEN": "Examon",
       "stage": "超究極體",
@@ -2050,7 +2049,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d126": {
       "uid": "d126",
-      "dexId": 96,
+      "dexId": 126,
       "nameCN": "核龍獸（藍）",
       "nameEN": "Coredramon (Blue)",
       "stage": "成熟期",
@@ -2066,7 +2065,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d127": {
       "uid": "d127",
-      "dexId": 312,
+      "dexId": 127,
       "nameCN": "超蛇龍獸",
       "nameEN": "Megadramon",
       "stage": "完全體",
@@ -2086,25 +2085,31 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d128": {
       "uid": "d128",
-      "dexId": 262,
+      "dexId": 128,
       "nameCN": "機械暴龍獸",
       "nameEN": "MetalGreymon",
       "stage": "完全體",
       "evolutions": [
         "d172",
         "d305",
-        "d022"
+        "d022",
+        "d099",
+        "d112",
+        "d124"
       ],
       "devolutions": [
         "d008",
         "d066",
         "d147",
-        "d061"
+        "d061",
+        "d161",
+        "d184",
+        "d164"
       ]
     },
     "d129": {
       "uid": "d129",
-      "dexId": 40,
+      "dexId": 129,
       "nameCN": "甲蟲獸",
       "nameEN": "Tentomon",
       "stage": "成長期",
@@ -2121,7 +2126,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d130": {
       "uid": "d130",
-      "dexId": 82,
+      "dexId": 130,
       "nameCN": "比多獸",
       "nameEN": "Kabuterimon",
       "stage": "成熟期",
@@ -2138,8 +2143,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d131": {
       "uid": "d131",
-      "dexId": 145,
-      "nameCN": "超比多獸",
+      "dexId": 131,
+      "nameCN": "超力比多獸",
       "nameEN": "MegaKabuterimon",
       "stage": "完全體",
       "evolutions": [
@@ -2155,7 +2160,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d132": {
       "uid": "d132",
-      "dexId": 164,
+      "dexId": 132,
       "nameCN": "力神比多獸",
       "nameEN": "HerculesKabuterimon",
       "stage": "究極體",
@@ -2170,7 +2175,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d133": {
       "uid": "d133",
-      "dexId": 50,
+      "dexId": 133,
       "nameCN": "比丘獸",
       "nameEN": "Biyomon",
       "stage": "成長期",
@@ -2187,7 +2192,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d134": {
       "uid": "d134",
-      "dexId": 122,
+      "dexId": 134,
       "nameCN": "巴多拉獸",
       "nameEN": "Birdramon",
       "stage": "成熟期",
@@ -2207,7 +2212,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d135": {
       "uid": "d135",
-      "dexId": 274,
+      "dexId": 135,
       "nameCN": "伽樓達獸",
       "nameEN": "Garudamon",
       "stage": "完全體",
@@ -2226,7 +2231,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d136": {
       "uid": "d136",
-      "dexId": 240,
+      "dexId": 136,
       "nameCN": "鳳凰獸",
       "nameEN": "Hououmon",
       "stage": "究極體",
@@ -2239,7 +2244,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d137": {
       "uid": "d137",
-      "dexId": 248,
+      "dexId": 137,
       "nameCN": "悟空獸",
       "nameEN": "Etemon",
       "stage": "完全體",
@@ -2259,7 +2264,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d138": {
       "uid": "d138",
-      "dexId": 174,
+      "dexId": 138,
       "nameCN": "鋼鐵悟空獸",
       "nameEN": "MetalEtemon",
       "stage": "究極體",
@@ -2273,7 +2278,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d139": {
       "uid": "d139",
-      "dexId": 106,
+      "dexId": 139,
       "nameCN": "大便獸",
       "nameEN": "Sukamon",
       "stage": "成熟期",
@@ -2291,7 +2296,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d140": {
       "uid": "d140",
-      "dexId": 129,
+      "dexId": 140,
       "nameCN": "鼻屎獸",
       "nameEN": "Vegiemon",
       "stage": "成熟期",
@@ -2323,7 +2328,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d142": {
       "uid": "d142",
-      "dexId": 4,
+      "dexId": 142,
       "nameCN": "黑球獸",
       "nameEN": "Botamon",
       "stage": "幼年期I",
@@ -2335,7 +2340,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d143": {
       "uid": "d143",
-      "dexId": 5,
+      "dexId": 143,
       "nameCN": "浮游獸",
       "nameEN": "Poyomon",
       "stage": "幼年期I",
@@ -2347,7 +2352,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d144": {
       "uid": "d144",
-      "dexId": 17,
+      "dexId": 144,
       "nameCN": "汪喵獸",
       "nameEN": "Wanyamon",
       "stage": "幼年期II",
@@ -2363,7 +2368,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d145": {
       "uid": "d145",
-      "dexId": 7,
+      "dexId": 145,
       "nameCN": "滾球獸",
       "nameEN": "Koromon",
       "stage": "幼年期II",
@@ -2381,7 +2386,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d146": {
       "uid": "d146",
-      "dexId": 11,
+      "dexId": 146,
       "nameCN": "迪哥獸",
       "nameEN": "Tokomon",
       "stage": "幼年期II",
@@ -2398,7 +2403,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d147": {
       "uid": "d147",
-      "dexId": 90,
+      "dexId": 147,
       "nameCN": "暴龍獸",
       "nameEN": "Greymon",
       "stage": "成熟期",
@@ -2417,7 +2422,7 @@ const DEFAULT_DIGIMON_DB = {
     "d148": {
       "uid": "d148",
       "dexId": 148,
-      "nameCN": "機械暴龍獸（藍）",
+      "nameCN": "金屬暴龍獸（藍）",
       "nameEN": "MetalGreymon (Blue)",
       "stage": "完全體",
       "evolutions": [
@@ -2450,7 +2455,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d150": {
       "uid": "d150",
-      "dexId": 79,
+      "dexId": 150,
       "nameCN": "守衛獸",
       "nameEN": "Guardromon",
       "stage": "成熟期",
@@ -2488,7 +2493,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d152": {
       "uid": "d152",
-      "dexId": 34,
+      "dexId": 152,
       "nameCN": "哥瑪獸",
       "nameEN": "Gomamon",
       "stage": "成長期",
@@ -2506,7 +2511,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d153": {
       "uid": "d153",
-      "dexId": 71,
+      "dexId": 153,
       "nameCN": "海獅獸",
       "nameEN": "Ikkakumon",
       "stage": "成熟期",
@@ -2557,7 +2562,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d156": {
       "uid": "d156",
-      "dexId": 103,
+      "dexId": 156,
       "nameCN": "海龍獸",
       "nameEN": "Seadramon",
       "stage": "成熟期",
@@ -2575,7 +2580,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d157": {
       "uid": "d157",
-      "dexId": 48,
+      "dexId": 157,
       "nameCN": "巴魯獸",
       "nameEN": "Palmon",
       "stage": "成長期",
@@ -2593,7 +2598,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d158": {
       "uid": "d158",
-      "dexId": 118,
+      "dexId": 158,
       "nameCN": "仙人掌獸",
       "nameEN": "Togemon",
       "stage": "成熟期",
@@ -2629,7 +2634,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d160": {
       "uid": "d160",
-      "dexId": 54,
+      "dexId": 160,
       "nameCN": "小狗獸",
       "nameEN": "Salamon",
       "stage": "成長期",
@@ -2647,7 +2652,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d161": {
       "uid": "d161",
-      "dexId": 114,
+      "dexId": 161,
       "nameCN": "巨龍獸",
       "nameEN": "Tyrannomon",
       "stage": "成熟期",
@@ -2655,7 +2660,7 @@ const DEFAULT_DIGIMON_DB = {
         "d199",
         "d127",
         "d148",
-        "d340"
+        "d128"
       ],
       "devolutions": [
         "d041",
@@ -2665,8 +2670,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d162": {
       "uid": "d162",
-      "dexId": 76,
-      "nameCN": "V仔獸EX",
+      "dexId": 162,
+      "nameCN": "XV仔獸",
       "nameEN": "ExVeemon",
       "stage": "成熟期",
       "evolutions": [
@@ -2684,7 +2689,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d163": {
       "uid": "d163",
-      "dexId": 93,
+      "dexId": 163,
       "nameCN": "古加獸",
       "nameEN": "Kuwagamon",
       "stage": "成熟期",
@@ -2701,14 +2706,14 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d164": {
       "uid": "d164",
-      "dexId": 132,
+      "dexId": 164,
       "nameCN": "角龍獸",
       "nameEN": "Monochromon",
       "stage": "成熟期",
       "evolutions": [
         "d191",
         "d026",
-        "d340"
+        "d128"
       ],
       "devolutions": [
         "d108",
@@ -2717,7 +2722,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d165": {
       "uid": "d165",
-      "dexId": 133,
+      "dexId": 165,
       "nameCN": "雪人獸",
       "nameEN": "Frigimon",
       "stage": "成熟期",
@@ -2753,8 +2758,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d167": {
       "uid": "d167",
-      "dexId": 120,
-      "nameCN": "亞伯獸",
+      "dexId": 167,
+      "nameCN": "什麼獸",
       "nameEN": "Nanimon",
       "stage": "成熟期",
       "evolutions": [
@@ -2772,7 +2777,7 @@ const DEFAULT_DIGIMON_DB = {
     "d168": {
       "uid": "d168",
       "dexId": 168,
-      "nameCN": "怪蛙皇",
+      "nameCN": "大蛙王獸",
       "nameEN": "ShogunGekomon",
       "stage": "完全體",
       "evolutions": [
@@ -2789,7 +2794,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d169": {
       "uid": "d169",
-      "dexId": 72,
+      "dexId": 169,
       "nameCN": "巫師獸",
       "nameEN": "Wizardmon",
       "stage": "成熟期",
@@ -2808,7 +2813,7 @@ const DEFAULT_DIGIMON_DB = {
     "d170": {
       "uid": "d170",
       "dexId": 170,
-      "nameCN": "祖利獸",
+      "nameCN": "樹精獸",
       "nameEN": "Cherrymon",
       "stage": "完全體",
       "evolutions": [
@@ -2845,8 +2850,7 @@ const DEFAULT_DIGIMON_DB = {
       "devolutions": [
         "d105",
         "d128",
-        "d128",
-        "d340"
+        "d128"
       ]
     },
     "d173": {
@@ -2867,7 +2871,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d174": {
       "uid": "d174",
-      "dexId": 2,
+      "dexId": 174,
       "nameCN": "泡沫獸",
       "nameEN": "Pabumon",
       "stage": "幼年期I",
@@ -2880,7 +2884,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d175": {
       "uid": "d175",
-      "dexId": 16,
+      "dexId": 175,
       "nameCN": "年糕獸",
       "nameEN": "Motimon",
       "stage": "幼年期II",
@@ -2896,7 +2900,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d176": {
       "uid": "d176",
-      "dexId": 55,
+      "dexId": 176,
       "nameCN": "比特獸",
       "nameEN": "Betamon",
       "stage": "成長期",
@@ -2914,7 +2918,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d177": {
       "uid": "d177",
-      "dexId": 60,
+      "dexId": 177,
       "nameCN": "光明獸",
       "nameEN": "Lucemon",
       "stage": "成長期",
@@ -2929,8 +2933,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d178": {
       "uid": "d178",
-      "dexId": 62,
-      "nameCN": "妖狐獸",
+      "dexId": 178,
+      "nameCN": "狐狸獸",
       "nameEN": "Renamon",
       "stage": "成長期",
       "evolutions": [
@@ -2947,7 +2951,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d179": {
       "uid": "d179",
-      "dexId": 64,
+      "dexId": 179,
       "nameCN": "蟲蟲獸",
       "nameEN": "Wormmon",
       "stage": "成長期",
@@ -2965,7 +2969,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d180": {
       "uid": "d180",
-      "dexId": 74,
+      "dexId": 180,
       "nameCN": "朽木獸",
       "nameEN": "Woodmon",
       "stage": "成熟期",
@@ -2983,7 +2987,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d181": {
       "uid": "d181",
-      "dexId": 78,
+      "dexId": 181,
       "nameCN": "奧加獸",
       "nameEN": "Ogremon",
       "stage": "成熟期",
@@ -3001,8 +3005,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d182": {
       "uid": "d182",
-      "dexId": 87,
-      "nameCN": "九尾狐獸",
+      "dexId": 182,
+      "nameCN": "九尾獸",
       "nameEN": "Kyubimon",
       "stage": "成熟期",
       "evolutions": [
@@ -3018,15 +3022,15 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d183": {
       "uid": "d183",
-      "dexId": 119,
+      "dexId": 183,
       "nameCN": "多路加獸",
       "nameEN": "Dorugamon",
       "stage": "成熟期",
       "evolutions": [
         "d021",
         "d072",
-        "d060",
-        "d194"
+        "d194",
+        "d060"
       ],
       "devolutions": [
         "d236",
@@ -3037,15 +3041,15 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d184": {
       "uid": "d184",
-      "dexId": 125,
+      "dexId": 184,
       "nameCN": "V龍獸",
       "nameEN": "Veedramon",
       "stage": "成熟期",
       "evolutions": [
         "d187",
         "d283",
-        "d105",
-        "d340"
+        "d128",
+        "d105"
       ],
       "devolutions": [
         "d111",
@@ -3056,7 +3060,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d185": {
       "uid": "d185",
-      "dexId": 92,
+      "dexId": 185,
       "nameCN": "時鐘獸",
       "nameEN": "Clockmon",
       "stage": "成熟期",
@@ -3075,8 +3079,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d186": {
       "uid": "d186",
-      "dexId": 94,
-      "nameCN": "怪蛙獸",
+      "dexId": 186,
+      "nameCN": "蛙蛙獸",
       "nameEN": "Gekomon",
       "stage": "成熟期",
       "evolutions": [
@@ -3093,7 +3097,7 @@ const DEFAULT_DIGIMON_DB = {
     "d187": {
       "uid": "d187",
       "dexId": 187,
-      "nameCN": "飛行V龍獸",
+      "nameCN": "神龍鋼鍬獸",
       "nameEN": "AeroVeedramon",
       "stage": "完全體",
       "evolutions": [
@@ -3168,7 +3172,7 @@ const DEFAULT_DIGIMON_DB = {
     "d191": {
       "uid": "d191",
       "dexId": 191,
-      "nameCN": "喪尸暴龍獸",
+      "nameCN": "骷髏暴龍獸",
       "nameEN": "SkullGreymon",
       "stage": "完全體",
       "evolutions": [
@@ -3203,7 +3207,7 @@ const DEFAULT_DIGIMON_DB = {
     "d193": {
       "uid": "d193",
       "dexId": 193,
-      "nameCN": "死神火焰獸",
+      "nameCN": "骷髏火焰獸",
       "nameEN": "SkullMeramon",
       "stage": "完全體",
       "evolutions": [
@@ -3221,7 +3225,7 @@ const DEFAULT_DIGIMON_DB = {
     "d194": {
       "uid": "d194",
       "dexId": 194,
-      "nameCN": "多路暴龍獸",
+      "nameCN": "多路暴龍獸（完全體）",
       "nameEN": "DoruGreymon",
       "stage": "完全體",
       "evolutions": [
@@ -3255,7 +3259,7 @@ const DEFAULT_DIGIMON_DB = {
     "d196": {
       "uid": "d196",
       "dexId": 196,
-      "nameCN": "邦加獸",
+      "nameCN": "白獅獸",
       "nameEN": "Panjyamon",
       "stage": "完全體",
       "evolutions": [
@@ -3273,7 +3277,7 @@ const DEFAULT_DIGIMON_DB = {
     "d197": {
       "uid": "d197",
       "dexId": 197,
-      "nameCN": "妖精獸",
+      "nameCN": "小精靈獸",
       "nameEN": "Piximon",
       "stage": "完全體",
       "evolutions": [
@@ -3291,7 +3295,7 @@ const DEFAULT_DIGIMON_DB = {
     "d198": {
       "uid": "d198",
       "dexId": 198,
-      "nameCN": "入侵者獸",
+      "nameCN": "外星獸",
       "nameEN": "Vademon",
       "stage": "完全體",
       "evolutions": [
@@ -3557,7 +3561,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d217": {
       "uid": "d217",
-      "dexId": 3,
+      "dexId": 217,
       "nameCN": "普尼獸",
       "nameEN": "Punimon",
       "stage": "幼年期I",
@@ -3569,7 +3573,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d218": {
       "uid": "d218",
-      "dexId": 9,
+      "dexId": 218,
       "nameCN": "獨角獸",
       "nameEN": "Tsunomon",
       "stage": "幼年期II",
@@ -3644,14 +3648,14 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d223": {
       "uid": "d223",
-      "dexId": 100,
+      "dexId": 223,
       "nameCN": "獨眼龍獸",
       "nameEN": "Cyclonemon",
       "stage": "成熟期",
       "evolutions": [
         "d127",
-        "d237",
-        "d194"
+        "d194",
+        "d237"
       ],
       "devolutions": [
         "d108",
@@ -3674,7 +3678,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d225": {
       "uid": "d225",
-      "dexId": 140,
+      "dexId": 225,
       "nameCN": "雀蜂獸",
       "nameEN": "Waspmon",
       "stage": "成熟期",
@@ -3693,8 +3697,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d226": {
       "uid": "d226",
-      "dexId": 83,
-      "nameCN": "貝殼鼻涕獸",
+      "dexId": 226,
+      "nameCN": "殼鼻涕獸",
       "nameEN": "ShellNumemon",
       "stage": "成熟期",
       "evolutions": [
@@ -3710,8 +3714,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d227": {
       "uid": "d227",
-      "dexId": 42,
-      "nameCN": "德古獸",
+      "dexId": 227,
+      "nameCN": "德古拉獸",
       "nameEN": "Dracmon",
       "stage": "成長期",
       "evolutions": [
@@ -3727,7 +3731,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d228": {
       "uid": "d228",
-      "dexId": 58,
+      "dexId": 228,
       "nameCN": "單角龍獸",
       "nameEN": "Monodramon",
       "stage": "成長期",
@@ -3744,7 +3748,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d229": {
       "uid": "d229",
-      "dexId": 14,
+      "dexId": 229,
       "nameCN": "比高獸",
       "nameEN": "Yokomon",
       "stage": "幼年期II",
@@ -3760,7 +3764,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d230": {
       "uid": "d230",
-      "dexId": 8,
+      "dexId": 230,
       "nameCN": "種子獸",
       "nameEN": "Tanemon",
       "stage": "幼年期II",
@@ -3776,7 +3780,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d231": {
       "uid": "d231",
-      "dexId": 15,
+      "dexId": 231,
       "nameCN": "布加獸",
       "nameEN": "Bukamon",
       "stage": "幼年期II",
@@ -3792,7 +3796,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d232": {
       "uid": "d232",
-      "dexId": 12,
+      "dexId": 232,
       "nameCN": "貓貓獸",
       "nameEN": "Nyaromon",
       "stage": "幼年期II",
@@ -3808,7 +3812,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d233": {
       "uid": "d233",
-      "dexId": 134,
+      "dexId": 233,
       "nameCN": "獨角馬獸",
       "nameEN": "Unimon",
       "stage": "成熟期",
@@ -3824,7 +3828,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d234": {
       "uid": "d234",
-      "dexId": 23,
+      "dexId": 234,
       "nameCN": "艾力獸",
       "nameEN": "Elecmon",
       "stage": "成長期",
@@ -3842,7 +3846,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d235": {
       "uid": "d235",
-      "dexId": 13,
+      "dexId": 235,
       "nameCN": "柏古獸",
       "nameEN": "Pagumon",
       "stage": "幼年期II",
@@ -3858,7 +3862,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d236": {
       "uid": "d236",
-      "dexId": 26,
+      "dexId": 236,
       "nameCN": "加支獸",
       "nameEN": "Gazimon",
       "stage": "成長期",
@@ -3877,7 +3881,7 @@ const DEFAULT_DIGIMON_DB = {
     "d237": {
       "uid": "d237",
       "dexId": 237,
-      "nameCN": "分子獸",
+      "nameCN": "納米獸",
       "nameEN": "Datamon",
       "stage": "完全體",
       "evolutions": [
@@ -3893,7 +3897,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d238": {
       "uid": "d238",
-      "dexId": 24,
+      "dexId": 238,
       "nameCN": "蝌蚪獸",
       "nameEN": "Otamamon",
       "stage": "成長期",
@@ -3912,7 +3916,7 @@ const DEFAULT_DIGIMON_DB = {
     "d239": {
       "uid": "d239",
       "dexId": 239,
-      "nameCN": "死神獸",
+      "nameCN": "幻影獸",
       "nameEN": "Phantomon",
       "stage": "完全體",
       "evolutions": [
@@ -3929,7 +3933,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d240": {
       "uid": "d240",
-      "dexId": 136,
+      "dexId": 240,
       "nameCN": "爛泥獸",
       "nameEN": "Raremon",
       "stage": "成熟期",
@@ -3949,7 +3953,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d241": {
       "uid": "d241",
-      "dexId": 32,
+      "dexId": 241,
       "nameCN": "礦石獸",
       "nameEN": "Gotsumon",
       "stage": "成長期",
@@ -4001,7 +4005,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d244": {
       "uid": "d244",
-      "dexId": 57,
+      "dexId": 244,
       "nameCN": "蘑菇獸",
       "nameEN": "Mushroomon",
       "stage": "成長期",
@@ -4017,7 +4021,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d245": {
       "uid": "d245",
-      "dexId": 112,
+      "dexId": 245,
       "nameCN": "坦克獸",
       "nameEN": "Tankmon",
       "stage": "成熟期",
@@ -4036,7 +4040,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d246": {
       "uid": "d246",
-      "dexId": 31,
+      "dexId": 246,
       "nameCN": "哈哈獸",
       "nameEN": "Keramon",
       "stage": "成長期",
@@ -4072,7 +4076,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d248": {
       "uid": "d248",
-      "dexId": 1,
+      "dexId": 248,
       "nameCN": "水母獸",
       "nameEN": "Kuramon",
       "stage": "幼年期I",
@@ -4085,8 +4089,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d249": {
       "uid": "d249",
-      "dexId": 89,
-      "nameCN": "魔蛹獸",
+      "dexId": 249,
+      "nameCN": "蛹獸",
       "nameEN": "Kurisarimon",
       "stage": "成熟期",
       "evolutions": [
@@ -4105,7 +4109,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d250": {
       "uid": "d250",
-      "dexId": 10,
+      "dexId": 250,
       "nameCN": "指爪獸",
       "nameEN": "Tsumemon",
       "stage": "幼年期II",
@@ -4139,19 +4143,19 @@ const DEFAULT_DIGIMON_DB = {
     "d252": {
       "uid": "d252",
       "dexId": 252,
-      "nameCN": "鎧甲加魯魯獸（SV）",
+      "nameCN": "鎧甲加魯魯獸",
       "nameEN": "MagnaGarurumon (SV)",
       "stage": "究極體",
       "evolutions": [
-        "d341"
+        "d087"
       ],
       "devolutions": [
-        "d341"
+        "d257"
       ]
     },
     "d253": {
       "uid": "d253",
-      "dexId": 68,
+      "dexId": 253,
       "nameCN": "火神獸",
       "nameEN": "Agunimon",
       "stage": "成熟期",
@@ -4182,7 +4186,7 @@ const DEFAULT_DIGIMON_DB = {
     "d255": {
       "uid": "d255",
       "dexId": 255,
-      "nameCN": "炎龍獸",
+      "nameCN": "焰龍獸",
       "nameEN": "BurningGreymon",
       "stage": "完全體",
       "evolutions": [
@@ -4197,7 +4201,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d256": {
       "uid": "d256",
-      "dexId": 73,
+      "dexId": 256,
       "nameCN": "野狼獸",
       "nameEN": "Lobomon",
       "stage": "成熟期",
@@ -4215,11 +4219,11 @@ const DEFAULT_DIGIMON_DB = {
     "d257": {
       "uid": "d257",
       "dexId": 257,
-      "nameCN": "銀狼獸",
+      "nameCN": "加魯獸",
       "nameEN": "KendoGarurumon",
       "stage": "完全體",
       "evolutions": [
-        "d341"
+        "d252"
       ],
       "devolutions": [
         "d256",
@@ -4254,7 +4258,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d260": {
       "uid": "d260",
-      "dexId": 47,
+      "dexId": 260,
       "nameCN": "哈克獸",
       "nameEN": "Hackmon",
       "stage": "成長期",
@@ -4285,8 +4289,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d262": {
       "uid": "d262",
-      "dexId": 36,
-      "nameCN": "兹巴獸",
+      "dexId": 262,
+      "nameCN": "茲巴獸",
       "nameEN": "Zubamon",
       "stage": "成長期",
       "evolutions": [
@@ -4301,8 +4305,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d263": {
       "uid": "d263",
-      "dexId": 110,
-      "nameCN": "兹巴伊戈獸",
+      "dexId": 263,
+      "nameCN": "突擊劍獸",
       "nameEN": "ZubaEagermon",
       "stage": "成熟期",
       "evolutions": [
@@ -4347,7 +4351,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d266": {
       "uid": "d266",
-      "dexId": 39,
+      "dexId": 266,
       "nameCN": "大耳獸",
       "nameEN": "Terriermon",
       "stage": "成長期",
@@ -4364,7 +4368,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d267": {
       "uid": "d267",
-      "dexId": 130,
+      "dexId": 267,
       "nameCN": "銳啄獸",
       "nameEN": "Peckmon",
       "stage": "成熟期",
@@ -4406,7 +4410,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d270": {
       "uid": "d270",
-      "dexId": 51,
+      "dexId": 270,
       "nameCN": "夜鷹獸",
       "nameEN": "Falcomon",
       "stage": "成長期",
@@ -4422,7 +4426,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d271": {
       "uid": "d271",
-      "dexId": 56,
+      "dexId": 271,
       "nameCN": "麻鷹獸",
       "nameEN": "Hawkmon",
       "stage": "成長期",
@@ -4439,7 +4443,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d272": {
       "uid": "d272",
-      "dexId": 21,
+      "dexId": 272,
       "nameCN": "穿山獸",
       "nameEN": "Armadillomon",
       "stage": "成長期",
@@ -4457,8 +4461,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d273": {
       "uid": "d273",
-      "dexId": 41,
-      "nameCN": "積木亞古獸",
+      "dexId": 273,
+      "nameCN": "玩具亞古獸",
       "nameEN": "ToyAgumon",
       "stage": "成長期",
       "evolutions": [
@@ -4475,8 +4479,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d274": {
       "uid": "d274",
-      "dexId": 35,
-      "nameCN": "蝦蛄獸",
+      "dexId": 274,
+      "nameCN": "沙古獸",
       "nameEN": "Syakomon",
       "stage": "成長期",
       "evolutions": [
@@ -4492,7 +4496,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d275": {
       "uid": "d275",
-      "dexId": 84,
+      "dexId": 275,
       "nameCN": "加魯哥獸",
       "nameEN": "Gargomon",
       "stage": "成熟期",
@@ -4510,7 +4514,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d276": {
       "uid": "d276",
-      "dexId": 70,
+      "dexId": 276,
       "nameCN": "戰甲獸",
       "nameEN": "Ankylomon",
       "stage": "成熟期",
@@ -4529,15 +4533,15 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d277": {
       "uid": "d277",
-      "dexId": 91,
+      "dexId": 277,
       "nameCN": "暴龍獸（藍）",
       "nameEN": "Greymon (Blue)",
       "stage": "成熟期",
       "evolutions": [
         "d026",
+        "d194",
         "d282",
-        "d148",
-        "d194"
+        "d148"
       ],
       "devolutions": [
         "d108",
@@ -4547,7 +4551,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d278": {
       "uid": "d278",
-      "dexId": 28,
+      "dexId": 278,
       "nameCN": "加布獸（黑）",
       "nameEN": "Gabumon (Blk)",
       "stage": "成長期",
@@ -4564,8 +4568,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d279": {
       "uid": "d279",
-      "dexId": 86,
-      "nameCN": "黑加魯魯獸",
+      "dexId": 279,
+      "nameCN": "加魯魯獸（黑）",
       "nameEN": "Garurumon (Blk)",
       "stage": "成熟期",
       "evolutions": [
@@ -4583,7 +4587,7 @@ const DEFAULT_DIGIMON_DB = {
     "d280": {
       "uid": "d280",
       "dexId": 280,
-      "nameCN": "黑獸人加魯魯",
+      "nameCN": "獸人加魯魯獸（黑）",
       "nameEN": "WereGarurumon (Blk)",
       "stage": "完全體",
       "evolutions": [
@@ -4688,7 +4692,7 @@ const DEFAULT_DIGIMON_DB = {
     "d286": {
       "uid": "d286",
       "dexId": 286,
-      "nameCN": "拉比獸",
+      "nameCN": "拉比獸（完全體）",
       "nameEN": "Rapidmon",
       "stage": "完全體",
       "evolutions": [
@@ -4721,7 +4725,7 @@ const DEFAULT_DIGIMON_DB = {
     "d288": {
       "uid": "d288",
       "dexId": 288,
-      "nameCN": "賢者獸",
+      "nameCN": "智慧獸",
       "nameEN": "Wisemon",
       "stage": "完全體",
       "evolutions": [
@@ -4738,7 +4742,7 @@ const DEFAULT_DIGIMON_DB = {
     "d289": {
       "uid": "d289",
       "dexId": 289,
-      "nameCN": "炮蜂獸",
+      "nameCN": "加農蜂獸",
       "nameEN": "CannonBeemon",
       "stage": "完全體",
       "evolutions": [
@@ -4756,7 +4760,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d290": {
       "uid": "d290",
-      "dexId": 37,
+      "dexId": 290,
       "nameCN": "太陽獸",
       "nameEN": "Solarmon",
       "stage": "成長期",
@@ -4774,7 +4778,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d291": {
       "uid": "d291",
-      "dexId": 95,
+      "dexId": 291,
       "nameCN": "庸俗獸",
       "nameEN": "Geremon",
       "stage": "成熟期",
@@ -4791,7 +4795,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d292": {
       "uid": "d292",
-      "dexId": 65,
+      "dexId": 292,
       "nameCN": "冰惡魔獸",
       "nameEN": "IceDevimon",
       "stage": "成熟期",
@@ -4811,7 +4815,7 @@ const DEFAULT_DIGIMON_DB = {
     "d293": {
       "uid": "d293",
       "dexId": 293,
-      "nameCN": "玉兔獸",
+      "nameCN": "安底羅獸",
       "nameEN": "Antylamon",
       "stage": "完全體",
       "evolutions": [
@@ -5050,7 +5054,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d310": {
       "uid": "d310",
-      "dexId": 63,
+      "dexId": 310,
       "nameCN": "黑大耳獸",
       "nameEN": "Lopmon",
       "stage": "成長期",
@@ -5069,7 +5073,7 @@ const DEFAULT_DIGIMON_DB = {
     "d311": {
       "uid": "d311",
       "dexId": 311,
-      "nameCN": "拉比獸（盔甲）",
+      "nameCN": "拉比獸（裝甲體）",
       "nameEN": "Rapidmon (Armor)",
       "stage": "8",
       "evolutions": [],
@@ -5080,8 +5084,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d312": {
       "uid": "d312",
-      "dexId": 127,
-      "nameCN": "白金大便獸",
+      "dexId": 312,
+      "nameCN": "白金黃金便便獸",
       "nameEN": "PlatinumSukamon",
       "stage": "成熟期",
       "evolutions": [
@@ -5099,7 +5103,7 @@ const DEFAULT_DIGIMON_DB = {
     "d313": {
       "uid": "d313",
       "dexId": 313,
-      "nameCN": "黑帝鼻涕獸",
+      "nameCN": "黑王鼻涕獸",
       "nameEN": "BlackKingNumemon",
       "stage": "完全體",
       "evolutions": [
@@ -5129,8 +5133,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d315": {
       "uid": "d315",
-      "dexId": 111,
-      "nameCN": "冰巫師獸",
+      "dexId": 315,
+      "nameCN": "冰術師獸",
       "nameEN": "Socerimon",
       "stage": "成熟期",
       "evolutions": [
@@ -5178,7 +5182,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d318": {
       "uid": "d318",
-      "dexId": 66,
+      "dexId": 318,
       "nameCN": "冰石獸",
       "nameEN": "Icemon",
       "stage": "成熟期",
@@ -5194,8 +5198,8 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d319": {
       "uid": "d319",
-      "dexId": 113,
-      "nameCN": "泥熊獸",
+      "dexId": 319,
+      "nameCN": "泥雪人獸",
       "nameEN": "MudFrigimon",
       "stage": "成熟期",
       "evolutions": [
@@ -5211,7 +5215,7 @@ const DEFAULT_DIGIMON_DB = {
     },
     "d320": {
       "uid": "d320",
-      "dexId": 80,
+      "dexId": 320,
       "nameCN": "守衛獸（金）",
       "nameEN": "Guardromon (Gold)",
       "stage": "成熟期",
@@ -5447,40 +5451,6 @@ const DEFAULT_DIGIMON_DB = {
       "stage": "究極體",
       "evolutions": [],
       "devolutions": []
-    },
-    "d340": {
-      "uid": "d340",
-      "dexId": 340,
-      "nameCN": "鋼鐵巨龍獸",
-      "nameEN": "MetalTyrannomon",
-      "stage": "完全體",
-      "evolutions": [
-        "d099",
-        "d112",
-        "d124",
-        "d172"
-      ],
-      "devolutions": [
-        "d066",
-        "d161",
-        "d184",
-        "d164"
-      ]
-    },
-    "d341": {
-      "uid": "d341",
-      "dexId": 341,
-      "nameCN": "鎧甲加魯魯獸",
-      "nameEN": "MagnaGarurumon",
-      "stage": "究極體",
-      "evolutions": [
-        "d087",
-        "d252"
-      ],
-      "devolutions": [
-        "d257",
-        "d252"
-      ]
     }
   },
   "stages": [

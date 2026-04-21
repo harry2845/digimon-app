@@ -148,7 +148,7 @@ const BACKUP_DIGIMON_DB = {
       "nameEN": "Garurumon",
       "stage": "成熟期",
       "evolutions": [
-        "d014",
+        "d194",
         "d196",
         "d107",
         "d154"
@@ -238,14 +238,14 @@ const BACKUP_DIGIMON_DB = {
     "d014": {
       "uid": "d014",
       "dexId": 14,
-      "nameCN": "多路暴龍獸",
+      "nameCN": "多路暴龍獸（究極體）",
       "nameEN": "Dorugoramon",
       "stage": "究極體",
       "evolutions": [],
       "devolutions": [
         "d189",
         "d021",
-        "d014"
+        "d194"
       ]
     },
     "d015": {
@@ -335,7 +335,7 @@ const BACKUP_DIGIMON_DB = {
         "d189",
         "d021",
         "d264",
-        "d014"
+        "d194"
       ],
       "devolutions": [
         "d092",
@@ -533,7 +533,9 @@ const BACKUP_DIGIMON_DB = {
       "evolutions": [
         "d219"
       ],
-      "devolutions": []
+      "devolutions": [
+        "d219"
+      ]
     },
     "d034": {
       "uid": "d034",
@@ -1211,7 +1213,7 @@ const BACKUP_DIGIMON_DB = {
       "devolutions": [
         "d003",
         "d072",
-        "d014"
+        "d194"
       ]
     },
     "d075": {
@@ -2030,7 +2032,7 @@ const BACKUP_DIGIMON_DB = {
         "d122",
         "d026",
         "d128",
-        "d014"
+        "d194"
       ]
     },
     "d125": {
@@ -2623,7 +2625,12 @@ const BACKUP_DIGIMON_DB = {
         "d303",
         "d046"
       ],
-      "devolutions": []
+      "devolutions": [
+        "d017",
+        "d047",
+        "d079",
+        "d158"
+      ]
     },
     "d160": {
       "uid": "d160",
@@ -3022,7 +3029,7 @@ const BACKUP_DIGIMON_DB = {
       "evolutions": [
         "d021",
         "d072",
-        "d014",
+        "d194",
         "d060"
       ],
       "devolutions": [
@@ -3218,7 +3225,7 @@ const BACKUP_DIGIMON_DB = {
     "d194": {
       "uid": "d194",
       "dexId": 194,
-      "nameCN": "多路暴龍獸",
+      "nameCN": "多路暴龍獸（完全體）",
       "nameEN": "DoruGreymon",
       "stage": "完全體",
       "evolutions": [
@@ -3349,7 +3356,7 @@ const BACKUP_DIGIMON_DB = {
       "devolutions": [
         "d021",
         "d283",
-        "d014"
+        "d194"
       ]
     },
     "d202": {
@@ -3374,7 +3381,9 @@ const BACKUP_DIGIMON_DB = {
       "evolutions": [
         "d294"
       ],
-      "devolutions": []
+      "devolutions": [
+        "d294"
+      ]
     },
     "d204": {
       "uid": "d204",
@@ -3591,7 +3600,8 @@ const BACKUP_DIGIMON_DB = {
       ],
       "devolutions": [
         "d166",
-        "d288"
+        "d288",
+        "d033"
       ]
     },
     "d220": {
@@ -3644,7 +3654,7 @@ const BACKUP_DIGIMON_DB = {
       "stage": "成熟期",
       "evolutions": [
         "d127",
-        "d014",
+        "d194",
         "d237"
       ],
       "devolutions": [
@@ -4137,7 +4147,6 @@ const BACKUP_DIGIMON_DB = {
       "nameEN": "MagnaGarurumon (SV)",
       "stage": "究極體",
       "evolutions": [
-        "d252",
         "d087"
       ],
       "devolutions": [
@@ -4530,7 +4539,7 @@ const BACKUP_DIGIMON_DB = {
       "stage": "成熟期",
       "evolutions": [
         "d026",
-        "d014",
+        "d194",
         "d282",
         "d148"
       ],
@@ -4835,7 +4844,8 @@ const BACKUP_DIGIMON_DB = {
       ],
       "devolutions": [
         "d195",
-        "d018"
+        "d018",
+        "d203"
       ]
     },
     "d295": {
@@ -4916,7 +4926,8 @@ const BACKUP_DIGIMON_DB = {
       ],
       "devolutions": [
         "d190",
-        "d282"
+        "d282",
+        "d304"
       ]
     },
     "d301": {
@@ -4969,7 +4980,9 @@ const BACKUP_DIGIMON_DB = {
       "evolutions": [
         "d300"
       ],
-      "devolutions": []
+      "devolutions": [
+        "d300"
+      ]
     },
     "d305": {
       "uid": "d305",
