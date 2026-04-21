@@ -35,7 +35,7 @@
     },
     "d003": {
       "uid": "d003",
-      "dexId": 217,
+      "dexId": 162,
       "nameCN": "新月獸",
       "nameEN": "Crescemon",
       "stage": "完全體",
@@ -69,7 +69,7 @@
     },
     "d005": {
       "uid": "d005",
-      "dexId": 143,
+      "dexId": 169,
       "nameCN": "喪尸撒旦獸",
       "nameEN": "SkullSatamon",
       "stage": "完全體",
@@ -148,10 +148,10 @@
       "nameEN": "Garurumon",
       "stage": "成熟期",
       "evolutions": [
-        "d014",
         "d196",
         "d107",
-        "d154"
+        "d154",
+        "d194"
       ],
       "devolutions": [
         "d234",
@@ -237,15 +237,15 @@
     },
     "d014": {
       "uid": "d014",
-      "dexId": 229,
-      "nameCN": "多路龍獸",
+      "dexId": 336,
+      "nameCN": "多路戰龍獸",
       "nameEN": "Dorugoramon",
       "stage": "究極體",
       "evolutions": [],
       "devolutions": [
         "d189",
         "d021",
-        "d014"
+        "d194"
       ]
     },
     "d015": {
@@ -266,7 +266,7 @@
     },
     "d016": {
       "uid": "d016",
-      "dexId": 175,
+      "dexId": 194,
       "nameCN": "巨鯨獸",
       "nameEN": "Whamon",
       "stage": "完全體",
@@ -299,7 +299,7 @@
     },
     "d018": {
       "uid": "d018",
-      "dexId": 273,
+      "dexId": 175,
       "nameCN": "恐蜂獸",
       "nameEN": "Dinobeemon",
       "stage": "完全體",
@@ -314,7 +314,7 @@
     },
     "d019": {
       "uid": "d019",
-      "dexId": 181,
+      "dexId": 273,
       "nameCN": "海天使獸",
       "nameEN": "MarineAngemon",
       "stage": "究極體",
@@ -335,7 +335,7 @@
         "d189",
         "d021",
         "d264",
-        "d014"
+        "d194"
       ],
       "devolutions": [
         "d092",
@@ -346,7 +346,7 @@
     },
     "d021": {
       "uid": "d021",
-      "dexId": 272,
+      "dexId": 161,
       "nameCN": "黃金劍士獸",
       "nameEN": "Grademon",
       "stage": "完全體",
@@ -366,7 +366,7 @@
     },
     "d022": {
       "uid": "d022",
-      "dexId": 186,
+      "dexId": 228,
       "nameCN": "戰鬥暴龍獸",
       "nameEN": "WarGreymon",
       "stage": "究極體",
@@ -399,7 +399,7 @@
     },
     "d024": {
       "uid": "d024",
-      "dexId": 238,
+      "dexId": 197,
       "nameCN": "鬥牛士獸",
       "nameEN": "Matadormon",
       "stage": "完全體",
@@ -416,7 +416,7 @@
     },
     "d025": {
       "uid": "d025",
-      "dexId": 185,
+      "dexId": 290,
       "nameCN": "大德古獸",
       "nameEN": "GranDracmon",
       "stage": "究極體",
@@ -429,7 +429,7 @@
     },
     "d026": {
       "uid": "d026",
-      "dexId": 236,
+      "dexId": 180,
       "nameCN": "三觭龍獸",
       "nameEN": "Triceramon",
       "stage": "完全體",
@@ -473,7 +473,7 @@
     },
     "d029": {
       "uid": "d029",
-      "dexId": 230,
+      "dexId": 305,
       "nameCN": "巴爾巴獸",
       "nameEN": "Barbamon",
       "stage": "究極體",
@@ -486,8 +486,8 @@
     },
     "d030": {
       "uid": "d030",
-      "dexId": 227,
-      "nameCN": "利維亞獸",
+      "dexId": 243,
+      "nameCN": "利維坦獸",
       "nameEN": "Leviamon",
       "stage": "究極體",
       "evolutions": [],
@@ -513,7 +513,7 @@
     },
     "d032": {
       "uid": "d032",
-      "dexId": 241,
+      "dexId": 213,
       "nameCN": "光明獸FM（墮落型態）",
       "nameEN": "Lucemon FM",
       "stage": "完全體",
@@ -533,11 +533,13 @@
       "evolutions": [
         "d219"
       ],
-      "devolutions": []
+      "devolutions": [
+        "d219"
+      ]
     },
     "d034": {
       "uid": "d034",
-      "dexId": 152,
+      "dexId": 186,
       "nameCN": "熊貓獸",
       "nameEN": "Pandamon",
       "stage": "完全體",
@@ -591,7 +593,7 @@
     },
     "d037": {
       "uid": "d037",
-      "dexId": 290,
+      "dexId": 157,
       "nameCN": "捕捉豆豆獸",
       "nameEN": "CatchMamemon",
       "stage": "完全體",
@@ -636,7 +638,7 @@
     },
     "d040": {
       "uid": "d040",
-      "dexId": 225,
+      "dexId": 324,
       "nameCN": "番長獅子獸",
       "nameEN": "BanchoLeomon",
       "stage": "究極體",
@@ -741,7 +743,7 @@
     },
     "d046": {
       "uid": "d046",
-      "dexId": 226,
+      "dexId": 232,
       "nameCN": "薔薇獸",
       "nameEN": "Rosemon",
       "stage": "究極體",
@@ -774,7 +776,7 @@
     },
     "d048": {
       "uid": "d048",
-      "dexId": 157,
+      "dexId": 196,
       "nameCN": "火山獸",
       "nameEN": "Volcanomon",
       "stage": "完全體",
@@ -792,7 +794,7 @@
     "d049": {
       "uid": "d049",
       "dexId": 275,
-      "nameCN": "鑽頭火山獸",
+      "nameCN": "摔角火山獸",
       "nameEN": "PileVolcamon",
       "stage": "究極體",
       "evolutions": [],
@@ -804,7 +806,7 @@
     },
     "d050": {
       "uid": "d050",
-      "dexId": 165,
+      "dexId": 207,
       "nameCN": "熊仔獸",
       "nameEN": "Monzaemon",
       "stage": "完全體",
@@ -867,7 +869,7 @@
     },
     "d054": {
       "uid": "d054",
-      "dexId": 160,
+      "dexId": 142,
       "nameCN": "阿卡迪獸（完全體）",
       "nameEN": "Arcadiamon Ultimate",
       "stage": "完全體",
@@ -884,7 +886,7 @@
     },
     "d055": {
       "uid": "d055",
-      "dexId": 176,
+      "dexId": 218,
       "nameCN": "阿卡迪獸（究極體）",
       "nameEN": "Arcadiamon Mega",
       "stage": "究極體",
@@ -927,7 +929,7 @@
     },
     "d058": {
       "uid": "d058",
-      "dexId": 228,
+      "dexId": 235,
       "nameCN": "白金鼻涕獸",
       "nameEN": "PlatinumNumemon",
       "stage": "究極體",
@@ -958,7 +960,7 @@
     },
     "d060": {
       "uid": "d060",
-      "dexId": 177,
+      "dexId": 209,
       "nameCN": "進昇暴龍獸",
       "nameEN": "RizeGreymon",
       "stage": "完全體",
@@ -997,7 +999,7 @@
     },
     "d062": {
       "uid": "d062",
-      "dexId": 178,
+      "dexId": 210,
       "nameCN": "丁香獸",
       "nameEN": "Lilamon",
       "stage": "完全體",
@@ -1015,7 +1017,7 @@
     },
     "d063": {
       "uid": "d063",
-      "dexId": 310,
+      "dexId": 198,
       "nameCN": "音速迦奧迦獸",
       "nameEN": "MachGaogamon",
       "stage": "完全體",
@@ -1035,7 +1037,7 @@
     },
     "d064": {
       "uid": "d064",
-      "dexId": 179,
+      "dexId": 313,
       "nameCN": "尼普頓獸",
       "nameEN": "Neptunemon",
       "stage": "究極體",
@@ -1076,7 +1078,8 @@
         "d105",
         "d128",
         "d128",
-        "d255"
+        "d255",
+        "d340"
       ],
       "devolutions": [
         "d108",
@@ -1086,7 +1089,7 @@
     },
     "d067": {
       "uid": "d067",
-      "dexId": 232,
+      "dexId": 167,
       "nameCN": "超級流星獸",
       "nameEN": "SuperStarmon",
       "stage": "完全體",
@@ -1134,7 +1137,7 @@
     },
     "d070": {
       "uid": "d070",
-      "dexId": 276,
+      "dexId": 189,
       "nameCN": "仙鷹獸",
       "nameEN": "HippoGryphonmon",
       "stage": "完全體",
@@ -1152,7 +1155,7 @@
     },
     "d071": {
       "uid": "d071",
-      "dexId": 153,
+      "dexId": 238,
       "nameCN": "獅鷲獸",
       "nameEN": "Gryphonmon",
       "stage": "究極體",
@@ -1165,7 +1168,7 @@
     },
     "d072": {
       "uid": "d072",
-      "dexId": 169,
+      "dexId": 174,
       "nameCN": "麒麟獸",
       "nameEN": "Chirinmon",
       "stage": "完全體",
@@ -1182,7 +1185,7 @@
     },
     "d073": {
       "uid": "d073",
-      "dexId": 256,
+      "dexId": 147,
       "nameCN": "吸血魔獸",
       "nameEN": "Myotismon",
       "stage": "完全體",
@@ -1203,7 +1206,7 @@
     },
     "d074": {
       "uid": "d074",
-      "dexId": 180,
+      "dexId": 236,
       "nameCN": "八腳馬獸",
       "nameEN": "Kentaurosmon",
       "stage": "究極體",
@@ -1211,7 +1214,7 @@
       "devolutions": [
         "d003",
         "d072",
-        "d014"
+        "d194"
       ]
     },
     "d075": {
@@ -1235,7 +1238,7 @@
     },
     "d076": {
       "uid": "d076",
-      "dexId": 162,
+      "dexId": 288,
       "nameCN": "奧米加獸",
       "nameEN": "Omnimon",
       "stage": "超究極體",
@@ -1339,7 +1342,7 @@
     "d082": {
       "uid": "d082",
       "dexId": 267,
-      "nameCN": "幻影加奧加獸",
+      "nameCN": "幻影迦奧迦獸",
       "nameEN": "MirageGaogamon",
       "stage": "究極體",
       "evolutions": [
@@ -1388,7 +1391,7 @@
     },
     "d085": {
       "uid": "d085",
-      "dexId": 218,
+      "dexId": 195,
       "nameCN": "神聖天使獸",
       "nameEN": "MagnaAngemon",
       "stage": "完全體",
@@ -1424,14 +1427,14 @@
     },
     "d087": {
       "uid": "d087",
-      "dexId": 182,
+      "dexId": 282,
       "nameCN": "金剛武神獸",
       "nameEN": "Susanomon",
       "stage": "超究極體",
       "evolutions": [],
       "devolutions": [
         "d254",
-        "d252"
+        "d341"
       ]
     },
     "d088": {
@@ -1458,7 +1461,7 @@
     },
     "d090": {
       "uid": "d090",
-      "dexId": 147,
+      "dexId": 214,
       "nameCN": "女惡魔獸",
       "nameEN": "LadyDevimon",
       "stage": "完全體",
@@ -1565,7 +1568,7 @@
     },
     "d096": {
       "uid": "d096",
-      "dexId": 144,
+      "dexId": 171,
       "nameCN": "救星哈克獸",
       "nameEN": "SaviorHuckmon",
       "stage": "完全體",
@@ -1582,7 +1585,7 @@
     },
     "d097": {
       "uid": "d097",
-      "dexId": 167,
+      "dexId": 226,
       "nameCN": "瓦爾德獸",
       "nameEN": "Varodurumon",
       "stage": "究極體",
@@ -1597,8 +1600,8 @@
     },
     "d098": {
       "uid": "d098",
-      "dexId": 163,
-      "nameCN": "混沌獸：瓦爾德臂",
+      "dexId": 283,
+      "nameCN": "混沌獸VA（瓦爾德臂）",
       "nameEN": "Chaosmon VA",
       "stage": "超究極體",
       "evolutions": [],
@@ -1609,7 +1612,7 @@
     },
     "d099": {
       "uid": "d099",
-      "dexId": 142,
+      "dexId": 239,
       "nameCN": "紅蓮騎士獸",
       "nameEN": "Gallantmon",
       "stage": "究極體",
@@ -1618,12 +1621,12 @@
       ],
       "devolutions": [
         "d105",
-        "d128"
+        "d340"
       ]
     },
     "d100": {
       "uid": "d100",
-      "dexId": 223,
+      "dexId": 262,
       "nameCN": "大王悟空獸",
       "nameEN": "KingEtemon",
       "stage": "究極體",
@@ -1647,7 +1650,7 @@
     },
     "d102": {
       "uid": "d102",
-      "dexId": 260,
+      "dexId": 173,
       "nameCN": "達高獸",
       "nameEN": "Dragomon",
       "stage": "完全體",
@@ -1681,7 +1684,7 @@
     },
     "d104": {
       "uid": "d104",
-      "dexId": 156,
+      "dexId": 200,
       "nameCN": "超海龍獸",
       "nameEN": "MegaSeadramon",
       "stage": "完全體",
@@ -1702,7 +1705,7 @@
     },
     "d105": {
       "uid": "d105",
-      "dexId": 183,
+      "dexId": 202,
       "nameCN": "大古拉獸",
       "nameEN": "WarGrowlmon",
       "stage": "完全體",
@@ -1737,7 +1740,7 @@
     },
     "d107": {
       "uid": "d107",
-      "dexId": 146,
+      "dexId": 215,
       "nameCN": "獸人加魯魯",
       "nameEN": "WereGarurumon",
       "stage": "完全體",
@@ -1774,7 +1777,7 @@
     },
     "d109": {
       "uid": "d109",
-      "dexId": 235,
+      "dexId": 152,
       "nameCN": "天女獸",
       "nameEN": "Angewomon",
       "stage": "完全體",
@@ -1823,7 +1826,7 @@
     "d112": {
       "uid": "d112",
       "dexId": 245,
-      "nameCN": "黑戰鬥暴龍獸",
+      "nameCN": "黑暗戰鬥暴龍獸",
       "nameEN": "BlackWarGreymon",
       "stage": "究極體",
       "evolutions": [
@@ -1832,12 +1835,12 @@
       "devolutions": [
         "d127",
         "d148",
-        "d128"
+        "d340"
       ]
     },
     "d113": {
       "uid": "d113",
-      "dexId": 319,
+      "dexId": 192,
       "nameCN": "藍色火焰獸",
       "nameEN": "BlueMeramon",
       "stage": "完全體",
@@ -1857,7 +1860,7 @@
     },
     "d114": {
       "uid": "d114",
-      "dexId": 161,
+      "dexId": 272,
       "nameCN": "鋼鐵加魯魯獸（黑）",
       "nameEN": "MetalGarurumon (Blk)",
       "stage": "究極體",
@@ -1873,8 +1876,8 @@
     },
     "d115": {
       "uid": "d115",
-      "dexId": 150,
-      "nameCN": "龍田獸",
+      "dexId": 328,
+      "nameCN": "龍蛇獸",
       "nameEN": "Ryudamon",
       "stage": "成長期",
       "evolutions": [
@@ -1888,7 +1891,7 @@
     },
     "d116": {
       "uid": "d116",
-      "dexId": 320,
+      "dexId": 329,
       "nameCN": "銀龍獸",
       "nameEN": "Ginryumon",
       "stage": "成熟期",
@@ -1923,7 +1926,7 @@
     },
     "d118": {
       "uid": "d118",
-      "dexId": 158,
+      "dexId": 289,
       "nameCN": "王龍獸",
       "nameEN": "Ouryumon",
       "stage": "究極體",
@@ -1970,7 +1973,7 @@
     },
     "d121": {
       "uid": "d121",
-      "dexId": 270,
+      "dexId": 148,
       "nameCN": "翼龍獸",
       "nameEN": "Wingdramon",
       "stage": "完全體",
@@ -1987,7 +1990,7 @@
     },
     "d122": {
       "uid": "d122",
-      "dexId": 233,
+      "dexId": 159,
       "nameCN": "地龍獸",
       "nameEN": "Groundramon",
       "stage": "完全體",
@@ -2005,7 +2008,7 @@
     "d123": {
       "uid": "d123",
       "dexId": 291,
-      "nameCN": "殺龍獸",
+      "nameCN": "斬龍獸",
       "nameEN": "Slayerdramon",
       "stage": "究極體",
       "evolutions": [
@@ -2020,7 +2023,7 @@
     "d124": {
       "uid": "d124",
       "dexId": 250,
-      "nameCN": "煞車龍獸",
+      "nameCN": "破壞龍獸",
       "nameEN": "Brakedramon",
       "stage": "究極體",
       "evolutions": [
@@ -2029,13 +2032,13 @@
       "devolutions": [
         "d122",
         "d026",
-        "d128",
-        "d014"
+        "d194",
+        "d340"
       ]
     },
     "d125": {
       "uid": "d125",
-      "dexId": 184,
+      "dexId": 284,
       "nameCN": "龍皇獸",
       "nameEN": "Examon",
       "stage": "超究極體",
@@ -2063,7 +2066,7 @@
     },
     "d127": {
       "uid": "d127",
-      "dexId": 312,
+      "dexId": 201,
       "nameCN": "超蛇龍獸",
       "nameEN": "Megadramon",
       "stage": "完全體",
@@ -2083,26 +2086,20 @@
     },
     "d128": {
       "uid": "d128",
-      "dexId": 262,
+      "dexId": 203,
       "nameCN": "機械暴龍獸",
       "nameEN": "MetalGreymon",
       "stage": "完全體",
       "evolutions": [
         "d172",
         "d305",
-        "d022",
-        "d099",
-        "d112",
-        "d124"
+        "d022"
       ],
       "devolutions": [
         "d008",
         "d066",
         "d147",
-        "d061",
-        "d161",
-        "d184",
-        "d164"
+        "d061"
       ]
     },
     "d129": {
@@ -2141,7 +2138,7 @@
     },
     "d131": {
       "uid": "d131",
-      "dexId": 145,
+      "dexId": 141,
       "nameCN": "超比多獸",
       "nameEN": "MegaKabuterimon",
       "stage": "完全體",
@@ -2158,7 +2155,7 @@
     },
     "d132": {
       "uid": "d132",
-      "dexId": 164,
+      "dexId": 287,
       "nameCN": "力神比多獸",
       "nameEN": "HerculesKabuterimon",
       "stage": "究極體",
@@ -2210,7 +2207,7 @@
     },
     "d135": {
       "uid": "d135",
-      "dexId": 274,
+      "dexId": 154,
       "nameCN": "伽樓達獸",
       "nameEN": "Garudamon",
       "stage": "完全體",
@@ -2242,7 +2239,7 @@
     },
     "d137": {
       "uid": "d137",
-      "dexId": 248,
+      "dexId": 151,
       "nameCN": "悟空獸",
       "nameEN": "Etemon",
       "stage": "完全體",
@@ -2262,7 +2259,7 @@
     },
     "d138": {
       "uid": "d138",
-      "dexId": 174,
+      "dexId": 293,
       "nameCN": "鋼鐵悟空獸",
       "nameEN": "MetalEtemon",
       "stage": "究極體",
@@ -2313,7 +2310,7 @@
     },
     "d141": {
       "uid": "d141",
-      "dexId": 141,
+      "dexId": 316,
       "nameCN": "究極天使獸",
       "nameEN": "Seraphimon",
       "stage": "究極體",
@@ -2419,7 +2416,7 @@
     },
     "d148": {
       "uid": "d148",
-      "dexId": 148,
+      "dexId": 204,
       "nameCN": "機械暴龍獸（藍）",
       "nameEN": "MetalGreymon (Blue)",
       "stage": "完全體",
@@ -2439,7 +2436,7 @@
     },
     "d149": {
       "uid": "d149",
-      "dexId": 149,
+      "dexId": 255,
       "nameCN": "啟示錄獸",
       "nameEN": "Apocalymon",
       "stage": "超究極體",
@@ -2472,7 +2469,7 @@
     },
     "d151": {
       "uid": "d151",
-      "dexId": 151,
+      "dexId": 144,
       "nameCN": "安杜路獸",
       "nameEN": "Andromon",
       "stage": "完全體",
@@ -2527,7 +2524,7 @@
     },
     "d154": {
       "uid": "d154",
-      "dexId": 154,
+      "dexId": 170,
       "nameCN": "祖頓獸",
       "nameEN": "Zudomon",
       "stage": "完全體",
@@ -2546,7 +2543,7 @@
     },
     "d155": {
       "uid": "d155",
-      "dexId": 155,
+      "dexId": 224,
       "nameCN": "維京毛人獸",
       "nameEN": "Vikemon",
       "stage": "究極體",
@@ -2614,7 +2611,7 @@
     },
     "d159": {
       "uid": "d159",
-      "dexId": 159,
+      "dexId": 212,
       "nameCN": "花仙獸",
       "nameEN": "Lillymon",
       "stage": "完全體",
@@ -2623,7 +2620,12 @@
         "d303",
         "d046"
       ],
-      "devolutions": []
+      "devolutions": [
+        "d017",
+        "d047",
+        "d079",
+        "d158"
+      ]
     },
     "d160": {
       "uid": "d160",
@@ -2653,7 +2655,7 @@
         "d199",
         "d127",
         "d148",
-        "d128"
+        "d340"
       ],
       "devolutions": [
         "d041",
@@ -2706,7 +2708,7 @@
       "evolutions": [
         "d191",
         "d026",
-        "d128"
+        "d340"
       ],
       "devolutions": [
         "d108",
@@ -2734,7 +2736,7 @@
     },
     "d166": {
       "uid": "d166",
-      "dexId": 166,
+      "dexId": 176,
       "nameCN": "蛋蛋獸",
       "nameEN": "Digitamamon",
       "stage": "完全體",
@@ -2769,7 +2771,7 @@
     },
     "d168": {
       "uid": "d168",
-      "dexId": 168,
+      "dexId": 179,
       "nameCN": "怪蛙皇",
       "nameEN": "ShogunGekomon",
       "stage": "完全體",
@@ -2805,7 +2807,7 @@
     },
     "d170": {
       "uid": "d170",
-      "dexId": 170,
+      "dexId": 165,
       "nameCN": "祖利獸",
       "nameEN": "Cherrymon",
       "stage": "完全體",
@@ -2823,7 +2825,7 @@
     },
     "d171": {
       "uid": "d171",
-      "dexId": 171,
+      "dexId": 248,
       "nameCN": "金甲龍獸",
       "nameEN": "Magnamon",
       "stage": "8",
@@ -2835,7 +2837,7 @@
     },
     "d172": {
       "uid": "d172",
-      "dexId": 172,
+      "dexId": 319,
       "nameCN": "終極巨龍獸",
       "nameEN": "RustTyranomon",
       "stage": "究極體",
@@ -2843,12 +2845,13 @@
       "devolutions": [
         "d105",
         "d128",
-        "d128"
+        "d128",
+        "d340"
       ]
     },
     "d173": {
       "uid": "d173",
-      "dexId": 173,
+      "dexId": 260,
       "nameCN": "機械邪龍獸",
       "nameEN": "Machinedramon",
       "stage": "究極體",
@@ -3022,8 +3025,8 @@
       "evolutions": [
         "d021",
         "d072",
-        "d014",
-        "d060"
+        "d060",
+        "d194"
       ],
       "devolutions": [
         "d236",
@@ -3041,8 +3044,8 @@
       "evolutions": [
         "d187",
         "d283",
-        "d128",
-        "d105"
+        "d105",
+        "d340"
       ],
       "devolutions": [
         "d111",
@@ -3089,7 +3092,7 @@
     },
     "d187": {
       "uid": "d187",
-      "dexId": 187,
+      "dexId": 150,
       "nameCN": "飛行V龍獸",
       "nameEN": "AeroVeedramon",
       "stage": "完全體",
@@ -3108,7 +3111,7 @@
     },
     "d188": {
       "uid": "d188",
-      "dexId": 188,
+      "dexId": 153,
       "nameCN": "大古加獸",
       "nameEN": "Okuwamon",
       "stage": "完全體",
@@ -3125,7 +3128,7 @@
     },
     "d189": {
       "uid": "d189",
-      "dexId": 189,
+      "dexId": 156,
       "nameCN": "千兆龍獸",
       "nameEN": "Gigadramon",
       "stage": "完全體",
@@ -3146,7 +3149,7 @@
     },
     "d190": {
       "uid": "d190",
-      "dexId": 190,
+      "dexId": 160,
       "nameCN": "格鬥獅子獸",
       "nameEN": "GrapLeomon",
       "stage": "完全體",
@@ -3164,7 +3167,7 @@
     },
     "d191": {
       "uid": "d191",
-      "dexId": 191,
+      "dexId": 168,
       "nameCN": "喪尸暴龍獸",
       "nameEN": "SkullGreymon",
       "stage": "完全體",
@@ -3182,7 +3185,7 @@
     },
     "d192": {
       "uid": "d192",
-      "dexId": 192,
+      "dexId": 172,
       "nameCN": "祭師獸",
       "nameEN": "Taomon",
       "stage": "完全體",
@@ -3199,7 +3202,7 @@
     },
     "d193": {
       "uid": "d193",
-      "dexId": 193,
+      "dexId": 177,
       "nameCN": "死神火焰獸",
       "nameEN": "SkullMeramon",
       "stage": "完全體",
@@ -3217,8 +3220,8 @@
     },
     "d194": {
       "uid": "d194",
-      "dexId": 194,
-      "nameCN": "多路暴龍獸",
+      "dexId": 181,
+      "nameCN": "多路龍獸",
       "nameEN": "DoruGreymon",
       "stage": "完全體",
       "evolutions": [
@@ -3237,7 +3240,7 @@
     },
     "d195": {
       "uid": "d195",
-      "dexId": 195,
+      "dexId": 184,
       "nameCN": "機甲龍獸",
       "nameEN": "Paildramon",
       "stage": "完全體",
@@ -3251,7 +3254,7 @@
     },
     "d196": {
       "uid": "d196",
-      "dexId": 196,
+      "dexId": 185,
       "nameCN": "邦加獸",
       "nameEN": "Panjyamon",
       "stage": "完全體",
@@ -3269,7 +3272,7 @@
     },
     "d197": {
       "uid": "d197",
-      "dexId": 197,
+      "dexId": 188,
       "nameCN": "妖精獸",
       "nameEN": "Piximon",
       "stage": "完全體",
@@ -3287,7 +3290,7 @@
     },
     "d198": {
       "uid": "d198",
-      "dexId": 198,
+      "dexId": 193,
       "nameCN": "入侵者獸",
       "nameEN": "Vademon",
       "stage": "完全體",
@@ -3321,7 +3324,7 @@
     },
     "d200": {
       "uid": "d200",
-      "dexId": 200,
+      "dexId": 206,
       "nameCN": "鋼鐵豆豆獸",
       "nameEN": "MetalMamemon",
       "stage": "完全體",
@@ -3339,7 +3342,7 @@
     },
     "d201": {
       "uid": "d201",
-      "dexId": 201,
+      "dexId": 219,
       "nameCN": "阿爾法獸",
       "nameEN": "Alphamon",
       "stage": "究極體",
@@ -3349,12 +3352,12 @@
       "devolutions": [
         "d021",
         "d283",
-        "d014"
+        "d194"
       ]
     },
     "d202": {
       "uid": "d202",
-      "dexId": 202,
+      "dexId": 220,
       "nameCN": "究極V龍獸",
       "nameEN": "UlforceVeedramon",
       "stage": "究極體",
@@ -3367,8 +3370,8 @@
     },
     "d203": {
       "uid": "d203",
-      "dexId": 203,
-      "nameCN": "帝皇龍甲獸：龍人型態",
+      "dexId": 223,
+      "nameCN": "帝皇龍甲獸FM（龍人型態）",
       "nameEN": "Imperialdramon FM",
       "stage": "究極體",
       "evolutions": [
@@ -3378,8 +3381,8 @@
     },
     "d204": {
       "uid": "d204",
-      "dexId": 204,
-      "nameCN": "帝皇龍甲獸：聖騎士型態",
+      "dexId": 270,
+      "nameCN": "帝皇龍甲獸PM（聖騎士型態）",
       "nameEN": "Imperialdramon PM",
       "stage": "超究極體",
       "evolutions": [],
@@ -3389,7 +3392,7 @@
     },
     "d205": {
       "uid": "d205",
-      "dexId": 205,
+      "dexId": 229,
       "nameCN": "神聖天女獸",
       "nameEN": "Ophanimon",
       "stage": "究極體",
@@ -3401,7 +3404,7 @@
     },
     "d206": {
       "uid": "d206",
-      "dexId": 206,
+      "dexId": 276,
       "nameCN": "混沌龍獸",
       "nameEN": "Chaosdramon",
       "stage": "究極體",
@@ -3412,7 +3415,7 @@
     },
     "d207": {
       "uid": "d207",
-      "dexId": 207,
+      "dexId": 274,
       "nameCN": "究極古加獸",
       "nameEN": "GranKuwagamon",
       "stage": "究極體",
@@ -3427,7 +3430,7 @@
     },
     "d208": {
       "uid": "d208",
-      "dexId": 208,
+      "dexId": 285,
       "nameCN": "黃金劍獅獸",
       "nameEN": "SaberLeomon",
       "stage": "究極體",
@@ -3441,7 +3444,7 @@
     },
     "d209": {
       "uid": "d209",
-      "dexId": 209,
+      "dexId": 310,
       "nameCN": "沙古牙獸",
       "nameEN": "Sakuyamon",
       "stage": "究極體",
@@ -3454,7 +3457,7 @@
     },
     "d210": {
       "uid": "d210",
-      "dexId": 210,
+      "dexId": 264,
       "nameCN": "高級安杜路獸",
       "nameEN": "HiAndromon",
       "stage": "究極體",
@@ -3467,7 +3470,7 @@
     },
     "d211": {
       "uid": "d211",
-      "dexId": 211,
+      "dexId": 286,
       "nameCN": "小丑皇",
       "nameEN": "Piedmon",
       "stage": "究極體",
@@ -3483,7 +3486,7 @@
     },
     "d212": {
       "uid": "d212",
-      "dexId": 212,
+      "dexId": 233,
       "nameCN": "木偶獸",
       "nameEN": "Puppetmon",
       "stage": "究極體",
@@ -3499,7 +3502,7 @@
     },
     "d213": {
       "uid": "d213",
-      "dexId": 213,
+      "dexId": 241,
       "nameCN": "王子豆豆獸",
       "nameEN": "PrinceMamemon",
       "stage": "究極體",
@@ -3513,7 +3516,7 @@
     },
     "d214": {
       "uid": "d214",
-      "dexId": 214,
+      "dexId": 256,
       "nameCN": "科學怪人獸",
       "nameEN": "Boltmon",
       "stage": "究極體",
@@ -3526,7 +3529,7 @@
     },
     "d215": {
       "uid": "d215",
-      "dexId": 215,
+      "dexId": 247,
       "nameCN": "鋼鐵海龍獸",
       "nameEN": "MetalSeadramon",
       "stage": "究極體",
@@ -3541,8 +3544,8 @@
     },
     "d216": {
       "uid": "d216",
-      "dexId": 216,
-      "nameCN": "光明獸：撒旦型態",
+      "dexId": 280,
+      "nameCN": "光明獸SM（撒旦型態）",
       "nameEN": "Lucemon SM",
       "stage": "超究極體",
       "evolutions": [],
@@ -3582,8 +3585,8 @@
     },
     "d219": {
       "uid": "d219",
-      "dexId": 219,
-      "nameCN": "貝爾菲獸：睡眠型態",
+      "dexId": 312,
+      "nameCN": "貝爾菲獸SM（睡眠型態）",
       "nameEN": "Belphemon SM",
       "stage": "究極體",
       "evolutions": [
@@ -3591,12 +3594,13 @@
       ],
       "devolutions": [
         "d166",
-        "d288"
+        "d288",
+        "d033"
       ]
     },
     "d220": {
       "uid": "d220",
-      "dexId": 220,
+      "dexId": 237,
       "nameCN": "泰坦獸",
       "nameEN": "Titamon",
       "stage": "究極體",
@@ -3610,7 +3614,7 @@
     },
     "d221": {
       "uid": "d221",
-      "dexId": 221,
+      "dexId": 294,
       "nameCN": "蛇頸龍獸",
       "nameEN": "Plesiomon",
       "stage": "究極體",
@@ -3624,8 +3628,8 @@
     },
     "d222": {
       "uid": "d222",
-      "dexId": 222,
-      "nameCN": "外星異形獸",
+      "dexId": 221,
+      "nameCN": "外星獸",
       "nameEN": "Ebemon",
       "stage": "究極體",
       "evolutions": [],
@@ -3644,8 +3648,8 @@
       "stage": "成熟期",
       "evolutions": [
         "d127",
-        "d014",
-        "d237"
+        "d237",
+        "d194"
       ],
       "devolutions": [
         "d108",
@@ -3655,7 +3659,7 @@
     },
     "d224": {
       "uid": "d224",
-      "dexId": 224,
+      "dexId": 257,
       "nameCN": "聖龍獸",
       "nameEN": "Magnadramon",
       "stage": "究極體",
@@ -3870,7 +3874,7 @@
     },
     "d237": {
       "uid": "d237",
-      "dexId": 237,
+      "dexId": 183,
       "nameCN": "分子獸",
       "nameEN": "Datamon",
       "stage": "完全體",
@@ -3905,7 +3909,7 @@
     },
     "d239": {
       "uid": "d239",
-      "dexId": 239,
+      "dexId": 190,
       "nameCN": "死神獸",
       "nameEN": "Phantomon",
       "stage": "完全體",
@@ -3961,7 +3965,7 @@
     },
     "d242": {
       "uid": "d242",
-      "dexId": 242,
+      "dexId": 187,
       "nameCN": "南瓜獸",
       "nameEN": "Pumpkinmon",
       "stage": "完全體",
@@ -3980,7 +3984,7 @@
     },
     "d243": {
       "uid": "d243",
-      "dexId": 243,
+      "dexId": 227,
       "nameCN": "究極吸血魔獸",
       "nameEN": "VenomMyotismon",
       "stage": "究極體",
@@ -4047,7 +4051,7 @@
     },
     "d247": {
       "uid": "d247",
-      "dexId": 247,
+      "dexId": 146,
       "nameCN": "地獄使者獸",
       "nameEN": "Infermon",
       "stage": "完全體",
@@ -4133,15 +4137,14 @@
     "d252": {
       "uid": "d252",
       "dexId": 252,
-      "nameCN": "鎧甲加魯魯獸",
+      "nameCN": "鎧甲加魯魯獸（SV）",
       "nameEN": "MagnaGarurumon (SV)",
       "stage": "究極體",
       "evolutions": [
-        "d252",
-        "d087"
+        "d341"
       ],
       "devolutions": [
-        "d257"
+        "d341"
       ]
     },
     "d253": {
@@ -4176,7 +4179,7 @@
     },
     "d255": {
       "uid": "d255",
-      "dexId": 255,
+      "dexId": 149,
       "nameCN": "炎龍獸",
       "nameEN": "BurningGreymon",
       "stage": "完全體",
@@ -4209,12 +4212,12 @@
     },
     "d257": {
       "uid": "d257",
-      "dexId": 257,
+      "dexId": 155,
       "nameCN": "銀狼獸",
       "nameEN": "KendoGarurumon",
       "stage": "完全體",
       "evolutions": [
-        "d252"
+        "d341"
       ],
       "devolutions": [
         "d256",
@@ -4312,7 +4315,7 @@
     },
     "d264": {
       "uid": "d264",
-      "dexId": 264,
+      "dexId": 178,
       "nameCN": "杜蘭獸",
       "nameEN": "Duramon",
       "stage": "完全體",
@@ -4377,7 +4380,7 @@
     "d268": {
       "uid": "d268",
       "dexId": 268,
-      "nameCN": "聖衣騎士獸",
+      "nameCN": "劍皇獸",
       "nameEN": "Crusadermon",
       "stage": "究極體",
       "evolutions": [],
@@ -4389,7 +4392,7 @@
     "d269": {
       "uid": "d269",
       "dexId": 269,
-      "nameCN": "大火車獸",
+      "nameCN": "超級火車獸",
       "nameEN": "GroundLocomon",
       "stage": "究極體",
       "evolutions": [],
@@ -4530,9 +4533,9 @@
       "stage": "成熟期",
       "evolutions": [
         "d026",
-        "d014",
         "d282",
-        "d148"
+        "d148",
+        "d194"
       ],
       "devolutions": [
         "d108",
@@ -4577,7 +4580,7 @@
     },
     "d280": {
       "uid": "d280",
-      "dexId": 280,
+      "dexId": 216,
       "nameCN": "黑獸人加魯魯",
       "nameEN": "WereGarurumon (Blk)",
       "stage": "完全體",
@@ -4606,7 +4609,7 @@
     },
     "d282": {
       "uid": "d282",
-      "dexId": 282,
+      "dexId": 182,
       "nameCN": "騎士獸",
       "nameEN": "Knightmon",
       "stage": "完全體",
@@ -4626,7 +4629,7 @@
     },
     "d283": {
       "uid": "d283",
-      "dexId": 283,
+      "dexId": 163,
       "nameCN": "電子龍獸",
       "nameEN": "Cyberdramon",
       "stage": "完全體",
@@ -4645,7 +4648,7 @@
     },
     "d284": {
       "uid": "d284",
-      "dexId": 284,
+      "dexId": 166,
       "nameCN": "人面戰鷹獸",
       "nameEN": "Silphymon",
       "stage": "完全體",
@@ -4663,7 +4666,7 @@
     },
     "d285": {
       "uid": "d285",
-      "dexId": 285,
+      "dexId": 208,
       "nameCN": "八咫鴉獸",
       "nameEN": "Crowmon",
       "stage": "完全體",
@@ -4682,7 +4685,7 @@
     },
     "d286": {
       "uid": "d286",
-      "dexId": 286,
+      "dexId": 211,
       "nameCN": "拉比獸",
       "nameEN": "Rapidmon",
       "stage": "完全體",
@@ -4699,7 +4702,7 @@
     },
     "d287": {
       "uid": "d287",
-      "dexId": 287,
+      "dexId": 164,
       "nameCN": "古神獸",
       "nameEN": "Shakkoumon",
       "stage": "完全體",
@@ -4715,7 +4718,7 @@
     },
     "d288": {
       "uid": "d288",
-      "dexId": 288,
+      "dexId": 217,
       "nameCN": "賢者獸",
       "nameEN": "Wisemon",
       "stage": "完全體",
@@ -4732,7 +4735,7 @@
     },
     "d289": {
       "uid": "d289",
-      "dexId": 289,
+      "dexId": 158,
       "nameCN": "炮蜂獸",
       "nameEN": "CannonBeemon",
       "stage": "完全體",
@@ -4805,7 +4808,7 @@
     },
     "d293": {
       "uid": "d293",
-      "dexId": 293,
+      "dexId": 143,
       "nameCN": "玉兔獸",
       "nameEN": "Antylamon",
       "stage": "完全體",
@@ -4825,8 +4828,8 @@
     },
     "d294": {
       "uid": "d294",
-      "dexId": 294,
-      "nameCN": "帝皇龍甲獸：龍型態",
+      "dexId": 222,
+      "nameCN": "帝皇龍甲獸DM（龍型態）",
       "nameEN": "Imperialdramon DM",
       "stage": "究極體",
       "evolutions": [
@@ -4880,7 +4883,7 @@
     "d298": {
       "uid": "d298",
       "dexId": 298,
-      "nameCN": "正義獸",
+      "nameCN": "裁決獸",
       "nameEN": "Justimon",
       "stage": "究極體",
       "evolutions": [],
@@ -4895,7 +4898,7 @@
     "d299": {
       "uid": "d299",
       "dexId": 299,
-      "nameCN": "帝皇龍甲獸",
+      "nameCN": "杜納斯獸",
       "nameEN": "Dynasmon",
       "stage": "究極體",
       "evolutions": [],
@@ -4916,7 +4919,8 @@
       ],
       "devolutions": [
         "d190",
-        "d282"
+        "d282",
+        "d304"
       ]
     },
     "d301": {
@@ -4969,11 +4973,13 @@
       "evolutions": [
         "d300"
       ],
-      "devolutions": []
+      "devolutions": [
+        "d300"
+      ]
     },
     "d305": {
       "uid": "d305",
-      "dexId": 305,
+      "dexId": 230,
       "nameCN": "凱王獸",
       "nameEN": "Gaiomon",
       "stage": "究極體",
@@ -5089,7 +5095,7 @@
     },
     "d313": {
       "uid": "d313",
-      "dexId": 313,
+      "dexId": 191,
       "nameCN": "黑帝鼻涕獸",
       "nameEN": "BlackKingNumemon",
       "stage": "完全體",
@@ -5108,7 +5114,7 @@
     "d314": {
       "uid": "d314",
       "dexId": 314,
-      "nameCN": "古祖哈獸",
+      "nameCN": "葛葉獸",
       "nameEN": "Kuzuhamon",
       "stage": "究極體",
       "evolutions": [],
@@ -5137,7 +5143,7 @@
     },
     "d316": {
       "uid": "d316",
-      "dexId": 316,
+      "dexId": 145,
       "nameCN": "隕石獸",
       "nameEN": "Meteormon",
       "stage": "完全體",
@@ -5260,8 +5266,8 @@
     },
     "d324": {
       "uid": "d324",
-      "dexId": 324,
-      "nameCN": "女武神獸",
+      "dexId": 225,
+      "nameCN": "女戰神獸",
       "nameEN": "Valkyrimon",
       "stage": "究極體",
       "evolutions": [],
@@ -5308,7 +5314,7 @@
     },
     "d328": {
       "uid": "d328",
-      "dexId": 328,
+      "dexId": 242,
       "nameCN": "幻影加奧加獸：爆裂型態",
       "nameEN": "MirageGaogamon BM",
       "stage": "究極體",
@@ -5319,7 +5325,7 @@
     },
     "d329": {
       "uid": "d329",
-      "dexId": 329,
+      "dexId": 320,
       "nameCN": "鴉神獸：爆裂型態",
       "nameEN": "Ravemon BM",
       "stage": "究極體",
@@ -5396,7 +5402,7 @@
     },
     "d335": {
       "uid": "d335",
-      "dexId": 335,
+      "dexId": 337,
       "nameCN": "阿爾法獸NX",
       "nameEN": "Alphamon NX",
       "stage": "究極體",
@@ -5405,8 +5411,8 @@
     },
     "d336": {
       "uid": "d336",
-      "dexId": 336,
-      "nameCN": "聖衣騎士獸NX",
+      "dexId": 338,
+      "nameCN": "劍皇獸NX",
       "nameEN": "Crusadermon NX",
       "stage": "究極體",
       "evolutions": [],
@@ -5414,7 +5420,7 @@
     },
     "d337": {
       "uid": "d337",
-      "dexId": 337,
+      "dexId": 339,
       "nameCN": "芳香獸NX",
       "nameEN": "Leopardmon NX",
       "stage": "究極體",
@@ -5423,7 +5429,7 @@
     },
     "d338": {
       "uid": "d338",
-      "dexId": 338,
+      "dexId": 340,
       "nameCN": "奧米加獸NX",
       "nameEN": "Omnimon NX",
       "stage": "究極體",
@@ -5432,12 +5438,46 @@
     },
     "d339": {
       "uid": "d339",
-      "dexId": 339,
+      "dexId": 341,
       "nameCN": "紅蓮騎士獸NX",
       "nameEN": "Gallantmon NX",
       "stage": "究極體",
       "evolutions": [],
       "devolutions": []
+    },
+    "d340": {
+      "uid": "d340",
+      "dexId": 205,
+      "nameCN": "鋼鐵巨龍獸",
+      "nameEN": "MetalTyrannomon",
+      "stage": "完全體",
+      "evolutions": [
+        "d099",
+        "d112",
+        "d124",
+        "d172"
+      ],
+      "devolutions": [
+        "d066",
+        "d161",
+        "d184",
+        "d164"
+      ]
+    },
+    "d341": {
+      "uid": "d341",
+      "dexId": 335,
+      "nameCN": "鎧甲加魯魯獸",
+      "nameEN": "MagnaGarurumon",
+      "stage": "究極體",
+      "evolutions": [
+        "d087",
+        "d252"
+      ],
+      "devolutions": [
+        "d257",
+        "d252"
+      ]
     }
   },
   "stages": [
@@ -5448,5 +5488,113 @@
     "完全體",
     "究極體",
     "超究極體"
-  ]
+  ],
+  "collection": {
+    "d174": 2,
+    "d217": 2,
+    "d142": 2,
+    "d143": 2,
+    "d145": 2,
+    "d230": 2,
+    "d218": 2,
+    "d250": 2,
+    "d146": 2,
+    "d232": 2,
+    "d235": 1,
+    "d229": 2,
+    "d231": 2,
+    "d175": 2,
+    "d144": 2,
+    "d041": 2,
+    "d272": 2,
+    "d234": 2,
+    "d238": 2,
+    "d044": 2,
+    "d236": 1,
+    "d111": 2,
+    "d278": 2,
+    "d042": 0,
+    "d077": 2,
+    "d246": 2,
+    "d241": 2,
+    "d091": 2,
+    "d274": 2,
+    "d266": 2,
+    "d129": 2,
+    "d273": 2,
+    "d092": 1,
+    "d006": 2,
+    "d083": 2,
+    "d157": 2,
+    "d084": 1,
+    "d133": 2,
+    "d270": 2,
+    "d176": 2,
+    "d244": 2,
+    "d045": 1,
+    "d012": 2,
+    "d276": 2,
+    "d153": 2,
+    "d075": 2,
+    "d150": 2,
+    "d226": 2,
+    "d009": 2,
+    "d279": 2,
+    "d066": 2,
+    "d249": 2,
+    "d147": 2,
+    "d185": 2,
+    "d163": 2,
+    "d291": 2,
+    "d103": 2,
+    "d139": 2,
+    "d011": 2,
+    "d078": 2,
+    "d245": 2,
+    "d079": 2,
+    "d080": 1,
+    "d158": 2,
+    "d183": 2,
+    "d167": 2,
+    "d059": 2,
+    "d134": 2,
+    "d184": 2,
+    "d312": 2,
+    "d036": 1,
+    "d140": 1,
+    "d267": 2,
+    "d007": 2,
+    "d165": 2,
+    "d020": 2,
+    "d240": 2,
+    "d247": 2,
+    "d187": 2,
+    "d109": 2,
+    "d188": 2,
+    "d135": 2,
+    "d289": 2,
+    "d003": 2,
+    "d283": 2,
+    "d096": 2,
+    "d193": 2,
+    "d196": 2,
+    "d313": 2,
+    "d085": 2,
+    "d048": 2,
+    "d199": 2,
+    "d105": 2,
+    "d128": 2,
+    "d200": 2,
+    "d288": 2,
+    "d058": 2,
+    "d136": 2,
+    "d173": 1,
+    "d115": 2,
+    "d116": 2,
+    "d337": 2,
+    "d338": 2,
+    "d339": 2,
+    "d335": 2,
+    "d336": 2
+  }
 }
