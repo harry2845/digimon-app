@@ -20,6 +20,28 @@
   let editMode = false;
   let currentFilter = null; // null = all
 
+  // ── Collection Status ──
+  // 0 = 未见过, 1 = 已见过, 2 = 已拥有
+  const COLLECTION_KEY = 'digimonCollection';
+  const STATUS_LABELS = ['未见过', '已见过', '已拥有'];
+  const STATUS_CLASSES = ['status-unseen', 'status-seen', 'status-owned'];
+
+  function loadCollection() {
+    const saved = localStorage.getItem(COLLECTION_KEY);
+    if (saved) try { return JSON.parse(saved); } catch (e) { /* fall through */ }
+    return {};
+  }
+  function saveCollection() {
+    localStorage.setItem(COLLECTION_KEY, JSON.stringify(collection));
+  }
+  function getStatus(uid) { return collection[uid] || 0; }
+  function cycleStatus(uid) {
+    collection[uid] = ((collection[uid] || 0) + 1) % 3;
+    saveCollection();
+  }
+
+  let collection = loadCollection();
+
   // ── Helpers ──
   function $(sel) { return document.querySelector(sel); }
   function $$(sel) { return document.querySelectorAll(sel); }
@@ -88,14 +110,24 @@
   function renderList() {
     const container = $('#digimonList');
     const list = getFiltered();
-    container.innerHTML = list.map(d => `
-      <div class="digimon-card" data-uid="${d.uid}">
-        <div class="card-dex">No.${d.dexId}</div>
+    container.innerHTML = list.map(d => {
+      const s = getStatus(d.uid);
+      const icons = ['○', '◐', '●'];
+      return `<div class="digimon-card" data-uid="${d.uid}">
+        <div class="card-top-row"><span class="card-dex">No.${d.dexId}</span><span class="card-status-icon ${STATUS_CLASSES[s]}" data-uid="${d.uid}" title="${STATUS_LABELS[s]}">${icons[s]} ${STATUS_LABELS[s]}</span></div>
         <div class="card-name-cn">${d.nameCN}</div>
         <div class="card-name-en">${d.nameEN}</div>
         <span class="card-stage ${stageClass(d.stage)}">${d.stage}</span>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
+
+    container.querySelectorAll('.card-status-icon').forEach(icon => {
+      icon.onclick = (e) => {
+        e.stopPropagation();
+        cycleStatus(icon.dataset.uid);
+        renderList();
+      };
+    });
 
     container.querySelectorAll('.digimon-card').forEach(card => {
       card.onclick = () => location.hash = '#detail/' + card.dataset.uid;
@@ -113,21 +145,29 @@
     currentDetailUid = uid;
 
     const container = $('#detailContent');
-    const evoItems = (d.evolutions || []).map(eUid => {
+    const evoItems = (d.evolutions || []).map((eUid, idx, arr) => {
       const e = db.digimon[eUid];
       if (!e) return '';
+      const moveButtons = editMode ? `<span class="evo-item-move">
+        <button class="evo-move-btn" data-type="evo" data-idx="${idx}" data-dir="-1" ${idx === 0 ? 'disabled' : ''}>&#9650;</button>
+        <button class="evo-move-btn" data-type="evo" data-idx="${idx}" data-dir="1" ${idx === arr.length - 1 ? 'disabled' : ''}>&#9660;</button>
+      </span>` : '';
       return `<div class="evo-item" data-uid="${eUid}">
         <div><div class="evo-item-name">${e.nameCN}</div><div class="evo-item-stage">${e.stage}</div></div>
-        ${editMode ? `<button class="evo-item-delete" data-type="evo" data-target="${eUid}">&times;</button>` : ''}
+        ${editMode ? `<span class="evo-item-actions">${moveButtons}<button class="evo-item-delete" data-type="evo" data-target="${eUid}">&times;</button></span>` : ''}
       </div>`;
     }).join('');
 
-    const devoItems = (d.devolutions || []).map(dUid => {
+    const devoItems = (d.devolutions || []).map((dUid, idx, arr) => {
       const e = db.digimon[dUid];
       if (!e) return '';
+      const moveButtons = editMode ? `<span class="evo-item-move">
+        <button class="evo-move-btn" data-type="devo" data-idx="${idx}" data-dir="-1" ${idx === 0 ? 'disabled' : ''}>&#9650;</button>
+        <button class="evo-move-btn" data-type="devo" data-idx="${idx}" data-dir="1" ${idx === arr.length - 1 ? 'disabled' : ''}>&#9660;</button>
+      </span>` : '';
       return `<div class="evo-item" data-uid="${dUid}">
         <div><div class="evo-item-name">${e.nameCN}</div><div class="evo-item-stage">${e.stage}</div></div>
-        ${editMode ? `<button class="evo-item-delete" data-type="devo" data-target="${dUid}">&times;</button>` : ''}
+        ${editMode ? `<span class="evo-item-actions">${moveButtons}<button class="evo-item-delete" data-type="devo" data-target="${dUid}">&times;</button></span>` : ''}
       </div>`;
     }).join('');
 
@@ -158,10 +198,14 @@
       stageHtml = `<span class="detail-stage ${stageClass(d.stage)}">${d.stage}</span>`;
     }
 
+    const st = getStatus(uid);
+    const statusHtml = `<div class="detail-status-row"><button class="detail-status-btn ${STATUS_CLASSES[st]}" id="statusToggle">${STATUS_LABELS[st]}</button></div>`;
+
     container.innerHTML = `
       ${dexHtml}
       ${nameHtml}
       ${stageHtml}
+      ${statusHtml}
       <div class="evo-section">
         <div class="evo-col devo">
           <h3>退化 (${(d.devolutions || []).filter(u => db.digimon[u]).length})</h3>
@@ -179,7 +223,7 @@
     // Event: click evo items to navigate
     container.querySelectorAll('.evo-item').forEach(item => {
       item.onclick = (e) => {
-        if (e.target.classList.contains('evo-item-delete')) return;
+        if (e.target.classList.contains('evo-item-delete') || e.target.classList.contains('evo-move-btn')) return;
         location.hash = '#detail/' + item.dataset.uid;
       };
     });
@@ -193,6 +237,22 @@
         const arr = type === 'evo' ? d.evolutions : d.devolutions;
         const idx = arr.indexOf(target);
         if (idx !== -1) { arr.splice(idx, 1); saveDB(); renderDetail(uid); }
+      };
+    });
+
+    // Event: move evo/devo up/down
+    container.querySelectorAll('.evo-move-btn').forEach(btn => {
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        const type = btn.dataset.type;
+        const idx = parseInt(btn.dataset.idx);
+        const dir = parseInt(btn.dataset.dir);
+        const arr = type === 'evo' ? d.evolutions : d.devolutions;
+        const newIdx = idx + dir;
+        if (newIdx < 0 || newIdx >= arr.length) return;
+        [arr[idx], arr[newIdx]] = [arr[newIdx], arr[idx]];
+        saveDB();
+        renderDetail(uid);
       };
     });
 
@@ -256,6 +316,15 @@
 
     // Delete button visibility
     $('#deleteDigimonBtn').classList.toggle('hidden', !editMode);
+
+    // Status toggle
+    const statusBtn = $('#statusToggle');
+    if (statusBtn) {
+      statusBtn.onclick = () => {
+        cycleStatus(uid);
+        renderDetail(uid);
+      };
+    }
   }
 
   // ── Navigation (prev/next) ──
@@ -376,29 +445,60 @@
         result.innerHTML = '<div class="path-none">请选择起点和终点</div>';
         return;
       }
-      const path = findShortestPath(db, fromUid, toUid);
-      if (!path) {
-        result.innerHTML = '<div class="path-none">无法到达目标，没有可用的进化/退化路线</div>';
-        return;
+
+      const idealPath = findShortestPath(db, fromUid, toUid);
+      const constrainedPath = findConstrainedPath(db, fromUid, toUid, collection);
+
+      let html = '';
+
+      // Check if ideal path is already achievable (all devo targets are seen/owned)
+      let idealIsAchievable = false;
+      if (idealPath) {
+        idealIsAchievable = idealPath.every(step =>
+          step.edge !== 'devo' || getStatus(step.uid) >= 1
+        );
       }
-      result.innerHTML = '<strong>最短路线 (' + (path.length - 1) + ' 步):</strong>';
-      const chain = document.createElement('div');
-      chain.className = 'path-chain';
-      path.forEach((step, i) => {
-        if (i > 0) {
-          const edge = document.createElement('span');
-          edge.className = 'path-edge ' + step.edge;
-          edge.textContent = step.edge === 'evo' ? '→ 进化 →' : '→ 退化 →';
-          chain.appendChild(edge);
+
+      // Ideal path
+      if (!idealPath) {
+        html += '<div class="path-section"><h3>理想路线</h3><div class="path-none">无法到达目标，没有可用的进化/退化路线</div></div>';
+      } else {
+        html += `<div class="path-section"><h3>理想路线 (${idealPath.length - 1} 步)${idealIsAchievable ? ' ✓ 当前可行' : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
+      }
+
+      // Constrained path (only show if ideal is not already achievable)
+      if (!idealIsAchievable) {
+        if (!constrainedPath) {
+          html += '<div class="path-section"><h3>当前可行路线</h3><div class="path-none">无法到达目标（退化目标中有未见过的数码宝贝）</div></div>';
+        } else {
+          html += `<div class="path-section"><h3>当前可行路线 (${constrainedPath.length - 1} 步)</h3><div class="path-chain" id="constrainedChain"></div></div>`;
         }
-        const d = db.digimon[step.uid];
-        const node = document.createElement('div');
-        node.className = 'path-node';
-        node.innerHTML = `<div class="path-node-name">${d.nameCN}</div><div class="path-node-stage">${d.stage}</div>`;
-        node.onclick = () => { location.hash = '#detail/' + step.uid; };
-        chain.appendChild(node);
-      });
-      result.appendChild(chain);
+      }
+
+      result.innerHTML = html;
+
+      function renderChain(containerId, path) {
+        const container = document.getElementById(containerId);
+        if (!container || !path) return;
+        path.forEach((step, i) => {
+          if (i > 0) {
+            const edge = document.createElement('span');
+            edge.className = 'path-edge ' + step.edge;
+            edge.textContent = step.edge === 'evo' ? '→ 进化 →' : '→ 退化 →';
+            container.appendChild(edge);
+          }
+          const d = db.digimon[step.uid];
+          const node = document.createElement('div');
+          node.className = 'path-node';
+          const st = getStatus(step.uid);
+          node.innerHTML = `<div class="path-node-name">${d.nameCN}</div><div class="path-node-stage">${d.stage}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${STATUS_LABELS[st]}</div>` : ''}`;
+          node.onclick = () => { location.hash = '#detail/' + step.uid; };
+          container.appendChild(node);
+        });
+      }
+
+      renderChain('idealChain', idealPath);
+      if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath);
     };
   }
 
@@ -410,7 +510,8 @@
   document.addEventListener('click', () => $('#dataMenu').classList.add('hidden'));
 
   $('#exportBtn').onclick = () => {
-    const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' });
+    const exportData = { ...db, collection: collection };
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'digimon_data.json';
@@ -426,6 +527,11 @@
       try {
         const imported = JSON.parse(reader.result);
         if (imported.digimon && imported.stages) {
+          if (imported.collection) {
+            collection = imported.collection;
+            saveCollection();
+            delete imported.collection;
+          }
           db = imported;
           saveDB();
           navigate();
