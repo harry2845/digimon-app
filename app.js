@@ -108,6 +108,17 @@
   }
 
   function renderList() {
+    // Collection stats
+    const allDigimon = Object.values(db.digimon);
+    const total = allDigimon.length;
+    const seen = allDigimon.filter(d => getStatus(d.uid) >= 1).length;
+    const owned = allDigimon.filter(d => getStatus(d.uid) >= 2).length;
+
+    const statsEl = document.getElementById('collectionStats');
+    if (statsEl) statsEl.remove();
+    const statsHtml = `<span id="collectionStats" class="collection-stats">总数 <strong>${total}</strong> ｜ 已见过 <strong>${seen}</strong> ｜ 已拥有 <strong>${owned}</strong></span>`;
+    $('#stageFilter').insertAdjacentHTML('beforeend', statsHtml);
+
     const container = $('#digimonList');
     const list = getFiltered();
     container.innerHTML = list.map(d => {

@@ -82,9 +82,17 @@ body {
 
 .hidden { display: none !important; }
 
+/* Collection Stats */
+.collection-stats {
+  margin-left: auto;
+  font-size: 12px; color: var(--text-secondary);
+  white-space: nowrap;
+}
+.collection-stats strong { color: var(--text); }
+
 /* Stage filter */
 .stage-filter {
-  display: flex; flex-wrap: wrap; gap: 8px;
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
   padding: 12px 16px;
   background: #fff;
   border-bottom: 1px solid var(--border);
