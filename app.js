@@ -511,6 +511,78 @@
       renderChain('idealChain', idealPath);
       if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath);
     };
+
+    // ── Collection Route ──
+    let collectStartUid = null;
+    setupSearch('#collectStart', '#collectStartDropdown', uid => { collectStartUid = uid; });
+
+    $('#collectBtn').onclick = () => {
+      const result = $('#collectResult');
+      const allOwned = Object.values(db.digimon).every(d => getStatus(d.uid) >= 2);
+      if (allOwned) {
+        result.innerHTML = '<div class="path-none">已拥有全部数码宝贝！</div>';
+        return;
+      }
+
+      const hasAnyOwned = Object.values(db.digimon).some(d => getStatus(d.uid) >= 2);
+      if (!hasAnyOwned) {
+        result.innerHTML = '<div class="path-none">请先至少标记一个数码宝贝为"已拥有"作为起点</div>';
+        return;
+      }
+
+      result.innerHTML = '<div class="path-none">计算中...</div>';
+      setTimeout(() => {
+        const route = findCollectionRoute(db, collection, collectStartUid);
+        let html = '';
+
+        if (route.chains.length === 0 && route.unreachable.length === 0) {
+          html = '<div class="path-none">已拥有全部数码宝贝！</div>';
+        } else {
+          const totalNew = route.chains.reduce((sum, c) => sum + c.length - 1, 0);
+          html += `<div class="collect-summary">共 ${route.chains.length} 条路线，覆盖 ${totalNew} 步</div>`;
+
+          route.chains.forEach((chain, idx) => {
+            html += `<div class="collect-chain-section"><h4>路线 ${idx + 1}（${chain.length - 1} 步）· 起点：${db.digimon[chain[0].uid].nameCN}</h4><div class="path-chain" id="collectChain${idx}"></div></div>`;
+          });
+
+          if (route.unreachable.length > 0) {
+            html += `<div class="collect-unreachable"><h4>无法到达 (${route.unreachable.length})</h4><div class="collect-unreachable-list">`;
+            for (const uid of route.unreachable) {
+              const d = db.digimon[uid];
+              if (d) html += `<span class="collect-unreachable-item" data-uid="${uid}">${d.nameCN} <small>${d.stage}</small></span>`;
+            }
+            html += '</div></div>';
+          }
+        }
+
+        result.innerHTML = html;
+
+        // Render chains
+        route.chains.forEach((chain, idx) => {
+          const container = document.getElementById('collectChain' + idx);
+          if (!container) return;
+          chain.forEach((step, i) => {
+            if (i > 0) {
+              const edge = document.createElement('span');
+              edge.className = 'path-edge ' + step.edge;
+              edge.textContent = step.edge === 'evo' ? '→ 进化 →' : '→ 退化 →';
+              container.appendChild(edge);
+            }
+            const d = db.digimon[step.uid];
+            const node = document.createElement('div');
+            node.className = 'path-node' + (i === 0 ? ' path-node-start' : '');
+            node.innerHTML = `<div class="path-node-name">${d.nameCN}</div><div class="path-node-stage">${d.stage}</div>`;
+            node.onclick = () => { location.hash = '#detail/' + step.uid; };
+            container.appendChild(node);
+          });
+        });
+
+        // Click unreachable items
+        result.querySelectorAll('.collect-unreachable-item').forEach(item => {
+          item.onclick = () => { location.hash = '#detail/' + item.dataset.uid; };
+        });
+      }, 10);
+    };
   }
 
   // ── Data Menu ──

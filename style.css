@@ -448,3 +448,20 @@ body {
 }
 .path-node-status.status-seen { background: #42a5f5; }
 .path-node-status.status-owned { background: #66bb6a; }
+
+/* Collection Route */
+.section-divider { border: none; border-top: 2px solid var(--border); margin: 32px 0 24px; }
+.collect-form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; margin-bottom: 24px; }
+.collect-summary { font-size: 15px; font-weight: 600; margin-bottom: 16px; }
+.collect-chain-section { margin-bottom: 24px; }
+.collect-chain-section h4 { font-size: 14px; margin-bottom: 8px; color: var(--text-secondary); }
+.path-node-start { border-color: var(--primary); border-width: 2px; }
+.path-node-bridge { opacity: 0.5; border-style: dashed; }
+.collect-unreachable { margin-top: 24px; }
+.collect-unreachable h4 { font-size: 14px; margin-bottom: 8px; color: var(--danger); }
+.collect-unreachable-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.collect-unreachable-item {
+  background: #fbe9e7; border: 1px solid #ffccbc; border-radius: 6px;
+  padding: 4px 10px; font-size: 13px; cursor: pointer;
+}
+.collect-unreachable-item:hover { background: #ffccbc; }

@@ -70,6 +70,18 @@
         <button id="findPathBtn" class="btn-primary">查找路线</button>
       </div>
       <div id="pathResult" class="path-result"></div>
+
+      <hr class="section-divider">
+      <h2>全收集路线规划</h2>
+      <div class="collect-form">
+        <div class="path-select">
+          <label>起点（可选，留空自动选择）</label>
+          <input type="text" id="collectStart" placeholder="搜索已拥有的数码宝贝..." autocomplete="off">
+          <div id="collectStartDropdown" class="search-dropdown hidden"></div>
+        </div>
+        <button id="collectBtn" class="btn-primary">生成全收集路线</button>
+      </div>
+      <div id="collectResult" class="path-result"></div>
     </div>
   </main>
 
