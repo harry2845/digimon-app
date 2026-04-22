@@ -8,7 +8,7 @@ Pure frontend web app (HTML + CSS + Vanilla JS, no frameworks) for browsing/edit
 digimon-app/
 ├── index.html        # SPA entry point, all pages defined here
 ├── style.css         # All styles, responsive, mobile-friendly
-├── app.js            # Main application logic (IIFE, ~560 lines)
+├── app.js            # Main application logic (IIFE, ~650 lines)
 ├── pathfinder.js     # BFS pathfinding algorithms (standalone functions)
 ├── data.js           # Default digimon database (DEFAULT_DIGIMON_DB)
 ├── data_backup.js    # Factory backup (BACKUP_DIGIMON_DB), never modified at runtime
@@ -73,7 +73,7 @@ Single IIFE containing all application logic:
 ### Pages
 - **List** (`renderList()`) — Card grid, stage filter buttons, collection status icons (clickable)
 - **Detail** (`renderDetail(uid)`) — Full info, evo/devo lists (side by side), inline editing, status toggle
-- **Pathfinder** (`setupPathfinder()`) — Two search inputs with dropdowns, dual BFS results
+- **Pathfinder** (`setupPathfinder()`) — From/to search inputs, waypoint list (add/remove), dual BFS results, collection route planner
 
 ### Edit Mode
 - Toggled via checkbox in navbar
@@ -85,12 +85,15 @@ Single IIFE containing all application logic:
 
 ## pathfinder.js
 
-Two standalone functions (not inside the IIFE):
+Standalone functions (not inside the IIFE):
 
 - **`findShortestPath(db, fromUid, toUid)`** — Standard BFS, treats evo and devo edges equally (weight 1). Returns array of `{uid, edge}` or null.
 - **`findConstrainedPath(db, fromUid, toUid, collectionStatus)`** — Same BFS but devolution edges are only traversable if the target has status >= 1 (seen or owned). Evolution edges are unrestricted.
+- **`findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extraSeen)`** — Like `findConstrainedPath` but also allows devolution to nodes in `extraSeen` set. Used for waypoint chains where prior segments' nodes count as seen.
+- **`findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus)`** — Finds shortest path from→to passing through all waypoint nodes. Enumerates all permutations of waypoints, runs segmented BFS for each, returns the shortest. Returns `{ideal, constrained}` — both the unrestricted and collection-constrained best paths. Constrained version dynamically accumulates seen nodes across segments.
+- **`findCollectionRoute(db, collectionStatus, startUid)`** — Greedy DFS chain builder for collecting all un-owned Digimon. Starts from an owned node, greedily walks to un-owned neighbors (preferring high-connectivity nodes), bridges through owned nodes via BFS when stuck. Returns `{chains, unreachable}`.
 
-The UI shows both results: "Ideal Path" and "Currently Feasible Path". If the ideal path is already fully feasible, only one is shown.
+The pathfinder UI shows both "Ideal Path" and "Currently Feasible Path". If the ideal path is already fully feasible, only one is shown.
 
 ## Important Warnings
 
@@ -105,3 +108,5 @@ The UI shows both results: "Ideal Path" and "Currently Feasible Path". If the id
 - Keyboard: left/right arrows navigate between detail pages
 - Stage colors: 7 stages mapped to CSS variables (baby1=pink → super=orange)
 - Collection icons on list cards: ○ unseen (gray), ◐ seen (blue), ● owned (green)
+- Collection stats bar on list page: total / seen / owned counts
+- Waypoint UI: dynamic add/remove waypoint inputs between from/to in pathfinder

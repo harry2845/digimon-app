@@ -319,6 +319,23 @@ body {
 }
 .btn-primary:hover { background: #1557b0; }
 
+/* Waypoints */
+.waypoint-list { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.waypoint-item { display: flex; align-items: flex-end; gap: 8px; }
+.waypoint-item .path-select { flex: 1; }
+.waypoint-remove {
+  background: none; border: 1px solid var(--danger); color: var(--danger);
+  border-radius: 50%; width: 28px; height: 28px; font-size: 16px;
+  cursor: pointer; flex-shrink: 0; margin-bottom: 2px;
+}
+.waypoint-remove:hover { background: var(--danger); color: #fff; }
+.btn-waypoint {
+  background: none; border: 2px dashed var(--border); border-radius: 8px;
+  padding: 6px 16px; cursor: pointer; color: var(--text-secondary);
+  font-size: 13px; white-space: nowrap;
+}
+.btn-waypoint:hover { border-color: var(--primary); color: var(--primary); }
+
 .search-dropdown {
   position: absolute; top: 100%; left: 0; right: 0;
   background: #fff; border: 1px solid var(--border);

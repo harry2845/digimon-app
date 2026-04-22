@@ -450,6 +450,42 @@
     setupSearch('#pathFrom', '#pathFromDropdown', uid => { fromUid = uid; });
     setupSearch('#pathTo', '#pathToDropdown', uid => { toUid = uid; });
 
+    // ── Waypoints ──
+    const waypoints = [];
+    let waypointCounter = 0;
+
+    function renderWaypoints() {
+      const container = $('#waypointList');
+      container.innerHTML = waypoints.map((wp, i) => `
+        <div class="waypoint-item">
+          <div class="path-select">
+            <label>途经点 ${i + 1}</label>
+            <input type="text" id="waypoint${wp.id}" placeholder="搜索数码宝贝..." autocomplete="off" value="${wp.uid ? db.digimon[wp.uid].nameCN : ''}">
+            <div id="waypointDropdown${wp.id}" class="search-dropdown hidden"></div>
+          </div>
+          <button class="waypoint-remove" data-idx="${i}">&times;</button>
+        </div>
+      `).join('');
+
+      // Setup search for each waypoint
+      waypoints.forEach((wp, i) => {
+        setupSearch('#waypoint' + wp.id, '#waypointDropdown' + wp.id, uid => { wp.uid = uid; });
+      });
+
+      // Remove buttons
+      container.querySelectorAll('.waypoint-remove').forEach(btn => {
+        btn.onclick = () => {
+          waypoints.splice(parseInt(btn.dataset.idx), 1);
+          renderWaypoints();
+        };
+      });
+    }
+
+    $('#addWaypointBtn').onclick = () => {
+      waypoints.push({ id: waypointCounter++, uid: null });
+      renderWaypoints();
+    };
+
     $('#findPathBtn').onclick = () => {
       const result = $('#pathResult');
       if (!fromUid || !toUid) {
@@ -457,8 +493,8 @@
         return;
       }
 
-      const idealPath = findShortestPath(db, fromUid, toUid);
-      const constrainedPath = findConstrainedPath(db, fromUid, toUid, collection);
+      const wpUids = waypoints.map(wp => wp.uid).filter(Boolean);
+      const { ideal: idealPath, constrained: constrainedPath } = findPathWithWaypoints(db, fromUid, toUid, wpUids, collection);
 
       let html = '';
 
