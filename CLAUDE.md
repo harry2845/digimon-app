@@ -48,14 +48,16 @@ Not stored in `data.js`. Included in JSON export/import.
 
 - **`localStorage['digimonDB']`** — Modified digimon data. Loaded on startup, takes priority over `data.js`.
 - **`localStorage['digimonCollection']`** — Collection status per digimon.
+- **`localStorage['digimonPathTabs']`** — Path query tab state: `{ activeTab, tabs: [{ name, fromUid, toUid, waypoints, resultHtml }] }`.
+- **`localStorage['digimonPathPresets']`** — Named path presets: `[{ name, fromUid, toUid, waypoints }]` (max 10).
 - **`data.js` (DEFAULT_DIGIMON_DB)** — Fallback when no localStorage. User can download updated version via "Save as Default".
 - **`data_backup.js` (BACKUP_DIGIMON_DB)** — Factory reset target. Should never be regenerated after user edits `data.js`.
 
 ### Reset operations
 - "Reset to Default" → loads `DEFAULT_DIGIMON_DB` into localStorage (does NOT touch collection)
 - "Reset to Factory" → loads `BACKUP_DIGIMON_DB` into localStorage (does NOT touch collection)
-- JSON export includes both digimon data and collection status
-- JSON import restores both if collection field is present
+- JSON export includes both digimon data, collection status, path tabs, and path presets
+- JSON import restores all if respective fields are present
 
 ## app.js Architecture
 
@@ -83,6 +85,11 @@ Single IIFE containing all application logic:
 - **List** (`renderList()`) — Card grid, stage filter buttons, collection status filter buttons (unseen/seen-only/owned/seen+owned, combinable with stage filter), collection status icons (clickable)
 - **Detail** (`renderDetail(uid)`) — Full info, evo/devo lists (side by side), inline editing, status toggle
 - **Pathfinder** (`setupPathfinder()`) — From/to search inputs, waypoint list (add/remove), dual BFS results, collection route planner
+  - **Multi-tab**: Up to 10 tabs, each with independent from/to/waypoints/result cache. Tab state in `localStorage['digimonPathTabs']`.
+  - **Presets**: Save/load named presets (max 10) in `localStorage['digimonPathPresets']`. Load overwrites current tab.
+  - **Result caching**: Query results stored as innerHTML string per tab, re-rendered with click handlers on tab switch.
+  - **Waypoint highlight**: Waypoint nodes in path results get `.path-node-waypoint` class (orange border + yellow bg).
+  - `window._refreshPathTabs` — exposed by setupPathfinder for language toggle re-render.
 
 ### Edit Mode
 - Toggled via checkbox in navbar

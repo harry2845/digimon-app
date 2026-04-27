@@ -87,6 +87,7 @@
     localStorage.setItem(LANG_KEY, currentLang);
     updateStaticText();
     renderStageFilter();
+    if (window._refreshPathTabs) window._refreshPathTabs();
     navigate();
   }
 
@@ -533,12 +534,49 @@
   }
 
   // ── Pathfinder Page ──
+  const PATH_TABS_KEY = 'digimonPathTabs';
+  const PATH_PRESETS_KEY = 'digimonPathPresets';
+
+  function newTab(name) {
+    return { name: name || (t('标签') + ' 1'), fromUid: null, toUid: null, waypoints: [], resultHtml: null };
+  }
+
+  function loadPathTabs() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(PATH_TABS_KEY));
+      if (saved && saved.tabs && saved.tabs.length > 0) return saved;
+    } catch (e) { /* fall through */ }
+    return { activeTab: 0, tabs: [newTab()] };
+  }
+
+  function savePathTabs(data) {
+    localStorage.setItem(PATH_TABS_KEY, JSON.stringify(data));
+  }
+
+  function loadPathPresets() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(PATH_PRESETS_KEY));
+      if (Array.isArray(saved)) return saved;
+    } catch (e) { /* fall through */ }
+    return [];
+  }
+
+  function savePathPresets(presets) {
+    localStorage.setItem(PATH_PRESETS_KEY, JSON.stringify(presets));
+  }
+
   function setupPathfinder() {
-    let fromUid = null, toUid = null;
+    let tabData = loadPathTabs();
+    let presets = loadPathPresets();
+    let waypointCounter = 0;
+
+    // Current tab accessors
+    function cur() { return tabData.tabs[tabData.activeTab]; }
 
     function setupSearch(inputId, dropdownId, onSelect) {
       const input = $(inputId);
       const dropdown = $(dropdownId);
+      if (!input || !dropdown) return;
 
       input.onfocus = () => renderDropdown('');
       input.oninput = () => renderDropdown(input.value);
@@ -569,54 +607,277 @@
       }
     }
 
-    setupSearch('#pathFrom', '#pathFromDropdown', uid => { fromUid = uid; });
-    setupSearch('#pathTo', '#pathToDropdown', uid => { toUid = uid; });
+    // ── Tab Bar ──
+    function renderTabBar() {
+      const bar = $('#pathTabBar');
+      let html = '';
+
+      tabData.tabs.forEach((tab, i) => {
+        const active = i === tabData.activeTab ? ' active' : '';
+        const closeBtn = tabData.tabs.length > 1
+          ? `<button class="path-tab-close" data-idx="${i}">&times;</button>` : '';
+        html += `<div class="path-tab${active}" data-idx="${i}">
+          <span class="path-tab-name" data-idx="${i}">${tab.name}</span>${closeBtn}
+        </div>`;
+      });
+
+      if (tabData.tabs.length < 10) {
+        html += `<button class="path-tab-add" id="tabAddBtn">+</button>`;
+      }
+
+      html += `<div class="path-tab-actions">
+        <button class="path-tab-action" id="tabSaveBtn">${t('保存')}</button>
+        <button class="path-tab-action" id="tabLoadBtn" style="position:relative">${t('加载')}<div id="presetDropdown" class="preset-dropdown hidden"></div></button>
+      </div>`;
+
+      bar.innerHTML = html;
+
+      // Tab click to switch
+      bar.querySelectorAll('.path-tab').forEach(el => {
+        el.onclick = (e) => {
+          if (e.target.classList.contains('path-tab-close')) return;
+          const idx = parseInt(el.dataset.idx);
+          if (idx !== tabData.activeTab) switchTab(idx);
+        };
+      });
+
+      // Tab double-click to rename
+      bar.querySelectorAll('.path-tab-name').forEach(el => {
+        el.ondblclick = (e) => {
+          e.stopPropagation();
+          const idx = parseInt(el.dataset.idx);
+          const tab = tabData.tabs[idx];
+          const input = document.createElement('input');
+          input.className = 'path-tab-rename-input';
+          input.value = tab.name;
+          el.textContent = '';
+          el.appendChild(input);
+          input.focus();
+          input.select();
+          const finish = () => {
+            const val = input.value.trim();
+            if (val) tab.name = val;
+            savePathTabs(tabData);
+            renderTabBar();
+          };
+          input.onblur = finish;
+          input.onkeydown = (ev) => { if (ev.key === 'Enter') finish(); };
+        };
+      });
+
+      // Close tab
+      bar.querySelectorAll('.path-tab-close').forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const idx = parseInt(btn.dataset.idx);
+          tabData.tabs.splice(idx, 1);
+          if (tabData.activeTab >= tabData.tabs.length) tabData.activeTab = tabData.tabs.length - 1;
+          else if (tabData.activeTab > idx) tabData.activeTab--;
+          savePathTabs(tabData);
+          renderTabBar();
+          restoreForm();
+        };
+      });
+
+      // Add tab
+      const addBtn = document.getElementById('tabAddBtn');
+      if (addBtn) {
+        addBtn.onclick = () => {
+          saveCurrentTab();
+          const n = tabData.tabs.length + 1;
+          tabData.tabs.push(newTab(t('标签') + ' ' + n));
+          tabData.activeTab = tabData.tabs.length - 1;
+          savePathTabs(tabData);
+          renderTabBar();
+          restoreForm();
+        };
+      }
+
+      // Save preset
+      const saveBtn = document.getElementById('tabSaveBtn');
+      if (saveBtn) {
+        saveBtn.onclick = () => {
+          saveCurrentTab();
+          const name = prompt(t('请输入标签名称：'), cur().name);
+          if (!name) return;
+          if (presets.length >= 10) {
+            alert(t('最多保存 10 个标签'));
+            return;
+          }
+          const c = cur();
+          presets.push({ name, fromUid: c.fromUid, toUid: c.toUid, waypoints: [...c.waypoints] });
+          savePathPresets(presets);
+          alert(t('已保存'));
+        };
+      }
+
+      // Load preset
+      const loadBtn = document.getElementById('tabLoadBtn');
+      const dropdown = document.getElementById('presetDropdown');
+      if (loadBtn && dropdown) {
+        loadBtn.onclick = (e) => {
+          e.stopPropagation();
+          if (presets.length === 0) {
+            dropdown.innerHTML = '<div class="preset-empty">' + t('暂无保存的标签') + '</div>';
+          } else {
+            dropdown.innerHTML = presets.map((p, i) =>
+              `<div class="preset-item" data-idx="${i}">
+                <span>${p.name}</span>
+                <button class="preset-item-delete" data-idx="${i}">&times;</button>
+              </div>`
+            ).join('');
+          }
+          dropdown.classList.toggle('hidden');
+
+          dropdown.querySelectorAll('.preset-item').forEach(item => {
+            item.onclick = (e) => {
+              if (e.target.classList.contains('preset-item-delete')) return;
+              const p = presets[parseInt(item.dataset.idx)];
+              const c = cur();
+              c.name = p.name;
+              c.fromUid = p.fromUid;
+              c.toUid = p.toUid;
+              c.waypoints = [...p.waypoints];
+              c.resultHtml = null;
+              savePathTabs(tabData);
+              dropdown.classList.add('hidden');
+              renderTabBar();
+              restoreForm();
+            };
+          });
+
+          dropdown.querySelectorAll('.preset-item-delete').forEach(btn => {
+            btn.onclick = (e) => {
+              e.stopPropagation();
+              presets.splice(parseInt(btn.dataset.idx), 1);
+              savePathPresets(presets);
+              dropdown.classList.add('hidden');
+            };
+          });
+        };
+
+        document.addEventListener('click', (e) => {
+          if (!loadBtn.contains(e.target)) dropdown.classList.add('hidden');
+        });
+      }
+    }
+
+    // ── Save current form state to tab data ──
+    function saveCurrentTab() {
+      const c = cur();
+      c.resultHtml = $('#pathResult').innerHTML || null;
+      savePathTabs(tabData);
+    }
+
+    // ── Switch to tab ──
+    function switchTab(idx) {
+      saveCurrentTab();
+      tabData.activeTab = idx;
+      savePathTabs(tabData);
+      renderTabBar();
+      restoreForm();
+    }
+
+    // ── Restore form from tab data ──
+    function restoreForm() {
+      const c = cur();
+      waypointCounter = 0;
+
+      // Restore from/to inputs
+      const fromInput = $('#pathFrom');
+      const toInput = $('#pathTo');
+      if (c.fromUid && db.digimon[c.fromUid]) {
+        fromInput.value = t(db.digimon[c.fromUid].nameCN);
+      } else {
+        fromInput.value = '';
+        c.fromUid = null;
+      }
+      if (c.toUid && db.digimon[c.toUid]) {
+        toInput.value = t(db.digimon[c.toUid].nameCN);
+      } else {
+        toInput.value = '';
+        c.toUid = null;
+      }
+
+      // Restore waypoints
+      renderWaypointsFromData();
+
+      // Restore result
+      const resultEl = $('#pathResult');
+      if (c.resultHtml) {
+        resultEl.innerHTML = c.resultHtml;
+        // Re-attach click handlers on path nodes
+        resultEl.querySelectorAll('.path-node').forEach(node => {
+          const uid = node.dataset.uid;
+          if (uid) node.onclick = () => { location.hash = '#detail/' + uid; };
+        });
+      } else {
+        resultEl.innerHTML = '';
+      }
+    }
 
     // ── Waypoints ──
-    const waypoints = [];
-    let waypointCounter = 0;
-
-    function renderWaypoints() {
+    function renderWaypointsFromData() {
+      const c = cur();
       const container = $('#waypointList');
-      container.innerHTML = waypoints.map((wp, i) => `
+      waypointCounter = c.waypoints.length;
+      container.innerHTML = c.waypoints.map((wpUid, i) => {
+        const d = wpUid ? db.digimon[wpUid] : null;
+        return `
         <div class="waypoint-item">
           <div class="path-select">
             <label>${t("途经点")} ${i + 1}</label>
-            <input type="text" id="waypoint${wp.id}" placeholder="${t("搜索数码宝贝...")}" autocomplete="off" value="${wp.uid ? t(db.digimon[wp.uid].nameCN) : ''}">
-            <div id="waypointDropdown${wp.id}" class="search-dropdown hidden"></div>
+            <input type="text" id="waypoint${i}" placeholder="${t("搜索数码宝贝...")}" autocomplete="off" value="${d ? t(d.nameCN) : ''}">
+            <div id="waypointDropdown${i}" class="search-dropdown hidden"></div>
           </div>
           <button class="waypoint-remove" data-idx="${i}">&times;</button>
-        </div>
-      `).join('');
+        </div>`;
+      }).join('');
 
       // Setup search for each waypoint
-      waypoints.forEach((wp, i) => {
-        setupSearch('#waypoint' + wp.id, '#waypointDropdown' + wp.id, uid => { wp.uid = uid; });
+      c.waypoints.forEach((wpUid, i) => {
+        setupSearch('#waypoint' + i, '#waypointDropdown' + i, uid => {
+          cur().waypoints[i] = uid;
+          savePathTabs(tabData);
+        });
       });
 
       // Remove buttons
       container.querySelectorAll('.waypoint-remove').forEach(btn => {
         btn.onclick = () => {
-          waypoints.splice(parseInt(btn.dataset.idx), 1);
-          renderWaypoints();
+          cur().waypoints.splice(parseInt(btn.dataset.idx), 1);
+          savePathTabs(tabData);
+          renderWaypointsFromData();
         };
       });
     }
 
+    // Setup from/to search (these DOM elements are static, so only bind once)
+    setupSearch('#pathFrom', '#pathFromDropdown', uid => {
+      cur().fromUid = uid;
+      savePathTabs(tabData);
+    });
+    setupSearch('#pathTo', '#pathToDropdown', uid => {
+      cur().toUid = uid;
+      savePathTabs(tabData);
+    });
+
     $('#addWaypointBtn').onclick = () => {
-      waypoints.push({ id: waypointCounter++, uid: null });
-      renderWaypoints();
+      cur().waypoints.push(null);
+      savePathTabs(tabData);
+      renderWaypointsFromData();
     };
 
     $('#findPathBtn').onclick = () => {
+      const c = cur();
       const result = $('#pathResult');
-      if (!fromUid || !toUid) {
+      if (!c.fromUid || !c.toUid) {
         result.innerHTML = '<div class="path-none">' + t('请选择起点和终点') + '</div>';
         return;
       }
 
-      const wpUids = waypoints.map(wp => wp.uid).filter(Boolean);
-      const { ideal: idealPath, constrained: constrainedPath } = findPathWithWaypoints(db, fromUid, toUid, wpUids, collection);
+      const wpUids = c.waypoints.filter(Boolean);
+      const { ideal: idealPath, constrained: constrainedPath } = findPathWithWaypoints(db, c.fromUid, c.toUid, wpUids, collection);
 
       let html = '';
 
@@ -646,7 +907,7 @@
 
       result.innerHTML = html;
 
-      function renderChain(containerId, path) {
+      function renderChain(containerId, path, waypointSet) {
         const container = document.getElementById(containerId);
         if (!container || !path) return;
         path.forEach((step, i) => {
@@ -658,7 +919,8 @@
           }
           const d = db.digimon[step.uid];
           const node = document.createElement('div');
-          node.className = 'path-node';
+          node.className = 'path-node' + (waypointSet && waypointSet.has(step.uid) ? ' path-node-waypoint' : '');
+          node.dataset.uid = step.uid;
           const st = getStatus(step.uid);
           node.innerHTML = `<div class="path-node-name">${t(d.nameCN)}</div><div class="path-node-stage">${t(d.stage)}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${t(STATUS_LABELS[st])}</div>` : ''}`;
           node.onclick = () => { location.hash = '#detail/' + step.uid; };
@@ -666,8 +928,13 @@
         });
       }
 
-      renderChain('idealChain', idealPath);
-      if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath);
+      const wpSet = new Set(wpUids);
+      renderChain('idealChain', idealPath, wpSet);
+      if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath, wpSet);
+
+      // Cache result
+      c.resultHtml = result.innerHTML;
+      savePathTabs(tabData);
     };
 
     // ── Collection Route ──
@@ -741,6 +1008,13 @@
         });
       }, 10);
     };
+
+    // ── Initial render ──
+    renderTabBar();
+    restoreForm();
+
+    // Expose refresh for language toggle
+    window._refreshPathTabs = () => { renderTabBar(); restoreForm(); };
   }
 
   // ── Data Menu ──
@@ -752,6 +1026,15 @@
 
   $('#exportBtn').onclick = () => {
     const exportData = { ...db, collection: collection };
+    // Include path tabs and presets
+    try {
+      const savedTabs = JSON.parse(localStorage.getItem(PATH_TABS_KEY));
+      if (savedTabs) exportData.pathTabs = savedTabs;
+    } catch (e) { /* skip */ }
+    try {
+      const savedPresets = JSON.parse(localStorage.getItem(PATH_PRESETS_KEY));
+      if (savedPresets) exportData.pathPresets = savedPresets;
+    } catch (e) { /* skip */ }
     const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -772,6 +1055,14 @@
             collection = imported.collection;
             saveCollection();
             delete imported.collection;
+          }
+          if (imported.pathTabs) {
+            localStorage.setItem(PATH_TABS_KEY, JSON.stringify(imported.pathTabs));
+            delete imported.pathTabs;
+          }
+          if (imported.pathPresets) {
+            localStorage.setItem(PATH_PRESETS_KEY, JSON.stringify(imported.pathPresets));
+            delete imported.pathPresets;
           }
           db = imported;
           saveDB();
