@@ -32,7 +32,7 @@ const DEFAULT_DIGIMON_DB = {
       devolutions: ["d008"]  // UIDs this can devolve TO
     }
   },
-  stages: ["幼年期I", "幼年期II", "成長期", "成熟期", "完全體", "究極體", "超究極體"]
+  stages: ["幼年期I", "幼年期II", "成長期", "成熟期", "完全體", "究極體", "超究極體", "裝甲體"]
 };
 ```
 
@@ -60,6 +60,15 @@ Not stored in `data.js`. Included in JSON export/import.
 ## app.js Architecture
 
 Single IIFE containing all application logic:
+
+### i18n (Traditional/Simplified Chinese)
+- `currentLang` — `'tw'` or `'cn'`, persisted in `localStorage['digimonLang']`
+- `initConverter()` — initializes OpenCC converters (tw→cn and cn→tw) from opencc-js CDN
+- `t(text)` — converts text to Simplified Chinese when `currentLang === 'cn'`, otherwise returns as-is. Used to wrap all displayed strings.
+- `fromInput(text)` — converts Simplified input back to Traditional for search matching against `nameCN`
+- `updateStaticText()` — updates all static HTML text (nav labels, buttons, placeholders) to current language
+- `toggleLang()` — switches language, saves preference, re-renders everything
+- **Data layer is never modified** — `t()` only affects rendering output
 
 ### Data Layer (top)
 - `loadDB()` / `saveDB()` — localStorage ↔ `db` object
@@ -99,6 +108,7 @@ The pathfinder UI shows both "Ideal Path" and "Currently Feasible Path". If the 
 
 - **DO NOT run `build_data.py`** — it overwrites `data.js` with regenerated data, destroying user's manual Chinese name edits. Apply fixes in-place instead.
 - **341 entries** after deduplication (original source had ~352 with duplicates).
+- **8 stages**: 幼年期I, 幼年期II, 成長期, 成熟期, 完全體, 究極體, 超究極體, 裝甲體 (Armor form, was previously "8" in raw data).
 - Three entries were manually split from wrongly-merged duplicates: d340 (鋼鐵巨龍獸/MetalTyrannomon), d341 (鎧甲加魯魯獸/MagnaGarurumon normal form), d014 (多路龍獸/Dorugoramon fixed).
 - Evo/devo relationships should be symmetric: if A evolves to B, B should devolve to A.
 
@@ -106,7 +116,8 @@ The pathfinder UI shows both "Ideal Path" and "Currently Feasible Path". If the 
 
 - Mobile: responsive grid → single column, touch swipe for detail navigation
 - Keyboard: left/right arrows navigate between detail pages
-- Stage colors: 7 stages mapped to CSS variables (baby1=pink → super=orange)
+- Stage colors: 8 stages mapped to CSS variables (baby1=pink → super=orange, armor=brown)
+- Language toggle button in navbar: 繁/简, switches all display text via opencc-js runtime conversion
 - Collection icons on list cards: ○ unseen (gray), ◐ seen (blue), ● owned (green)
 - Collection stats bar on list page: total / seen / owned counts
 - Waypoint UI: dynamic add/remove waypoint inputs between from/to in pathfinder

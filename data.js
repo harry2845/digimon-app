@@ -2826,7 +2826,7 @@ const DEFAULT_DIGIMON_DB = {
       "dexId": 324,
       "nameCN": "金甲龍獸",
       "nameEN": "Magnamon",
-      "stage": "8",
+      "stage": "裝甲體",
       "evolutions": [],
       "devolutions": [
         "d094",
@@ -4595,7 +4595,7 @@ const DEFAULT_DIGIMON_DB = {
       "dexId": 323,
       "nameCN": "烈焰獸",
       "nameEN": "Flamedramon",
-      "stage": "8",
+      "stage": "裝甲體",
       "evolutions": [],
       "devolutions": [
         "d094"
@@ -5059,7 +5059,7 @@ const DEFAULT_DIGIMON_DB = {
       "dexId": 325,
       "nameCN": "拉比獸（盔甲）",
       "nameEN": "Rapidmon (Armor)",
-      "stage": "8",
+      "stage": "裝甲體",
       "evolutions": [],
       "devolutions": [
         "d266",
@@ -5477,6 +5477,7 @@ const DEFAULT_DIGIMON_DB = {
     "成熟期",
     "完全體",
     "究極體",
-    "超究極體"
+    "超究極體",
+    "裝甲體"
   ]
 };

@@ -16,6 +16,7 @@
   --stage-perfect: #ba68c8;
   --stage-ultimate: #ffd54f;
   --stage-super: #ff8a65;
+  --stage-armor: #a1887f;
 }
 
 body {
@@ -62,6 +63,12 @@ body {
   background: none; border: none; color: #fff;
   font-size: 20px; cursor: pointer; padding: 4px 8px;
 }
+.btn-lang {
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.4);
+  color: #fff; padding: 4px 10px; border-radius: 4px;
+  cursor: pointer; font-size: 14px;
+}
+.btn-lang:hover { background: rgba(255,255,255,.25); }
 
 /* Dropdown menu */
 .dropdown-menu {
@@ -422,6 +429,7 @@ body {
 .stage-完全體 { background: var(--stage-perfect) !important; }
 .stage-究極體 { background: var(--stage-ultimate) !important; }
 .stage-超究極體 { background: var(--stage-super) !important; }
+.stage-裝甲體 { background: var(--stage-armor) !important; }
 
 /* Mobile */
 @media (max-width: 600px) {

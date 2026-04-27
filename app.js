@@ -1,6 +1,95 @@
 (function () {
   'use strict';
 
+  // ── i18n (Traditional/Simplified Chinese) ──
+  const LANG_KEY = 'digimonLang';
+  let currentLang = localStorage.getItem(LANG_KEY) || 'tw'; // 'tw' or 'cn'
+  let toSimplified = null;
+  let toTraditional = null;
+
+  function initConverter() {
+    if (window.OpenCC) {
+      toSimplified = OpenCC.Converter({ from: 'tw', to: 'cn' });
+      toTraditional = OpenCC.Converter({ from: 'cn', to: 'tw' });
+    }
+  }
+
+  function t(text) {
+    if (currentLang === 'cn' && toSimplified) return toSimplified(text);
+    return text;
+  }
+
+  function fromInput(text) {
+    if (currentLang === 'cn' && toTraditional) return toTraditional(text);
+    return text;
+  }
+
+  function updateStaticText() {
+    const btn = document.getElementById('langToggle');
+    if (btn) btn.textContent = currentLang === 'tw' ? '繁' : '简';
+    document.title = t('数码宝贝电子图鉴');
+    const listLink = document.querySelector('[data-page="list"]');
+    if (listLink) listLink.textContent = t('图鉴');
+    const pathLink = document.querySelector('[data-page="pathfinder"]');
+    if (pathLink) pathLink.textContent = t('路线查询');
+    const editSpan = document.querySelector('.edit-toggle span');
+    if (editSpan) editSpan.textContent = t('编辑模式');
+    const menuBtn = document.getElementById('dataMenuBtn');
+    if (menuBtn) menuBtn.title = t('数据管理');
+    const exportBtn = document.getElementById('exportBtn');
+    if (exportBtn) exportBtn.textContent = t('导出JSON');
+    const importBtn = document.getElementById('importBtn');
+    if (importBtn) importBtn.textContent = t('导入JSON');
+    const saveDefaultBtn = document.getElementById('saveDefaultBtn');
+    if (saveDefaultBtn) saveDefaultBtn.textContent = t('保存为默认数据');
+    const resetDefaultBtn = document.getElementById('resetDefaultBtn');
+    if (resetDefaultBtn) resetDefaultBtn.textContent = t('重置为默认数据');
+    const resetBackupBtn = document.getElementById('resetBackupBtn');
+    if (resetBackupBtn) resetBackupBtn.textContent = t('重置为出厂数据');
+    const addBtn = document.getElementById('addDigimonBtn');
+    if (addBtn) addBtn.textContent = '+ ' + t('新增角色');
+    // Pathfinder page static text
+    const pfPage = document.getElementById('pathfinderPage');
+    if (pfPage) {
+      const h2s = pfPage.querySelectorAll('h2');
+      if (h2s[0]) h2s[0].textContent = t('进化路线查询');
+      if (h2s[1]) h2s[1].textContent = t('全收集路线规划');
+      const labels = pfPage.querySelectorAll('.path-select label');
+      labels.forEach(l => {
+        if (l.htmlFor === 'pathFrom' || l.closest('.path-select')?.querySelector('#pathFrom'))
+          l.textContent = t('起点');
+        else if (l.htmlFor === 'pathTo' || l.closest('.path-select')?.querySelector('#pathTo'))
+          l.textContent = t('终点');
+        else if (l.closest('.path-select')?.querySelector('#collectStart'))
+          l.textContent = t('起点（可选，留空自动选择）');
+      });
+      const pathFrom = document.getElementById('pathFrom');
+      if (pathFrom) pathFrom.placeholder = t('搜索数码宝贝...');
+      const pathTo = document.getElementById('pathTo');
+      if (pathTo) pathTo.placeholder = t('搜索数码宝贝...');
+      const collectStart = document.getElementById('collectStart');
+      if (collectStart) collectStart.placeholder = t('搜索已拥有的数码宝贝...');
+      const findBtn = document.getElementById('findPathBtn');
+      if (findBtn) findBtn.textContent = t('查找路线');
+      const collectBtn = document.getElementById('collectBtn');
+      if (collectBtn) collectBtn.textContent = t('生成全收集路线');
+      const wpBtn = document.getElementById('addWaypointBtn');
+      if (wpBtn) wpBtn.textContent = '+ ' + t('添加途经点');
+    }
+    const backBtn = document.getElementById('backBtn');
+    if (backBtn) backBtn.innerHTML = '&larr; ' + t('返回');
+    const delBtn = document.getElementById('deleteDigimonBtn');
+    if (delBtn) delBtn.textContent = t('删除');
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'tw' ? 'cn' : 'tw';
+    localStorage.setItem(LANG_KEY, currentLang);
+    updateStaticText();
+    renderStageFilter();
+    navigate();
+  }
+
   // ── Data Layer ──
   const STORAGE_KEY = 'digimonDB';
 
@@ -88,7 +177,7 @@
     container.innerHTML = '';
     const allBtn = document.createElement('button');
     allBtn.className = 'stage-btn' + (currentFilter === null ? ' active' : '');
-    allBtn.textContent = '全部';
+    allBtn.textContent = t('全部');
     allBtn.style.background = currentFilter === null ? '#666' : '';
     allBtn.onclick = () => { currentFilter = null; renderStageFilter(); renderList(); };
     container.appendChild(allBtn);
@@ -97,7 +186,7 @@
       const btn = document.createElement('button');
       btn.className = 'stage-btn ' + stageClass(stage) + (currentFilter === stage ? ' active' : '');
       if (currentFilter !== stage) btn.style.background = '';
-      btn.textContent = stage;
+      btn.textContent = t(stage);
       btn.onclick = () => {
         currentFilter = currentFilter === stage ? null : stage;
         renderStageFilter();
@@ -116,7 +205,7 @@
 
     const statsEl = document.getElementById('collectionStats');
     if (statsEl) statsEl.remove();
-    const statsHtml = `<span id="collectionStats" class="collection-stats">总数 <strong>${total}</strong> ｜ 已见过 <strong>${seen}</strong> ｜ 已拥有 <strong>${owned}</strong></span>`;
+    const statsHtml = `<span id="collectionStats" class="collection-stats">${t('总数')} <strong>${total}</strong> ｜ ${t('已见过')} <strong>${seen}</strong> ｜ ${t('已拥有')} <strong>${owned}</strong></span>`;
     $('#stageFilter').insertAdjacentHTML('beforeend', statsHtml);
 
     const container = $('#digimonList');
@@ -125,10 +214,10 @@
       const s = getStatus(d.uid);
       const icons = ['○', '◐', '●'];
       return `<div class="digimon-card" data-uid="${d.uid}">
-        <div class="card-top-row"><span class="card-dex">No.${d.dexId}</span><span class="card-status-icon ${STATUS_CLASSES[s]}" data-uid="${d.uid}" title="${STATUS_LABELS[s]}">${icons[s]} ${STATUS_LABELS[s]}</span></div>
-        <div class="card-name-cn">${d.nameCN}</div>
+        <div class="card-top-row"><span class="card-dex">No.${d.dexId}</span><span class="card-status-icon ${STATUS_CLASSES[s]}" data-uid="${d.uid}" title="${t(STATUS_LABELS[s])}">${icons[s]} ${t(STATUS_LABELS[s])}</span></div>
+        <div class="card-name-cn">${t(d.nameCN)}</div>
         <div class="card-name-en">${d.nameEN}</div>
-        <span class="card-stage ${stageClass(d.stage)}">${d.stage}</span>
+        <span class="card-stage ${stageClass(d.stage)}">${t(d.stage)}</span>
       </div>`;
     }).join('');
 
@@ -164,7 +253,7 @@
         <button class="evo-move-btn" data-type="evo" data-idx="${idx}" data-dir="1" ${idx === arr.length - 1 ? 'disabled' : ''}>&#9660;</button>
       </span>` : '';
       return `<div class="evo-item" data-uid="${eUid}">
-        <div><div class="evo-item-name">${e.nameCN}</div><div class="evo-item-stage">${e.stage}</div></div>
+        <div><div class="evo-item-name">${t(e.nameCN)}</div><div class="evo-item-stage">${t(e.stage)}</div></div>
         ${editMode ? `<span class="evo-item-actions">${moveButtons}<button class="evo-item-delete" data-type="evo" data-target="${eUid}">&times;</button></span>` : ''}
       </div>`;
     }).join('');
@@ -177,7 +266,7 @@
         <button class="evo-move-btn" data-type="devo" data-idx="${idx}" data-dir="1" ${idx === arr.length - 1 ? 'disabled' : ''}>&#9660;</button>
       </span>` : '';
       return `<div class="evo-item" data-uid="${dUid}">
-        <div><div class="evo-item-name">${e.nameCN}</div><div class="evo-item-stage">${e.stage}</div></div>
+        <div><div class="evo-item-name">${t(e.nameCN)}</div><div class="evo-item-stage">${t(e.stage)}</div></div>
         ${editMode ? `<span class="evo-item-actions">${moveButtons}<button class="evo-item-delete" data-type="devo" data-target="${dUid}">&times;</button></span>` : ''}
       </div>`;
     }).join('');
@@ -186,7 +275,7 @@
     if (editMode) {
       dexHtml = `<div class="detail-dex detail-dex-edit">
         No.<input type="number" id="dexInput" value="${d.dexId}" min="1">
-        <button id="swapDexBtn">交换</button>
+        <button id="swapDexBtn">${t('交换')}</button>
       </div>`;
     } else {
       dexHtml = `<div class="detail-dex">No.${d.dexId}</div>`;
@@ -197,20 +286,20 @@
       nameHtml = `<div class="detail-name-cn editable" data-field="nameCN">${d.nameCN}</div>
         <div class="detail-name-en editable" data-field="nameEN">${d.nameEN}</div>`;
     } else {
-      nameHtml = `<div class="detail-name-cn">${d.nameCN}</div>
+      nameHtml = `<div class="detail-name-cn">${t(d.nameCN)}</div>
         <div class="detail-name-en">${d.nameEN}</div>`;
     }
 
     let stageHtml;
     if (editMode) {
-      const options = db.stages.map(s => `<option value="${s}" ${s === d.stage ? 'selected' : ''}>${s}</option>`).join('');
+      const options = db.stages.map(s => `<option value="${s}" ${s === d.stage ? 'selected' : ''}>${t(s)}</option>`).join('');
       stageHtml = `<select class="stage-select" id="stageSelect">${options}</select>`;
     } else {
-      stageHtml = `<span class="detail-stage ${stageClass(d.stage)}">${d.stage}</span>`;
+      stageHtml = `<span class="detail-stage ${stageClass(d.stage)}">${t(d.stage)}</span>`;
     }
 
     const st = getStatus(uid);
-    const statusHtml = `<div class="detail-status-row"><button class="detail-status-btn ${STATUS_CLASSES[st]}" id="statusToggle">${STATUS_LABELS[st]}</button></div>`;
+    const statusHtml = `<div class="detail-status-row"><button class="detail-status-btn ${STATUS_CLASSES[st]}" id="statusToggle">${t(STATUS_LABELS[st])}</button></div>`;
 
     container.innerHTML = `
       ${dexHtml}
@@ -219,14 +308,14 @@
       ${statusHtml}
       <div class="evo-section">
         <div class="evo-col devo">
-          <h3>退化 (${(d.devolutions || []).filter(u => db.digimon[u]).length})</h3>
-          ${devoItems || '<div class="evo-empty">无退化目标</div>'}
-          ${editMode ? '<button class="evo-add" data-type="devo">+ 添加退化</button>' : ''}
+          <h3>${t('退化')} (${(d.devolutions || []).filter(u => db.digimon[u]).length})</h3>
+          ${devoItems || '<div class="evo-empty">' + t('无退化目标') + '</div>'}
+          ${editMode ? '<button class="evo-add" data-type="devo">+ ' + t('添加退化') + '</button>' : ''}
         </div>
         <div class="evo-col evo">
-          <h3>进化 (${(d.evolutions || []).filter(u => db.digimon[u]).length})</h3>
-          ${evoItems || '<div class="evo-empty">无进化目标</div>'}
-          ${editMode ? '<button class="evo-add" data-type="evo">+ 添加进化</button>' : ''}
+          <h3>${t('进化')} (${(d.evolutions || []).filter(u => db.digimon[u]).length})</h3>
+          ${evoItems || '<div class="evo-empty">' + t('无进化目标') + '</div>'}
+          ${editMode ? '<button class="evo-add" data-type="evo">+ ' + t('添加进化') + '</button>' : ''}
         </div>
       </div>
     `;
@@ -379,8 +468,8 @@
   function showAddEvoModal(uid, type) {
     const d = db.digimon[uid];
     const existing = type === 'evo' ? d.evolutions : d.devolutions;
-    showModal(type === 'evo' ? '添加进化目标' : '添加退化目标',
-      `<input type="text" id="modalSearch" placeholder="搜索数码宝贝...">`
+    showModal(type === 'evo' ? t('添加进化目标') : t('添加退化目标'),
+      `<input type="text" id="modalSearch" placeholder="${t('搜索数码宝贝...')}">`
       + `<div id="modalList"></div>`);
 
     const search = $('#modalSearch');
@@ -388,13 +477,14 @@
 
     function render(query) {
       const q = query.toLowerCase();
+      const qTw = fromInput(q);
       const matches = getSorted().filter(x =>
         x.uid !== uid &&
         !existing.includes(x.uid) &&
-        (x.nameCN.toLowerCase().includes(q) || x.nameEN.toLowerCase().includes(q))
+        (x.nameCN.toLowerCase().includes(qTw) || x.nameEN.toLowerCase().includes(q))
       ).slice(0, 50);
       list.innerHTML = matches.map(x =>
-        `<div class="modal-list-item" data-uid="${x.uid}">${x.nameCN} <small>${x.nameEN} - ${x.stage}</small></div>`
+        `<div class="modal-list-item" data-uid="${x.uid}">${t(x.nameCN)} <small>${x.nameEN} - ${t(x.stage)}</small></div>`
       ).join('');
       list.querySelectorAll('.modal-list-item').forEach(item => {
         item.onclick = () => {
@@ -428,18 +518,19 @@
 
       function renderDropdown(query) {
         const q = query.toLowerCase();
+        const qTw = fromInput(q);
         const matches = getSorted().filter(d =>
-          d.nameCN.toLowerCase().includes(q) || d.nameEN.toLowerCase().includes(q)
+          d.nameCN.toLowerCase().includes(qTw) || d.nameEN.toLowerCase().includes(q)
         ).slice(0, 30);
         dropdown.innerHTML = matches.map(d =>
-          `<div class="search-dropdown-item" data-uid="${d.uid}">${d.nameCN} <small>${d.nameEN}</small></div>`
+          `<div class="search-dropdown-item" data-uid="${d.uid}">${t(d.nameCN)} <small>${d.nameEN}</small></div>`
         ).join('');
         dropdown.classList.remove('hidden');
         dropdown.querySelectorAll('.search-dropdown-item').forEach(item => {
           item.onclick = () => {
             const uid = item.dataset.uid;
             const d = db.digimon[uid];
-            input.value = d.nameCN;
+            input.value = t(d.nameCN);
             dropdown.classList.add('hidden');
             onSelect(uid);
           };
@@ -459,8 +550,8 @@
       container.innerHTML = waypoints.map((wp, i) => `
         <div class="waypoint-item">
           <div class="path-select">
-            <label>途经点 ${i + 1}</label>
-            <input type="text" id="waypoint${wp.id}" placeholder="搜索数码宝贝..." autocomplete="off" value="${wp.uid ? db.digimon[wp.uid].nameCN : ''}">
+            <label>${t("途经点")} ${i + 1}</label>
+            <input type="text" id="waypoint${wp.id}" placeholder="${t("搜索数码宝贝...")}" autocomplete="off" value="${wp.uid ? t(db.digimon[wp.uid].nameCN) : ''}">
             <div id="waypointDropdown${wp.id}" class="search-dropdown hidden"></div>
           </div>
           <button class="waypoint-remove" data-idx="${i}">&times;</button>
@@ -489,7 +580,7 @@
     $('#findPathBtn').onclick = () => {
       const result = $('#pathResult');
       if (!fromUid || !toUid) {
-        result.innerHTML = '<div class="path-none">请选择起点和终点</div>';
+        result.innerHTML = '<div class="path-none">' + t('请选择起点和终点') + '</div>';
         return;
       }
 
@@ -508,17 +599,17 @@
 
       // Ideal path
       if (!idealPath) {
-        html += '<div class="path-section"><h3>理想路线</h3><div class="path-none">无法到达目标，没有可用的进化/退化路线</div></div>';
+        html += '<div class="path-section"><h3>' + t('理想路线') + '</h3><div class="path-none">' + t('无法到达目标，没有可用的进化/退化路线') + '</div></div>';
       } else {
-        html += `<div class="path-section"><h3>理想路线 (${idealPath.length - 1} 步)${idealIsAchievable ? ' ✓ 当前可行' : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
+        html += `<div class="path-section"><h3>${t('理想路线')} (${idealPath.length - 1} ${t('步')})${idealIsAchievable ? ' ✓ ' + t('当前可行') : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
       }
 
       // Constrained path (only show if ideal is not already achievable)
       if (!idealIsAchievable) {
         if (!constrainedPath) {
-          html += '<div class="path-section"><h3>当前可行路线</h3><div class="path-none">无法到达目标（退化目标中有未见过的数码宝贝）</div></div>';
+          html += '<div class="path-section"><h3>' + t('当前可行路线') + '</h3><div class="path-none">' + t('无法到达目标（退化目标中有未见过的数码宝贝）') + '</div></div>';
         } else {
-          html += `<div class="path-section"><h3>当前可行路线 (${constrainedPath.length - 1} 步)</h3><div class="path-chain" id="constrainedChain"></div></div>`;
+          html += `<div class="path-section"><h3>${t('当前可行路线')} (${constrainedPath.length - 1} ${t('步')})</h3><div class="path-chain" id="constrainedChain"></div></div>`;
         }
       }
 
@@ -531,14 +622,14 @@
           if (i > 0) {
             const edge = document.createElement('span');
             edge.className = 'path-edge ' + step.edge;
-            edge.textContent = step.edge === 'evo' ? '→ 进化 →' : '→ 退化 →';
+            edge.textContent = step.edge === 'evo' ? '→ ' + t('进化') + ' →' : '→ ' + t('退化') + ' →';
             container.appendChild(edge);
           }
           const d = db.digimon[step.uid];
           const node = document.createElement('div');
           node.className = 'path-node';
           const st = getStatus(step.uid);
-          node.innerHTML = `<div class="path-node-name">${d.nameCN}</div><div class="path-node-stage">${d.stage}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${STATUS_LABELS[st]}</div>` : ''}`;
+          node.innerHTML = `<div class="path-node-name">${t(d.nameCN)}</div><div class="path-node-stage">${t(d.stage)}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${t(STATUS_LABELS[st])}</div>` : ''}`;
           node.onclick = () => { location.hash = '#detail/' + step.uid; };
           container.appendChild(node);
         });
@@ -556,36 +647,36 @@
       const result = $('#collectResult');
       const allOwned = Object.values(db.digimon).every(d => getStatus(d.uid) >= 2);
       if (allOwned) {
-        result.innerHTML = '<div class="path-none">已拥有全部数码宝贝！</div>';
+        result.innerHTML = '<div class="path-none">' + t('已拥有全部数码宝贝！') + '</div>';
         return;
       }
 
       const hasAnyOwned = Object.values(db.digimon).some(d => getStatus(d.uid) >= 2);
       if (!hasAnyOwned) {
-        result.innerHTML = '<div class="path-none">请先至少标记一个数码宝贝为"已拥有"作为起点</div>';
+        result.innerHTML = '<div class="path-none">' + t('请先至少标记一个数码宝贝为"已拥有"作为起点') + '</div>';
         return;
       }
 
-      result.innerHTML = '<div class="path-none">计算中...</div>';
+      result.innerHTML = '<div class="path-none">' + t('计算中...') + '</div>';
       setTimeout(() => {
         const route = findCollectionRoute(db, collection, collectStartUid);
         let html = '';
 
         if (route.chains.length === 0 && route.unreachable.length === 0) {
-          html = '<div class="path-none">已拥有全部数码宝贝！</div>';
+          html = '<div class="path-none">' + t('已拥有全部数码宝贝！') + '</div>';
         } else {
           const totalNew = route.chains.reduce((sum, c) => sum + c.length - 1, 0);
-          html += `<div class="collect-summary">共 ${route.chains.length} 条路线，覆盖 ${totalNew} 步</div>`;
+          html += `<div class="collect-summary">${t('共')} ${route.chains.length} ${t('条路线，覆盖')} ${totalNew} ${t('步')}</div>`;
 
           route.chains.forEach((chain, idx) => {
-            html += `<div class="collect-chain-section"><h4>路线 ${idx + 1}（${chain.length - 1} 步）· 起点：${db.digimon[chain[0].uid].nameCN}</h4><div class="path-chain" id="collectChain${idx}"></div></div>`;
+            html += `<div class="collect-chain-section"><h4>${t('路线')} ${idx + 1}（${chain.length - 1} ${t('步')}）· ${t('起点')}：${t(db.digimon[chain[0].uid].nameCN)}</h4><div class="path-chain" id="collectChain${idx}"></div></div>`;
           });
 
           if (route.unreachable.length > 0) {
-            html += `<div class="collect-unreachable"><h4>无法到达 (${route.unreachable.length})</h4><div class="collect-unreachable-list">`;
+            html += `<div class="collect-unreachable"><h4>${t('无法到达')} (${route.unreachable.length})</h4><div class="collect-unreachable-list">`;
             for (const uid of route.unreachable) {
               const d = db.digimon[uid];
-              if (d) html += `<span class="collect-unreachable-item" data-uid="${uid}">${d.nameCN} <small>${d.stage}</small></span>`;
+              if (d) html += `<span class="collect-unreachable-item" data-uid="${uid}">${t(d.nameCN)} <small>${t(d.stage)}</small></span>`;
             }
             html += '</div></div>';
           }
@@ -601,13 +692,13 @@
             if (i > 0) {
               const edge = document.createElement('span');
               edge.className = 'path-edge ' + step.edge;
-              edge.textContent = step.edge === 'evo' ? '→ 进化 →' : '→ 退化 →';
+              edge.textContent = step.edge === 'evo' ? '→ ' + t('进化') + ' →' : '→ ' + t('退化') + ' →';
               container.appendChild(edge);
             }
             const d = db.digimon[step.uid];
             const node = document.createElement('div');
             node.className = 'path-node' + (i === 0 ? ' path-node-start' : '');
-            node.innerHTML = `<div class="path-node-name">${d.nameCN}</div><div class="path-node-stage">${d.stage}</div>`;
+            node.innerHTML = `<div class="path-node-name">${t(d.nameCN)}</div><div class="path-node-stage">${t(d.stage)}</div>`;
             node.onclick = () => { location.hash = '#detail/' + step.uid; };
             container.appendChild(node);
           });
@@ -654,18 +745,18 @@
           db = imported;
           saveDB();
           navigate();
-          alert('导入成功');
+          alert(t('导入成功'));
         } else {
-          alert('无效的数据格式');
+          alert(t('无效的数据格式'));
         }
-      } catch (err) { alert('JSON解析失败: ' + err.message); }
+      } catch (err) { alert(t('JSON解析失败: ') + err.message); }
     };
     reader.readAsText(file);
     e.target.value = '';
   };
 
   $('#saveDefaultBtn').onclick = () => {
-    if (!confirm('将当前数据保存为默认数据？\n（将下载 data.js 文件，请手动替换项目中的 data.js）')) return;
+    if (!confirm(t('将当前数据保存为默认数据？\n（将下载 data.js 文件，请手动替换项目中的 data.js）'))) return;
     const content = 'const DEFAULT_DIGIMON_DB = ' + JSON.stringify(db, null, 2) + ';\n';
     const blob = new Blob([content], { type: 'application/javascript' });
     const a = document.createElement('a');
@@ -675,14 +766,14 @@
   };
 
   $('#resetDefaultBtn').onclick = () => {
-    if (!confirm('重置为默认数据？所有修改将丢失。')) return;
+    if (!confirm(t('重置为默认数据？所有修改将丢失。'))) return;
     db = JSON.parse(JSON.stringify(DEFAULT_DIGIMON_DB));
     saveDB();
     navigate();
   };
 
   $('#resetBackupBtn').onclick = () => {
-    if (!confirm('重置为出厂数据？所有修改将丢失。')) return;
+    if (!confirm(t('重置为出厂数据？所有修改将丢失。'))) return;
     db = JSON.parse(JSON.stringify(BACKUP_DIGIMON_DB));
     saveDB();
     navigate();
@@ -702,7 +793,7 @@
     db.digimon[uid] = {
       uid,
       dexId: maxDex + 1,
-      nameCN: '新数码宝贝',
+      nameCN: '新數碼寶貝',
       nameEN: 'NewDigimon',
       stage: '成長期',
       evolutions: [],
@@ -715,7 +806,7 @@
   $('#deleteDigimonBtn').onclick = () => {
     if (!currentDetailUid) return;
     const d = db.digimon[currentDetailUid];
-    if (!confirm(`确认删除 ${d.nameCN}？相关进化/退化引用也会被清除。`)) return;
+    if (!confirm(t(`确认删除 ${d.nameCN}？相关进化/退化引用也会被清除。`))) return;
     // Remove references from other digimon
     for (const other of Object.values(db.digimon)) {
       other.evolutions = (other.evolutions || []).filter(u => u !== currentDetailUid);
@@ -732,6 +823,9 @@
   $('#nextBtn').onclick = () => navPrevNext(1);
 
   // ── Init ──
+  initConverter();
+  $('#langToggle').onclick = toggleLang;
+  updateStaticText();
   renderStageFilter();
   setupPathfinder();
   window.addEventListener('hashchange', navigate);
