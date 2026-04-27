@@ -107,7 +107,8 @@
 
   let db = loadDB();
   let editMode = false;
-  let currentFilter = null; // null = all
+  let currentFilter = null; // null = all stages
+  let currentStatusFilter = null; // null = all, 'unseen', 'seen', 'owned', 'seen+', 'seen_only'
 
   // ── Collection Status ──
   // 0 = 未见过, 1 = 已见过, 2 = 已拥有
@@ -144,6 +145,10 @@
   function getFiltered() {
     let list = getSorted();
     if (currentFilter) list = list.filter(d => d.stage === currentFilter);
+    if (currentStatusFilter === 'unseen') list = list.filter(d => getStatus(d.uid) === 0);
+    else if (currentStatusFilter === 'seen_only') list = list.filter(d => getStatus(d.uid) === 1);
+    else if (currentStatusFilter === 'owned') list = list.filter(d => getStatus(d.uid) === 2);
+    else if (currentStatusFilter === 'seen+') list = list.filter(d => getStatus(d.uid) >= 1);
     return list;
   }
 
@@ -189,6 +194,32 @@
       btn.textContent = t(stage);
       btn.onclick = () => {
         currentFilter = currentFilter === stage ? null : stage;
+        renderStageFilter();
+        renderList();
+      };
+      container.appendChild(btn);
+    }
+
+    // Status filter buttons
+    const statusFilters = [
+      { key: null, label: '全部' },
+      { key: 'unseen', label: '未见过' },
+      { key: 'seen_only', label: '仅已见过' },
+      { key: 'owned', label: '已拥有' },
+      { key: 'seen+', label: '已见过+已拥有' },
+    ];
+
+    const sep = document.createElement('span');
+    sep.className = 'filter-sep';
+    sep.textContent = '|';
+    container.appendChild(sep);
+
+    for (const sf of statusFilters) {
+      const btn = document.createElement('button');
+      btn.className = 'status-filter-btn' + (currentStatusFilter === sf.key ? ' active' : '');
+      btn.textContent = t(sf.label);
+      btn.onclick = () => {
+        currentStatusFilter = currentStatusFilter === sf.key ? null : sf.key;
         renderStageFilter();
         renderList();
       };

@@ -80,7 +80,7 @@ Single IIFE containing all application logic:
 - `navigate()` — reads `location.hash`, shows/hides `.page` divs, calls render function
 
 ### Pages
-- **List** (`renderList()`) — Card grid, stage filter buttons, collection status icons (clickable)
+- **List** (`renderList()`) — Card grid, stage filter buttons, collection status filter buttons (unseen/seen-only/owned/seen+owned, combinable with stage filter), collection status icons (clickable)
 - **Detail** (`renderDetail(uid)`) — Full info, evo/devo lists (side by side), inline editing, status toggle
 - **Pathfinder** (`setupPathfinder()`) — From/to search inputs, waypoint list (add/remove), dual BFS results, collection route planner
 
