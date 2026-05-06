@@ -48,8 +48,8 @@ Not stored in `data.js`. Included in JSON export/import.
 
 - **`localStorage['digimonDB']`** — Modified digimon data. Loaded on startup, takes priority over `data.js`.
 - **`localStorage['digimonCollection']`** — Collection status per digimon.
-- **`localStorage['digimonPathTabs']`** — Path query tab state: `{ activeTab, tabs: [{ name, fromUid, toUid, waypoints, resultHtml }] }`.
-- **`localStorage['digimonPathPresets']`** — Named path presets: `[{ name, fromUid, toUid, waypoints }]` (max 10).
+- **`localStorage['digimonPathTabs']`** — Path query tab state: `{ activeTab, tabs: [{ name, fromUid, toUid, waypoints, comments, resultHtml }] }`. `comments` is a `{uid: string}` map of per-node remarks.
+- **`localStorage['digimonPathPresets']`** — Named path presets: `[{ name, fromUid, toUid, waypoints, comments }]` (max 10).
 - **`localStorage['digimonEvoBlacklist']`** — Evolution blacklist: `[uid, ...]`. Digimon UIDs whose evolution-to edges are blocked in pathfinding (devolution still allowed).
 - **`data.js` (DEFAULT_DIGIMON_DB)** — Fallback when no localStorage. User can download updated version via "Save as Default".
 - **`data_backup.js` (BACKUP_DIGIMON_DB)** — Factory reset target. Should never be regenerated after user edits `data.js`.
@@ -90,6 +90,7 @@ Single IIFE containing all application logic:
   - **Presets**: Save/load named presets (max 10) in `localStorage['digimonPathPresets']`. Load overwrites current tab.
   - **Result caching**: Query results stored as innerHTML string per tab, re-rendered with click handlers on tab switch.
   - **Waypoint highlight**: Waypoint nodes in path results get `.path-node-waypoint` class (orange border + yellow bg).
+  - **Node comments**: Each tab stores a `comments: {uid: string}` map. Waypoint form inputs show comment fields. In path results, comments display as orange labels below the node. Right-click any node in results to add/edit comment via prompt dialog. Comments are saved in tab state, presets, and JSON export.
   - **Evolution blacklist**: Global list of UIDs stored in `localStorage['digimonEvoBlacklist']`. BFS skips evolution edges to blacklisted UIDs (devolution still allowed). If blacklist filtering yields no result but unfiltered does, shows a warning and the unfiltered result.
   - `window._refreshPathTabs` — exposed by setupPathfinder for language toggle re-render.
 

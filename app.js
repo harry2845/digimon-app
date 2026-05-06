@@ -558,7 +558,7 @@
   }
 
   function newTab(name) {
-    return { name: name || (t('标签') + ' 1'), fromUid: null, toUid: null, waypoints: [], resultHtml: null };
+    return { name: name || (t('标签') + ' 1'), fromUid: null, toUid: null, waypoints: [], comments: {}, resultHtml: null };
   }
 
   function loadPathTabs() {
@@ -726,7 +726,7 @@
             return;
           }
           const c = cur();
-          presets.push({ name, fromUid: c.fromUid, toUid: c.toUid, waypoints: [...c.waypoints] });
+          presets.push({ name, fromUid: c.fromUid, toUid: c.toUid, waypoints: [...c.waypoints], comments: { ...(c.comments || {}) } });
           savePathPresets(presets);
           alert(t('已保存'));
         };
@@ -759,6 +759,7 @@
               c.fromUid = p.fromUid;
               c.toUid = p.toUid;
               c.waypoints = [...p.waypoints];
+              c.comments = { ...(p.comments || {}) };
               c.resultHtml = null;
               savePathTabs(tabData);
               dropdown.classList.add('hidden');
@@ -827,10 +828,43 @@
       const resultEl = $('#pathResult');
       if (c.resultHtml) {
         resultEl.innerHTML = c.resultHtml;
-        // Re-attach click handlers on path nodes
+        if (!c.comments) c.comments = {};
+        // Re-attach click and contextmenu handlers on path nodes
         resultEl.querySelectorAll('.path-node').forEach(node => {
           const uid = node.dataset.uid;
-          if (uid) node.onclick = () => { location.hash = '#detail/' + uid; };
+          if (uid) {
+            node.onclick = () => { location.hash = '#detail/' + uid; };
+            node.oncontextmenu = (e) => {
+              e.preventDefault();
+              const d = db.digimon[uid];
+              if (!d) return;
+              const existing = c.comments[uid] || '';
+              const input = prompt(t('备注') + ' - ' + t(d.nameCN), existing);
+              if (input === null) return;
+              if (input.trim()) {
+                c.comments[uid] = input.trim();
+              } else {
+                delete c.comments[uid];
+              }
+              savePathTabs(tabData);
+              const commentEl = node.querySelector('.path-node-comment');
+              if (c.comments[uid]) {
+                if (commentEl) {
+                  commentEl.textContent = c.comments[uid];
+                } else {
+                  const newComment = document.createElement('div');
+                  newComment.className = 'path-node-comment';
+                  newComment.textContent = c.comments[uid];
+                  node.appendChild(newComment);
+                }
+              } else if (commentEl) {
+                commentEl.remove();
+              }
+              c.resultHtml = resultEl.innerHTML;
+              savePathTabs(tabData);
+              renderWaypointsFromData();
+            };
+          }
         });
       } else {
         resultEl.innerHTML = '';
@@ -840,10 +874,12 @@
     // ── Waypoints ──
     function renderWaypointsFromData() {
       const c = cur();
+      if (!c.comments) c.comments = {};
       const container = $('#waypointList');
       waypointCounter = c.waypoints.length;
       container.innerHTML = c.waypoints.map((wpUid, i) => {
         const d = wpUid ? db.digimon[wpUid] : null;
+        const comment = (wpUid && c.comments[wpUid]) || '';
         return `
         <div class="waypoint-item">
           <div class="path-select">
@@ -851,6 +887,7 @@
             <input type="text" id="waypoint${i}" placeholder="${t("搜索数码宝贝...")}" autocomplete="off" value="${d ? t(d.nameCN) : ''}">
             <div id="waypointDropdown${i}" class="search-dropdown hidden"></div>
           </div>
+          <input type="text" class="waypoint-comment" data-idx="${i}" placeholder="${t("备注...")}" value="${comment.replace(/"/g, '&quot;')}">
           <button class="waypoint-remove" data-idx="${i}">&times;</button>
         </div>`;
       }).join('');
@@ -866,9 +903,28 @@
       // Remove buttons
       container.querySelectorAll('.waypoint-remove').forEach(btn => {
         btn.onclick = () => {
-          cur().waypoints.splice(parseInt(btn.dataset.idx), 1);
+          const idx = parseInt(btn.dataset.idx);
+          const removedUid = cur().waypoints[idx];
+          cur().waypoints.splice(idx, 1);
+          if (removedUid && cur().comments[removedUid]) delete cur().comments[removedUid];
           savePathTabs(tabData);
           renderWaypointsFromData();
+        };
+      });
+
+      // Comment inputs
+      container.querySelectorAll('.waypoint-comment').forEach(input => {
+        input.oninput = () => {
+          const idx = parseInt(input.dataset.idx);
+          const uid = cur().waypoints[idx];
+          if (!uid) return;
+          if (!cur().comments) cur().comments = {};
+          if (input.value.trim()) {
+            cur().comments[uid] = input.value.trim();
+          } else {
+            delete cur().comments[uid];
+          }
+          savePathTabs(tabData);
         };
       });
     }
@@ -994,6 +1050,8 @@
       function renderChain(containerId, path, waypointSet) {
         const container = document.getElementById(containerId);
         if (!container || !path) return;
+        const c = cur();
+        if (!c.comments) c.comments = {};
         path.forEach((step, i) => {
           if (i > 0) {
             const edge = document.createElement('span');
@@ -1006,8 +1064,40 @@
           node.className = 'path-node' + (waypointSet && waypointSet.has(step.uid) ? ' path-node-waypoint' : '');
           node.dataset.uid = step.uid;
           const st = getStatus(step.uid);
-          node.innerHTML = `<div class="path-node-name">${t(d.nameCN)}</div><div class="path-node-stage">${t(d.stage)}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${t(STATUS_LABELS[st])}</div>` : ''}`;
+          const comment = c.comments[step.uid] || '';
+          node.innerHTML = `<div class="path-node-name">${t(d.nameCN)}</div><div class="path-node-stage">${t(d.stage)}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${t(STATUS_LABELS[st])}</div>` : ''}${comment ? `<div class="path-node-comment">${comment}</div>` : ''}`;
           node.onclick = () => { location.hash = '#detail/' + step.uid; };
+          node.oncontextmenu = (e) => {
+            e.preventDefault();
+            const existing = c.comments[step.uid] || '';
+            const input = prompt(t('备注') + ' - ' + t(d.nameCN), existing);
+            if (input === null) return;
+            if (input.trim()) {
+              c.comments[step.uid] = input.trim();
+            } else {
+              delete c.comments[step.uid];
+            }
+            savePathTabs(tabData);
+            // Update the comment display on this node
+            const commentEl = node.querySelector('.path-node-comment');
+            if (c.comments[step.uid]) {
+              if (commentEl) {
+                commentEl.textContent = c.comments[step.uid];
+              } else {
+                const newComment = document.createElement('div');
+                newComment.className = 'path-node-comment';
+                newComment.textContent = c.comments[step.uid];
+                node.appendChild(newComment);
+              }
+            } else if (commentEl) {
+              commentEl.remove();
+            }
+            // Update cached html
+            c.resultHtml = $('#pathResult').innerHTML;
+            savePathTabs(tabData);
+            // Also update waypoint form if this uid is a waypoint
+            renderWaypointsFromData();
+          };
           container.appendChild(node);
         });
       }

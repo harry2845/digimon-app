@@ -417,6 +417,11 @@ body {
   cursor: pointer; flex-shrink: 0; margin-bottom: 2px;
 }
 .waypoint-remove:hover { background: var(--danger); color: #fff; }
+.waypoint-comment {
+  flex: 1; min-width: 80px; max-width: 200px; padding: 6px 10px;
+  border: 1px solid var(--border); border-radius: 6px; font-size: 12px;
+  color: var(--text-secondary);
+}
 .btn-waypoint {
   background: none; border: 2px dashed var(--border); border-radius: 8px;
   padding: 6px 16px; cursor: pointer; color: var(--text-secondary);
@@ -574,6 +579,11 @@ body {
 }
 .path-node-status.status-seen { background: #42a5f5; }
 .path-node-status.status-owned { background: #66bb6a; }
+.path-node-comment {
+  font-size: 11px; color: #e65100; margin-top: 3px;
+  padding: 2px 6px; background: #fff3e0; border-radius: 4px;
+  word-break: break-word; max-width: 120px;
+}
 
 /* Collection Route */
 .section-divider { border: none; border-top: 2px solid var(--border); margin: 32px 0 24px; }
