@@ -642,7 +642,7 @@
         </div>`;
       });
 
-      if (tabData.tabs.length < 10) {
+      if (tabData.tabs.length < 20) {
         html += `<button class="path-tab-add" id="tabAddBtn">+</button>`;
       }
 
@@ -659,6 +659,21 @@
           if (e.target.classList.contains('path-tab-close')) return;
           const idx = parseInt(el.dataset.idx);
           if (idx !== tabData.activeTab) switchTab(idx);
+        };
+        // Right-click to duplicate
+        el.oncontextmenu = (e) => {
+          e.preventDefault();
+          if (tabData.tabs.length >= 20) return;
+          const idx = parseInt(el.dataset.idx);
+          saveCurrentTab();
+          const src = tabData.tabs[idx];
+          const dup = JSON.parse(JSON.stringify(src));
+          dup.name = src.name + ' ' + t('副本');
+          tabData.tabs.splice(idx + 1, 0, dup);
+          tabData.activeTab = idx + 1;
+          savePathTabs(tabData);
+          renderTabBar();
+          restoreForm();
         };
       });
 

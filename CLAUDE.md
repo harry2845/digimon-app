@@ -86,7 +86,7 @@ Single IIFE containing all application logic:
 - **List** (`renderList()`) — Card grid, stage filter buttons, collection status filter buttons (unseen/seen-only/owned/seen+owned, combinable with stage filter), collection status icons (clickable)
 - **Detail** (`renderDetail(uid)`) — Full info, evo/devo lists (side by side), inline editing, status toggle
 - **Pathfinder** (`setupPathfinder()`) — From/to search inputs, waypoint list (add/remove), dual BFS results, collection route planner
-  - **Multi-tab**: Up to 10 tabs, each with independent from/to/waypoints/result cache. Tab state in `localStorage['digimonPathTabs']`.
+  - **Multi-tab**: Up to 20 tabs, each with independent from/to/waypoints/comments/result cache. Tab state in `localStorage['digimonPathTabs']`. Right-click a tab to duplicate it.
   - **Presets**: Save/load named presets (max 10) in `localStorage['digimonPathPresets']`. Load overwrites current tab.
   - **Result caching**: Query results stored as innerHTML string per tab, re-rendered with click handlers on tab switch.
   - **Waypoint highlight**: Waypoint nodes in path results get `.path-node-waypoint` class (orange border + yellow bg).
