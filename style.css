@@ -424,6 +424,26 @@ body {
 }
 .btn-waypoint:hover { border-color: var(--primary); color: var(--primary); }
 
+/* Blacklist */
+.blacklist-section { margin-top: 12px; padding: 10px 14px; background: #fff5f5; border: 1px solid #f0c0c0; border-radius: 8px; }
+.blacklist-header { margin-bottom: 8px; }
+.blacklist-label { font-weight: 600; font-size: 14px; color: #c0392b; }
+.blacklist-hint { font-size: 12px; color: var(--text-secondary); }
+.blacklist-form { display: flex; align-items: center; gap: 8px; position: relative; }
+.blacklist-form input { flex: 1; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; }
+.blacklist-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.blacklist-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 14px;
+  background: #fde2e2; border: 1px solid #e8a0a0; font-size: 13px; color: #c0392b;
+}
+.blacklist-tag button {
+  background: none; border: none; cursor: pointer; font-size: 14px; color: #c0392b;
+  padding: 0 2px; line-height: 1;
+}
+.blacklist-tag button:hover { color: #e74c3c; }
+.path-blacklist-warning { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 8px 12px; margin-bottom: 8px; font-size: 13px; color: #856404; }
+
 .search-dropdown {
   position: absolute; top: 100%; left: 0; right: 0;
   background: #fff; border: 1px solid var(--border);

@@ -1,4 +1,4 @@
-function findShortestPath(db, fromUid, toUid) {
+function findShortestPath(db, fromUid, toUid, blacklist) {
   if (fromUid === toUid) return [{ uid: fromUid, edge: null }];
 
   const visited = new Set([fromUid]);
@@ -12,7 +12,7 @@ function findShortestPath(db, fromUid, toUid) {
 
     const neighbors = [];
     for (const evoUid of (digimon.evolutions || [])) {
-      if (db.digimon[evoUid]) neighbors.push({ uid: evoUid, edge: 'evo' });
+      if (db.digimon[evoUid] && !(blacklist && blacklist.has(evoUid))) neighbors.push({ uid: evoUid, edge: 'evo' });
     }
     for (const devoUid of (digimon.devolutions || [])) {
       if (db.digimon[devoUid]) neighbors.push({ uid: devoUid, edge: 'devo' });
@@ -32,7 +32,7 @@ function findShortestPath(db, fromUid, toUid) {
 
 // Constrained path: devolution only allowed to seen(1) or owned(2) Digimon
 // Evolution can go to any Digimon (including unseen)
-function findConstrainedPath(db, fromUid, toUid, collectionStatus) {
+function findConstrainedPath(db, fromUid, toUid, collectionStatus, blacklist) {
   if (fromUid === toUid) return [{ uid: fromUid, edge: null }];
 
   const visited = new Set([fromUid]);
@@ -46,7 +46,7 @@ function findConstrainedPath(db, fromUid, toUid, collectionStatus) {
 
     const neighbors = [];
     for (const evoUid of (digimon.evolutions || [])) {
-      if (db.digimon[evoUid]) neighbors.push({ uid: evoUid, edge: 'evo' });
+      if (db.digimon[evoUid] && !(blacklist && blacklist.has(evoUid))) neighbors.push({ uid: evoUid, edge: 'evo' });
     }
     for (const devoUid of (digimon.devolutions || [])) {
       // Only allow devolution to seen or owned
@@ -69,7 +69,7 @@ function findConstrainedPath(db, fromUid, toUid, collectionStatus) {
 }
 
 // Constrained path with extra seen set (for waypoint chains where prior path nodes count as seen)
-function findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extraSeen) {
+function findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extraSeen, blacklist) {
   if (fromUid === toUid) return [{ uid: fromUid, edge: null }];
 
   const visited = new Set([fromUid]);
@@ -83,7 +83,7 @@ function findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extra
 
     const neighbors = [];
     for (const evoUid of (digimon.evolutions || [])) {
-      if (db.digimon[evoUid]) neighbors.push({ uid: evoUid, edge: 'evo' });
+      if (db.digimon[evoUid] && !(blacklist && blacklist.has(evoUid))) neighbors.push({ uid: evoUid, edge: 'evo' });
     }
     for (const devoUid of (digimon.devolutions || [])) {
       const status = (collectionStatus && collectionStatus[devoUid]) || 0;
@@ -105,12 +105,11 @@ function findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extra
 }
 
 // Find shortest path from→to passing through all waypoints (order auto-optimized)
-function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus) {
+function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, blacklist) {
   if (waypoints.length === 0) {
-    // No waypoints: return both ideal and constrained as before
     return {
-      ideal: findShortestPath(db, fromUid, toUid),
-      constrained: findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, new Set())
+      ideal: findShortestPath(db, fromUid, toUid, blacklist),
+      constrained: findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, new Set(), blacklist)
     };
   }
 
@@ -136,7 +135,7 @@ function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus) 
     let fullPath = null;
     let valid = true;
     for (let i = 0; i < stops.length - 1; i++) {
-      const seg = findShortestPath(db, stops[i], stops[i + 1]);
+      const seg = findShortestPath(db, stops[i], stops[i + 1], blacklist);
       if (!seg) { valid = false; break; }
       if (fullPath) {
         fullPath = fullPath.concat(seg.slice(1));
@@ -157,7 +156,7 @@ function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus) 
     let dynamicSeen = new Set();
     let valid = true;
     for (let i = 0; i < stops.length - 1; i++) {
-      const seg = findConstrainedPathWithSeen(db, stops[i], stops[i + 1], collectionStatus, dynamicSeen);
+      const seg = findConstrainedPathWithSeen(db, stops[i], stops[i + 1], collectionStatus, dynamicSeen, blacklist);
       if (!seg) { valid = false; break; }
       // Add all nodes in this segment to dynamicSeen
       for (const step of seg) {

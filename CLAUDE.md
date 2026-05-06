@@ -50,13 +50,14 @@ Not stored in `data.js`. Included in JSON export/import.
 - **`localStorage['digimonCollection']`** — Collection status per digimon.
 - **`localStorage['digimonPathTabs']`** — Path query tab state: `{ activeTab, tabs: [{ name, fromUid, toUid, waypoints, resultHtml }] }`.
 - **`localStorage['digimonPathPresets']`** — Named path presets: `[{ name, fromUid, toUid, waypoints }]` (max 10).
+- **`localStorage['digimonEvoBlacklist']`** — Evolution blacklist: `[uid, ...]`. Digimon UIDs whose evolution-to edges are blocked in pathfinding (devolution still allowed).
 - **`data.js` (DEFAULT_DIGIMON_DB)** — Fallback when no localStorage. User can download updated version via "Save as Default".
 - **`data_backup.js` (BACKUP_DIGIMON_DB)** — Factory reset target. Should never be regenerated after user edits `data.js`.
 
 ### Reset operations
 - "Reset to Default" → loads `DEFAULT_DIGIMON_DB` into localStorage (does NOT touch collection)
 - "Reset to Factory" → loads `BACKUP_DIGIMON_DB` into localStorage (does NOT touch collection)
-- JSON export includes both digimon data, collection status, path tabs, and path presets
+- JSON export includes both digimon data, collection status, path tabs, path presets, and evolution blacklist
 - JSON import restores all if respective fields are present
 
 ## app.js Architecture
@@ -89,6 +90,7 @@ Single IIFE containing all application logic:
   - **Presets**: Save/load named presets (max 10) in `localStorage['digimonPathPresets']`. Load overwrites current tab.
   - **Result caching**: Query results stored as innerHTML string per tab, re-rendered with click handlers on tab switch.
   - **Waypoint highlight**: Waypoint nodes in path results get `.path-node-waypoint` class (orange border + yellow bg).
+  - **Evolution blacklist**: Global list of UIDs stored in `localStorage['digimonEvoBlacklist']`. BFS skips evolution edges to blacklisted UIDs (devolution still allowed). If blacklist filtering yields no result but unfiltered does, shows a warning and the unfiltered result.
   - `window._refreshPathTabs` — exposed by setupPathfinder for language toggle re-render.
 
 ### Edit Mode
@@ -103,10 +105,10 @@ Single IIFE containing all application logic:
 
 Standalone functions (not inside the IIFE):
 
-- **`findShortestPath(db, fromUid, toUid)`** — Standard BFS, treats evo and devo edges equally (weight 1). Returns array of `{uid, edge}` or null.
-- **`findConstrainedPath(db, fromUid, toUid, collectionStatus)`** — Same BFS but devolution edges are only traversable if the target has status >= 1 (seen or owned). Evolution edges are unrestricted.
-- **`findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extraSeen)`** — Like `findConstrainedPath` but also allows devolution to nodes in `extraSeen` set. Used for waypoint chains where prior segments' nodes count as seen.
-- **`findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus)`** — Finds shortest path from→to passing through all waypoint nodes. Enumerates all permutations of waypoints, runs segmented BFS for each, returns the shortest. Returns `{ideal, constrained}` — both the unrestricted and collection-constrained best paths. Constrained version dynamically accumulates seen nodes across segments.
+- **`findShortestPath(db, fromUid, toUid, blacklist)`** — Standard BFS, treats evo and devo edges equally (weight 1). Skips evolution edges to blacklisted UIDs if provided. Returns array of `{uid, edge}` or null.
+- **`findConstrainedPath(db, fromUid, toUid, collectionStatus, blacklist)`** — Same BFS but devolution edges are only traversable if the target has status >= 1 (seen or owned). Evolution edges skip blacklisted UIDs.
+- **`findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extraSeen, blacklist)`** — Like `findConstrainedPath` but also allows devolution to nodes in `extraSeen` set. Used for waypoint chains where prior segments' nodes count as seen.
+- **`findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, blacklist)`** — Finds shortest path from→to passing through all waypoint nodes. Enumerates all permutations of waypoints, runs segmented BFS for each, returns the shortest. Returns `{ideal, constrained}` — both the unrestricted and collection-constrained best paths. Constrained version dynamically accumulates seen nodes across segments. Passes blacklist through to all sub-calls.
 - **`findCollectionRoute(db, collectionStatus, startUid)`** — Greedy DFS chain builder for collecting all un-owned Digimon. Starts from an owned node, greedily walks to un-owned neighbors (preferring high-connectivity nodes), bridges through owned nodes via BFS when stuck. Returns `{chains, unreachable}`.
 
 The pathfinder UI shows both "Ideal Path" and "Currently Feasible Path". If the ideal path is already fully feasible, only one is shown.

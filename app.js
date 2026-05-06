@@ -75,6 +75,14 @@
       if (collectBtn) collectBtn.textContent = t('生成全收集路线');
       const wpBtn = document.getElementById('addWaypointBtn');
       if (wpBtn) wpBtn.textContent = '+ ' + t('添加途经点');
+      const blLabel = pfPage.querySelector('.blacklist-label');
+      if (blLabel) blLabel.textContent = t('进化黑名单');
+      const blHint = pfPage.querySelector('.blacklist-hint');
+      if (blHint) blHint.textContent = '（' + t('路线将避免进化到这些角色，但可以退化') + '）';
+      const blInput = document.getElementById('blacklistInput');
+      if (blInput) blInput.placeholder = t('搜索数码宝贝...');
+      const blBtn = document.getElementById('addBlacklistBtn');
+      if (blBtn) blBtn.textContent = '+ ' + t('添加');
     }
     const backBtn = document.getElementById('backBtn');
     if (backBtn) backBtn.innerHTML = '&larr; ' + t('返回');
@@ -536,6 +544,18 @@
   // ── Pathfinder Page ──
   const PATH_TABS_KEY = 'digimonPathTabs';
   const PATH_PRESETS_KEY = 'digimonPathPresets';
+  const BLACKLIST_KEY = 'digimonEvoBlacklist';
+
+  function loadBlacklist() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(BLACKLIST_KEY));
+      if (Array.isArray(saved)) return saved;
+    } catch (e) { /* fall through */ }
+    return [];
+  }
+  function saveBlacklist(list) {
+    localStorage.setItem(BLACKLIST_KEY, JSON.stringify(list));
+  }
 
   function newTab(name) {
     return { name: name || (t('标签') + ' 1'), fromUid: null, toUid: null, waypoints: [], resultHtml: null };
@@ -568,6 +588,7 @@
   function setupPathfinder() {
     let tabData = loadPathTabs();
     let presets = loadPathPresets();
+    let blacklist = loadBlacklist();
     let waypointCounter = 0;
 
     // Current tab accessors
@@ -868,6 +889,50 @@
       renderWaypointsFromData();
     };
 
+    // ── Blacklist UI ──
+    let pendingBlacklistUid = null;
+
+    function renderBlacklist() {
+      const container = $('#blacklistList');
+      if (!container) return;
+      container.innerHTML = blacklist.map(uid => {
+        const d = db.digimon[uid];
+        if (!d) return '';
+        return `<span class="blacklist-tag" data-uid="${uid}">${t(d.nameCN)}<button data-uid="${uid}">&times;</button></span>`;
+      }).join('');
+      container.querySelectorAll('.blacklist-tag button').forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          blacklist = blacklist.filter(u => u !== btn.dataset.uid);
+          saveBlacklist(blacklist);
+          renderBlacklist();
+        };
+      });
+    }
+
+    setupSearch('#blacklistInput', '#blacklistDropdown', uid => {
+      pendingBlacklistUid = uid;
+      if (!blacklist.includes(uid)) {
+        blacklist.push(uid);
+        saveBlacklist(blacklist);
+        renderBlacklist();
+      }
+      $('#blacklistInput').value = '';
+      pendingBlacklistUid = null;
+    });
+
+    $('#addBlacklistBtn').onclick = () => {
+      if (pendingBlacklistUid && !blacklist.includes(pendingBlacklistUid)) {
+        blacklist.push(pendingBlacklistUid);
+        saveBlacklist(blacklist);
+        renderBlacklist();
+        $('#blacklistInput').value = '';
+        pendingBlacklistUid = null;
+      }
+    };
+
+    renderBlacklist();
+
     $('#findPathBtn').onclick = () => {
       const c = cur();
       const result = $('#pathResult');
@@ -877,9 +942,28 @@
       }
 
       const wpUids = c.waypoints.filter(Boolean);
-      const { ideal: idealPath, constrained: constrainedPath } = findPathWithWaypoints(db, c.fromUid, c.toUid, wpUids, collection);
+      const blacklistSet = new Set(blacklist);
+
+      // Try with blacklist first
+      let { ideal: idealPath, constrained: constrainedPath } = findPathWithWaypoints(db, c.fromUid, c.toUid, wpUids, collection, blacklistSet);
+
+      // Check if blacklist filtering removed all results — fallback to unfiltered
+      let blacklistFallback = false;
+      if (!idealPath && blacklist.length > 0) {
+        const unfiltered = findPathWithWaypoints(db, c.fromUid, c.toUid, wpUids, collection, null);
+        if (unfiltered.ideal || unfiltered.constrained) {
+          blacklistFallback = true;
+          idealPath = unfiltered.ideal;
+          constrainedPath = unfiltered.constrained;
+        }
+      }
 
       let html = '';
+
+      if (blacklistFallback) {
+        const names = blacklist.map(uid => db.digimon[uid] ? t(db.digimon[uid].nameCN) : uid).join('、');
+        html += `<div class="path-blacklist-warning">${t('无法避开进化黑名单中的角色')}（${names}），${t('以下为未过滤的结果')}</div>`;
+      }
 
       // Check if ideal path is already achievable (all devo targets are seen/owned)
       let idealIsAchievable = false;
@@ -1014,7 +1098,7 @@
     restoreForm();
 
     // Expose refresh for language toggle
-    window._refreshPathTabs = () => { renderTabBar(); restoreForm(); };
+    window._refreshPathTabs = () => { renderTabBar(); restoreForm(); renderBlacklist(); };
   }
 
   // ── Data Menu ──
@@ -1034,6 +1118,10 @@
     try {
       const savedPresets = JSON.parse(localStorage.getItem(PATH_PRESETS_KEY));
       if (savedPresets) exportData.pathPresets = savedPresets;
+    } catch (e) { /* skip */ }
+    try {
+      const savedBlacklist = JSON.parse(localStorage.getItem(BLACKLIST_KEY));
+      if (savedBlacklist) exportData.evoBlacklist = savedBlacklist;
     } catch (e) { /* skip */ }
     const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
@@ -1063,6 +1151,10 @@
           if (imported.pathPresets) {
             localStorage.setItem(PATH_PRESETS_KEY, JSON.stringify(imported.pathPresets));
             delete imported.pathPresets;
+          }
+          if (imported.evoBlacklist) {
+            localStorage.setItem(BLACKLIST_KEY, JSON.stringify(imported.evoBlacklist));
+            delete imported.evoBlacklist;
           }
           db = imported;
           saveDB();

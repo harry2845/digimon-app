@@ -74,6 +74,18 @@
         </div>
         <button id="findPathBtn" class="btn-primary">查找路线</button>
       </div>
+      <div class="blacklist-section">
+        <div class="blacklist-header">
+          <span class="blacklist-label">进化黑名单</span>
+          <span class="blacklist-hint">（路线将避免进化到这些角色，但可以退化）</span>
+        </div>
+        <div class="blacklist-form">
+          <input type="text" id="blacklistInput" placeholder="搜索数码宝贝..." autocomplete="off">
+          <div id="blacklistDropdown" class="search-dropdown hidden"></div>
+          <button id="addBlacklistBtn" class="btn-waypoint">+ 添加</button>
+        </div>
+        <div id="blacklistList" class="blacklist-list"></div>
+      </div>
       <div id="pathResult" class="path-result"></div>
 
       <hr class="section-divider">
