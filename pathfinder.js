@@ -106,6 +106,7 @@ function findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extra
 
 // Find shortest path from→to passing through all waypoints (order auto-optimized)
 function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, blacklist) {
+  waypoints = waypoints || [];
   if (waypoints.length === 0) {
     return {
       ideal: findShortestPath(db, fromUid, toUid, blacklist),
@@ -174,6 +175,111 @@ function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, 
   }
 
   return { ideal: bestIdeal, constrained: bestConstrained };
+}
+
+function mergePath(base, segment) {
+  if (!segment) return base;
+  if (!base) return [...segment];
+  return base.concat(segment.slice(1));
+}
+
+function findSkillRoutePlan(db, fromUid, toUid, waypoints, collectionStatus, blacklist, skillLearnerMap, limit) {
+  const normalized = (waypoints || []).map(wp => typeof wp === 'string' ? { type: 'digimon', uid: wp } : wp).filter(Boolean);
+  let requiredDigimon = normalized.filter(wp => wp.type !== 'skill' && wp.uid).map(wp => wp.uid);
+  const uncovered = new Set(normalized.filter(wp => wp.type === 'skill' && wp.skill).map(wp => wp.skill));
+  const segments = [];
+  let currentUid = fromUid;
+  let idealChain = null;
+  let constrainedChain = null;
+  const coveredSkills = [];
+  const maxSegments = limit || (requiredDigimon.length + uncovered.size + 2);
+
+  function skillsInPath(path) {
+    const matched = [];
+    const seen = new Set();
+    if (!path) return matched;
+    for (const step of path) {
+      for (const skillName of uncovered) {
+        const learners = skillLearnerMap && skillLearnerMap.get(skillName);
+        if (!seen.has(skillName) && learners && learners.has(step.uid)) {
+          seen.add(skillName);
+          matched.push(skillName);
+        }
+      }
+    }
+    return matched;
+  }
+
+  function appendSegment(segment) {
+    segments.push(segment);
+    idealChain = mergePath(idealChain, segment.ideal);
+    if (segments.length === 1) {
+      constrainedChain = segment.constrained ? [...segment.constrained] : null;
+    } else if (constrainedChain && segment.constrained) {
+      constrainedChain = mergePath(constrainedChain, segment.constrained);
+    } else {
+      constrainedChain = null;
+    }
+    const idealUids = new Set((segment.ideal || []).map(step => step.uid));
+    requiredDigimon = requiredDigimon.filter(uid => !idealUids.has(uid));
+    for (const skillName of segment.matchedSkills) {
+      if (uncovered.delete(skillName)) coveredSkills.push(skillName);
+    }
+    currentUid = segment.uid;
+  }
+
+  for (let step = 0; step < maxSegments && (requiredDigimon.length > 0 || uncovered.size > 0); step++) {
+    if (requiredDigimon.length === 0 && uncovered.size > 0) {
+      const direct = findPathWithWaypoints(db, currentUid, toUid, [], collectionStatus, blacklist);
+      const directSkills = skillsInPath(direct.ideal);
+      if (direct.ideal && directSkills.length === uncovered.size) break;
+    }
+
+    let best = null;
+    const candidateUids = new Set(requiredDigimon);
+    for (const skillName of uncovered) {
+      const learners = skillLearnerMap && skillLearnerMap.get(skillName);
+      if (learners) for (const uid of learners) candidateUids.add(uid);
+    }
+
+    for (const uid of candidateUids) {
+      if (!db.digimon[uid]) continue;
+      const path = findPathWithWaypoints(db, currentUid, uid, [], collectionStatus, blacklist);
+      if (!path.ideal && !path.constrained) continue;
+      const matchedSkills = skillsInPath(path.ideal);
+      const requiredHit = requiredDigimon.includes(uid) || (path.ideal || []).some(step => requiredDigimon.includes(step.uid));
+      if (!requiredHit && matchedSkills.length === 0) continue;
+
+      const routeLength = (path.constrained || path.ideal).length;
+      const candidate = { uid, matchedSkills, ideal: path.ideal, constrained: path.constrained, routeLength, requiredHit };
+      if (!best
+        || candidate.matchedSkills.length > best.matchedSkills.length
+        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit && !best.requiredHit)
+        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit === best.requiredHit && candidate.routeLength < best.routeLength)
+        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit === best.requiredHit && candidate.routeLength === best.routeLength && !!candidate.constrained && !best.constrained)
+        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit === best.requiredHit && candidate.routeLength === best.routeLength && !!candidate.constrained === !!best.constrained && db.digimon[candidate.uid].dexId < db.digimon[best.uid].dexId)) {
+        best = candidate;
+      }
+    }
+
+    if (!best) break;
+    appendSegment(best);
+  }
+
+  const finalPath = findPathWithWaypoints(db, currentUid, toUid, [], collectionStatus, blacklist);
+  if (finalPath.ideal || finalPath.constrained) {
+    appendSegment({ uid: toUid, matchedSkills: skillsInPath(finalPath.ideal), ideal: finalPath.ideal, constrained: finalPath.constrained, routeLength: (finalPath.constrained || finalPath.ideal).length, final: true });
+  }
+
+  return {
+    segments,
+    coveredSkills,
+    uncoveredSkills: [...uncovered],
+    missedDigimon: requiredDigimon,
+    idealChain,
+    constrainedChain,
+    reachedTarget: !!finalPath.ideal
+  };
 }
 
 // Collection route planner: find chain(s) to own all un-owned Digimon

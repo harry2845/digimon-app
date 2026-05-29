@@ -65,9 +65,10 @@
         </div>
         <span class="path-arrow">&rarr;</span>
         <div id="waypointList" class="waypoint-list"></div>
-        <button id="addWaypointBtn" class="btn-waypoint">+ 添加途经点</button>
+        <button id="addWaypointBtn" class="btn-waypoint">+ 添加数码宝贝途经点</button>
+        <button id="addSkillWaypointBtn" class="btn-waypoint">+ 添加技能途经点</button>
         <span class="path-arrow">&rarr;</span>
-        <div class="path-select">
+        <div class="path-select" id="pathToSelect">
           <label>终点</label>
           <input type="text" id="pathTo" placeholder="搜索数码宝贝..." autocomplete="off">
           <div id="pathToDropdown" class="search-dropdown hidden"></div>
@@ -116,6 +117,7 @@
   <script src="https://cdn.jsdelivr.net/npm/opencc-js@1/dist/umd/full.js"></script>
   <script src="data_backup.js"></script>
   <script src="data.js"></script>
+  <script src="skills.js"></script>
   <script src="pathfinder.js"></script>
   <script src="app.js"></script>
 </body>

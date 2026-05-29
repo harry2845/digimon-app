@@ -71,6 +71,10 @@
       if (collectStart) collectStart.placeholder = t('搜索已拥有的数码宝贝...');
       const findBtn = document.getElementById('findPathBtn');
       if (findBtn) findBtn.textContent = t('查找路线');
+      const addWaypointBtn = document.getElementById('addWaypointBtn');
+      if (addWaypointBtn) addWaypointBtn.textContent = '+ ' + t('添加数码宝贝途经点');
+      const addSkillWaypointBtn = document.getElementById('addSkillWaypointBtn');
+      if (addSkillWaypointBtn) addSkillWaypointBtn.textContent = '+ ' + t('添加技能途经点');
       const collectBtn = document.getElementById('collectBtn');
       if (collectBtn) collectBtn.textContent = t('生成全收集路线');
       const wpBtn = document.getElementById('addWaypointBtn');
@@ -159,6 +163,39 @@
     else if (currentStatusFilter === 'owned') list = list.filter(d => getStatus(d.uid) === 2);
     else if (currentStatusFilter === 'seen+') list = list.filter(d => getStatus(d.uid) >= 1);
     return list;
+  }
+
+  const skillRecords = (window.DIGIMON_SKILLS && DIGIMON_SKILLS.records) || [];
+  const skillsByUid = new Map(skillRecords.map(s => [s.uid, s]));
+  const learnableSkillNames = [...new Set(skillRecords.flatMap(s => s.learnableSkills || []))].sort((a, b) => a.localeCompare(b, 'zh-Hant'));
+  const skillLearnerMap = new Map();
+  for (const record of skillRecords) {
+    for (const skillName of (record.learnableSkills || [])) {
+      if (!skillLearnerMap.has(skillName)) skillLearnerMap.set(skillName, new Set());
+      skillLearnerMap.get(skillName).add(record.uid);
+    }
+  }
+
+  function renderSkillInfo(uid) {
+    const skill = skillsByUid.get(uid);
+    if (!skill) return '';
+    const moves = (skill.signatureMoves || []).map(move => `
+      <div class="skill-move">
+        <div class="skill-move-name">${t(move.name)}</div>
+        <div class="skill-move-desc">${t(move.description)}</div>
+      </div>`).join('');
+    const learnable = (skill.learnableSkills || []).map(name => `<span class="learnable-skill">${t(name)}</span>`).join('');
+    return `<div class="skills-section">
+      <h3>${t('技能')}</h3>
+      <div class="skill-subsection">
+        <h4>${t('必杀技')}</h4>
+        ${moves || '<div class="evo-empty">' + t('无') + '</div>'}
+      </div>
+      <div class="skill-subsection">
+        <h4>${t('可学习技能')}</h4>
+        ${learnable ? '<div class="learnable-skills">' + learnable + '</div>' : '<div class="evo-empty">' + t('无') + '</div>'}
+      </div>
+    </div>`;
   }
 
   function getNextUid() {
@@ -340,12 +377,14 @@
 
     const st = getStatus(uid);
     const statusHtml = `<div class="detail-status-row"><button class="detail-status-btn ${STATUS_CLASSES[st]}" id="statusToggle">${t(STATUS_LABELS[st])}</button></div>`;
+    const skillsHtml = renderSkillInfo(uid);
 
     container.innerHTML = `
       ${dexHtml}
       ${nameHtml}
       ${stageHtml}
       ${statusHtml}
+      ${skillsHtml}
       <div class="evo-section">
         <div class="evo-col devo">
           <h3>${t('退化')} (${(d.devolutions || []).filter(u => db.digimon[u]).length})</h3>
@@ -557,14 +596,28 @@
     localStorage.setItem(BLACKLIST_KEY, JSON.stringify(list));
   }
 
+  function normalizeTab(tab) {
+    if (!Array.isArray(tab.waypoints)) tab.waypoints = [];
+    tab.waypoints = tab.waypoints.map(wp => typeof wp === 'string' ? { type: 'digimon', uid: wp } : wp).filter(Boolean);
+    if (Array.isArray(tab.skillNames) && tab.skillNames.length > 0) {
+      tab.waypoints.push(...tab.skillNames.map(skill => ({ type: 'skill', skill })));
+      tab.skillNames = [];
+    }
+    if (!tab.comments) tab.comments = {};
+    return tab;
+  }
+
   function newTab(name) {
-    return { name: name || (t('标签') + ' 1'), fromUid: null, toUid: null, waypoints: [], comments: {}, resultHtml: null };
+    return normalizeTab({ name: name || (t('标签') + ' 1'), fromUid: null, toUid: null, waypoints: [], comments: {}, resultHtml: null });
   }
 
   function loadPathTabs() {
     try {
       const saved = JSON.parse(localStorage.getItem(PATH_TABS_KEY));
-      if (saved && saved.tabs && saved.tabs.length > 0) return saved;
+      if (saved && saved.tabs && saved.tabs.length > 0) {
+        saved.tabs.forEach(normalizeTab);
+        return saved;
+      }
     } catch (e) { /* fall through */ }
     return { activeTab: 0, tabs: [newTab()] };
   }
@@ -592,7 +645,60 @@
     let waypointCounter = 0;
 
     // Current tab accessors
-    function cur() { return tabData.tabs[tabData.activeTab]; }
+    function cur() { return normalizeTab(tabData.tabs[tabData.activeTab]); }
+
+    function renderChain(containerId, path, waypointSet, targetSkillMap) {
+      const container = document.getElementById(containerId);
+      if (!container || !path) return;
+      const c = cur();
+      if (!c.comments) c.comments = {};
+      path.forEach((step, i) => {
+        if (i > 0) {
+          const edge = document.createElement('span');
+          edge.className = 'path-edge ' + step.edge;
+          edge.textContent = step.edge === 'evo' ? '→ ' + t('进化') + ' →' : '→ ' + t('退化') + ' →';
+          container.appendChild(edge);
+        }
+        const d = db.digimon[step.uid];
+        const node = document.createElement('div');
+        const targetSkills = targetSkillMap && targetSkillMap.get(step.uid);
+        node.className = 'path-node' + (waypointSet && waypointSet.has(step.uid) ? ' path-node-waypoint' : '') + (targetSkills && targetSkills.length ? ' path-node-skill-target' : '');
+        node.dataset.uid = step.uid;
+        const st = getStatus(step.uid);
+        const comment = c.comments[step.uid] || '';
+        node.innerHTML = `<div class="path-node-name">${t(d.nameCN)}</div><div class="path-node-stage">${t(d.stage)}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${t(STATUS_LABELS[st])}</div>` : ''}${targetSkills && targetSkills.length ? `<div class="path-node-skill">${targetSkills.map(skill => t(skill)).join('、')}</div>` : ''}${comment ? `<div class="path-node-comment">${comment}</div>` : ''}`;
+        node.onclick = () => { location.hash = '#detail/' + step.uid; };
+        node.oncontextmenu = (e) => {
+          e.preventDefault();
+          const existing = c.comments[step.uid] || '';
+          const input = prompt(t('备注') + ' - ' + t(d.nameCN), existing);
+          if (input === null) return;
+          if (input.trim()) {
+            c.comments[step.uid] = input.trim();
+          } else {
+            delete c.comments[step.uid];
+          }
+          savePathTabs(tabData);
+          const commentEl = node.querySelector('.path-node-comment');
+          if (c.comments[step.uid]) {
+            if (commentEl) {
+              commentEl.textContent = c.comments[step.uid];
+            } else {
+              const newComment = document.createElement('div');
+              newComment.className = 'path-node-comment';
+              newComment.textContent = c.comments[step.uid];
+              node.appendChild(newComment);
+            }
+          } else if (commentEl) {
+            commentEl.remove();
+          }
+          c.resultHtml = $('#pathResult').innerHTML;
+          savePathTabs(tabData);
+          renderWaypointsFromData();
+        };
+        container.appendChild(node);
+      });
+    }
 
     function setupSearch(inputId, dropdownId, onSelect) {
       const input = $(inputId);
@@ -623,6 +729,34 @@
             input.value = t(d.nameCN);
             dropdown.classList.add('hidden');
             onSelect(uid);
+          };
+        });
+      }
+    }
+
+    function setupSkillSearch(inputId, dropdownId, onSelect, getSelected) {
+      const input = $(inputId);
+      const dropdown = $(dropdownId);
+      if (!input || !dropdown) return;
+
+      input.onfocus = () => renderDropdown('');
+      input.oninput = () => renderDropdown(input.value);
+      document.addEventListener('click', (e) => {
+        if (!input.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.add('hidden');
+      });
+
+      function renderDropdown(query) {
+        const q = query.toLowerCase();
+        const qTw = fromInput(q);
+        const selected = new Set(getSelected ? getSelected() : []);
+        const matches = learnableSkillNames.filter(name => !selected.has(name) && (name.toLowerCase().includes(q) || name.toLowerCase().includes(qTw))).slice(0, 30);
+        dropdown.innerHTML = matches.map(name => `<div class="search-dropdown-item" data-skill="${name.replace(/"/g, '&quot;')}">${t(name)}</div>`).join('') || `<div class="search-dropdown-item path-none">${t('无匹配技能')}</div>`;
+        dropdown.classList.remove('hidden');
+        dropdown.querySelectorAll('.search-dropdown-item[data-skill]').forEach(item => {
+          item.onclick = () => {
+            input.value = t(item.dataset.skill);
+            dropdown.classList.add('hidden');
+            onSelect(item.dataset.skill);
           };
         });
       }
@@ -741,7 +875,7 @@
             return;
           }
           const c = cur();
-          presets.push({ name, fromUid: c.fromUid, toUid: c.toUid, waypoints: [...c.waypoints], comments: { ...(c.comments || {}) } });
+          presets.push({ name, fromUid: c.fromUid, toUid: c.toUid, waypoints: JSON.parse(JSON.stringify(c.waypoints)), comments: { ...(c.comments || {}) } });
           savePathPresets(presets);
           alert(t('已保存'));
         };
@@ -770,10 +904,11 @@
               if (e.target.classList.contains('preset-item-delete')) return;
               const p = presets[parseInt(item.dataset.idx)];
               const c = cur();
+              normalizeTab(p);
               c.name = p.name;
               c.fromUid = p.fromUid;
               c.toUid = p.toUid;
-              c.waypoints = [...p.waypoints];
+              c.waypoints = JSON.parse(JSON.stringify(p.waypoints || []));
               c.comments = { ...(p.comments || {}) };
               c.resultHtml = null;
               savePathTabs(tabData);
@@ -845,6 +980,9 @@
         resultEl.innerHTML = c.resultHtml;
         if (!c.comments) c.comments = {};
         // Re-attach click and contextmenu handlers on path nodes
+        resultEl.querySelectorAll('.skill-route-segment').forEach(item => {
+          item.onclick = () => { location.hash = '#detail/' + item.dataset.uid; };
+        });
         resultEl.querySelectorAll('.path-node').forEach(node => {
           const uid = node.dataset.uid;
           if (uid) {
@@ -892,36 +1030,47 @@
       if (!c.comments) c.comments = {};
       const container = $('#waypointList');
       waypointCounter = c.waypoints.length;
-      container.innerHTML = c.waypoints.map((wpUid, i) => {
-        const d = wpUid ? db.digimon[wpUid] : null;
-        const comment = (wpUid && c.comments[wpUid]) || '';
+      container.innerHTML = c.waypoints.map((wp, i) => {
+        if (!wp) wp = c.waypoints[i] = { type: 'digimon', uid: null };
+        const isSkill = wp.type === 'skill';
+        const d = !isSkill && wp.uid ? db.digimon[wp.uid] : null;
+        const comment = (!isSkill && wp.uid && c.comments[wp.uid]) || '';
         return `
         <div class="waypoint-item">
           <div class="path-select">
-            <label>${t("途经点")} ${i + 1}</label>
-            <input type="text" id="waypoint${i}" placeholder="${t("搜索数码宝贝...")}" autocomplete="off" value="${d ? t(d.nameCN) : ''}">
+            <label>${t(isSkill ? '技能途经点' : '数码宝贝途经点')} ${i + 1}</label>
+            <input type="text" id="waypoint${i}" placeholder="${t(isSkill ? '搜索技能...' : '搜索数码宝贝...')}" autocomplete="off" value="${isSkill ? (wp.skill ? t(wp.skill) : '') : (d ? t(d.nameCN) : '')}">
             <div id="waypointDropdown${i}" class="search-dropdown hidden"></div>
           </div>
-          <input type="text" class="waypoint-comment" data-idx="${i}" placeholder="${t("备注...")}" value="${comment.replace(/"/g, '&quot;')}">
+          ${isSkill ? '' : `<input type="text" class="waypoint-comment" data-idx="${i}" placeholder="${t("备注...")}" value="${comment.replace(/"/g, '&quot;')}">`}
           <button class="waypoint-remove" data-idx="${i}">&times;</button>
         </div>`;
       }).join('');
 
       // Setup search for each waypoint
-      c.waypoints.forEach((wpUid, i) => {
-        setupSearch('#waypoint' + i, '#waypointDropdown' + i, uid => {
-          cur().waypoints[i] = uid;
-          savePathTabs(tabData);
-        });
+      c.waypoints.forEach((wp, i) => {
+        if (wp.type === 'skill') {
+          setupSkillSearch('#waypoint' + i, '#waypointDropdown' + i, skill => {
+            cur().waypoints[i] = { type: 'skill', skill };
+            cur().resultHtml = null;
+            savePathTabs(tabData);
+          }, () => cur().waypoints.filter(item => item.type === 'skill' && item.skill).map(item => item.skill));
+        } else {
+          setupSearch('#waypoint' + i, '#waypointDropdown' + i, uid => {
+            cur().waypoints[i] = { type: 'digimon', uid };
+            cur().resultHtml = null;
+            savePathTabs(tabData);
+          });
+        }
       });
 
       // Remove buttons
       container.querySelectorAll('.waypoint-remove').forEach(btn => {
         btn.onclick = () => {
           const idx = parseInt(btn.dataset.idx);
-          const removedUid = cur().waypoints[idx];
+          const removed = cur().waypoints[idx];
           cur().waypoints.splice(idx, 1);
-          if (removedUid && cur().comments[removedUid]) delete cur().comments[removedUid];
+          if (removed && removed.type !== 'skill' && removed.uid && cur().comments[removed.uid]) delete cur().comments[removed.uid];
           savePathTabs(tabData);
           renderWaypointsFromData();
         };
@@ -931,7 +1080,8 @@
       container.querySelectorAll('.waypoint-comment').forEach(input => {
         input.oninput = () => {
           const idx = parseInt(input.dataset.idx);
-          const uid = cur().waypoints[idx];
+          const wp = cur().waypoints[idx];
+          const uid = wp && wp.type !== 'skill' ? wp.uid : null;
           if (!uid) return;
           if (!cur().comments) cur().comments = {};
           if (input.value.trim()) {
@@ -955,7 +1105,13 @@
     });
 
     $('#addWaypointBtn').onclick = () => {
-      cur().waypoints.push(null);
+      cur().waypoints.push({ type: 'digimon', uid: null });
+      savePathTabs(tabData);
+      renderWaypointsFromData();
+    };
+
+    $('#addSkillWaypointBtn').onclick = () => {
+      cur().waypoints.push({ type: 'skill', skill: null });
       savePathTabs(tabData);
       renderWaypointsFromData();
     };
@@ -1007,21 +1163,92 @@
     $('#findPathBtn').onclick = () => {
       const c = cur();
       const result = $('#pathResult');
-      if (!c.fromUid || !c.toUid) {
+      if (!c.fromUid) {
+        result.innerHTML = '<div class="path-none">' + t('请选择起点') + '</div>';
+        return;
+      }
+
+      const wpSet = new Set(c.waypoints.filter(wp => wp && wp.type !== 'skill' && wp.uid).map(wp => wp.uid));
+      const blacklistSet = new Set(blacklist);
+      let html = '';
+      let blacklistFallback = false;
+
+      if (!c.toUid) {
         result.innerHTML = '<div class="path-none">' + t('请选择起点和终点') + '</div>';
         return;
       }
 
-      const wpUids = c.waypoints.filter(Boolean);
-      const blacklistSet = new Set(blacklist);
+      const skillWaypointCount = c.waypoints.filter(wp => wp && wp.type === 'skill' && wp.skill).length;
+      if (skillWaypointCount > 0) {
+        let plan = findSkillRoutePlan(db, c.fromUid, c.toUid, c.waypoints, collection, blacklistSet, skillLearnerMap);
+        if ((!plan.reachedTarget || plan.segments.length === 0) && blacklist.length > 0) {
+          const unfiltered = findSkillRoutePlan(db, c.fromUid, c.toUid, c.waypoints, collection, null, skillLearnerMap);
+          if (unfiltered.segments.length > 0) {
+            blacklistFallback = true;
+            plan = unfiltered;
+          }
+        }
 
-      // Try with blacklist first
-      let { ideal: idealPath, constrained: constrainedPath } = findPathWithWaypoints(db, c.fromUid, c.toUid, wpUids, collection, blacklistSet);
+        if (blacklistFallback) {
+          const names = blacklist.map(uid => db.digimon[uid] ? t(db.digimon[uid].nameCN) : uid).join('、');
+          html += `<div class="path-blacklist-warning">${t('无法避开进化黑名单中的角色')}（${names}），${t('以下为未过滤的结果')}</div>`;
+        }
 
-      // Check if blacklist filtering removed all results — fallback to unfiltered
-      let blacklistFallback = false;
+        if (!plan.reachedTarget) {
+          html += '<div class="path-section"><div class="path-none">' + t('无法到达目标，没有可用的进化/退化路线') + '</div></div>';
+        } else {
+          html += `<div class="skill-route-summary">
+            <div>${t('已获得技能')}：${plan.coveredSkills.length ? plan.coveredSkills.map(skill => `<span class="skill-covered">${t(skill)}</span>`).join('') : t('无')}</div>
+            ${plan.uncoveredSkills.length ? `<div>${t('未获得技能')}：${plan.uncoveredSkills.map(skill => `<span class="skill-uncovered">${t(skill)}</span>`).join('')}</div>` : ''}
+            ${plan.missedDigimon.length ? `<div>${t('未经过途经点')}：${plan.missedDigimon.map(uid => `<span class="skill-uncovered">${t(db.digimon[uid].nameCN)}</span>`).join('')}</div>` : ''}
+          </div>`;
+
+          html += '<div class="skill-route-segments">';
+          plan.segments.forEach((segment, idx) => {
+            const d = db.digimon[segment.uid];
+            html += `<div class="skill-route-segment" data-uid="${segment.uid}">
+              <strong>${idx + 1}. ${t(d.nameCN)}${segment.final ? ' · ' + t('终点') : ''}</strong>
+              <span>${segment.matchedSkills.length ? segment.matchedSkills.map(skill => t(skill)).join('、') : t('路线节点')}</span>
+            </div>`;
+          });
+          html += '</div>';
+
+          const targetSkillMap = new Map(plan.segments.map(segment => [segment.uid, segment.matchedSkills]));
+          const idealPath = plan.idealChain;
+          const constrainedPath = plan.constrainedChain;
+          const idealIsAchievable = !!idealPath && !!constrainedPath && idealPath.length === constrainedPath.length && idealPath.every((step, i) => step.uid === constrainedPath[i].uid && step.edge === constrainedPath[i].edge);
+
+          html += `<div class="path-section"><h3>${t('理想路线')} (${idealPath.length - 1} ${t('步')})${idealIsAchievable ? ' ✓ ' + t('当前可行') : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
+          if (!idealIsAchievable) {
+            if (!constrainedPath) {
+              html += '<div class="path-section"><h3>' + t('当前可行路线') + '</h3><div class="path-none">' + t('无法到达目标（退化目标中有未见过的数码宝贝）') + '</div></div>';
+            } else {
+              html += `<div class="path-section"><h3>${t('当前可行路线')} (${constrainedPath.length - 1} ${t('步')})</h3><div class="path-chain" id="constrainedChain"></div></div>`;
+            }
+          }
+
+          result.innerHTML = html;
+          renderChain('idealChain', idealPath, wpSet, targetSkillMap);
+          if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath, wpSet, targetSkillMap);
+          result.querySelectorAll('.skill-route-segment').forEach(item => {
+            item.onclick = () => { location.hash = '#detail/' + item.dataset.uid; };
+          });
+          c.resultHtml = result.innerHTML;
+          savePathTabs(tabData);
+          return;
+        }
+
+        result.innerHTML = html;
+        c.resultHtml = result.innerHTML;
+        savePathTabs(tabData);
+        return;
+      }
+
+      const digimonWaypoints = c.waypoints.filter(wp => wp && wp.type !== 'skill' && wp.uid).map(wp => wp.uid);
+      let { ideal: idealPath, constrained: constrainedPath } = findPathWithWaypoints(db, c.fromUid, c.toUid, digimonWaypoints, collection, blacklistSet);
+
       if (!idealPath && blacklist.length > 0) {
-        const unfiltered = findPathWithWaypoints(db, c.fromUid, c.toUid, wpUids, collection, null);
+        const unfiltered = findPathWithWaypoints(db, c.fromUid, c.toUid, digimonWaypoints, collection, null);
         if (unfiltered.ideal || unfiltered.constrained) {
           blacklistFallback = true;
           idealPath = unfiltered.ideal;
@@ -1029,29 +1256,22 @@
         }
       }
 
-      let html = '';
-
       if (blacklistFallback) {
         const names = blacklist.map(uid => db.digimon[uid] ? t(db.digimon[uid].nameCN) : uid).join('、');
         html += `<div class="path-blacklist-warning">${t('无法避开进化黑名单中的角色')}（${names}），${t('以下为未过滤的结果')}</div>`;
       }
 
-      // Check if ideal path is already achievable (all devo targets are seen/owned)
       let idealIsAchievable = false;
       if (idealPath) {
-        idealIsAchievable = idealPath.every(step =>
-          step.edge !== 'devo' || getStatus(step.uid) >= 1
-        );
+        idealIsAchievable = idealPath.every(step => step.edge !== 'devo' || getStatus(step.uid) >= 1);
       }
 
-      // Ideal path
       if (!idealPath) {
         html += '<div class="path-section"><h3>' + t('理想路线') + '</h3><div class="path-none">' + t('无法到达目标，没有可用的进化/退化路线') + '</div></div>';
       } else {
         html += `<div class="path-section"><h3>${t('理想路线')} (${idealPath.length - 1} ${t('步')})${idealIsAchievable ? ' ✓ ' + t('当前可行') : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
       }
 
-      // Constrained path (only show if ideal is not already achievable)
       if (!idealIsAchievable) {
         if (!constrainedPath) {
           html += '<div class="path-section"><h3>' + t('当前可行路线') + '</h3><div class="path-none">' + t('无法到达目标（退化目标中有未见过的数码宝贝）') + '</div></div>';
@@ -1061,67 +1281,9 @@
       }
 
       result.innerHTML = html;
-
-      function renderChain(containerId, path, waypointSet) {
-        const container = document.getElementById(containerId);
-        if (!container || !path) return;
-        const c = cur();
-        if (!c.comments) c.comments = {};
-        path.forEach((step, i) => {
-          if (i > 0) {
-            const edge = document.createElement('span');
-            edge.className = 'path-edge ' + step.edge;
-            edge.textContent = step.edge === 'evo' ? '→ ' + t('进化') + ' →' : '→ ' + t('退化') + ' →';
-            container.appendChild(edge);
-          }
-          const d = db.digimon[step.uid];
-          const node = document.createElement('div');
-          node.className = 'path-node' + (waypointSet && waypointSet.has(step.uid) ? ' path-node-waypoint' : '');
-          node.dataset.uid = step.uid;
-          const st = getStatus(step.uid);
-          const comment = c.comments[step.uid] || '';
-          node.innerHTML = `<div class="path-node-name">${t(d.nameCN)}</div><div class="path-node-stage">${t(d.stage)}</div>${st > 0 ? `<div class="path-node-status ${STATUS_CLASSES[st]}">${t(STATUS_LABELS[st])}</div>` : ''}${comment ? `<div class="path-node-comment">${comment}</div>` : ''}`;
-          node.onclick = () => { location.hash = '#detail/' + step.uid; };
-          node.oncontextmenu = (e) => {
-            e.preventDefault();
-            const existing = c.comments[step.uid] || '';
-            const input = prompt(t('备注') + ' - ' + t(d.nameCN), existing);
-            if (input === null) return;
-            if (input.trim()) {
-              c.comments[step.uid] = input.trim();
-            } else {
-              delete c.comments[step.uid];
-            }
-            savePathTabs(tabData);
-            // Update the comment display on this node
-            const commentEl = node.querySelector('.path-node-comment');
-            if (c.comments[step.uid]) {
-              if (commentEl) {
-                commentEl.textContent = c.comments[step.uid];
-              } else {
-                const newComment = document.createElement('div');
-                newComment.className = 'path-node-comment';
-                newComment.textContent = c.comments[step.uid];
-                node.appendChild(newComment);
-              }
-            } else if (commentEl) {
-              commentEl.remove();
-            }
-            // Update cached html
-            c.resultHtml = $('#pathResult').innerHTML;
-            savePathTabs(tabData);
-            // Also update waypoint form if this uid is a waypoint
-            renderWaypointsFromData();
-          };
-          container.appendChild(node);
-        });
-      }
-
-      const wpSet = new Set(wpUids);
       renderChain('idealChain', idealPath, wpSet);
       if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath, wpSet);
 
-      // Cache result
       c.resultHtml = result.innerHTML;
       savePathTabs(tabData);
     };

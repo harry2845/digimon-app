@@ -1,0 +1,6516 @@
+window.DIGIMON_SKILLS = {
+  "meta": {
+    "source": "skill.txt",
+    "generatedAt": "2026-05-29T00:38:44.177Z",
+    "recordCount": 341,
+    "notes": [
+      "Matched to data.js by dexId.",
+      "nameCN/nameEN are copied from data.js; sourceName is the simplified name from skill.txt.",
+      "signatureMoves were split using spacing and effect-keyword heuristics; review records with multiple moves before merging into UI."
+    ]
+  },
+  "records": [
+    {
+      "uid": "d248",
+      "dexId": 1,
+      "nameCN": "水母獸",
+      "nameEN": "Kuramon",
+      "sourceName": "水母兽",
+      "signatureMoves": [
+        {
+          "name": "炫光之眼",
+          "description": "敌方单体魔法暗属性威力30"
+        }
+      ],
+      "learnableSkills": []
+    },
+    {
+      "uid": "d174",
+      "dexId": 2,
+      "nameCN": "泡沫獸",
+      "nameEN": "Pabumon",
+      "sourceName": "泡沫兽",
+      "signatureMoves": [
+        {
+          "name": "黏性之泡",
+          "description": "敌方单体魔法木属性威力25 10%敌人SPD-10%"
+        }
+      ],
+      "learnableSkills": []
+    },
+    {
+      "uid": "d217",
+      "dexId": 3,
+      "nameCN": "普尼獸",
+      "nameEN": "Punimon",
+      "sourceName": "普尼兽",
+      "signatureMoves": [
+        {
+          "name": "酸之泡",
+          "description": "敌方单体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": []
+    },
+    {
+      "uid": "d142",
+      "dexId": 4,
+      "nameCN": "黑球獸",
+      "nameEN": "Botamon",
+      "sourceName": "黑球兽",
+      "signatureMoves": [
+        {
+          "name": "酸之泡",
+          "description": "敌方单体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": []
+    },
+    {
+      "uid": "d143",
+      "dexId": 5,
+      "nameCN": "浮游獸",
+      "nameEN": "Poyomon",
+      "sourceName": "浮游兽",
+      "signatureMoves": [
+        {
+          "name": "极酸之泡",
+          "description": "敌方单体魔法水属性威力35"
+        }
+      ],
+      "learnableSkills": []
+    },
+    {
+      "uid": "d051",
+      "dexId": 6,
+      "nameCN": "阿卡迪獸（幼年期）",
+      "nameEN": "Arcadiamon In-Tr.",
+      "sourceName": "阿卡迪兽幼年期",
+      "signatureMoves": [
+        {
+          "name": "数据消耗",
+          "description": "敌方单体物理暗属性威力35 吸取30%HP"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇I"
+      ]
+    },
+    {
+      "uid": "d145",
+      "dexId": 7,
+      "nameCN": "滾球獸",
+      "nameEN": "Koromon",
+      "sourceName": "滚球兽",
+      "signatureMoves": [
+        {
+          "name": "泡沫",
+          "description": "敌方单体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹I"
+      ]
+    },
+    {
+      "uid": "d230",
+      "dexId": 8,
+      "nameCN": "種子獸",
+      "nameEN": "Tanemon",
+      "sourceName": "种子兽",
+      "signatureMoves": [
+        {
+          "name": "黏性之泡",
+          "description": "敌方单体魔法木属性威力25 10%敌人DPS-10%"
+        }
+      ],
+      "learnableSkills": [
+        "盖亚元素I"
+      ]
+    },
+    {
+      "uid": "d218",
+      "dexId": 9,
+      "nameCN": "獨角獸",
+      "nameEN": "Tsunomon",
+      "sourceName": "独角兽",
+      "signatureMoves": [
+        {
+          "name": "泡泡",
+          "description": "敌方单体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤I"
+      ]
+    },
+    {
+      "uid": "d250",
+      "dexId": 10,
+      "nameCN": "指爪獸",
+      "nameEN": "Tsumemon",
+      "sourceName": "指爪兽",
+      "signatureMoves": [
+        {
+          "name": "钉之刻痕",
+          "description": "敌方单体物理暗属性威力40"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农I"
+      ]
+    },
+    {
+      "uid": "d146",
+      "dexId": 11,
+      "nameCN": "迪哥獸",
+      "nameEN": "Tokomon",
+      "sourceName": "迪哥兽",
+      "signatureMoves": [
+        {
+          "name": "反噬",
+          "description": "敌方单体物理无属性威力40"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I"
+      ]
+    },
+    {
+      "uid": "d232",
+      "dexId": 12,
+      "nameCN": "貓貓獸",
+      "nameEN": "Nyaromon",
+      "sourceName": "猫猫兽",
+      "signatureMoves": [
+        {
+          "name": "妖狐之尾",
+          "description": "敌方单体物理光属性威力35"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪I"
+      ]
+    },
+    {
+      "uid": "d235",
+      "dexId": 13,
+      "nameCN": "柏古獸",
+      "nameEN": "Pagumon",
+      "sourceName": "柏古兽",
+      "signatureMoves": [
+        {
+          "name": "毒之泡",
+          "description": "敌方单体魔法暗属性威力25 10%几率剧毒"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇I"
+      ]
+    },
+    {
+      "uid": "d229",
+      "dexId": 14,
+      "nameCN": "比高獸",
+      "nameEN": "Yokomon",
+      "sourceName": "比高兽",
+      "signatureMoves": [
+        {
+          "name": "肥皂之花",
+          "description": "敌方单体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶I"
+      ]
+    },
+    {
+      "uid": "d231",
+      "dexId": 15,
+      "nameCN": "布加獸",
+      "nameEN": "Bukamon",
+      "sourceName": "布加兽",
+      "signatureMoves": [
+        {
+          "name": "空气之泡",
+          "description": "敌方单体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": [
+        "发电水流I"
+      ]
+    },
+    {
+      "uid": "d175",
+      "dexId": 16,
+      "nameCN": "年糕獸",
+      "nameEN": "Motimon",
+      "sourceName": "年糕兽",
+      "signatureMoves": [
+        {
+          "name": "伸缩自如的泡泡",
+          "description": "敌方单体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": [
+        "力量能源I"
+      ]
+    },
+    {
+      "uid": "d144",
+      "dexId": 17,
+      "nameCN": "汪喵獸",
+      "nameEN": "Wanyamon",
+      "sourceName": "汪喵兽",
+      "signatureMoves": [
+        {
+          "name": "微笑獠牙",
+          "description": "敌方单体物理无属性威力40"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪I"
+      ]
+    },
+    {
+      "uid": "d041",
+      "dexId": 18,
+      "nameCN": "亞古獸",
+      "nameEN": "Agumon",
+      "sourceName": "亚古兽",
+      "signatureMoves": [
+        {
+          "name": "小型火焰",
+          "description": "敌方单体物理火属性威力70"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I",
+        "攻击填充"
+      ]
+    },
+    {
+      "uid": "d108",
+      "dexId": 19,
+      "nameCN": "亞古獸（黑）",
+      "nameEN": "Agumon (Blk)",
+      "sourceName": "亚古兽黑",
+      "signatureMoves": [
+        {
+          "name": "喷火",
+          "description": "敌方全体物理火属性威力35 10%自身ATK+10%"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹",
+        "守备填充"
+      ]
+    },
+    {
+      "uid": "d052",
+      "dexId": 20,
+      "nameCN": "阿卡迪獸（成長期）",
+      "nameEN": "Arcadiamon Rookie",
+      "sourceName": "阿卡迪兽成长期",
+      "signatureMoves": [
+        {
+          "name": "灵魂吸取",
+          "description": "敌方单体物理暗属性威力70 吸取30%HP"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "破坏加农I"
+      ]
+    },
+    {
+      "uid": "d272",
+      "dexId": 21,
+      "nameCN": "穿山獸",
+      "nameEN": "Armadillomon",
+      "sourceName": "穿山兽",
+      "signatureMoves": [
+        {
+          "name": "滚动攻击",
+          "description": "敌方单体物理土属性威力60 10%自身DEF+10%"
+        }
+      ],
+      "learnableSkills": [
+        "雄伟巨石I",
+        "晕眩冲击"
+      ]
+    },
+    {
+      "uid": "d069",
+      "dexId": 22,
+      "nameCN": "小妖獸",
+      "nameEN": "Impmon",
+      "sourceName": "小妖兽",
+      "signatureMoves": [
+        {
+          "name": "召唤",
+          "description": "敌方单体HP-100 自身INT+10%"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇I",
+        "偶像泡沫"
+      ]
+    },
+    {
+      "uid": "d234",
+      "dexId": 23,
+      "nameCN": "艾力獸",
+      "nameEN": "Elecmon",
+      "sourceName": "艾力兽",
+      "signatureMoves": [
+        {
+          "name": "闪光电击",
+          "description": "敌方单体魔法雷属性威力30 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "天国闪电I",
+        "麻痹电网"
+      ]
+    },
+    {
+      "uid": "d238",
+      "dexId": 24,
+      "nameCN": "蝌蚪獸",
+      "nameEN": "Otamamon",
+      "sourceName": "蝌蚪兽",
+      "signatureMoves": [
+        {
+          "name": "睡之泡",
+          "description": "敌方单体魔法水属性威力55 10%睡眠"
+        }
+      ],
+      "learnableSkills": [
+        "发电水流I",
+        "反睡眠"
+      ]
+    },
+    {
+      "uid": "d044",
+      "dexId": 25,
+      "nameCN": "迦奧獸",
+      "nameEN": "Gaomon",
+      "sourceName": "迦奥兽",
+      "signatureMoves": [
+        {
+          "name": "双重反击",
+          "description": "敌方全体物理无属性威力20 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "反晕眩",
+        "敏捷填充"
+      ]
+    },
+    {
+      "uid": "d236",
+      "dexId": 26,
+      "nameCN": "加支獸",
+      "nameEN": "Gazimon",
+      "sourceName": "加支兽",
+      "signatureMoves": [
+        {
+          "name": "麻痹毒气",
+          "description": "敌方单体物理雷属性威力65 15%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农I",
+        "混乱鬼火"
+      ]
+    },
+    {
+      "uid": "d111",
+      "dexId": 27,
+      "nameCN": "加布獸",
+      "nameEN": "Gabumon",
+      "sourceName": "加布兽",
+      "signatureMoves": [
+        {
+          "name": "爆炎火焰弹",
+          "description": "敌方单体物理火属性威力65 10%敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "爆裂火焰I",
+        "反晕眩"
+      ]
+    },
+    {
+      "uid": "d278",
+      "dexId": 28,
+      "nameCN": "加布獸（黑）",
+      "nameEN": "Gabumon (Blk)",
+      "sourceName": "加布兽（黑）",
+      "signatureMoves": [
+        {
+          "name": "幼角",
+          "description": "敌方单体物理无属性威力70 10%敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "雄伟巨石I",
+        "反混乱"
+      ]
+    },
+    {
+      "uid": "d077",
+      "dexId": 29,
+      "nameCN": "基爾獸",
+      "nameEN": "Guilmon",
+      "sourceName": "基尔兽",
+      "signatureMoves": [
+        {
+          "name": "破岩击",
+          "description": "敌方单体物理土属性威力70"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹I",
+        "攻击填充"
+      ]
+    },
+    {
+      "uid": "d042",
+      "dexId": 30,
+      "nameCN": "管狐獸",
+      "nameEN": "Kudamon",
+      "sourceName": "管狐兽",
+      "signatureMoves": [
+        {
+          "name": "绝光冲",
+          "description": "敌方单体魔法光属性威力65"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪I",
+        "神圣之光I"
+      ]
+    },
+    {
+      "uid": "d246",
+      "dexId": 31,
+      "nameCN": "哈哈獸",
+      "nameEN": "Keramon",
+      "sourceName": "哈哈兽",
+      "signatureMoves": [
+        {
+          "name": "疯狂大笑",
+          "description": "敌方单体物理暗属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农I",
+        "守备破坏"
+      ]
+    },
+    {
+      "uid": "d241",
+      "dexId": 32,
+      "nameCN": "礦石獸",
+      "nameEN": "Gotsumon",
+      "sourceName": "矿石兽",
+      "signatureMoves": [
+        {
+          "name": "愤怒岩石",
+          "description": "敌方单体物理土属性威力65 10%自身DEF+10%"
+        }
+      ],
+      "learnableSkills": [
+        "守备填充",
+        "彗星重锤I"
+      ]
+    },
+    {
+      "uid": "d091",
+      "dexId": 33,
+      "nameCN": "野人獸",
+      "nameEN": "Goblimon",
+      "sourceName": "野人兽",
+      "signatureMoves": [
+        {
+          "name": "野人火焰弹",
+          "description": "敌方单体物理火属性威力65 10%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤I",
+        "晕眩冲击"
+      ]
+    },
+    {
+      "uid": "d152",
+      "dexId": 34,
+      "nameCN": "哥瑪獸",
+      "nameEN": "Gomamon",
+      "sourceName": "哥玛兽",
+      "signatureMoves": [
+        {
+          "name": "鱼群大暴走",
+          "description": "敌方全体物理水属性威力15 攻击1~3次"
+        }
+      ],
+      "learnableSkills": [
+        "偶像泡沫",
+        "反混乱"
+      ]
+    },
+    {
+      "uid": "d274",
+      "dexId": 35,
+      "nameCN": "蝦蛄獸",
+      "nameEN": "Syakomon",
+      "sourceName": "虾蛄兽",
+      "signatureMoves": [
+        {
+          "name": "黑珍珠",
+          "description": "敌方全体魔法水属性威力25"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭I",
+        "反睡眠"
+      ]
+    },
+    {
+      "uid": "d262",
+      "dexId": 36,
+      "nameCN": "兹巴獸",
+      "nameEN": "Zubamon",
+      "sourceName": "兹巴兽",
+      "signatureMoves": [
+        {
+          "name": "二十连俯冲",
+          "description": "敌方单体物理无属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I",
+        "攻击填充"
+      ]
+    },
+    {
+      "uid": "d290",
+      "dexId": 37,
+      "nameCN": "太陽獸",
+      "nameEN": "Solarmon",
+      "sourceName": "太阳兽",
+      "signatureMoves": [
+        {
+          "name": "闪光环",
+          "description": "敌方单体物理光属性威力70 必中"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光I",
+        "闪耀镭射I"
+      ]
+    },
+    {
+      "uid": "d015",
+      "dexId": 38,
+      "nameCN": "芝蒙獸",
+      "nameEN": "Chuumon",
+      "sourceName": "芝蒙兽",
+      "signatureMoves": [
+        {
+          "name": "乳酪爆弹",
+          "description": "敌方单体物理火属性威力70"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I",
+        "疾速逃脱"
+      ]
+    },
+    {
+      "uid": "d266",
+      "dexId": 39,
+      "nameCN": "大耳獸",
+      "nameEN": "Terriermon",
+      "sourceName": "大耳兽",
+      "signatureMoves": [
+        {
+          "name": "小型龙卷风",
+          "description": "敌方全体魔法风属性威力20"
+        }
+      ],
+      "learnableSkills": [
+        "治愈",
+        "速度填充"
+      ]
+    },
+    {
+      "uid": "d129",
+      "dexId": 40,
+      "nameCN": "甲蟲獸",
+      "nameEN": "Tentomon",
+      "sourceName": "甲虫兽",
+      "signatureMoves": [
+        {
+          "name": "小型闪电",
+          "description": "敌方单体魔法雷属性威力60"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏I",
+        "麻痹电网"
+      ]
+    },
+    {
+      "uid": "d273",
+      "dexId": 41,
+      "nameCN": "積木亞古獸",
+      "nameEN": "ToyAgumon",
+      "sourceName": "积木亚古兽",
+      "signatureMoves": [
+        {
+          "name": "玩具火焰弹",
+          "description": "敌方单体物理火属性威力60 10%敌人INT-10%"
+        }
+      ],
+      "learnableSkills": [
+        "力量能源I",
+        "爆裂火焰I"
+      ]
+    },
+    {
+      "uid": "d227",
+      "dexId": 42,
+      "nameCN": "德古獸",
+      "nameEN": "Dracmon",
+      "sourceName": "德古兽",
+      "signatureMoves": [
+        {
+          "name": "恶梦之眼",
+          "description": "敌方单体魔法暗属性威力50 吸取10%HP 混乱"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农I",
+        "死亡召唤"
+      ]
+    },
+    {
+      "uid": "d119",
+      "dexId": 43,
+      "nameCN": "天龍獸",
+      "nameEN": "Dracomon",
+      "sourceName": "天龙兽",
+      "signatureMoves": [
+        {
+          "name": "幼龙吐息",
+          "description": "敌方单体物理火属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹I",
+        "重度强袭I"
+      ]
+    },
+    {
+      "uid": "d092",
+      "dexId": 44,
+      "nameCN": "多路獸",
+      "nameEN": "Dorumon",
+      "sourceName": "多路兽",
+      "signatureMoves": [
+        {
+          "name": "金属加农",
+          "description": "敌方单体物理无属性威力70 30%自身DEF+10%"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹I",
+        "暴击填充"
+      ]
+    },
+    {
+      "uid": "d006",
+      "dexId": 45,
+      "nameCN": "齒輪獸",
+      "nameEN": "Hagurumon",
+      "sourceName": "齿轮兽",
+      "signatureMoves": [
+        {
+          "name": "黑暗齿轮",
+          "description": "敌方单体物理暗属性威力70 必中"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏I",
+        "天国闪电I"
+      ]
+    },
+    {
+      "uid": "d083",
+      "dexId": 46,
+      "nameCN": "巴達獸",
+      "nameEN": "Patamon",
+      "sourceName": "巴达兽",
+      "signatureMoves": [
+        {
+          "name": "空气炮",
+          "description": "敌方单体魔法风属性威力50 10%自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "音速空洞I",
+        "智能填充"
+      ]
+    },
+    {
+      "uid": "d260",
+      "dexId": 47,
+      "nameCN": "哈克獸",
+      "nameEN": "Hackmon",
+      "sourceName": "哈克兽",
+      "signatureMoves": [
+        {
+          "name": "五连闪",
+          "description": "敌方单体物理土属性威力20 攻击5次 命中率80"
+        }
+      ],
+      "learnableSkills": [
+        "治愈",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d157",
+      "dexId": 48,
+      "nameCN": "巴魯獸",
+      "nameEN": "Palmon",
+      "sourceName": "巴鲁兽",
+      "signatureMoves": [
+        {
+          "name": "毒蔓藤",
+          "description": "敌方单体物理木属性威力65 10%中毒"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶I",
+        "反剧毒"
+      ]
+    },
+    {
+      "uid": "d084",
+      "dexId": 49,
+      "nameCN": "小惡魔獸",
+      "nameEN": "DemiDevimon",
+      "sourceName": "小恶魔兽",
+      "signatureMoves": [
+        {
+          "name": "小恶魔飞镖",
+          "description": "敌方全体物理暗属性威力20 吸取5%HP"
+        }
+      ],
+      "learnableSkills": [
+        "混乱鬼火",
+        "攻击破坏"
+      ]
+    },
+    {
+      "uid": "d133",
+      "dexId": 50,
+      "nameCN": "比丘獸",
+      "nameEN": "Biyomon",
+      "sourceName": "比丘兽",
+      "signatureMoves": [
+        {
+          "name": "魔法火焰",
+          "description": "敌方单体魔法火属性威力55 10%自身INT+10%"
+        }
+      ],
+      "learnableSkills": [
+        "音速空洞I",
+        "智能填充"
+      ]
+    },
+    {
+      "uid": "d270",
+      "dexId": 51,
+      "nameCN": "夜鷹獸",
+      "nameEN": "Falcomon",
+      "sourceName": "夜鹰兽",
+      "signatureMoves": [
+        {
+          "name": "手里里剑",
+          "description": "敌方全体物理风属性威力35"
+        }
+      ],
+      "learnableSkills": [
+        "速度填充",
+        "反麻痹"
+      ]
+    },
+    {
+      "uid": "d035",
+      "dexId": 52,
+      "nameCN": "幻蜂獸",
+      "nameEN": "FanBeemon",
+      "sourceName": "幻蜂兽",
+      "signatureMoves": [
+        {
+          "name": "齿轮刺针",
+          "description": "敌方单体物理雷属性威力25 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏I",
+        "正极锁链"
+      ]
+    },
+    {
+      "uid": "d094",
+      "dexId": 53,
+      "nameCN": "V仔獸",
+      "nameEN": "Veemon",
+      "sourceName": "V仔兽",
+      "signatureMoves": [
+        {
+          "name": "V仔头槌",
+          "description": "敌方单体物理无属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I",
+        "烈风利爪I"
+      ]
+    },
+    {
+      "uid": "d160",
+      "dexId": 54,
+      "nameCN": "小狗獸",
+      "nameEN": "Salamon",
+      "sourceName": "小狗兽",
+      "signatureMoves": [
+        {
+          "name": "小狗怒吼",
+          "description": "敌方单体光属性中威力INT贯穿攻击 10%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光I",
+        "治愈"
+      ]
+    },
+    {
+      "uid": "d176",
+      "dexId": 55,
+      "nameCN": "比特獸",
+      "nameEN": "Betamon",
+      "sourceName": "比特兽",
+      "signatureMoves": [
+        {
+          "name": "麻痹电击",
+          "description": "敌方单体魔法雷属性威力55 10%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭I",
+        "反麻痹"
+      ]
+    },
+    {
+      "uid": "d271",
+      "dexId": 56,
+      "nameCN": "麻鷹獸",
+      "nameEN": "Hawkmon",
+      "sourceName": "麻鹰兽",
+      "signatureMoves": [
+        {
+          "name": "羽毛回力镖",
+          "description": "敌方单体风属性中威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪I",
+        "音速空洞I"
+      ]
+    },
+    {
+      "uid": "d244",
+      "dexId": 57,
+      "nameCN": "蘑菇獸",
+      "nameEN": "Mushroomon",
+      "sourceName": "蘑菇兽",
+      "signatureMoves": [
+        {
+          "name": "剧毒超蘑菇",
+          "description": "敌方单体物理木属性威力60 各10%几率产生除即死以外的异常状态"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "新月之叶I"
+      ]
+    },
+    {
+      "uid": "d228",
+      "dexId": 58,
+      "nameCN": "單角龍獸",
+      "nameEN": "Monodramon",
+      "sourceName": "单角龙兽",
+      "signatureMoves": [
+        {
+          "name": "冲击重拳",
+          "description": "敌方单体物理无属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I",
+        "攻击填充"
+      ]
+    },
+    {
+      "uid": "d045",
+      "dexId": 59,
+      "nameCN": "拉拉獸",
+      "nameEN": "Lalamon",
+      "sourceName": "拉拉兽",
+      "signatureMoves": [
+        {
+          "name": "坚果射击",
+          "description": "敌方单体物理木属性威力15 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "反剧毒"
+      ]
+    },
+    {
+      "uid": "d177",
+      "dexId": 60,
+      "nameCN": "光明獸",
+      "nameEN": "Lucemon",
+      "sourceName": "光明兽",
+      "signatureMoves": [
+        {
+          "name": "宏伟十字架",
+          "description": "敌方全体光属性中威力INT贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "复活",
+        "神圣之光III",
+        "闪耀镭射II",
+        "X灵气"
+      ]
+    },
+    {
+      "uid": "d001",
+      "dexId": 61,
+      "nameCN": "露娜獸",
+      "nameEN": "Lunamon",
+      "sourceName": "露娜兽",
+      "signatureMoves": [
+        {
+          "name": "泪珠射击",
+          "description": "敌方单体魔法水属性威力65"
+        }
+      ],
+      "learnableSkills": [
+        "治愈",
+        "偶像泡沫"
+      ]
+    },
+    {
+      "uid": "d178",
+      "dexId": 62,
+      "nameCN": "妖狐獸",
+      "nameEN": "Renamon",
+      "sourceName": "妖狐兽",
+      "signatureMoves": [
+        {
+          "name": "狐叶楔",
+          "description": "敌方单体魔法木属性威力25"
+        }
+      ],
+      "learnableSkills": [
+        "盖亚元素I",
+        "反混乱"
+      ]
+    },
+    {
+      "uid": "d310",
+      "dexId": 63,
+      "nameCN": "黑大耳獸",
+      "nameEN": "Lopmon",
+      "sourceName": "黑大耳兽",
+      "signatureMoves": [
+        {
+          "name": "爆裂寒冰",
+          "description": "敌方单体魔法水属性威力60"
+        }
+      ],
+      "learnableSkills": [
+        "雄伟巨石I",
+        "智能破坏"
+      ]
+    },
+    {
+      "uid": "d179",
+      "dexId": 64,
+      "nameCN": "蟲蟲獸",
+      "nameEN": "Wormmon",
+      "sourceName": "虫虫兽",
+      "signatureMoves": [
+        {
+          "name": "粘性罗网",
+          "description": "敌方单体物理木属性威力65 30%敌人SPD-10%"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "速度破坏"
+      ]
+    },
+    {
+      "uid": "d292",
+      "dexId": 65,
+      "nameCN": "冰惡魔獸",
+      "nameEN": "IceDevimon",
+      "sourceName": "冰恶魔兽",
+      "signatureMoves": [
+        {
+          "name": "冰霜之爪",
+          "description": "敌方单体水属性中威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭II",
+        "精神耗竭",
+        "地狱粉碎I"
+      ]
+    },
+    {
+      "uid": "d318",
+      "dexId": 66,
+      "nameCN": "冰石獸",
+      "nameEN": "Icemon",
+      "sourceName": "冰石兽",
+      "signatureMoves": [
+        {
+          "name": "冰球炸弹",
+          "description": "敌方单体物理水属性威力80 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭II",
+        "彗星重锤II",
+        "大海波浪I"
+      ]
+    },
+    {
+      "uid": "d012",
+      "dexId": 67,
+      "nameCN": "亞古拉獸",
+      "nameEN": "Aquilamon",
+      "sourceName": "亚古拉兽",
+      "signatureMoves": [
+        {
+          "name": "碎裂角",
+          "description": "敌方单体物理风属性威力85 15%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪II",
+        "音速空洞II",
+        "狂风暴雨I"
+      ]
+    },
+    {
+      "uid": "d253",
+      "dexId": 68,
+      "nameCN": "火神獸",
+      "nameEN": "Agunimon",
+      "sourceName": "火神兽",
+      "signatureMoves": [
+        {
+          "name": "火龙烈焰拳",
+          "description": "敌方单体物理火属性威力45 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹II",
+        "流星坠落I",
+        "加速增幅器"
+      ]
+    },
+    {
+      "uid": "d053",
+      "dexId": 69,
+      "nameCN": "阿卡迪獸（成熟期）",
+      "nameEN": "Arcadiamon Champion",
+      "sourceName": "阿卡迪兽成熟期",
+      "signatureMoves": [
+        {
+          "name": "监禁之拳",
+          "description": "敌方单体物理暗属性威力20 攻击3~5次 吸取30%HP"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农II",
+        "重度强袭II",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d276",
+      "dexId": 70,
+      "nameCN": "戰甲獸",
+      "nameEN": "Ankylomon",
+      "sourceName": "战甲兽",
+      "signatureMoves": [
+        {
+          "name": "尾巴锤击",
+          "description": "敌方单体物理土属性威力85 15%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "雄伟巨石I",
+        "反晕眩",
+        "地牛翻身I"
+      ]
+    },
+    {
+      "uid": "d153",
+      "dexId": 71,
+      "nameCN": "海獅獸",
+      "nameEN": "Ikkakumon",
+      "sourceName": "海狮兽",
+      "signatureMoves": [
+        {
+          "name": "鱼叉火神炮",
+          "description": "敌方单体物理火属性威力90 必中"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭II",
+        "大海波浪I",
+        "治愈"
+      ]
+    },
+    {
+      "uid": "d169",
+      "dexId": 72,
+      "nameCN": "巫師獸",
+      "nameEN": "Wizardmon",
+      "sourceName": "巫师兽",
+      "signatureMoves": [
+        {
+          "name": "雷云闪光",
+          "description": "敌方单体魔法雷属性威力75 10%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇II",
+        "地狱粉碎I",
+        "音速空洞II"
+      ]
+    },
+    {
+      "uid": "d256",
+      "dexId": 73,
+      "nameCN": "野狼獸",
+      "nameEN": "Lobomon",
+      "sourceName": "野狼兽",
+      "signatureMoves": [
+        {
+          "name": "双重胜利者",
+          "description": "敌方单体物理光属性威力90 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "速度填充",
+        "神圣钩爪II",
+        "重度强袭II"
+      ]
+    },
+    {
+      "uid": "d180",
+      "dexId": 74,
+      "nameCN": "朽木獸",
+      "nameEN": "Woodmon",
+      "sourceName": "朽木兽",
+      "signatureMoves": [
+        {
+          "name": "吸命树枝",
+          "description": "敌方单体物理木属性威力75 吸取20%HP"
+        }
+      ],
+      "learnableSkills": [
+        "盖亚元素II",
+        "新月之叶II",
+        "力量能源II"
+      ]
+    },
+    {
+      "uid": "d008",
+      "dexId": 75,
+      "nameCN": "飛龍獸",
+      "nameEN": "Airdramon",
+      "sourceName": "飞龙兽",
+      "signatureMoves": [
+        {
+          "name": "旋针",
+          "description": "敌方全体物理风属性威力45"
+        }
+      ],
+      "learnableSkills": [
+        "音速空洞II",
+        "狂风暴雨I",
+        "云雾汽油弹II"
+      ]
+    },
+    {
+      "uid": "d162",
+      "dexId": 76,
+      "nameCN": "V仔獸EX",
+      "nameEN": "ExVeemon",
+      "sourceName": "V仔兽EX",
+      "signatureMoves": [
+        {
+          "name": "X光线",
+          "description": "敌方单体物理光属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭II",
+        "马赫突击I",
+        "神圣之光II"
+      ]
+    },
+    {
+      "uid": "d075",
+      "dexId": 77,
+      "nameCN": "天使獸",
+      "nameEN": "Angemon",
+      "sourceName": "天使兽",
+      "signatureMoves": [
+        {
+          "name": "天堂之拳",
+          "description": "敌方单体物理光属性威力80 10%自身ATK或INT+10%"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光II",
+        "X治愈",
+        "闪耀镭射I"
+      ]
+    },
+    {
+      "uid": "d181",
+      "dexId": 78,
+      "nameCN": "奧加獸",
+      "nameEN": "Ogremon",
+      "sourceName": "奥加兽",
+      "signatureMoves": [
+        {
+          "name": "霸王拳",
+          "description": "敌方单体物理暗属性威力90"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "暴击填充",
+        "破坏加农II"
+      ]
+    },
+    {
+      "uid": "d150",
+      "dexId": 79,
+      "nameCN": "守衛獸",
+      "nameEN": "Guardromon",
+      "sourceName": "守卫兽",
+      "signatureMoves": [
+        {
+          "name": "毁灭榴弹炮",
+          "description": "敌方全体物理火属性威力40 必中"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏II",
+        "守备填充",
+        "天国闪电II"
+      ]
+    },
+    {
+      "uid": "d320",
+      "dexId": 80,
+      "nameCN": "守衛獸（金）",
+      "nameEN": "Guardromon (Gold)",
+      "sourceName": "守卫兽（金）",
+      "signatureMoves": [
+        {
+          "name": "毁灭榴弹炮",
+          "description": "敌方全体物理火属性威力25 攻击2次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "天国闪电II",
+        "智能填充",
+        "闪电坠击I"
+      ]
+    },
+    {
+      "uid": "d057",
+      "dexId": 81,
+      "nameCN": "迦奧迦獸",
+      "nameEN": "GaoGamon",
+      "sourceName": "伽奥伽兽",
+      "signatureMoves": [
+        {
+          "name": "螺旋吹袭",
+          "description": "敌方单体物理风属性威力90"
+        }
+      ],
+      "learnableSkills": [
+        "音速空洞II",
+        "狂风暴雨I",
+        "寒冰之箭II"
+      ]
+    },
+    {
+      "uid": "d130",
+      "dexId": 82,
+      "nameCN": "比多獸",
+      "nameEN": "Kabuterimon",
+      "sourceName": "比多兽",
+      "signatureMoves": [
+        {
+          "name": "百万爆破",
+          "description": "敌方单体魔法雷属性威力80"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶II",
+        "智能填充",
+        "天国闪电II"
+      ]
+    },
+    {
+      "uid": "d226",
+      "dexId": 83,
+      "nameCN": "貝殼鼻涕獸",
+      "nameEN": "ShellNumemon",
+      "sourceName": "贝壳鼻涕兽",
+      "signatureMoves": [
+        {
+          "name": "熟成大便",
+          "description": "敌方单体物理土属性威力75 30%敌人INT-10%"
+        }
+      ],
+      "learnableSkills": [
+        "偶像泡沫",
+        "守备破坏",
+        "守备填充"
+      ]
+    },
+    {
+      "uid": "d275",
+      "dexId": 84,
+      "nameCN": "加魯哥獸",
+      "nameEN": "Gargomon",
+      "sourceName": "加鲁哥兽",
+      "signatureMoves": [
+        {
+          "name": "达达勾拳",
+          "description": "敌方单体物理无属性威力90 10%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "麻痹电网",
+        "闪电坠击I",
+        "马赫突击I"
+      ]
+    },
+    {
+      "uid": "d009",
+      "dexId": 85,
+      "nameCN": "加魯魯獸",
+      "nameEN": "Garurumon",
+      "sourceName": "加鲁鲁兽",
+      "signatureMoves": [
+        {
+          "name": "妖狐火焰",
+          "description": "敌方单体物理火属性威力85 10%自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "速度填充",
+        "雄伟巨石II",
+        "疾速逃脱"
+      ]
+    },
+    {
+      "uid": "d279",
+      "dexId": 86,
+      "nameCN": "黑加魯魯獸",
+      "nameEN": "Garurumon (Blk)",
+      "sourceName": "黑加鲁鲁兽",
+      "signatureMoves": [
+        {
+          "name": "冰结之牙",
+          "description": "敌方单体物理水属性威力85 10%自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "速度填充",
+        "雄伟巨石II",
+        "敏捷填充"
+      ]
+    },
+    {
+      "uid": "d182",
+      "dexId": 87,
+      "nameCN": "九尾狐獸",
+      "nameEN": "Kyubimon",
+      "sourceName": "九尾狐兽",
+      "signatureMoves": [
+        {
+          "name": "鬼火玉",
+          "description": "敌方全体魔法火属性威力30"
+        }
+      ],
+      "learnableSkills": [
+        "爆裂火焰II",
+        "混乱鬼火",
+        "智能填充"
+      ]
+    },
+    {
+      "uid": "d066",
+      "dexId": 88,
+      "nameCN": "古拉獸",
+      "nameEN": "Growlmon",
+      "sourceName": "古拉兽",
+      "signatureMoves": [
+        {
+          "name": "排射火焰",
+          "description": "敌方单体物理火属性威力85 10%自身ATK+10%"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹II",
+        "彗星重锤II",
+        "正极锁链"
+      ]
+    },
+    {
+      "uid": "d249",
+      "dexId": 89,
+      "nameCN": "魔蛹獸",
+      "nameEN": "Kurisarimon",
+      "sourceName": "魔蛹兽",
+      "signatureMoves": [
+        {
+          "name": "资料粉碎者",
+          "description": "敌方单体物理暗属性威力90 5%即死"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农II",
+        "奈米机械破坏II",
+        "守备破坏"
+      ]
+    },
+    {
+      "uid": "d147",
+      "dexId": 90,
+      "nameCN": "暴龍獸",
+      "nameEN": "Greymon",
+      "sourceName": "暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "超级火焰",
+          "description": "敌方单体物理火属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹II",
+        "重度强袭II",
+        "加速增幅器"
+      ]
+    },
+    {
+      "uid": "d277",
+      "dexId": 91,
+      "nameCN": "暴龍獸（藍）",
+      "nameEN": "Greymon (Blue)",
+      "sourceName": "暴龙兽蓝",
+      "signatureMoves": [
+        {
+          "name": "位元火炎",
+          "description": "敌方单体物理火属性威力30 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹II",
+        "流星坠落I",
+        "命中填充"
+      ]
+    },
+    {
+      "uid": "d185",
+      "dexId": 92,
+      "nameCN": "時鐘獸",
+      "nameEN": "Clockmon",
+      "sourceName": "时钟兽",
+      "signatureMoves": [
+        {
+          "name": "超时空破碎",
+          "description": "敌方单体HP-150 30%敌人SPD-10%"
+        }
+      ],
+      "learnableSkills": [
+        "天国闪电II",
+        "治愈",
+        "偶像泡沫"
+      ]
+    },
+    {
+      "uid": "d163",
+      "dexId": 93,
+      "nameCN": "古加獸",
+      "nameEN": "Kuwagamon",
+      "sourceName": "古加兽",
+      "signatureMoves": [
+        {
+          "name": "剪刀臂",
+          "description": "敌方单体无属性中威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶II",
+        "破坏加农II",
+        "狂风暴雨I"
+      ]
+    },
+    {
+      "uid": "d186",
+      "dexId": 94,
+      "nameCN": "怪蛙獸",
+      "nameEN": "Gekomon",
+      "sourceName": "怪蛙兽",
+      "signatureMoves": [
+        {
+          "name": "碰撞交响乐",
+          "description": "敌方单体无属性中威力INT贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "发电水流II",
+        "攻击破坏",
+        "反睡眠"
+      ]
+    },
+    {
+      "uid": "d291",
+      "dexId": 95,
+      "nameCN": "庸俗獸",
+      "nameEN": "Geremon",
+      "sourceName": "庸俗兽",
+      "signatureMoves": [
+        {
+          "name": "超恶臭",
+          "description": "敌方单体物理土属性威力75 15%混乱或麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "守备填充",
+        "奈米机械破坏II"
+      ]
+    },
+    {
+      "uid": "d126",
+      "dexId": 96,
+      "nameCN": "核龍獸（藍）",
+      "nameEN": "Coredramon (Blue)",
+      "sourceName": "核龙兽（蓝）",
+      "signatureMoves": [
+        {
+          "name": "青焰吐息",
+          "description": "敌方单体物理火属性威力85 必中 敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "攻击填充",
+        "烈风利爪II",
+        "狂风暴雨I"
+      ]
+    },
+    {
+      "uid": "d120",
+      "dexId": 97,
+      "nameCN": "核龍獸（綠）",
+      "nameEN": "Coredramon (Green)",
+      "sourceName": "核龙兽（绿）",
+      "signatureMoves": [
+        {
+          "name": "绿焰吐息",
+          "description": "敌方单体火属性中威力DEF贯穿攻击 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "晕眩冲击",
+        "暴击填充"
+      ]
+    },
+    {
+      "uid": "d093",
+      "dexId": 98,
+      "nameCN": "黃金鼻涕獸",
+      "nameEN": "GoldNumemon",
+      "sourceName": "黄金鼻涕兽",
+      "signatureMoves": [
+        {
+          "name": "黄金榴莲冲刺",
+          "description": "敌方全体物理光属性威力10 1%即死"
+        }
+      ],
+      "learnableSkills": [
+        "反液晶化",
+        "复活",
+        "结构痛击"
+      ]
+    },
+    {
+      "uid": "d004",
+      "dexId": 99,
+      "nameCN": "岩石獸",
+      "nameEN": "Golemon",
+      "sourceName": "岩石兽",
+      "signatureMoves": [
+        {
+          "name": "绯红诅咒",
+          "description": "敌方全体物理火属性威力45"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "彗星重锤II",
+        "流星坠落I"
+      ]
+    },
+    {
+      "uid": "d223",
+      "dexId": 100,
+      "nameCN": "獨眼龍獸",
+      "nameEN": "Cyclonemon",
+      "sourceName": "独眼龙兽",
+      "signatureMoves": [
+        {
+          "name": "超高热量",
+          "description": "敌方单体物理火属性威力85 10%敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "暴击填充",
+        "地牛翻身I",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d023",
+      "dexId": 101,
+      "nameCN": "血狼獸",
+      "nameEN": "Sangloupmon",
+      "sourceName": "血狼兽",
+      "signatureMoves": [
+        {
+          "name": "贯穿刀刃",
+          "description": "敌方单体物理暗属性威力25 攻击3~5次 吸取10%HP"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农II",
+        "梦魇II",
+        "物理耗竭"
+      ]
+    },
+    {
+      "uid": "d047",
+      "dexId": 102,
+      "nameCN": "向日葵獸",
+      "nameEN": "Sunflowmon",
+      "sourceName": "向日葵兽",
+      "signatureMoves": [
+        {
+          "name": "阳光射线",
+          "description": "敌方单体魔法光属性威力80"
+        }
+      ],
+      "learnableSkills": [
+        "盖亚元素II",
+        "神圣之光II",
+        "X治愈"
+      ]
+    },
+    {
+      "uid": "d156",
+      "dexId": 103,
+      "nameCN": "海龍獸",
+      "nameEN": "Seadramon",
+      "sourceName": "海龙兽",
+      "signatureMoves": [
+        {
+          "name": "寒冰箭",
+          "description": "敌方单体魔法水属性威力75 10%敌方SPD-10%"
+        }
+      ],
+      "learnableSkills": [
+        "发电水流II",
+        "反混乱",
+        "反射镜"
+      ]
+    },
+    {
+      "uid": "d103",
+      "dexId": 104,
+      "nameCN": "希拉獸",
+      "nameEN": "Coelamon",
+      "sourceName": "希拉兽",
+      "signatureMoves": [
+        {
+          "name": "多变夺命镖",
+          "description": "敌方单体物理水属性威力30 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭II",
+        "负极锁链",
+        "重度强袭II"
+      ]
+    },
+    {
+      "uid": "d043",
+      "dexId": 105,
+      "nameCN": "大地暴龍獸",
+      "nameEN": "GeoGreymon",
+      "sourceName": "大地暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "百万爆破",
+          "description": "敌方全体物理火属性威力45"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹II",
+        "重度强袭II",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d139",
+      "dexId": 106,
+      "nameCN": "大便獸",
+      "nameEN": "Sukamon",
+      "sourceName": "大便兽",
+      "signatureMoves": [
+        {
+          "name": "大便",
+          "description": "敌方单体物理土属性威力75 30%敌人SPD-10%"
+        }
+      ],
+      "learnableSkills": [
+        "混乱鬼火",
+        "智能破坏",
+        "梦魇II"
+      ]
+    },
+    {
+      "uid": "d011",
+      "dexId": 107,
+      "nameCN": "星星獸",
+      "nameEN": "Starmon",
+      "sourceName": "星星兽",
+      "signatureMoves": [
+        {
+          "name": "流星风暴",
+          "description": "敌方全体物理无属性威力40 命中率90 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭II",
+        "神圣钩爪II",
+        "力量能源II"
+      ]
+    },
+    {
+      "uid": "d078",
+      "dexId": 108,
+      "nameCN": "飛蟲獸",
+      "nameEN": "Stingmon",
+      "sourceName": "飞虫兽",
+      "signatureMoves": [
+        {
+          "name": "终结刺钉",
+          "description": "敌方单体木属性中威力DEF贯穿攻击 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶II",
+        "狂风暴雨I",
+        "烈风利爪II"
+      ]
+    },
+    {
+      "uid": "d013",
+      "dexId": 109,
+      "nameCN": "强襲龍獸",
+      "nameEN": "Strikedramon",
+      "sourceName": "强袭龙兽",
+      "signatureMoves": [
+        {
+          "name": "强袭獠牙",
+          "description": "敌方单体物理火属性威力90 10%眩晕"
+        }
+      ],
+      "learnableSkills": [
+        "流星坠落I",
+        "守备破坏",
+        "马赫突击II"
+      ]
+    },
+    {
+      "uid": "d263",
+      "dexId": 110,
+      "nameCN": "兹巴伊戈獸",
+      "nameEN": "ZubaEagermon",
+      "sourceName": "兹巴伊戈兽",
+      "signatureMoves": [
+        {
+          "name": "旋斩尾刀",
+          "description": "敌方单体物理无属性威力15 攻击4~8次 20%自身ATK+10%"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "重度强袭II",
+        "暴击填充"
+      ]
+    },
+    {
+      "uid": "d315",
+      "dexId": 111,
+      "nameCN": "冰巫師獸",
+      "nameEN": "Socerimon",
+      "sourceName": "冰巫师兽",
+      "signatureMoves": [
+        {
+          "name": "冰晶云",
+          "description": "敌方全体魔法水属性威力30"
+        }
+      ],
+      "learnableSkills": [
+        "发电水流II",
+        "反射镜",
+        "X治愈"
+      ]
+    },
+    {
+      "uid": "d245",
+      "dexId": 112,
+      "nameCN": "坦克獸",
+      "nameEN": "Tankmon",
+      "sourceName": "坦克兽",
+      "signatureMoves": [
+        {
+          "name": "高压加农炮",
+          "description": "敌方单体物理火属性威力200 硬直一回合"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏II",
+        "命中填充",
+        "晕眩冲击"
+      ]
+    },
+    {
+      "uid": "d319",
+      "dexId": 113,
+      "nameCN": "泥熊獸",
+      "nameEN": "MudFrigimon",
+      "sourceName": "泥熊兽",
+      "signatureMoves": [
+        {
+          "name": "巨重拳",
+          "description": "敌方单体物理土属性威力85 10%敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "灵气",
+        "地牛翻身I"
+      ]
+    },
+    {
+      "uid": "d161",
+      "dexId": 114,
+      "nameCN": "巨龍獸",
+      "nameEN": "Tyrannomon",
+      "sourceName": "巨龙兽",
+      "signatureMoves": [
+        {
+          "name": "火焰吐息",
+          "description": "敌方单体物理火属性威力90 容易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "云雾汽油弹II",
+        "重度强袭I"
+      ]
+    },
+    {
+      "uid": "d079",
+      "dexId": 115,
+      "nameCN": "迪路獸",
+      "nameEN": "Gatomon",
+      "sourceName": "迪路兽",
+      "signatureMoves": [
+        {
+          "name": "猫猫拳",
+          "description": "敌方单体HP-150 60%混乱"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光II",
+        "灵气",
+        "复活"
+      ]
+    },
+    {
+      "uid": "d080",
+      "dexId": 116,
+      "nameCN": "惡魔獸",
+      "nameEN": "Devimon",
+      "sourceName": "恶魔兽",
+      "signatureMoves": [
+        {
+          "name": "死亡之爪",
+          "description": "敌方单体HP-200 吸取20%HP"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农II",
+        "物理耗竭",
+        "地狱粉碎I"
+      ]
+    },
+    {
+      "uid": "d086",
+      "dexId": 117,
+      "nameCN": "兔爺獸",
+      "nameEN": "Turuiemon",
+      "sourceName": "兔爷兽",
+      "signatureMoves": [
+        {
+          "name": "岩兔烈斗",
+          "description": "敌方单体物理无属性威力30 攻击3次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "暴击填充",
+        "马赫突击I"
+      ]
+    },
+    {
+      "uid": "d158",
+      "dexId": 118,
+      "nameCN": "仙人掌獸",
+      "nameEN": "Togemon",
+      "sourceName": "仙人掌兽",
+      "signatureMoves": [
+        {
+          "name": "尖尖碰碰拳",
+          "description": "敌方全体物理木属性威力40 5%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶II",
+        "反麻痹",
+        "麻痹电网"
+      ]
+    },
+    {
+      "uid": "d183",
+      "dexId": 119,
+      "nameCN": "多路加獸",
+      "nameEN": "Dorugamon",
+      "sourceName": "多路加兽",
+      "signatureMoves": [
+        {
+          "name": "强力金属弹",
+          "description": "敌方单体物理无属性威力90 30%自身ATK+10%"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "守备填充",
+        "速度填充"
+      ]
+    },
+    {
+      "uid": "d167",
+      "dexId": 120,
+      "nameCN": "亞伯獸",
+      "nameEN": "Nanimon",
+      "sourceName": "亚伯兽",
+      "signatureMoves": [
+        {
+          "name": "粪便灌篮",
+          "description": "敌方单体物理土属性威力80 30%敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "攻击破坏",
+        "晕眩冲击"
+      ]
+    },
+    {
+      "uid": "d059",
+      "dexId": 121,
+      "nameCN": "鼻涕獸",
+      "nameEN": "Numemon",
+      "sourceName": "鼻涕兽",
+      "signatureMoves": [
+        {
+          "name": "大便投掷",
+          "description": "敌方单体物理土属性威力75 30%敌人ATK-10%"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "速度破坏",
+        "寒冰之箭II"
+      ]
+    },
+    {
+      "uid": "d134",
+      "dexId": 122,
+      "nameCN": "巴多拉獸",
+      "nameEN": "Birdramon",
+      "sourceName": "巴多拉兽",
+      "signatureMoves": [
+        {
+          "name": "陨石巨翼",
+          "description": "敌方全体魔法火属性威力25 10%自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "爆裂火焰II",
+        "反剧毒",
+        "流星坠落I"
+      ]
+    },
+    {
+      "uid": "d095",
+      "dexId": 123,
+      "nameCN": "巴歐哈克獸",
+      "nameEN": "BaoHuckmon",
+      "sourceName": "巴欧哈克兽",
+      "signatureMoves": [
+        {
+          "name": "五连十字",
+          "description": "敌方单体物理土属性威力55 攻击2次 命中率90"
+        }
+      ],
+      "learnableSkills": [
+        "攻击填充",
+        "重度强袭II",
+        "流星坠落II"
+      ]
+    },
+    {
+      "uid": "d010",
+      "dexId": 124,
+      "nameCN": "猛鬼獸",
+      "nameEN": "Bakemon",
+      "sourceName": "猛鬼兽",
+      "signatureMoves": [
+        {
+          "name": "死亡魅惑",
+          "description": "敌方单体HP-10%"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇II",
+        "敏捷填充",
+        "物理耗竭"
+      ]
+    },
+    {
+      "uid": "d184",
+      "dexId": 125,
+      "nameCN": "V龍獸",
+      "nameEN": "Veedramon",
+      "sourceName": "V龙兽",
+      "signatureMoves": [
+        {
+          "name": "V疾风矢",
+          "description": "敌方单体物理火属性威力110 反伤5%"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪II",
+        "正极锁链",
+        "神圣钩爪II"
+      ]
+    },
+    {
+      "uid": "d017",
+      "dexId": 126,
+      "nameCN": "羽蝶獸",
+      "nameEN": "Hudiemon",
+      "sourceName": "羽蝶兽",
+      "signatureMoves": [
+        {
+          "name": "无限之梦",
+          "description": "敌方全体各50%产生剧毒.混乱.麻痹"
+        },
+        {
+          "name": "飞踢",
+          "description": "敌方单体物理木属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "盖亚元素II",
+        "符文之森I",
+        "灵气"
+      ]
+    },
+    {
+      "uid": "d312",
+      "dexId": 127,
+      "nameCN": "白金大便獸",
+      "nameEN": "PlatinumSukamon",
+      "sourceName": "白金大便兽",
+      "signatureMoves": [
+        {
+          "name": "稀有金属大便",
+          "description": "敌方单体物理土属性威力80 击退"
+        }
+      ],
+      "learnableSkills": [
+        "反BUG",
+        "智能破坏",
+        "角色倒置"
+      ]
+    },
+    {
+      "uid": "d036",
+      "dexId": 128,
+      "nameCN": "黑迪路獸",
+      "nameEN": "BlackGatomon",
+      "sourceName": "黑迪路兽",
+      "signatureMoves": [
+        {
+          "name": "猫猫拳",
+          "description": "敌方单体HP-150 60%混乱"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇II",
+        "雄伟巨石II",
+        "力量能源II"
+      ]
+    },
+    {
+      "uid": "d140",
+      "dexId": 129,
+      "nameCN": "鼻屎獸",
+      "nameEN": "Vegiemon",
+      "sourceName": "鼻屎兽",
+      "signatureMoves": [
+        {
+          "name": "超恶臭喷射",
+          "description": "敌方全体魔法土属性威力20 30%敌人SPD-10%"
+        }
+      ],
+      "learnableSkills": [
+        "盖亚元素II",
+        "速度破坏",
+        "剧毒陷阱"
+      ]
+    },
+    {
+      "uid": "d267",
+      "dexId": 130,
+      "nameCN": "銳啄獸",
+      "nameEN": "Peckmon",
+      "sourceName": "锐啄兽",
+      "signatureMoves": [
+        {
+          "name": "苦无羽",
+          "description": "敌方单体物理风属性威力30 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪II",
+        "敏捷填充",
+        "疾速逃脱"
+      ]
+    },
+    {
+      "uid": "d007",
+      "dexId": 131,
+      "nameCN": "火焰獸",
+      "nameEN": "Meramon",
+      "sourceName": "火焰兽",
+      "signatureMoves": [
+        {
+          "name": "火焰重拳",
+          "description": "敌方单体物理火属性威力80 30%自身ATK+10%"
+        }
+      ],
+      "learnableSkills": [
+        "攻击填充",
+        "云雾汽油弹II",
+        "爆裂火焰II"
+      ]
+    },
+    {
+      "uid": "d164",
+      "dexId": 132,
+      "nameCN": "角龍獸",
+      "nameEN": "Monochromon",
+      "sourceName": "角龙兽",
+      "signatureMoves": [
+        {
+          "name": "火山强击",
+          "description": "敌方单体物理火属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "加速增幅器",
+        "地牛翻身I"
+      ]
+    },
+    {
+      "uid": "d165",
+      "dexId": 133,
+      "nameCN": "雪人獸",
+      "nameEN": "Frigimon",
+      "sourceName": "雪人兽",
+      "signatureMoves": [
+        {
+          "name": "绝对零度拳",
+          "description": "敌方单体物理水属性威力80 10%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭II",
+        "大海波浪I",
+        "灵气"
+      ]
+    },
+    {
+      "uid": "d233",
+      "dexId": 134,
+      "nameCN": "獨角馬獸",
+      "nameEN": "Unimon",
+      "sourceName": "独角马兽",
+      "signatureMoves": [
+        {
+          "name": "神圣射击",
+          "description": "敌方单体魔法光属性威力75 10%自身INT+10%"
+        }
+      ],
+      "learnableSkills": [
+        "音速空洞II",
+        "速度填充",
+        "神圣之光II"
+      ]
+    },
+    {
+      "uid": "d020",
+      "dexId": 135,
+      "nameCN": "猛禽龍獸",
+      "nameEN": "Raptordramon",
+      "sourceName": "猛禽龙兽",
+      "signatureMoves": [
+        {
+          "name": "金属冲击",
+          "description": "敌方单体物理无属性威力90 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭II",
+        "彗星重锤II",
+        "晕眩冲击"
+      ]
+    },
+    {
+      "uid": "d240",
+      "dexId": 136,
+      "nameCN": "爛泥獸",
+      "nameEN": "Raremon",
+      "sourceName": "烂泥兽",
+      "signatureMoves": [
+        {
+          "name": "烂泥",
+          "description": "敌方全体物理土属性40 10%中毒"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "马赫突击I",
+        "角色倒置"
+      ]
+    },
+    {
+      "uid": "d061",
+      "dexId": 137,
+      "nameCN": "獅子獸",
+      "nameEN": "Leomon",
+      "sourceName": "狮子兽",
+      "signatureMoves": [
+        {
+          "name": "兽王拳",
+          "description": "敌方单体物理土属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "彗星重锤II",
+        "攻击填充",
+        "神圣钩爪II"
+      ]
+    },
+    {
+      "uid": "d002",
+      "dexId": 138,
+      "nameCN": "雷克斯獸",
+      "nameEN": "Lekismon",
+      "sourceName": "雷克斯兽",
+      "signatureMoves": [
+        {
+          "name": "月夜水弹",
+          "description": "敌方单体面魔法水属性威力60 50%睡眠"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭II",
+        "力量能源II",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d065",
+      "dexId": 139,
+      "nameCN": "鐮鼬獸",
+      "nameEN": "Reppamon",
+      "sourceName": "镰鼬兽",
+      "signatureMoves": [
+        {
+          "name": "驱驱裂空斩",
+          "description": "敌方单体物理无属性威力30 攻击2~4次"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪II",
+        "闪耀镭射I",
+        "灵气"
+      ]
+    },
+    {
+      "uid": "d225",
+      "dexId": 140,
+      "nameCN": "雀蜂獸",
+      "nameEN": "Waspmon",
+      "sourceName": "雀蜂兽",
+      "signatureMoves": [
+        {
+          "name": "涡轮螯针",
+          "description": "敌方单体物理雷属性威力25 攻击四次"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏II",
+        "命中填充",
+        "麻痹电网"
+      ]
+    },
+    {
+      "uid": "d131",
+      "dexId": 141,
+      "nameCN": "超比多獸",
+      "nameEN": "MegaKabuterimon",
+      "sourceName": "超比多兽",
+      "signatureMoves": [
+        {
+          "name": "超大角炮",
+          "description": "敌方单体雷属性高威力INT贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "符文之森I",
+        "速度破坏",
+        "盖亚元素III",
+        "符文之森II"
+      ]
+    },
+    {
+      "uid": "d054",
+      "dexId": 142,
+      "nameCN": "阿卡迪獸（完全體）",
+      "nameEN": "Arcadiamon Ultimate",
+      "sourceName": "阿卡迪兽完全体",
+      "signatureMoves": [
+        {
+          "name": "点之矩阵",
+          "description": "敌方单体无属性高威力DEF贯穿攻击 吸取30%HP"
+        }
+      ],
+      "learnableSkills": [
+        "死亡召唤",
+        "攻击破坏",
+        "烈风利爪II",
+        "神圣钩爪II"
+      ]
+    },
+    {
+      "uid": "d293",
+      "dexId": 143,
+      "nameCN": "玉兔獸",
+      "nameEN": "Antylamon",
+      "sourceName": "玉兔兽",
+      "signatureMoves": [
+        {
+          "name": "万斧斩",
+          "description": "敌方单体物理风属性威力60 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "反麻痹",
+        "马赫突击II",
+        "力量能源III"
+      ]
+    },
+    {
+      "uid": "d151",
+      "dexId": 144,
+      "nameCN": "安杜路獸",
+      "nameEN": "Andromon",
+      "sourceName": "安杜路兽",
+      "signatureMoves": [
+        {
+          "name": "旋转能量剑",
+          "description": "敌方单体物理雷属性威力110 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "正极锁链",
+        "灵气",
+        "奈米机械破坏III",
+        "音速空洞III"
+      ]
+    },
+    {
+      "uid": "d316",
+      "dexId": 145,
+      "nameCN": "隕石獸",
+      "nameEN": "Meteormon",
+      "sourceName": "陨石兽",
+      "signatureMoves": [
+        {
+          "name": "宇宙闪光",
+          "description": "敌方全体魔法无属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "流星坠落I",
+        "雄伟巨石III",
+        "力量能源III"
+      ]
+    },
+    {
+      "uid": "d247",
+      "dexId": 146,
+      "nameCN": "地獄使者獸",
+      "nameEN": "Infermon",
+      "sourceName": "地狱使者兽",
+      "signatureMoves": [
+        {
+          "name": "地狱榴弹",
+          "description": "敌方单体物理火属性威力30 攻击4次 50%敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农II",
+        "死亡召唤",
+        "马赫突击II",
+        "破坏加农III"
+      ]
+    },
+    {
+      "uid": "d073",
+      "dexId": 147,
+      "nameCN": "吸血魔獸",
+      "nameEN": "Myotismon",
+      "sourceName": "吸血魔兽",
+      "signatureMoves": [
+        {
+          "name": "夜魔飞袭",
+          "description": "敌方全体魔法暗属性65 吸取15%HP"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎I",
+        "精神耗竭",
+        "梦魇III",
+        "破坏加农III"
+      ]
+    },
+    {
+      "uid": "d121",
+      "dexId": 148,
+      "nameCN": "翼龍獸",
+      "nameEN": "Wingdramon",
+      "sourceName": "翼龙兽",
+      "signatureMoves": [
+        {
+          "name": "超音炽热息",
+          "description": "敌方单体物理火属性威力100 自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "速度破坏",
+        "马赫突击II",
+        "烈风利爪III",
+        "狂风暴雨II"
+      ]
+    },
+    {
+      "uid": "d255",
+      "dexId": 149,
+      "nameCN": "炎龍獸",
+      "nameEN": "BurningGreymon",
+      "sourceName": "炎龙兽",
+      "signatureMoves": [
+        {
+          "name": "炎龙扫射",
+          "description": "敌方单体物理火属性威力30 攻击3~6次"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "云雾汽油弹III",
+        "地牛翻身II",
+        "流星坠落II"
+      ]
+    },
+    {
+      "uid": "d187",
+      "dexId": 150,
+      "nameCN": "飛行V龍獸",
+      "nameEN": "AeroVeedramon",
+      "sourceName": "飞行V龙兽",
+      "signatureMoves": [
+        {
+          "name": "神龙冲击",
+          "description": "敌方单体物理风属性威力250 反伤50%"
+        }
+      ],
+      "learnableSkills": [
+        "正极锁链",
+        "速度填充",
+        "烈风利爪III",
+        "神圣钩爪III"
+      ]
+    },
+    {
+      "uid": "d137",
+      "dexId": 151,
+      "nameCN": "悟空獸",
+      "nameEN": "Etemon",
+      "sourceName": "悟空兽",
+      "signatureMoves": [
+        {
+          "name": "爱心光线",
+          "description": "敌方全体暗属性中威力INT贯穿 20%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎I",
+        "疾速逃脱",
+        "反射镜",
+        "梦魇III"
+      ]
+    },
+    {
+      "uid": "d109",
+      "dexId": 152,
+      "nameCN": "天女獸",
+      "nameEN": "Angewomon",
+      "sourceName": "天女兽",
+      "signatureMoves": [
+        {
+          "name": "神圣弓箭",
+          "description": "敌方单体魔法光属性威力100 必中 解除敌人基本状态强化"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射I",
+        "灵气",
+        "复活",
+        "神圣之光III"
+      ]
+    },
+    {
+      "uid": "d188",
+      "dexId": 153,
+      "nameCN": "大古加獸",
+      "nameEN": "Okuwamon",
+      "sourceName": "大古加兽",
+      "signatureMoves": [
+        {
+          "name": "亚米加剪刀臂",
+          "description": "敌方单体无属性高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击I",
+        "剧毒陷阱",
+        "命中填充",
+        "新月之叶III"
+      ]
+    },
+    {
+      "uid": "d135",
+      "dexId": 154,
+      "nameCN": "伽樓達獸",
+      "nameEN": "Garudamon",
+      "sourceName": "伽偻达兽",
+      "signatureMoves": [
+        {
+          "name": "影翼斩",
+          "description": "敌方全体魔法火属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "流星坠落I",
+        "狂风暴雨I",
+        "爆裂火焰III",
+        "反射镜"
+      ]
+    },
+    {
+      "uid": "d257",
+      "dexId": 155,
+      "nameCN": "銀狼獸",
+      "nameEN": "KendoGarurumon",
+      "sourceName": "银狼兽",
+      "signatureMoves": [
+        {
+          "name": "流星快刀斩",
+          "description": "敌方单体物理光属性90 自身SPD+20%"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪II",
+        "狂风暴雨I",
+        "神圣钩爪III",
+        "速度填充力场"
+      ]
+    },
+    {
+      "uid": "d189",
+      "dexId": 156,
+      "nameCN": "千兆龍獸",
+      "nameEN": "Gigadramon",
+      "sourceName": "千兆龙兽",
+      "signatureMoves": [
+        {
+          "name": "种族灭绝飞弹",
+          "description": "敌方全体物理火属性威力80"
+        }
+      ],
+      "learnableSkills": [
+        "晕眩冲击",
+        "云雾汽油弹II",
+        "烈风利爪III",
+        "天国闪电III"
+      ]
+    },
+    {
+      "uid": "d037",
+      "dexId": 157,
+      "nameCN": "捕捉豆豆獸",
+      "nameEN": "CatchMamemon",
+      "sourceName": "捕捉豆豆兽",
+      "signatureMoves": [
+        {
+          "name": "幻影炸弹",
+          "description": "敌方单体物理火属性威力130 或随机使敌方液晶化"
+        }
+      ],
+      "learnableSkills": [
+        "晕眩冲击",
+        "流星坠落I",
+        "麻痹电网",
+        "奈米机械破坏III"
+      ]
+    },
+    {
+      "uid": "d289",
+      "dexId": 158,
+      "nameCN": "炮蜂獸",
+      "nameEN": "CannonBeemon",
+      "sourceName": "炮蜂兽",
+      "signatureMoves": [
+        {
+          "name": "硝基毒针",
+          "description": "敌方单体雷属性高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击I",
+        "流星坠落I",
+        "奈米机械破坏III",
+        "混乱鬼火"
+      ]
+    },
+    {
+      "uid": "d122",
+      "dexId": 159,
+      "nameCN": "地龍獸",
+      "nameEN": "Groundramon",
+      "sourceName": "地龙兽",
+      "signatureMoves": [
+        {
+          "name": "粉碎铁屑拳",
+          "description": "敌方单体物理土属性威力110 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "交叉拳",
+        "彗星重锤III",
+        "地牛翻身II"
+      ]
+    },
+    {
+      "uid": "d190",
+      "dexId": 160,
+      "nameCN": "格鬥獅子獸",
+      "nameEN": "GrapLeomon",
+      "sourceName": "格斗狮子兽",
+      "signatureMoves": [
+        {
+          "name": "狮子兽波斩",
+          "description": "敌方单体物理风属性威力55 攻击1~3次 40%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击I",
+        "敏捷填充",
+        "奈米机械破坏III",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d021",
+      "dexId": 161,
+      "nameCN": "黃金劍士獸",
+      "nameEN": "Grademon",
+      "sourceName": "黄金剑士兽",
+      "signatureMoves": [
+        {
+          "name": "十字利刃",
+          "description": "敌方单体物理光属性威力110 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "反BUG",
+        "神圣钩爪III",
+        "闪耀镭射I",
+        "重度强袭III"
+      ]
+    },
+    {
+      "uid": "d003",
+      "dexId": 162,
+      "nameCN": "新月獸",
+      "nameEN": "Crescemon",
+      "sourceName": "新月兽",
+      "signatureMoves": [
+        {
+          "name": "月亮瞬舞",
+          "description": "敌方单体物理水属性威力100 50%混乱"
+        }
+      ],
+      "learnableSkills": [
+        "大海波浪I",
+        "发电水流II",
+        "闪耀镭射I",
+        "寒冰之箭III"
+      ]
+    },
+    {
+      "uid": "d283",
+      "dexId": 163,
+      "nameCN": "電子龍獸",
+      "nameEN": "Cyberdramon",
+      "sourceName": "电子龙兽",
+      "signatureMoves": [
+        {
+          "name": "绝灭爪",
+          "description": "敌方单体物理无属性威力115 10%即死"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "攻击破坏",
+        "彗星重锤III",
+        "破坏加农III"
+      ]
+    },
+    {
+      "uid": "d287",
+      "dexId": 164,
+      "nameCN": "古神獸",
+      "nameEN": "Shakkoumon",
+      "sourceName": "古神兽",
+      "signatureMoves": [
+        {
+          "name": "荒御魂",
+          "description": "敌方全体魔法光属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射I",
+        "驱散",
+        "神圣之光III",
+        "雄伟巨石III"
+      ]
+    },
+    {
+      "uid": "d170",
+      "dexId": 165,
+      "nameCN": "祖利獸",
+      "nameEN": "Cherrymon",
+      "sourceName": "祖利兽",
+      "signatureMoves": [
+        {
+          "name": "樱桃炸弹",
+          "description": "敌方全体物理木属性威力80"
+        }
+      ],
+      "learnableSkills": [
+        "符文之森I",
+        "物理耗竭",
+        "符文之森II",
+        "新月之叶III"
+      ]
+    },
+    {
+      "uid": "d284",
+      "dexId": 166,
+      "nameCN": "人面戰鷹獸",
+      "nameEN": "Silphymon",
+      "sourceName": "人面战鹰兽",
+      "signatureMoves": [
+        {
+          "name": "冲上云霄",
+          "description": "敌方单体魔法风属性威力110"
+        }
+      ],
+      "learnableSkills": [
+        "狂风暴雨I",
+        "暴击填充",
+        "音速空洞III",
+        "烈风利爪III"
+      ]
+    },
+    {
+      "uid": "d067",
+      "dexId": 167,
+      "nameCN": "超級流星獸",
+      "nameEN": "SuperStarmon",
+      "sourceName": "超级流星兽",
+      "signatureMoves": [
+        {
+          "name": "巨星上勾拳",
+          "description": "敌方单体物理光属性威力110"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射I",
+        "反睡眠",
+        "马赫突击I",
+        "神圣钩爪III"
+      ]
+    },
+    {
+      "uid": "d191",
+      "dexId": 168,
+      "nameCN": "喪尸暴龍獸",
+      "nameEN": "SkullGreymon",
+      "sourceName": "丧尸暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "堙灭猎鸟",
+          "description": "敌方单体物理火属性威力110 50%敌人DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "死亡召唤",
+        "破坏加农III",
+        "彗星重锤III"
+      ]
+    },
+    {
+      "uid": "d005",
+      "dexId": 169,
+      "nameCN": "喪尸撒旦獸",
+      "nameEN": "SkullSatamon",
+      "sourceName": "丧尸撒旦兽",
+      "signatureMoves": [
+        {
+          "name": "暗堕骨爪",
+          "description": "敌方单体HP-20% 50%液晶化"
+        }
+      ],
+      "learnableSkills": [
+        "角色倒置",
+        "地狱粉碎I",
+        "破坏加农III",
+        "梦魇III"
+      ]
+    },
+    {
+      "uid": "d154",
+      "dexId": 170,
+      "nameCN": "祖頓獸",
+      "nameEN": "Zudomon",
+      "sourceName": "祖顿兽",
+      "signatureMoves": [
+        {
+          "name": "重锤火花",
+          "description": "敌方单体物理雷属性威力115"
+        }
+      ],
+      "learnableSkills": [
+        "狂风暴雨I",
+        "守备破坏",
+        "寒冰之箭III",
+        "大海波浪II"
+      ]
+    },
+    {
+      "uid": "d096",
+      "dexId": 171,
+      "nameCN": "救星哈克獸",
+      "nameEN": "SaviorHuckmon",
+      "sourceName": "救星哈克兽",
+      "signatureMoves": [
+        {
+          "name": "三叉剑戟",
+          "description": "敌方单体物理无属性威力40 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "流星坠落I",
+        "辅助终结",
+        "神圣钩爪III",
+        "复活"
+      ]
+    },
+    {
+      "uid": "d192",
+      "dexId": 172,
+      "nameCN": "祭師獸",
+      "nameEN": "Taomon",
+      "sourceName": "祭师兽",
+      "signatureMoves": [
+        {
+          "name": "梵笔闪",
+          "description": "敌方单体魔法暗属性威力110"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎I",
+        "智能填充",
+        "梦魇III",
+        "地狱粉碎II"
+      ]
+    },
+    {
+      "uid": "d102",
+      "dexId": 173,
+      "nameCN": "達高獸",
+      "nameEN": "Dragomon",
+      "sourceName": "达高兽",
+      "signatureMoves": [
+        {
+          "name": "禁忌三叉戟",
+          "description": "敌方单体物理水属性115"
+        }
+      ],
+      "learnableSkills": [
+        "混乱鬼火",
+        "大海波浪II",
+        "发电水流III",
+        "地狱粉碎II"
+      ]
+    },
+    {
+      "uid": "d072",
+      "dexId": 174,
+      "nameCN": "麒麟獸",
+      "nameEN": "Chirinmon",
+      "sourceName": "麒麟兽",
+      "signatureMoves": [
+        {
+          "name": "疾风天翔剑",
+          "description": "敌方单体物理风属性威力40 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射I",
+        "反剧毒",
+        "复活",
+        "神圣之光III"
+      ]
+    },
+    {
+      "uid": "d018",
+      "dexId": 175,
+      "nameCN": "恐蜂獸",
+      "nameEN": "Dinobeemon",
+      "sourceName": "恐蜂兽",
+      "signatureMoves": [
+        {
+          "name": "地狱舞蹈",
+          "description": "敌方单体物理木属性威力35 攻击3次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶II",
+        "闪电坠击I",
+        "烈风利爪III",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d166",
+      "dexId": 176,
+      "nameCN": "蛋蛋獸",
+      "nameEN": "Digitamamon",
+      "sourceName": "蛋蛋兽",
+      "signatureMoves": [
+        {
+          "name": "噩梦症候群",
+          "description": "敌方单体HP-15% 40%睡眠"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "符文之森I",
+        "死亡召唤",
+        "重度强袭III"
+      ]
+    },
+    {
+      "uid": "d193",
+      "dexId": 177,
+      "nameCN": "死神火焰獸",
+      "nameEN": "SkullMeramon",
+      "sourceName": "死神火焰兽",
+      "signatureMoves": [
+        {
+          "name": "重金属火焰",
+          "description": "敌方单体物理火属性威力110 自身DEF+10%"
+        }
+      ],
+      "learnableSkills": [
+        "速度破坏",
+        "物理耗竭",
+        "彗星重锤III",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d264",
+      "dexId": 178,
+      "nameCN": "杜蘭獸",
+      "nameEN": "Duramon",
+      "sourceName": "杜兰兽",
+      "signatureMoves": [
+        {
+          "name": "调和",
+          "description": "敌方单体物理无属性威力115 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "敏捷填充",
+        "神圣钩爪II",
+        "重度强袭III",
+        "马赫突击II"
+      ]
+    },
+    {
+      "uid": "d168",
+      "dexId": 179,
+      "nameCN": "怪蛙皇",
+      "nameEN": "ShogunGekomon",
+      "sourceName": "怪蛙皇",
+      "signatureMoves": [
+        {
+          "name": "破坏音波",
+          "description": "敌方全体无属性中威力INT贯穿攻击 30%敌方ATK或INT-20%"
+        }
+      ],
+      "learnableSkills": [
+        "大海波浪I",
+        "偶像泡沫",
+        "大海波浪II",
+        "寒冰之箭III"
+      ]
+    },
+    {
+      "uid": "d026",
+      "dexId": 180,
+      "nameCN": "三觭龍獸",
+      "nameEN": "Triceramon",
+      "sourceName": "三角龙兽",
+      "signatureMoves": [
+        {
+          "name": "三角突击",
+          "description": "敌方单体物理土属性威力150 晕眩 命中率50"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "命中填充",
+        "云雾汽油弹II",
+        "彗星重锤III"
+      ]
+    },
+    {
+      "uid": "d194",
+      "dexId": 181,
+      "nameCN": "多路龍獸",
+      "nameEN": "DoruGreymon",
+      "sourceName": "多路龙兽",
+      "signatureMoves": [
+        {
+          "name": "金属流星",
+          "description": "敌方单体物理土属性威力115"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "攻击破坏",
+        "云雾汽油弹III",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d282",
+      "dexId": 182,
+      "nameCN": "騎士獸",
+      "nameEN": "Knightmon",
+      "sourceName": "骑士兽",
+      "signatureMoves": [
+        {
+          "name": "狂暴大剑",
+          "description": "秒杀敌方单体 命中率30"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "反混乱",
+        "重度强袭III",
+        "马赫突击II"
+      ]
+    },
+    {
+      "uid": "d237",
+      "dexId": 183,
+      "nameCN": "分子獸",
+      "nameEN": "Datamon",
+      "sourceName": "分子兽",
+      "signatureMoves": [
+        {
+          "name": "插入式炸弹",
+          "description": "敌方单体魔法火属性威力80 30%敌人基础状态-10%"
+        }
+      ],
+      "learnableSkills": [
+        "麻痹电网",
+        "物理耗竭",
+        "天国闪电III",
+        "力量能源III"
+      ]
+    },
+    {
+      "uid": "d195",
+      "dexId": 184,
+      "nameCN": "機甲龍獸",
+      "nameEN": "Paildramon",
+      "sourceName": "机甲龙兽",
+      "signatureMoves": [
+        {
+          "name": "死亡火箭炮",
+          "description": "敌方全体物理光属性威力40 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "闪电坠击I",
+        "重度强袭III",
+        "交叉拳"
+      ]
+    },
+    {
+      "uid": "d196",
+      "dexId": 185,
+      "nameCN": "邦加獸",
+      "nameEN": "Panjyamon",
+      "sourceName": "邦加兽",
+      "signatureMoves": [
+        {
+          "name": "冰兽拳",
+          "description": "敌方单体物理水属性威力110 40%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "大海波浪I",
+        "敏捷填充",
+        "发电水流III",
+        "寒冰之箭III"
+      ]
+    },
+    {
+      "uid": "d034",
+      "dexId": 186,
+      "nameCN": "熊貓獸",
+      "nameEN": "Pandamon",
+      "sourceName": "熊猫兽",
+      "signatureMoves": [
+        {
+          "name": "动物爪子",
+          "description": "敌方单体物理土属性威力115"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "治愈",
+        "重度强袭II",
+        "彗星重锤III"
+      ]
+    },
+    {
+      "uid": "d242",
+      "dexId": 187,
+      "nameCN": "南瓜獸",
+      "nameEN": "Pumpkinmon",
+      "sourceName": "南瓜兽",
+      "signatureMoves": [
+        {
+          "name": "不给糖就捣蛋",
+          "description": "敌方单体物理无属性威力100 敌方INT-10%"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "流星坠落I",
+        "彗星重锤III",
+        "结构痛击"
+      ]
+    },
+    {
+      "uid": "d197",
+      "dexId": 188,
+      "nameCN": "妖精獸",
+      "nameEN": "Piximon",
+      "sourceName": "妖精兽",
+      "signatureMoves": [
+        {
+          "name": "位元炸弹",
+          "description": "敌方单体物理魔法火属性威力110"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射I",
+        "大海波浪I",
+        "神圣之光III",
+        "X治愈"
+      ]
+    },
+    {
+      "uid": "d070",
+      "dexId": 189,
+      "nameCN": "仙鷹獸",
+      "nameEN": "HippoGryphonmon",
+      "sourceName": "仙鹰兽",
+      "signatureMoves": [
+        {
+          "name": "高热波",
+          "description": "敌方全体魔法火属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "音速空洞II",
+        "闪耀镭射I",
+        "速度填充",
+        "音速空洞III"
+      ]
+    },
+    {
+      "uid": "d239",
+      "dexId": 190,
+      "nameCN": "死神獸",
+      "nameEN": "Phantomon",
+      "sourceName": "死神兽",
+      "signatureMoves": [
+        {
+          "name": "灵魂捕食者",
+          "description": "敌方单体暗属性高威力INT贯穿攻击 10%即死"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎I",
+        "死亡召唤",
+        "梦魇III",
+        "地狱粉碎II"
+      ]
+    },
+    {
+      "uid": "d313",
+      "dexId": 191,
+      "nameCN": "黑帝鼻涕獸",
+      "nameEN": "BlackKingNumemon",
+      "sourceName": "黑帝鼻涕兽",
+      "signatureMoves": [
+        {
+          "name": "黑暗瞳孔",
+          "description": "敌方单体物理暗属性威力110 80%中毒"
+        }
+      ],
+      "learnableSkills": [
+        "反液晶化",
+        "结构痛击",
+        "负极锁链",
+        "梦魇III"
+      ]
+    },
+    {
+      "uid": "d113",
+      "dexId": 192,
+      "nameCN": "藍色火焰獸",
+      "nameEN": "BlueMeramon",
+      "sourceName": "蓝色火焰兽",
+      "signatureMoves": [
+        {
+          "name": "寒冷火花",
+          "description": "敌方单体物理水属性威力100 自身INT+10%"
+        }
+      ],
+      "learnableSkills": [
+        "流星坠落I",
+        "智能破坏",
+        "爆裂火焰III",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d198",
+      "dexId": 193,
+      "nameCN": "入侵者獸",
+      "nameEN": "Vademon",
+      "sourceName": "入侵者兽",
+      "signatureMoves": [
+        {
+          "name": "恶魔飞吻",
+          "description": "敌方单体魔法暗属性威力95 40%液晶化"
+        }
+      ],
+      "learnableSkills": [
+        "剧毒陷阱",
+        "地狱粉碎I",
+        "角色倒置",
+        "梦魇III"
+      ]
+    },
+    {
+      "uid": "d016",
+      "dexId": 194,
+      "nameCN": "巨鯨獸",
+      "nameEN": "Whamon",
+      "sourceName": "巨鲸兽",
+      "signatureMoves": [
+        {
+          "name": "大海啸",
+          "description": "敌方全体魔法水属性威力75"
+        }
+      ],
+      "learnableSkills": [
+        "大海波浪I",
+        "X治愈",
+        "发电水流III",
+        "寒冰之箭III"
+      ]
+    },
+    {
+      "uid": "d085",
+      "dexId": 195,
+      "nameCN": "神聖天使獸",
+      "nameEN": "MagnaAngemon",
+      "sourceName": "神圣天使兽",
+      "signatureMoves": [
+        {
+          "name": "天国之门",
+          "description": "敌方单体魔法光属性威力100 10%即死"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射I",
+        "X治愈",
+        "神圣之光III",
+        "复活"
+      ]
+    },
+    {
+      "uid": "d048",
+      "dexId": 196,
+      "nameCN": "火山獸",
+      "nameEN": "Volcanomon",
+      "sourceName": "火山兽",
+      "signatureMoves": [
+        {
+          "name": "声波大CRT",
+          "description": "敌方全体物理无属性中威力DEF贯穿攻击 20%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "正极锁链",
+        "马赫突击I",
+        "地牛翻身I",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d024",
+      "dexId": 197,
+      "nameCN": "鬥牛士獸",
+      "nameEN": "Matadormon",
+      "sourceName": "斗牛士兽",
+      "signatureMoves": [
+        {
+          "name": "蝶绝喇叭蹴",
+          "description": "敌方单体物理暗属性威力30 攻击3~5次 吸取20%HP"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎I",
+        "交叉拳",
+        "马赫突击II",
+        "破坏加农III"
+      ]
+    },
+    {
+      "uid": "d063",
+      "dexId": 198,
+      "nameCN": "音速迦奧迦獸",
+      "nameEN": "MachGaogamon",
+      "sourceName": "音速加奥加兽",
+      "signatureMoves": [
+        {
+          "name": "胜利拳击",
+          "description": "敌方单体物理无属性威力115 40%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击I",
+        "反晕眩",
+        "烈风利爪III",
+        "狂风暴雨II"
+      ]
+    },
+    {
+      "uid": "d199",
+      "dexId": 199,
+      "nameCN": "豆豆獸",
+      "nameEN": "Mamemon",
+      "sourceName": "豆豆兽",
+      "signatureMoves": [
+        {
+          "name": "微笑炸弹",
+          "description": "敌方单体物理火属性威力110 必中"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "疾速逃脱",
+        "彗星重锤III",
+        "地牛翻身II"
+      ]
+    },
+    {
+      "uid": "d104",
+      "dexId": 200,
+      "nameCN": "超海龍獸",
+      "nameEN": "MegaSeadramon",
+      "sourceName": "超海龙兽",
+      "signatureMoves": [
+        {
+          "name": "轰雷枪",
+          "description": "敌方单体魔法雷属性威力105 40%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "偶像泡沫",
+        "智能破坏",
+        "发电水流III",
+        "天国闪电III"
+      ]
+    },
+    {
+      "uid": "d127",
+      "dexId": 201,
+      "nameCN": "超蛇龍獸",
+      "nameEN": "Megadramon",
+      "sourceName": "超蛇龙兽",
+      "signatureMoves": [
+        {
+          "name": "种族灭绝攻击",
+          "description": "敌方单体物理火属性威力110 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "混乱鬼火",
+        "云雾汽油弹II",
+        "狂风暴雨II",
+        "烈风利爪III"
+      ]
+    },
+    {
+      "uid": "d105",
+      "dexId": 202,
+      "nameCN": "大古拉獸",
+      "nameEN": "WarGrowlmon",
+      "sourceName": "大古拉兽",
+      "signatureMoves": [
+        {
+          "name": "原子爆焰",
+          "description": "敌方单体物理雷属性威力250 硬直一回合"
+        }
+      ],
+      "learnableSkills": [
+        "正极锁链",
+        "守备破坏",
+        "云雾汽油弹III",
+        "神圣钩爪III"
+      ]
+    },
+    {
+      "uid": "d128",
+      "dexId": 203,
+      "nameCN": "機械暴龍獸",
+      "nameEN": "MetalGreymon",
+      "sourceName": "机械暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "究极破坏炮",
+          "description": "敌方单体物理火属性威力115"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "攻击填充",
+        "流星坠落II",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d148",
+      "dexId": 204,
+      "nameCN": "機械暴龍獸（藍）",
+      "nameEN": "MetalGreymon (Blue)",
+      "sourceName": "机械暴龙兽（蓝）",
+      "signatureMoves": [
+        {
+          "name": "复仇火焰",
+          "description": "受到物理攻击或魔法攻击时进入反击状态"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "暴击填充",
+        "流星坠落II",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d340",
+      "dexId": 205,
+      "nameCN": "鋼鐵巨龍獸",
+      "nameEN": "MetalTyrannomon",
+      "sourceName": "钢铁巨龙兽",
+      "signatureMoves": [
+        {
+          "name": "核子镭射光",
+          "description": "敌方单体雷属性中威力DEF贯穿攻击 自身DEF+10%"
+        }
+      ],
+      "learnableSkills": [
+        "麻痹电网",
+        "守备填充",
+        "爆裂火焰III",
+        "奈米机械破坏III"
+      ]
+    },
+    {
+      "uid": "d200",
+      "dexId": 206,
+      "nameCN": "鋼鐵豆豆獸",
+      "nameEN": "MetalMamemon",
+      "sourceName": "钢铁豆豆兽",
+      "signatureMoves": [
+        {
+          "name": "能量炸弹",
+          "description": "敌方单体魔法雷属性威力110 必中"
+        }
+      ],
+      "learnableSkills": [
+        "疾速逃脱",
+        "命中填充",
+        "奈米机械破坏III",
+        "爆裂火焰III"
+      ]
+    },
+    {
+      "uid": "d050",
+      "dexId": 207,
+      "nameCN": "熊仔獸",
+      "nameEN": "Monzaemon",
+      "sourceName": "熊仔兽",
+      "signatureMoves": [
+        {
+          "name": "爱心一击",
+          "description": "恢复我方单体HP 提升物攻 防御 魔法10%"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "符文之森I",
+        "混乱鬼火",
+        "重度强袭III"
+      ]
+    },
+    {
+      "uid": "d285",
+      "dexId": 208,
+      "nameCN": "八咫鴉獸",
+      "nameEN": "Crowmon",
+      "sourceName": "八咫鸦兽",
+      "signatureMoves": [
+        {
+          "name": "瓮布都神",
+          "description": "敌方单体魔法光属性威力110"
+        }
+      ],
+      "learnableSkills": [
+        "狂风暴雨I",
+        "闪电坠击I",
+        "音速空洞III",
+        "反射镜"
+      ]
+    },
+    {
+      "uid": "d060",
+      "dexId": 209,
+      "nameCN": "進昇暴龍獸",
+      "nameEN": "RizeGreymon",
+      "sourceName": "进升暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "三叉戟左轮",
+          "description": "敌方单体物理火属性威力40 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "正极锁链",
+        "命中填充",
+        "流星坠落II",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d062",
+      "dexId": 210,
+      "nameCN": "丁香獸",
+      "nameEN": "Lilamon",
+      "sourceName": "丁香兽",
+      "signatureMoves": [
+        {
+          "name": "丁香骤雨",
+          "description": "敌方全体魔法木属性威力60 40%中毒"
+        }
+      ],
+      "learnableSkills": [
+        "符文之森I",
+        "灵气",
+        "符文之森II",
+        "盖亚元素III"
+      ]
+    },
+    {
+      "uid": "d286",
+      "dexId": 211,
+      "nameCN": "拉比獸",
+      "nameEN": "Rapidmon",
+      "sourceName": "拉比兽",
+      "signatureMoves": [
+        {
+          "name": "黄金三角",
+          "description": "敌方单体魔法雷属性威力90 10%自身基础状态+10%"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击I",
+        "流星坠落I",
+        "闪电坠击II",
+        "奈米机械破坏III"
+      ]
+    },
+    {
+      "uid": "d159",
+      "dexId": 212,
+      "nameCN": "花仙獸",
+      "nameEN": "Lillymon",
+      "sourceName": "花仙兽",
+      "signatureMoves": [
+        {
+          "name": "花仙炮",
+          "description": "敌方单体魔法木属性威力105 50%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "符文之森I",
+        "X治愈",
+        "盖亚元素III",
+        "符文之森II"
+      ]
+    },
+    {
+      "uid": "d032",
+      "dexId": 213,
+      "nameCN": "光明獸FM（墮落型態）",
+      "nameEN": "Lucemon FM",
+      "sourceName": "光明兽FM",
+      "signatureMoves": [
+        {
+          "name": "生死交错",
+          "description": "敌方单体魔法无属性威力130 10%异常 5%即死"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射II",
+        "地狱粉碎II",
+        "精神耗竭",
+        "地狱粉碎III",
+        "闪耀镭射III"
+      ]
+    },
+    {
+      "uid": "d090",
+      "dexId": 214,
+      "nameCN": "女惡魔獸",
+      "nameEN": "LadyDevimon",
+      "sourceName": "女恶魔兽",
+      "signatureMoves": [
+        {
+          "name": "黑暗波",
+          "description": "敌方全体魔法暗属性威力35 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎I",
+        "精神耗竭",
+        "梦魇III",
+        "地狱粉碎II"
+      ]
+    },
+    {
+      "uid": "d107",
+      "dexId": 215,
+      "nameCN": "獸人加魯魯",
+      "nameEN": "WereGarurumon",
+      "sourceName": "兽人加鲁鲁",
+      "signatureMoves": [
+        {
+          "name": "凯撒锐爪",
+          "description": "敌方单体物理无属性威力120"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身I",
+        "流星坠落I",
+        "彗星重锤III",
+        "地牛翻身II"
+      ]
+    },
+    {
+      "uid": "d280",
+      "dexId": 216,
+      "nameCN": "黑獸人加魯魯",
+      "nameEN": "WereGarurumon (Blk)",
+      "sourceName": "黑兽人加鲁鲁",
+      "signatureMoves": [
+        {
+          "name": "弦月弯刀",
+          "description": "敌方单体物理土属性威力110 自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击I",
+        "云雾汽油弹II",
+        "彗星重锤III",
+        "马赫突击II"
+      ]
+    },
+    {
+      "uid": "d288",
+      "dexId": 217,
+      "nameCN": "賢者獸",
+      "nameEN": "Wisemon",
+      "sourceName": "贤者兽",
+      "signatureMoves": [
+        {
+          "name": "潘朵拉对话",
+          "description": "敌方全体HP-20% 反伤HP的10%"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎I",
+        "反射镜",
+        "地狱粉碎II",
+        "梦魇III"
+      ]
+    },
+    {
+      "uid": "d055",
+      "dexId": 218,
+      "nameCN": "阿卡迪獸（究極體）",
+      "nameEN": "Arcadiamon Mega",
+      "sourceName": "阿卡迪兽究极体",
+      "signatureMoves": [
+        {
+          "name": "点之矩阵",
+          "description": "敌方单体无属性高威力DEF贯穿攻击 吸取30%HP 必中"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "速度破坏力场",
+        "神圣钩爪III",
+        "马赫突击III",
+        "遗失锁链"
+      ]
+    },
+    {
+      "uid": "d201",
+      "dexId": 219,
+      "nameCN": "阿爾法獸",
+      "nameEN": "Alphamon",
+      "sourceName": "阿尔法兽",
+      "signatureMoves": [
+        {
+          "name": "圣剑开端之刃",
+          "description": "敌方单体物理光属性威力150"
+        },
+        {
+          "name": "数码之魂",
+          "description": "敌方全体魔法无属性威力95 5%即死"
+        }
+      ],
+      "learnableSkills": [
+        "力量能源III",
+        "智能填充力场",
+        "速度破坏力场",
+        "发电水流III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d202",
+      "dexId": 220,
+      "nameCN": "究極V龍獸",
+      "nameEN": "UlforceVeedramon",
+      "sourceName": "究极V龙兽",
+      "signatureMoves": [
+        {
+          "name": "闪光V字斩",
+          "description": "敌方全体物理光属性威力100 必中 自身SPD+10%"
+        },
+        {
+          "name": "究极圣剑",
+          "description": "敌方单体物理风属性威力65 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪III",
+        "智能填充力场",
+        "速度填充力场",
+        "狂风暴雨II",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d222",
+      "dexId": 221,
+      "nameCN": "外星獸",
+      "nameEN": "Ebemon",
+      "sourceName": "外星兽",
+      "signatureMoves": [
+        {
+          "name": "脑部破裂",
+          "description": "敌方单体魔法雷属性威力115 50%混乱"
+        }
+      ],
+      "learnableSkills": [
+        "攻击破坏力场",
+        "天国闪电III",
+        "遗失锁链",
+        "闪电坠击II",
+        "角色倒置"
+      ]
+    },
+    {
+      "uid": "d294",
+      "dexId": 222,
+      "nameCN": "帝皇龍甲獸DM（龍型態）",
+      "nameEN": "Imperialdramon DM",
+      "sourceName": "帝皇龙甲兽DM",
+      "signatureMoves": [
+        {
+          "name": "百万屠杀",
+          "description": "敌方全体魔法暗属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭III",
+        "攻击填充力场",
+        "流星坠落III",
+        "音速空洞III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d203",
+      "dexId": 223,
+      "nameCN": "帝皇龍甲獸FM（龍人型態）",
+      "nameEN": "Imperialdramon FM",
+      "sourceName": "帝皇龙甲兽FM",
+      "signatureMoves": [
+        {
+          "name": "光子镭射",
+          "description": "敌方单体物理光属性威力150"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭III",
+        "攻击填充力场",
+        "流星坠落III",
+        "音速空洞III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d155",
+      "dexId": 224,
+      "nameCN": "維京毛人獸",
+      "nameEN": "Vikemon",
+      "sourceName": "维京毛人兽",
+      "signatureMoves": [
+        {
+          "name": "北极暴风雪",
+          "description": "敌方单体物理水属性威力125 40%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭III",
+        "X治愈",
+        "智能填充力场",
+        "盖亚元素III",
+        "大海波浪III"
+      ]
+    },
+    {
+      "uid": "d324",
+      "dexId": 225,
+      "nameCN": "女戰神獸",
+      "nameEN": "Valkyrimon",
+      "sourceName": "女战神兽",
+      "signatureMoves": [
+        {
+          "name": "芬里尔之剑",
+          "description": "敌方单体物理水属性威力130 15%即死"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光III",
+        "最终治愈",
+        "速度填充力场",
+        "狂风暴雨III",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d097",
+      "dexId": 226,
+      "nameCN": "瓦爾德獸",
+      "nameEN": "Varodurumon",
+      "sourceName": "瓦尔德兽",
+      "signatureMoves": [
+        {
+          "name": "极光波动",
+          "description": "敌方全体魔法光属性威力80 必中 解除自身状态异常不利效果"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光III",
+        "安全守护",
+        "最终灵气",
+        "闪耀镭射III",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d243",
+      "dexId": 227,
+      "nameCN": "究極吸血魔獸",
+      "nameEN": "VenomMyotismon",
+      "sourceName": "究极吸血魔兽",
+      "signatureMoves": [
+        {
+          "name": "剧毒流注",
+          "description": "敌方单体物理暗属性威力135 50%中毒"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "死亡召唤",
+        "物理耗竭",
+        "守备破坏力场",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d022",
+      "dexId": 228,
+      "nameCN": "戰鬥暴龍獸",
+      "nameEN": "WarGreymon",
+      "sourceName": "战斗暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "盖亚能量炮",
+          "description": "敌方全体物理火属性威力90 30%自身ATK+20%"
+        },
+        {
+          "name": "神圣龙卷风",
+          "description": "敌方单体无属性高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "流星坠落II",
+        "云雾汽油弹III",
+        "攻击填充力场",
+        "重度强袭",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d205",
+      "dexId": 229,
+      "nameCN": "神聖天女獸",
+      "nameEN": "Ophanimon",
+      "sourceName": "神圣天女兽",
+      "signatureMoves": [
+        {
+          "name": "伊甸园标枪",
+          "description": "敌方单体魔法光属性威力120 30%自身INT+20%"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射II",
+        "完美复活",
+        "最终灵气",
+        "神圣之光III",
+        "闪耀镭射III"
+      ]
+    },
+    {
+      "uid": "d305",
+      "dexId": 230,
+      "nameCN": "凱王獸",
+      "nameEN": "Gaiomon",
+      "sourceName": "凯王兽",
+      "signatureMoves": [
+        {
+          "name": "燐火斩",
+          "description": "敌方单体物理火属性威力70 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "死亡召唤",
+        "云雾汽油弹III",
+        "守备破坏力场",
+        "流星坠落II",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d254",
+      "dexId": 231,
+      "nameCN": "凱撒暴龍獸",
+      "nameEN": "KaiserGreymon",
+      "sourceName": "凯撒暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "炎龙击",
+          "description": "敌方单体物理火属性威力140"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹III",
+        "烈风利爪III",
+        "晕眩冲击",
+        "地牛翻身II",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d110",
+      "dexId": 232,
+      "nameCN": "混沌紅蓮騎士獸",
+      "nameEN": "ChaosGallantmon",
+      "sourceName": "混沌红莲骑士兽",
+      "signatureMoves": [
+        {
+          "name": "恶魔灾难",
+          "description": "敌方单体物理暗属性威力140"
+        },
+        {
+          "name": "犹大环监狱",
+          "description": "敌方单体魔法暗属性威力115 必中 解除自身能力下降"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "智能破坏力场",
+        "死亡召唤",
+        "发电水流III",
+        "大海波浪III"
+      ]
+    },
+    {
+      "uid": "d206",
+      "dexId": 233,
+      "nameCN": "混沌龍獸",
+      "nameEN": "Chaosdramon",
+      "sourceName": "混沌龙兽",
+      "signatureMoves": [
+        {
+          "name": "高能无限加农炮",
+          "description": "敌方全体物理雷属性威力115"
+        },
+        {
+          "name": "终极毁灭炮",
+          "description": "敌方单体雷属性高威力DEF贯穿攻击 剧毒 命中率80"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击II",
+        "加速增幅器",
+        "奈米机械破坏III",
+        "闪电坠击II",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d261",
+      "dexId": 234,
+      "nameCN": "頑固獸",
+      "nameEN": "Gankoomon",
+      "sourceName": "顽固兽",
+      "signatureMoves": [
+        {
+          "name": "地神！神鸣！神驰！亲父！",
+          "description": "敌方单体物理火属性威力35 攻击4次"
+        },
+        {
+          "name": "掀饭桌",
+          "description": "敌方全体物理土属性威力100 易暴击 命中率70"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹III",
+        "加速增幅器",
+        "攻击填充力场",
+        "流星坠落II",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d100",
+      "dexId": 235,
+      "nameCN": "大王悟空獸",
+      "nameEN": "KingEtemon",
+      "sourceName": "大王悟空兽",
+      "signatureMoves": [
+        {
+          "name": "耍猴戏",
+          "description": "敌人单体基本状态-30% 连击率下降"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身II",
+        "攻击填充力场",
+        "遗失锁链",
+        "彗星重锤III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d314",
+      "dexId": 236,
+      "nameCN": "葛葉獸",
+      "nameEN": "Kuzuhamon",
+      "sourceName": "葛叶兽",
+      "signatureMoves": [
+        {
+          "name": "胎藏界曼荼罗",
+          "description": "敌方全体魔法暗属性威力70 解除对方提升的闪避暴击命中提升 必中"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇III",
+        "地狱粉碎II",
+        "状态屏障",
+        "遗失锁链",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d207",
+      "dexId": 237,
+      "nameCN": "究極古加獸",
+      "nameEN": "GranKuwagamon",
+      "sourceName": "究极古加兽",
+      "signatureMoves": [
+        {
+          "name": "次元剪刀",
+          "description": "敌方单体木属性高威力DEF贯穿攻击 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "物理耗竭",
+        "新月之叶II",
+        "狂风暴雨II",
+        "攻击破坏力场",
+        "速度填充力场"
+      ]
+    },
+    {
+      "uid": "d025",
+      "dexId": 238,
+      "nameCN": "大德古獸",
+      "nameEN": "GranDracmon",
+      "sourceName": "大德古兽",
+      "signatureMoves": [
+        {
+          "name": "水晶革命",
+          "description": "敌方全体魔法水属性威力90 吸取20%HP"
+        },
+        {
+          "name": "美杜莎之眼",
+          "description": "单体敌人DEF-10% 混乱"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇III",
+        "混乱鬼火",
+        "寒冰之箭III",
+        "智能破坏力场",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d269",
+      "dexId": 239,
+      "nameCN": "超級火車獸",
+      "nameEN": "GroundLocomon",
+      "sourceName": "超级火车兽",
+      "signatureMoves": [
+        {
+          "name": "破坏崩溃",
+          "description": "敌方全体魔法土属性威力85"
+        }
+      ],
+      "learnableSkills": [
+        "天国闪电III",
+        "反液晶化",
+        "守备填充力场",
+        "闪电坠击II",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d071",
+      "dexId": 240,
+      "nameCN": "獅鷲獸",
+      "nameEN": "Gryphonmon",
+      "sourceName": "狮鹫兽",
+      "signatureMoves": [
+        {
+          "name": "超音波之声",
+          "description": "敌方单体风属性高威力INT贯穿攻击 20%BUG"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪III",
+        "闪耀镭射II",
+        "速度填充力场",
+        "狂风暴雨III",
+        "复活"
+      ]
+    },
+    {
+      "uid": "d296",
+      "dexId": 241,
+      "nameCN": "顱骨獸",
+      "nameEN": "Craniamon",
+      "sourceName": "颅骨兽",
+      "signatureMoves": [
+        {
+          "name": "终结华尔兹",
+          "description": "敌方全体物理无属性威力35 攻击3次"
+        },
+        {
+          "name": "神之庇佑",
+          "description": "到下回合前无敌"
+        }
+      ],
+      "learnableSkills": [
+        "雄伟巨石III",
+        "地牛翻身II",
+        "守备填充力场",
+        "盖亚元素III",
+        "地牛翻身III"
+      ]
+    },
+    {
+      "uid": "d325",
+      "dexId": 242,
+      "nameCN": "基路比獸（惡）",
+      "nameEN": "Kerpymon (Blk)",
+      "sourceName": "基路比兽（恶）",
+      "signatureMoves": [
+        {
+          "name": "紫电长矛",
+          "description": "敌方单体雷属性高威力INT贯穿攻击 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇III",
+        "精神耗竭",
+        "地狱粉碎II",
+        "地狱粉碎III",
+        "状态屏障"
+      ]
+    },
+    {
+      "uid": "d297",
+      "dexId": 243,
+      "nameCN": "基路比獸（善）",
+      "nameEN": "Kerpymon (Good)",
+      "sourceName": "基路比兽（善）",
+      "signatureMoves": [
+        {
+          "name": "天国审判",
+          "description": "敌方全体魔法光属性威力90 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光III",
+        "X灵气",
+        "闪耀镭射II",
+        "闪耀镭射III",
+        "安全守护"
+      ]
+    },
+    {
+      "uid": "d039",
+      "dexId": 244,
+      "nameCN": "神龍獸",
+      "nameEN": "Goldramon",
+      "sourceName": "神龙兽",
+      "signatureMoves": [
+        {
+          "name": "神之烈焰",
+          "description": "敌方全体物理光属性威力100"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "云雾汽油弹III",
+        "X灵气",
+        "辅助终结",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d208",
+      "dexId": 245,
+      "nameCN": "黃金劍獅獸",
+      "nameEN": "SaberLeomon",
+      "sourceName": "黄金剑狮兽",
+      "signatureMoves": [
+        {
+          "name": "粉碎之爪",
+          "description": "敌方单体物理土属性威力65 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪III",
+        "加速增幅器",
+        "狂风暴雨II",
+        "守备破坏力场",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d209",
+      "dexId": 246,
+      "nameCN": "沙古牙獸",
+      "nameEN": "Sakuyamon",
+      "sourceName": "沙古牙兽",
+      "signatureMoves": [
+        {
+          "name": "金刚界曼荼罗",
+          "description": "敌方全体魔法光属性威力70 解除敌人基本状态提升"
+        }
+      ],
+      "learnableSkills": [
+        "回复",
+        "闪耀镭射II",
+        "最终治愈",
+        "神圣之光III",
+        "状态屏障"
+      ]
+    },
+    {
+      "uid": "d309",
+      "dexId": 247,
+      "nameCN": "傑斯獸",
+      "nameEN": "Jesmon",
+      "sourceName": "杰斯兽",
+      "signatureMoves": [
+        {
+          "name": "辙剑制裁",
+          "description": "敌方单体物理无属性威力30 攻击5次"
+        },
+        {
+          "name": "剑灵",
+          "description": "到下回合受伤无效 受到物理或魔法攻击 进入反击"
+        }
+      ],
+      "learnableSkills": [
+        "守备填充力场",
+        "复活",
+        "攻击填充力场",
+        "马赫突击III",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d081",
+      "dexId": 248,
+      "nameCN": "閃光暴龍獸",
+      "nameEN": "ShineGreymon",
+      "sourceName": "闪光暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "大地暴龙剑",
+          "description": "敌方单体物理火属性威力130 自身ATK+10%"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "灵气",
+        "地牛翻身II",
+        "顶级锁链",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d327",
+      "dexId": 249,
+      "nameCN": "閃光暴龍獸BM（爆裂型態）",
+      "nameEN": "ShineGreymon BM",
+      "sourceName": "闪光暴龙兽BM",
+      "signatureMoves": [
+        {
+          "name": "终极闪烁爆裂",
+          "description": "敌方全体物理火属性威力200 自身ATK-50% 命中率90"
+        }
+      ],
+      "learnableSkills": [
+        "攻击填充",
+        "攻击破坏力场",
+        "重度强袭III",
+        "加速增幅器",
+        "状态屏障"
+      ]
+    },
+    {
+      "uid": "d298",
+      "dexId": 250,
+      "nameCN": "裁決獸",
+      "nameEN": "Justimon",
+      "sourceName": "裁决兽",
+      "signatureMoves": [
+        {
+          "name": "审判飞脚",
+          "description": "敌方单体物理无属性威力130 5%自身ATK+50%"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "加速增幅器",
+        "交叉拳",
+        "复活",
+        "顶级锁链"
+      ]
+    },
+    {
+      "uid": "d074",
+      "dexId": 251,
+      "nameCN": "八腳馬獸",
+      "nameEN": "Kentaurosmon",
+      "sourceName": "八脚马兽",
+      "signatureMoves": [
+        {
+          "name": "虹桥",
+          "description": "敌方单体魔法光属性威力120 自身SPD+10%"
+        },
+        {
+          "name": "奥丁之息",
+          "description": "敌方全体物理水属性威力105 10%睡眠"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射II",
+        "神圣钩爪III",
+        "闪耀镭射III",
+        "回复",
+        "最终治愈"
+      ]
+    },
+    {
+      "uid": "d123",
+      "dexId": 252,
+      "nameCN": "斬龍獸",
+      "nameEN": "Slayerdramon",
+      "sourceName": "斩龙兽",
+      "signatureMoves": [
+        {
+          "name": "天龙斩破",
+          "description": "敌方单体无属性高威力DEF贯穿攻击 自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭III",
+        "攻击填充力场",
+        "速度填充力场",
+        "X灵气",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d141",
+      "dexId": 253,
+      "nameCN": "究極天使獸",
+      "nameEN": "Seraphimon",
+      "sourceName": "究极天使兽",
+      "signatureMoves": [
+        {
+          "name": "七重天堂",
+          "description": "敌方全体魔法光属性威力15 攻击7次"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光III",
+        "闪耀镭射II",
+        "最终治愈",
+        "闪耀镭射III",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d302",
+      "dexId": 254,
+      "nameCN": "撒多格杜獸",
+      "nameEN": "MegaGargomon",
+      "sourceName": "撒多格杜兽",
+      "signatureMoves": [
+        {
+          "name": "爆裂轰击",
+          "description": "敌方全体物理火属性威力50 攻击2次"
+        }
+      ],
+      "learnableSkills": [
+        "天国闪电III",
+        "智能填充力场",
+        "闪电坠击II",
+        "盖亚元素III",
+        "顶级锁链"
+      ]
+    },
+    {
+      "uid": "d322",
+      "dexId": 255,
+      "nameCN": "暗龍獸",
+      "nameEN": "Darkdramon",
+      "sourceName": "暗龙兽",
+      "signatureMoves": [
+        {
+          "name": "黑暗咆哮",
+          "description": "敌方单体物理暗属性威力130 命中率90 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "暴击填充",
+        "加速增幅器",
+        "守备破坏力场",
+        "奈米机械破坏III",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d306",
+      "dexId": 256,
+      "nameCN": "虎蜂獸",
+      "nameEN": "TigerVespamon",
+      "sourceName": "虎蜂兽",
+      "signatureMoves": [
+        {
+          "name": "马赫刺针V",
+          "description": "敌方单体物理雷属性威力20 攻击6次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏III",
+        "速度填充力场",
+        "新月之叶III",
+        "反射镜",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d220",
+      "dexId": 257,
+      "nameCN": "泰坦獸",
+      "nameEN": "Titamon",
+      "sourceName": "泰坦兽",
+      "signatureMoves": [
+        {
+          "name": "魂魄芯击",
+          "description": "敌方单体土属性高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身II",
+        "彗星重锤III",
+        "守备破坏力场",
+        "新月之叶III",
+        "地牛翻身III"
+      ]
+    },
+    {
+      "uid": "d101",
+      "dexId": 258,
+      "nameCN": "暴君比多獸",
+      "nameEN": "TyrantKabuterimon",
+      "sourceName": "暴君比多兽",
+      "signatureMoves": [
+        {
+          "name": "虫之爆闪",
+          "description": "敌方全体火属性高威力DEF贯穿 硬直一回合"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶III",
+        "闪电坠击II",
+        "流星坠落II",
+        "速度破坏力场",
+        "速度填充力场"
+      ]
+    },
+    {
+      "uid": "d295",
+      "dexId": 259,
+      "nameCN": "狄安娜獸",
+      "nameEN": "Dianamon",
+      "sourceName": "狄安娜兽",
+      "signatureMoves": [
+        {
+          "name": "晚安之月",
+          "description": "敌方单体魔法光属性威力120 50%睡眠"
+        }
+      ],
+      "learnableSkills": [
+        "驱散",
+        "反射镜",
+        "梦魇III",
+        "回复",
+        "大海波浪"
+      ]
+    },
+    {
+      "uid": "d251",
+      "dexId": 260,
+      "nameCN": "超惡魔獸",
+      "nameEN": "Diaboromon",
+      "sourceName": "超恶魔兽",
+      "signatureMoves": [
+        {
+          "name": "大灾难",
+          "description": "敌方单体物理火属性威力80 攻击3次 硬直一回合"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "死亡召唤",
+        "马赫突击II",
+        "守备破坏力场",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d031",
+      "dexId": 261,
+      "nameCN": "究極魔獸",
+      "nameEN": "Creepymon",
+      "sourceName": "究极魔兽",
+      "signatureMoves": [
+        {
+          "name": "火焰地狱",
+          "description": "敌方群体魔法火属性威力90"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇III",
+        "闪电坠击II",
+        "智能破坏力场",
+        "爆裂火焰III",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d099",
+      "dexId": 262,
+      "nameCN": "紅蓮騎士獸",
+      "nameEN": "Gallantmon",
+      "sourceName": "红莲骑士兽",
+      "signatureMoves": [
+        {
+          "name": "皇家枪击",
+          "description": "敌方单体物理光属性威力140 50%几率自身DEF+10%"
+        },
+        {
+          "name": "极乐净土",
+          "description": "敌方单体魔法光属性威力115 必中 解除自身能力下降"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "X治愈",
+        "守备填充力场",
+        "爆裂火焰III",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d299",
+      "dexId": 263,
+      "nameCN": "杜納斯獸",
+      "nameEN": "Dynasmon",
+      "sourceName": "杜纳斯兽",
+      "signatureMoves": [
+        {
+          "name": "飞龙之息",
+          "description": "敌方全体物理风属性威力110 反伤20%"
+        },
+        {
+          "name": "龙之怒吼",
+          "description": "敌方单体物理火属性威力60 攻击2次 吸取50%HP"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪III",
+        "狂风暴雨II",
+        "流星坠落II",
+        "攻击破坏力场",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d265",
+      "dexId": 264,
+      "nameCN": "杜蘭達獸",
+      "nameEN": "Durandamon",
+      "sourceName": "杜兰达兽",
+      "signatureMoves": [
+        {
+          "name": "双重境界",
+          "description": "敌方单体物理无属性威力150"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭III",
+        "辅助终结",
+        "交叉拳",
+        "攻击填充力场",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d300",
+      "dexId": 265,
+      "nameCN": "芳香獸",
+      "nameEN": "Leopardmon",
+      "sourceName": "芳香兽",
+      "signatureMoves": [
+        {
+          "name": "灭绝",
+          "description": "敌方全体魔法光属性威力80 必中"
+        },
+        {
+          "name": "炽烈回马枪",
+          "description": "敌方单体魔法暗属性威力110 降低20%DEF"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "速度破坏力场",
+        "闪耀镭射III",
+        "地牛翻身III",
+        "辅助终结"
+      ]
+    },
+    {
+      "uid": "d304",
+      "dexId": 266,
+      "nameCN": "芳香獸LM（豹型態）",
+      "nameEN": "Leopardmon LM",
+      "sourceName": "芳香兽LM",
+      "signatureMoves": [
+        {
+          "name": "摩天大厦",
+          "description": "敌方单体物理土属性威力145 35%晕眩 命中率95"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "速度破坏力场",
+        "闪耀镭射III",
+        "地牛翻身III",
+        "辅助终结"
+      ]
+    },
+    {
+      "uid": "d014",
+      "dexId": 267,
+      "nameCN": "多路戰龍獸",
+      "nameEN": "Dorugoramon",
+      "sourceName": "多路战龙兽",
+      "signatureMoves": [
+        {
+          "name": "勇者金徽",
+          "description": "敌方单体物理暗属性威力200 硬直一回合"
+        }
+      ],
+      "learnableSkills": [
+        "云雾汽油弹III",
+        "加速增幅器",
+        "彗星重锤III",
+        "攻击填充力场",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d064",
+      "dexId": 268,
+      "nameCN": "尼普頓獸",
+      "nameEN": "Neptunemon",
+      "sourceName": "尼普顿兽",
+      "signatureMoves": [
+        {
+          "name": "涡流贯刺",
+          "description": "敌方单体水属性DEF贯穿攻击 必中"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭III",
+        "偶像泡沫",
+        "反射镜",
+        "大海波浪II",
+        "发电水流III"
+      ]
+    },
+    {
+      "uid": "d210",
+      "dexId": 269,
+      "nameCN": "高級安杜路獸",
+      "nameEN": "HiAndromon",
+      "sourceName": "高级安杜路兽",
+      "signatureMoves": [
+        {
+          "name": "原子射线",
+          "description": "敌方单体物理雷属性威力125 40%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击II",
+        "力量能源III",
+        "天国闪电III",
+        "守备填充力场",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d049",
+      "dexId": 270,
+      "nameCN": "摔角火山獸",
+      "nameEN": "PileVolcamon",
+      "sourceName": "摔角火山兽",
+      "signatureMoves": [
+        {
+          "name": "火山驱动技",
+          "description": "敌方单体物理火属性威力130 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击II",
+        "云雾汽油弹III",
+        "交叉拳",
+        "流星坠落II",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d029",
+      "dexId": 271,
+      "nameCN": "巴爾巴獸",
+      "nameEN": "Barbamon",
+      "sourceName": "巴尔巴兽",
+      "signatureMoves": [
+        {
+          "name": "群魔殿迷失",
+          "description": "敌方全体魔法暗属性威力80 吸收20%HP"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇III",
+        "地狱粉碎II",
+        "爆裂火焰III",
+        "精神耗竭",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d040",
+      "dexId": 272,
+      "nameCN": "番長獅子獸",
+      "nameEN": "BanchoLeomon",
+      "sourceName": "番长狮子兽",
+      "signatureMoves": [
+        {
+          "name": "闪光番长拳",
+          "description": "敌方单体物理光属性威力130 75%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身II",
+        "加速增幅器",
+        "彗星重锤III",
+        "攻击填充力场",
+        "地牛翻身III"
+      ]
+    },
+    {
+      "uid": "d211",
+      "dexId": 273,
+      "nameCN": "小丑皇",
+      "nameEN": "Piedmon",
+      "sourceName": "小丑皇",
+      "signatureMoves": [
+        {
+          "name": "王牌飞剑",
+          "description": "敌方单体魔法无属性威力35 攻击4次 使敌人辅助技能无效化"
+        }
+      ],
+      "learnableSkills": [
+        "死亡召唤",
+        "地狱粉碎II",
+        "梦魇III",
+        "结构痛击",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d212",
+      "dexId": 274,
+      "nameCN": "木偶獸",
+      "nameEN": "Puppetmon",
+      "sourceName": "木偶兽",
+      "signatureMoves": [
+        {
+          "name": "爆炸铁锤",
+          "description": "敌方单体物理土属性威力125 50%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "新月之叶III",
+        "雄伟巨石III",
+        "智能破坏力场",
+        "符文之森II",
+        "符文之森III"
+      ]
+    },
+    {
+      "uid": "d058",
+      "dexId": 275,
+      "nameCN": "白金鼻涕獸",
+      "nameEN": "PlatinumNumemon",
+      "sourceName": "白金鼻涕兽",
+      "signatureMoves": [
+        {
+          "name": "白金粪便",
+          "description": "敌方单体物理土属性威力35 攻击4次 30%敌人ATK-10%"
+        }
+      ],
+      "learnableSkills": [
+        "疾速逃脱",
+        "攻击破坏力场",
+        "守备破坏力场",
+        "智能破坏力场",
+        "速度破坏力场"
+      ]
+    },
+    {
+      "uid": "d112",
+      "dexId": 276,
+      "nameCN": "黑暗戰鬥暴龍獸",
+      "nameEN": "BlackWarGreymon",
+      "sourceName": "黑暗战斗暴龙兽",
+      "signatureMoves": [
+        {
+          "name": "黑暗盖亚能量炮",
+          "description": "敌方全体物理暗属性威力100 30%自身DEF+20%"
+        },
+        {
+          "name": "黑暗龙卷风",
+          "description": "敌方单体暗属性高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "流星坠落II",
+        "云雾汽油弹III",
+        "守备填充力场",
+        "马赫突击II",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d213",
+      "dexId": 277,
+      "nameCN": "王子豆豆獸",
+      "nameEN": "PrinceMamemon",
+      "sourceName": "王子豆豆兽",
+      "signatureMoves": [
+        {
+          "name": "微笑弹头",
+          "description": "敌方单体物理无属性威力110 击退"
+        }
+      ],
+      "learnableSkills": [
+        "负极锁链",
+        "疾速逃脱",
+        "力量能源III",
+        "智能填充力场",
+        "最终治愈"
+      ]
+    },
+    {
+      "uid": "d124",
+      "dexId": 278,
+      "nameCN": "破壞龍獸",
+      "nameEN": "Brakedramon",
+      "sourceName": "破坏龙兽",
+      "signatureMoves": [
+        {
+          "name": "毁灭冲刺",
+          "description": "敌方单体物理土属性威力25 攻击5次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击II",
+        "守备破坏力场",
+        "奈米机械破坏III",
+        "闪电坠击III",
+        "地牛翻身III"
+      ]
+    },
+    {
+      "uid": "d221",
+      "dexId": 279,
+      "nameCN": "蛇頸龍獸",
+      "nameEN": "Plesiomon",
+      "sourceName": "蛇颈龙兽",
+      "signatureMoves": [
+        {
+          "name": "悲痛之蓝",
+          "description": "敌方全体水属性中威力INT贯穿攻击 25%睡眠"
+        }
+      ],
+      "learnableSkills": [
+        "大海波浪II",
+        "X灵气",
+        "发电水流III",
+        "状态屏障",
+        "大海波浪III"
+      ]
+    },
+    {
+      "uid": "d132",
+      "dexId": 280,
+      "nameCN": "力神比多獸",
+      "nameEN": "HerculesKabuterimon",
+      "sourceName": "力神比多兽",
+      "signatureMoves": [
+        {
+          "name": "千兆爆破",
+          "description": "敌方单体魔法雷属性威力130"
+        }
+      ],
+      "learnableSkills": [
+        "盖亚元素III",
+        "闪电坠击II",
+        "符文之森II",
+        "智能填充力场",
+        "符文之森III"
+      ]
+    },
+    {
+      "uid": "d028",
+      "dexId": 281,
+      "nameCN": "墮天地獄獸",
+      "nameEN": "Beelzemon",
+      "sourceName": "堕天地狱兽",
+      "signatureMoves": [
+        {
+          "name": "双重冲击",
+          "description": "敌方单体物理暗属性威力20 攻击8次 命中率90"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "物理耗竭",
+        "彗星重锤III",
+        "流星坠落II",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d326",
+      "dexId": 282,
+      "nameCN": "墮天地獄獸BM（爆裂型態）",
+      "nameEN": "Beelzemon BM",
+      "sourceName": "堕天地狱兽BM",
+      "signatureMoves": [
+        {
+          "name": "混沌烈焰",
+          "description": "敌方单体暗属性高威力INT贯穿攻击 吸取20%HP"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪III",
+        "加速增幅器",
+        "云雾汽油弹III",
+        "攻击填充力场",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d219",
+      "dexId": 283,
+      "nameCN": "貝爾菲獸SM（睡眠型態）",
+      "nameEN": "Belphemon SM",
+      "sourceName": "贝尔菲兽SM",
+      "signatureMoves": [
+        {
+          "name": "永恒噩梦",
+          "description": "敌方全体暗属性中威力INT贯穿攻击 50%睡眠"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "负极锁链",
+        "雄伟巨石III",
+        "智能破坏力场",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d136",
+      "dexId": 284,
+      "nameCN": "鳳凰獸",
+      "nameEN": "Hououmon",
+      "sourceName": "凤凰兽",
+      "signatureMoves": [
+        {
+          "name": "星光爆破",
+          "description": "敌方全体魔法光属性威力90"
+        }
+      ],
+      "learnableSkills": [
+        "爆裂火焰III",
+        "状态屏障",
+        "力量能源III",
+        "最终治愈",
+        "安全守护"
+      ]
+    },
+    {
+      "uid": "d224",
+      "dexId": 285,
+      "nameCN": "聖龍獸",
+      "nameEN": "Magnadramon",
+      "sourceName": "圣龙兽",
+      "signatureMoves": [
+        {
+          "name": "神圣火焰",
+          "description": "敌方全体魔法光属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射II",
+        "神圣之光III",
+        "完美复活",
+        "X灵气",
+        "闪耀镭射III"
+      ]
+    },
+    {
+      "uid": "d214",
+      "dexId": 286,
+      "nameCN": "科學怪人獸",
+      "nameEN": "Boltmon",
+      "sourceName": "科学怪人兽",
+      "signatureMoves": [
+        {
+          "name": "战斧斯坦纳",
+          "description": "敌方单体物理无属性威力130 40%混乱"
+        }
+      ],
+      "learnableSkills": [
+        "奈米机械破坏III",
+        "交叉拳",
+        "速度填充力场",
+        "攻击破坏力场",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d341",
+      "dexId": 287,
+      "nameCN": "鎧甲加魯魯獸",
+      "nameEN": "MagnaGarurumon",
+      "sourceName": "铠甲加鲁鲁兽",
+      "signatureMoves": [
+        {
+          "name": "破坏机关枪",
+          "description": "敌方单体物理火属性威力150 自身DEF-10%"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "破坏加农II",
+        "灵气",
+        "顶级锁链",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d252",
+      "dexId": 288,
+      "nameCN": "鎧甲加魯魯獸（分離）",
+      "nameEN": "MagnaGarurumon (SV)",
+      "sourceName": "铠甲加鲁鲁兽（分离）",
+      "signatureMoves": [
+        {
+          "name": "星光闪速",
+          "description": "敌方单体物理光属性威力130 自身SPD+10%"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "破坏加农II",
+        "灵气",
+        "顶级锁链",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d308",
+      "dexId": 289,
+      "nameCN": "混沌神魔獸",
+      "nameEN": "Mastemon",
+      "sourceName": "混沌神魔兽",
+      "signatureMoves": [
+        {
+          "name": "混沌降临",
+          "description": "敌方全体HP-25%"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射III",
+        "地狱粉碎III",
+        "最终灵气",
+        "顶级锁链",
+        "安全守护"
+      ]
+    },
+    {
+      "uid": "d019",
+      "dexId": 290,
+      "nameCN": "海天使獸",
+      "nameEN": "MarineAngemon",
+      "sourceName": "海天使兽",
+      "signatureMoves": [
+        {
+          "name": "海洋之爱 回复全体战斗成员HP 并",
+          "description": "解除所有异常状态"
+        }
+      ],
+      "learnableSkills": [
+        "发电水流III",
+        "大海波浪II",
+        "驱散",
+        "最终灵气",
+        "安全守护"
+      ]
+    },
+    {
+      "uid": "d307",
+      "dexId": 291,
+      "nameCN": "密涅瓦獸",
+      "nameEN": "Minervamon",
+      "sourceName": "密涅瓦兽",
+      "signatureMoves": [
+        {
+          "name": "强袭旋斩",
+          "description": "敌方单体物理无属性威力140 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭III",
+        "马赫突击II",
+        "守备破坏力场",
+        "新月之叶III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d082",
+      "dexId": 292,
+      "nameCN": "幻影迦奧迦獸",
+      "nameEN": "MirageGaogamon",
+      "sourceName": "幻影加奥加兽",
+      "signatureMoves": [
+        {
+          "name": "满月冲击波",
+          "description": "敌方单体物理光属性威力135 必中"
+        }
+      ],
+      "learnableSkills": [
+        "狂风暴雨II",
+        "烈风利爪III",
+        "反射镜",
+        "速度填充力场",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d328",
+      "dexId": 293,
+      "nameCN": "幻影加奧加獸BM（爆裂型態）",
+      "nameEN": "MirageGaogamon BM",
+      "sourceName": "幻影加奥加兽BM",
+      "signatureMoves": [
+        {
+          "name": "满月陨石冲击",
+          "description": "敌方单体物理光属性威力120 30%晕眩 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "攻击破坏力场",
+        "神圣之光III",
+        "最终灵气",
+        "闪耀镭射III"
+      ]
+    },
+    {
+      "uid": "d173",
+      "dexId": 294,
+      "nameCN": "機械邪龍獸",
+      "nameEN": "Machinedramon",
+      "sourceName": "机械邪龙兽",
+      "signatureMoves": [
+        {
+          "name": "无限大炮",
+          "description": "敌方全体物理雷属性威力115 命中率80"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击II",
+        "奈米机械破坏III",
+        "攻击填充力场",
+        "速度破坏力场",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d038",
+      "dexId": 295,
+      "nameCN": "破滅魔龍獸",
+      "nameEN": "Megidramon",
+      "sourceName": "破灭魔龙兽",
+      "signatureMoves": [
+        {
+          "name": "灭世烈焰",
+          "description": "敌方单体物理火属性威力130"
+        }
+      ],
+      "learnableSkills": [
+        "流星坠落II",
+        "云雾汽油弹III",
+        "破坏加农II",
+        "遗失锁链",
+        "流星坠落III"
+      ]
+    },
+    {
+      "uid": "d138",
+      "dexId": 296,
+      "nameCN": "鋼鐵悟空獸",
+      "nameEN": "MetalEtemon",
+      "sourceName": "钢铁悟空兽",
+      "signatureMoves": [
+        {
+          "name": "蕉皮滑行",
+          "description": "敌方单体魔法暗属性威力115 80%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "疾速逃脱",
+        "智能破坏力场",
+        "地牛翻身II",
+        "遗失锁链",
+        "地牛翻身III"
+      ]
+    },
+    {
+      "uid": "d106",
+      "dexId": 297,
+      "nameCN": "鋼鐵加魯魯獸",
+      "nameEN": "MetalGarurumon",
+      "sourceName": "钢铁加鲁鲁兽",
+      "signatureMoves": [
+        {
+          "name": "优雅十字冻结者",
+          "description": "敌方全体物理水属性威力45 攻击2次"
+        },
+        {
+          "name": "绝对冷冻气",
+          "description": "敌方单体魔法水属性威力120 25%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭III",
+        "灵气",
+        "速度填充力场",
+        "音速空洞III",
+        "大海波浪III"
+      ]
+    },
+    {
+      "uid": "d114",
+      "dexId": 298,
+      "nameCN": "鋼鐵加魯魯獸（黑）",
+      "nameEN": "MetalGarurumon (Blk)",
+      "sourceName": "钢铁加鲁鲁兽（黑）",
+      "signatureMoves": [
+        {
+          "name": "优雅十字冻结者",
+          "description": "敌方全体物理水属性威力45 攻击2次"
+        },
+        {
+          "name": "加鲁鲁战斧",
+          "description": "敌方单体物理无属性威力140 必中"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击II",
+        "寒冰之箭III",
+        "天国闪电III",
+        "速度破坏力场",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d215",
+      "dexId": 299,
+      "nameCN": "鋼鐵海龍獸",
+      "nameEN": "MetalSeadramon",
+      "sourceName": "钢铁海龙兽",
+      "signatureMoves": [
+        {
+          "name": "究极波浪炮",
+          "description": "敌方单体魔法水属性威力130"
+        }
+      ],
+      "learnableSkills": [
+        "发电水流III",
+        "大海波浪II",
+        "攻击破坏力场",
+        "天国闪电III",
+        "大海波浪III"
+      ]
+    },
+    {
+      "uid": "d068",
+      "dexId": 300,
+      "nameCN": "墨丘利獸",
+      "nameEN": "Merukimon",
+      "sourceName": "墨丘利兽",
+      "signatureMoves": [
+        {
+          "name": "千打重击",
+          "description": "敌方单体物理风属性威力15 攻击8次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身II",
+        "烈风利爪III",
+        "复活",
+        "音速空洞III",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d172",
+      "dexId": 301,
+      "nameCN": "終極巨龍獸",
+      "nameEN": "RustTyranomon",
+      "sourceName": "终极巨龙兽",
+      "signatureMoves": [
+        {
+          "name": "惊骇电磁炮",
+          "description": "敌方单体物理雷属性威力125 50%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "马赫突击II",
+        "奈米机械破坏III",
+        "守备填充力场",
+        "速度破坏力场",
+        "闪电坠击III"
+      ]
+    },
+    {
+      "uid": "d030",
+      "dexId": 302,
+      "nameCN": "利維坦獸",
+      "nameEN": "Leviamon",
+      "sourceName": "利维坦兽",
+      "signatureMoves": [
+        {
+          "name": "魔颚",
+          "description": "敌方单体物理水属性威力145 15%即死"
+        }
+      ],
+      "learnableSkills": [
+        "寒冰之箭III",
+        "雄伟巨石III",
+        "守备破坏力场",
+        "力量能源III",
+        "大海波浪III"
+      ]
+    },
+    {
+      "uid": "d027",
+      "dexId": 303,
+      "nameCN": "莉莉絲獸",
+      "nameEN": "Lilithmon",
+      "sourceName": "莉莉丝兽",
+      "signatureMoves": [
+        {
+          "name": "幻影苦痛",
+          "description": "敌方单体暗属性特大威力INT贯穿攻击 35%中毒"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎II",
+        "精神耗竭",
+        "梦魇III",
+        "攻击破坏力场",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d301",
+      "dexId": 304,
+      "nameCN": "鴉神獸",
+      "nameEN": "Ravemon",
+      "sourceName": "鸦神兽",
+      "signatureMoves": [
+        {
+          "name": "天之尾羽张",
+          "description": "敌方全体魔法雷属性威力90"
+        }
+      ],
+      "learnableSkills": [
+        "音速空洞III",
+        "灵气",
+        "狂风暴雨II",
+        "速度填充力场",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d329",
+      "dexId": 305,
+      "nameCN": "鴉神獸BM（爆裂型態）",
+      "nameEN": "Ravemon BM",
+      "sourceName": "鸦神兽BM",
+      "signatureMoves": [
+        {
+          "name": "怒涛暗供丧之舞",
+          "description": "敌方单体物理暗属性威力20 攻击8次 伤害值易浮动"
+        }
+      ],
+      "learnableSkills": [
+        "结构痛击",
+        "速度破坏力场",
+        "角色倒置",
+        "状态屏障",
+        "辅助终结"
+      ]
+    },
+    {
+      "uid": "d268",
+      "dexId": 306,
+      "nameCN": "劍皇獸",
+      "nameEN": "Crusadermon",
+      "sourceName": "剑皇兽",
+      "signatureMoves": [
+        {
+          "name": "螺旋假面舞蹈会",
+          "description": "敌方单体物理暗属性威力30 攻击4次 30%几率自身SPD+20%"
+        },
+        {
+          "name": "银色恐惧",
+          "description": "敌方单体火属性特高威力DEF贯穿攻击 30%晕眩"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "地狱粉碎II",
+        "速度破坏力场",
+        "盖亚元素III",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d046",
+      "dexId": 307,
+      "nameCN": "薔薇獸",
+      "nameEN": "Rosemon",
+      "sourceName": "蔷薇兽",
+      "signatureMoves": [
+        {
+          "name": "荆棘之鞭",
+          "description": "敌方单体物理木属性威力120 吸取50%HP 30%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "符文之森II",
+        "盖亚元素III",
+        "最终灵气",
+        "智能填充力场",
+        "符文之森III"
+      ]
+    },
+    {
+      "uid": "d330",
+      "dexId": 308,
+      "nameCN": "薔薇獸BM（爆裂型態）",
+      "nameEN": "Rosemon BM",
+      "sourceName": "蔷薇兽BM",
+      "signatureMoves": [
+        {
+          "name": "诱惑之唇",
+          "description": "敌方单体光属性高威力INT贯穿攻击 吸取50%HP"
+        }
+      ],
+      "learnableSkills": [
+        "最终治愈",
+        "智能破坏力场",
+        "复活",
+        "安全守护",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d303",
+      "dexId": 309,
+      "nameCN": "蓮花獸",
+      "nameEN": "Lotosmon",
+      "sourceName": "莲花兽",
+      "signatureMoves": [
+        {
+          "name": "七重幻想曲",
+          "description": "敌方全体魔法光属性威力75 20%混乱"
+        }
+      ],
+      "learnableSkills": [
+        "符文之森II",
+        "盖亚元素III",
+        "X灵气",
+        "辅助终结",
+        "符文之森III"
+      ]
+    },
+    {
+      "uid": "d089",
+      "dexId": 310,
+      "nameCN": "滅世魔獸",
+      "nameEN": "Armageddemon",
+      "sourceName": "灭世魔兽",
+      "signatureMoves": [
+        {
+          "name": "终极爆炎炮",
+          "description": "敌方单体物理火属性威力90 攻击3次 硬直一回合"
+        },
+        {
+          "name": "黑雨",
+          "description": "敌方全体物理暗属性威力110 20%混乱"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎III",
+        "剧毒陷阱",
+        "马赫突击III",
+        "云雾汽油弹III",
+        "智能破坏力场"
+      ]
+    },
+    {
+      "uid": "d056",
+      "dexId": 311,
+      "nameCN": "阿卡迪獸（超究極體）",
+      "nameEN": "Arcadiamon Ultra",
+      "sourceName": "阿卡迪兽超究极体",
+      "signatureMoves": [
+        {
+          "name": "神之矩阵",
+          "description": "敌方全体无属性高威力DEF贯穿攻击 吸取10%HP"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭III",
+        "角色倒置",
+        "智能破坏力场",
+        "守备破坏力场",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d321",
+      "dexId": 312,
+      "nameCN": "阿爾法獸：王龍劍",
+      "nameEN": "Alphamon Ouryuken",
+      "sourceName": "阿尔法兽",
+      "signatureMoves": [
+        {
+          "name": "王龙剑 究极战刃王龙剑",
+          "description": "敌方单体无属性特高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭III",
+        "最终灵气",
+        "顶级锁链",
+        "神圣钩爪III",
+        "破坏加农III"
+      ]
+    },
+    {
+      "uid": "d204",
+      "dexId": 313,
+      "nameCN": "帝皇龍甲獸PM（聖騎士型態）",
+      "nameEN": "Imperialdramon PM",
+      "sourceName": "帝皇龙甲兽PM",
+      "signatureMoves": [
+        {
+          "name": "奥米加之剑",
+          "description": "敌方单体物理光属性威力150 30%液晶化"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光III",
+        "智能填充力场",
+        "神圣钩爪III",
+        "回复",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d125",
+      "dexId": 314,
+      "nameCN": "艾克薩獸",
+      "nameEN": "Examon",
+      "sourceName": "艾克萨兽",
+      "signatureMoves": [
+        {
+          "name": "大龙头之光荣",
+          "description": "敌方单体物理雷属性威力145"
+        },
+        {
+          "name": "龙魂冲击",
+          "description": "敌方全体物理火属性威力100 附带击退效果"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪III",
+        "狂风暴雨II",
+        "流星坠落II",
+        "攻击破坏力场",
+        "狂风暴雨III"
+      ]
+    },
+    {
+      "uid": "d076",
+      "dexId": 315,
+      "nameCN": "奧米加獸",
+      "nameEN": "Omnimon",
+      "sourceName": "奥米加兽",
+      "signatureMoves": [
+        {
+          "name": "暴龙飓风剑",
+          "description": "敌方全体物理火属性威力115"
+        },
+        {
+          "name": "加鲁鲁加农炮",
+          "description": "敌方单体水属性高威力INT贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "交叉拳",
+        "攻击填充力场",
+        "顶级锁链",
+        "神圣之光III"
+      ]
+    },
+    {
+      "uid": "d317",
+      "dexId": 316,
+      "nameCN": "黑奧米加獸",
+      "nameEN": "Omnimon Zwart",
+      "sourceName": "黑奥米加兽",
+      "signatureMoves": [
+        {
+          "name": "暴龙飓风剑",
+          "description": "敌方全体物理火属性威力115"
+        },
+        {
+          "name": "加鲁鲁加农炮",
+          "description": "敌方单体水属性高威力INT贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "反射镜",
+        "加速增幅器",
+        "遗失锁链",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d323",
+      "dexId": 317,
+      "nameCN": "混沌獸",
+      "nameEN": "Chaosmon",
+      "sourceName": "混沌兽",
+      "signatureMoves": [
+        {
+          "name": "霸王两断剑",
+          "description": "敌方单体物理无属性威力150 伤害值易浮动"
+        },
+        {
+          "name": "黑暗阳焰",
+          "description": "敌方单体暗属性特高威力INT贯穿攻击 50%液晶化"
+        }
+      ],
+      "learnableSkills": [
+        "安全守护",
+        "死亡召唤",
+        "破坏加农III",
+        "神圣钩爪III",
+        "角色倒置"
+      ]
+    },
+    {
+      "uid": "d098",
+      "dexId": 318,
+      "nameCN": "混沌獸VA（瓦爾德臂）",
+      "nameEN": "Chaosmon VA",
+      "sourceName": "混沌兽VA",
+      "signatureMoves": [
+        {
+          "name": "霸王两断剑",
+          "description": "敌方单体物理无属性威力150 伤害值易浮动"
+        },
+        {
+          "name": "极光冲弹",
+          "description": "敌方单体魔法光属性威力120 解除对方提升基本状态"
+        }
+      ],
+      "learnableSkills": [
+        "安全守护",
+        "辅助终结",
+        "神圣之光III",
+        "神圣钩爪III",
+        "角色倒置"
+      ]
+    },
+    {
+      "uid": "d087",
+      "dexId": 319,
+      "nameCN": "金剛武神獸",
+      "nameEN": "Susanomon",
+      "sourceName": "金刚武神兽",
+      "signatureMoves": [
+        {
+          "name": "天羽羽斩",
+          "description": "敌方全体物理光属性威力110 必中"
+        },
+        {
+          "name": "八雷神",
+          "description": "敌方单体魔法雷属性威力20 攻击8次 30%麻痹"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "闪耀镭射III",
+        "驱散",
+        "顶级锁链",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d088",
+      "dexId": 320,
+      "nameCN": "紅蓮騎士獸CM（真紅蓮型態）",
+      "nameEN": "Gallantmon CM",
+      "sourceName": "红莲骑士兽CM",
+      "signatureMoves": [
+        {
+          "name": "Quo Vadis",
+          "description": "敌方单体光属性高威力DEF贯穿攻击 必中 10%即死"
+        }
+      ],
+      "learnableSkills": [
+        "闪耀镭射III",
+        "马赫突击III",
+        "驱散",
+        "回复",
+        "最终治愈"
+      ]
+    },
+    {
+      "uid": "d033",
+      "dexId": 321,
+      "nameCN": "貝爾菲獸RM（憤怒型態）",
+      "nameEN": "Belphemon RM",
+      "sourceName": "贝尔菲兽RM",
+      "signatureMoves": [
+        {
+          "name": "暗黑天赋",
+          "description": "敌方单体暗属性超高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农III",
+        "负极锁链",
+        "雄伟巨石III",
+        "智能破坏力场",
+        "地狱粉碎III"
+      ]
+    },
+    {
+      "uid": "d216",
+      "dexId": 322,
+      "nameCN": "光明獸SM（撒旦型態）",
+      "nameEN": "Lucemon SM",
+      "sourceName": "光明兽SM",
+      "signatureMoves": [
+        {
+          "name": "神之赎罪",
+          "description": "敌方全体魔法光属性威力200 自身INT-50% 命中率90"
+        }
+      ],
+      "learnableSkills": [
+        "梦魇III",
+        "智能破坏力场",
+        "马赫突击III",
+        "地狱粉碎III",
+        "辅助终结"
+      ]
+    },
+    {
+      "uid": "d281",
+      "dexId": 323,
+      "nameCN": "烈焰獸",
+      "nameEN": "Flamedramon",
+      "sourceName": "烈焰兽",
+      "signatureMoves": [
+        {
+          "name": "烈焰拳",
+          "description": "敌方全体物理火属性威力70"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "交叉拳",
+        "云雾汽油弹III"
+      ]
+    },
+    {
+      "uid": "d171",
+      "dexId": 324,
+      "nameCN": "金甲龍獸",
+      "nameEN": "Magnamon",
+      "sourceName": "金甲龙兽",
+      "signatureMoves": [
+        {
+          "name": "闪金太阳风暴",
+          "description": "敌方全体魔法光属性威力75 自身DEF+15%"
+        },
+        {
+          "name": "等离子射击",
+          "description": "敌方全体物理火属性威力35 攻击3次"
+        }
+      ],
+      "learnableSkills": [
+        "地牛翻身II",
+        "复活",
+        "彗星重锤III",
+        "守备填充力场",
+        "地牛翻身III"
+      ]
+    },
+    {
+      "uid": "d311",
+      "dexId": 325,
+      "nameCN": "拉比獸（盔甲）",
+      "nameEN": "Rapidmon (Armor)",
+      "sourceName": "拉比兽（盔甲）",
+      "signatureMoves": [
+        {
+          "name": "黄金三角",
+          "description": "敌方单体魔法光属性威力110 20%自身基础状态+10%"
+        }
+      ],
+      "learnableSkills": [
+        "神圣钩爪III",
+        "闪耀镭射II",
+        "驱散",
+        "速度填充力场",
+        "闪耀镭射III"
+      ]
+    },
+    {
+      "uid": "d258",
+      "dexId": 326,
+      "nameCN": "高吼獸",
+      "nameEN": "Shoutmon",
+      "sourceName": "高吼兽",
+      "signatureMoves": [
+        {
+          "name": "热情摇滚魂",
+          "description": "敌方单体物理火属性威力70"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I",
+        "晕眩冲击"
+      ]
+    },
+    {
+      "uid": "d259",
+      "dexId": 327,
+      "nameCN": "歐米加咆哮獸",
+      "nameEN": "OmniShoutmon",
+      "sourceName": "奥米加咆哮兽",
+      "signatureMoves": [
+        {
+          "name": "嗨爆摇滚魂",
+          "description": "敌方单体物理火属性威力65 攻击2次"
+        },
+        {
+          "name": "重金属火神炮",
+          "description": "敌方全体物理火属性威力100"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "交叉拳",
+        "速度填充力场",
+        "流星坠落III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d115",
+      "dexId": 328,
+      "nameCN": "龍蛇獸",
+      "nameEN": "Ryudamon",
+      "sourceName": "龙蛇兽",
+      "signatureMoves": [
+        {
+          "name": "居合刃",
+          "description": "敌方单体无属性中威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭I",
+        "暴击填充"
+      ]
+    },
+    {
+      "uid": "d116",
+      "dexId": 329,
+      "nameCN": "銀龍獸",
+      "nameEN": "Ginryumon",
+      "sourceName": "银龙兽",
+      "signatureMoves": [
+        {
+          "name": "徹甲刃",
+          "description": "敌方单体无属性中威力DEF贯穿攻击 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "重度强袭II",
+        "攻击填充",
+        "速度填充"
+      ]
+    },
+    {
+      "uid": "d117",
+      "dexId": 330,
+      "nameCN": "飛龍獸（完全體）",
+      "nameEN": "Hisyaryumon",
+      "sourceName": "龙王兽",
+      "signatureMoves": [
+        {
+          "name": "成龙刃",
+          "description": "敌方单体土属性高威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "闪电坠击I",
+        "速度破坏",
+        "奈米机械破坏II",
+        "暴击填充"
+      ]
+    },
+    {
+      "uid": "d118",
+      "dexId": 331,
+      "nameCN": "王龍獸",
+      "nameEN": "Ouryumon",
+      "sourceName": "王龙兽",
+      "signatureMoves": [
+        {
+          "name": "永世龙王刃",
+          "description": "敌方单体雷属性高威力DEF贯穿攻击 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "烈风利爪III",
+        "加速增幅器",
+        "奈米机械破坏III",
+        "攻击填充力场",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d149",
+      "dexId": 332,
+      "nameCN": "啟示錄獸",
+      "nameEN": "Apocalymon",
+      "sourceName": "启示录兽",
+      "signatureMoves": [
+        {
+          "name": "黑暗领域",
+          "description": "敌方全体HP-444"
+        }
+      ],
+      "learnableSkills": [
+        "死亡召唤",
+        "物理耗竭",
+        "精神耗竭",
+        "梦魇III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d331",
+      "dexId": 333,
+      "nameCN": "修女獸雪白",
+      "nameEN": "Sistermon Blanc",
+      "sourceName": "修女兽雪白",
+      "signatureMoves": [
+        {
+          "name": "神裁穿刺",
+          "description": "敌方单体魔法光属性威力65"
+        },
+        {
+          "name": "防护波",
+          "description": "我方全体无法施加异常状态"
+        }
+      ],
+      "learnableSkills": [
+        "治愈",
+        "神圣之光I"
+      ]
+    },
+    {
+      "uid": "d332",
+      "dexId": 334,
+      "nameCN": "修女獸B（覺醒）",
+      "nameEN": "Sistermon B (Awake.)",
+      "sourceName": "修女兽B（觉醒）",
+      "signatureMoves": [
+        {
+          "name": "神裁穿刺（觉醒）",
+          "description": "敌方单体魔法光属性威力90"
+        },
+        {
+          "name": "防护波（觉醒）",
+          "description": "我方全体下一回合无伤 我方全体无法施加异常状态"
+        }
+      ],
+      "learnableSkills": [
+        "神圣之光III",
+        "复活",
+        "闪耀镭射III",
+        "安全守护",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d333",
+      "dexId": 335,
+      "nameCN": "修女獸漆黑",
+      "nameEN": "Sistermon Noir",
+      "sourceName": "修女兽天蓝",
+      "signatureMoves": [
+        {
+          "name": "米奇强击",
+          "description": "敌方全体物理暗属性威力15 攻击2~4次"
+        },
+        {
+          "name": "神佑火枪",
+          "description": "敌方单体物理光属性威力40 攻击2次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "破坏加农I",
+        "地狱粉碎I"
+      ]
+    },
+    {
+      "uid": "d334",
+      "dexId": 336,
+      "nameCN": "修女獸N（覺醒）",
+      "nameEN": "Sistermon N (Awake.)",
+      "sourceName": "修女兽C（觉醒）",
+      "signatureMoves": [
+        {
+          "name": "米奇强击（觉醒）",
+          "description": "敌方全体物理暗属性威力30 攻击2~4次"
+        },
+        {
+          "name": "神佑火枪（觉醒）",
+          "description": "敌方单体物理光属性威力60 攻击2次 易暴击"
+        }
+      ],
+      "learnableSkills": [
+        "攻击填充力场",
+        "破坏加农III",
+        "加速增幅器",
+        "辅助终结",
+        "最终灵气"
+      ]
+    },
+    {
+      "uid": "d335",
+      "dexId": 337,
+      "nameCN": "阿爾法獸NX",
+      "nameEN": "Alphamon NX",
+      "sourceName": "阿尔法兽NX",
+      "signatureMoves": [
+        {
+          "name": "圣剑开端之刃",
+          "description": "敌方单体物理光属性威力120"
+        },
+        {
+          "name": "数码之魂",
+          "description": "敌方全体魔法无属性威力90"
+        }
+      ],
+      "learnableSkills": [
+        "角色倒置",
+        "守备破坏力场",
+        "攻击破坏力场",
+        "闪耀镭射III",
+        "顶级锁链"
+      ]
+    },
+    {
+      "uid": "d336",
+      "dexId": 338,
+      "nameCN": "劍皇獸NX",
+      "nameEN": "Crusadermon NX",
+      "sourceName": "剑皇兽NX",
+      "signatureMoves": [
+        {
+          "name": "螺旋华舞",
+          "description": "敌方单体物理暗属性威力30 攻击4次"
+        },
+        {
+          "name": "急迫恐惧",
+          "description": "敌方单体火属性特大威力DEF贯穿攻击"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "流星坠落III",
+        "地牛翻身III",
+        "闪电坠击III",
+        "马赫突击III"
+      ]
+    },
+    {
+      "uid": "d337",
+      "dexId": 339,
+      "nameCN": "芳香獸NX",
+      "nameEN": "Leopardmon NX",
+      "sourceName": "芳香兽NX",
+      "signatureMoves": [
+        {
+          "name": "灭绝",
+          "description": "敌方全体魔法光属性威力80 必中"
+        },
+        {
+          "name": "炽烈回马枪",
+          "description": "敌方单体魔法暗属性威力110 敌人DEF-20%"
+        }
+      ],
+      "learnableSkills": [
+        "地狱粉碎III",
+        "攻击填充力场",
+        "智能填充力场",
+        "最终治愈",
+        "大海波浪III"
+      ]
+    },
+    {
+      "uid": "d338",
+      "dexId": 340,
+      "nameCN": "奧米加獸NX",
+      "nameEN": "Omnimon NX",
+      "sourceName": "奥米加兽NX",
+      "signatureMoves": [
+        {
+          "name": "暴龙剑",
+          "description": "敌方单体物理火属性威力130"
+        },
+        {
+          "name": "加鲁鲁加农炮",
+          "description": "敌方全体魔法水属性威力95"
+        }
+      ],
+      "learnableSkills": [
+        "X灵气",
+        "速度填充力场",
+        "状态屏障",
+        "安全守护",
+        "完美复活"
+      ]
+    },
+    {
+      "uid": "d339",
+      "dexId": 341,
+      "nameCN": "紅蓮騎士獸NX",
+      "nameEN": "Gallantmon NX",
+      "sourceName": "红莲骑士兽NX",
+      "signatureMoves": [
+        {
+          "name": "皇家枪击",
+          "description": "敌方单体物理光属性威力135 50%自身DEF-10%"
+        },
+        {
+          "name": "极乐净土",
+          "description": "敌方单体魔法光属性威力110 必中 解除自身基本状态下降"
+        }
+      ],
+      "learnableSkills": [
+        "加速增幅器",
+        "奈米机械破坏III",
+        "雄伟巨石III",
+        "新月之叶III",
+        "音速空洞III"
+      ]
+    }
+  ]
+};
