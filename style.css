@@ -434,6 +434,16 @@ body {
   border-radius: 8px;
   font-size: 15px;
 }
+
+.skill-search-form {
+  max-width: 520px;
+  margin-bottom: 16px;
+}
+
+.skill-search-summary {
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
 .path-arrow { font-size: 24px; color: var(--text-secondary); padding-bottom: 6px; }
 .btn-primary {
   padding: 10px 24px;

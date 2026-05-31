@@ -1,11 +1,49 @@
-function findShortestPath(db, fromUid, toUid, blacklist) {
+const STAGE_PENALTY = {
+  '幼年期I': 0,
+  '幼年期II': 0,
+  '成長期': 0,
+  '成熟期': 0,
+  '完全體': 0,
+  '究極體': 1,
+  '超究極體': 2,
+  '裝甲體': 3
+};
+
+function getStagePenalty(db, uid) {
+  const stage = db.digimon[uid] && db.digimon[uid].stage;
+  return STAGE_PENALTY[stage] || 0;
+}
+
+function pathStageCost(db, path) {
+  if (!path) return Infinity;
+  return path.reduce((sum, step) => sum + getStagePenalty(db, step.uid), 0);
+}
+
+function isBetterPath(db, candidate, best) {
+  if (!candidate) return false;
+  if (!best) return true;
+  if (candidate.length !== best.length) return candidate.length < best.length;
+
+  const candidateCost = pathStageCost(db, candidate);
+  const bestCost = pathStageCost(db, best);
+  if (candidateCost !== bestCost) return candidateCost < bestCost;
+
+  const candidateDexId = db.digimon[candidate[candidate.length - 1].uid].dexId;
+  const bestDexId = db.digimon[best[best.length - 1].uid].dexId;
+  return candidateDexId < bestDexId;
+}
+
+function findPreferredPath(db, fromUid, toUid, canDevolveTo, blacklist) {
   if (fromUid === toUid) return [{ uid: fromUid, edge: null }];
 
-  const visited = new Set([fromUid]);
+  const bestSeen = new Map([[fromUid, { length: 1, cost: getStagePenalty(db, fromUid) }]]);
   const queue = [[{ uid: fromUid, edge: null }]];
+  let bestPath = null;
 
   while (queue.length > 0) {
     const path = queue.shift();
+    if (bestPath && path.length >= bestPath.length) continue;
+
     const current = path[path.length - 1].uid;
     const digimon = db.digimon[current];
     if (!digimon) continue;
@@ -15,93 +53,44 @@ function findShortestPath(db, fromUid, toUid, blacklist) {
       if (db.digimon[evoUid] && !(blacklist && blacklist.has(evoUid))) neighbors.push({ uid: evoUid, edge: 'evo' });
     }
     for (const devoUid of (digimon.devolutions || [])) {
-      if (db.digimon[devoUid]) neighbors.push({ uid: devoUid, edge: 'devo' });
+      if (db.digimon[devoUid] && canDevolveTo(devoUid)) neighbors.push({ uid: devoUid, edge: 'devo' });
     }
 
     for (const neighbor of neighbors) {
-      if (visited.has(neighbor.uid)) continue;
-      visited.add(neighbor.uid);
+      if (path.some(step => step.uid === neighbor.uid)) continue;
       const newPath = [...path, neighbor];
-      if (neighbor.uid === toUid) return newPath;
-      queue.push(newPath);
+      const newCost = pathStageCost(db, newPath);
+      const seen = bestSeen.get(neighbor.uid);
+      if (seen && (seen.length < newPath.length || (seen.length === newPath.length && seen.cost <= newCost))) continue;
+      bestSeen.set(neighbor.uid, { length: newPath.length, cost: newCost });
+
+      if (neighbor.uid === toUid) {
+        if (isBetterPath(db, newPath, bestPath)) bestPath = newPath;
+      } else {
+        queue.push(newPath);
+      }
     }
   }
 
-  return null;
+  return bestPath;
+}
+
+function findShortestPath(db, fromUid, toUid, blacklist) {
+  return findPreferredPath(db, fromUid, toUid, () => true, blacklist);
 }
 
 // Constrained path: devolution only allowed to seen(1) or owned(2) Digimon
 // Evolution can go to any Digimon (including unseen)
 function findConstrainedPath(db, fromUid, toUid, collectionStatus, blacklist) {
-  if (fromUid === toUid) return [{ uid: fromUid, edge: null }];
-
-  const visited = new Set([fromUid]);
-  const queue = [[{ uid: fromUid, edge: null }]];
-
-  while (queue.length > 0) {
-    const path = queue.shift();
-    const current = path[path.length - 1].uid;
-    const digimon = db.digimon[current];
-    if (!digimon) continue;
-
-    const neighbors = [];
-    for (const evoUid of (digimon.evolutions || [])) {
-      if (db.digimon[evoUid] && !(blacklist && blacklist.has(evoUid))) neighbors.push({ uid: evoUid, edge: 'evo' });
-    }
-    for (const devoUid of (digimon.devolutions || [])) {
-      // Only allow devolution to seen or owned
-      const status = (collectionStatus && collectionStatus[devoUid]) || 0;
-      if (db.digimon[devoUid] && status >= 1) {
-        neighbors.push({ uid: devoUid, edge: 'devo' });
-      }
-    }
-
-    for (const neighbor of neighbors) {
-      if (visited.has(neighbor.uid)) continue;
-      visited.add(neighbor.uid);
-      const newPath = [...path, neighbor];
-      if (neighbor.uid === toUid) return newPath;
-      queue.push(newPath);
-    }
-  }
-
-  return null;
+  return findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, new Set(), blacklist);
 }
 
 // Constrained path with extra seen set (for waypoint chains where prior path nodes count as seen)
 function findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extraSeen, blacklist) {
-  if (fromUid === toUid) return [{ uid: fromUid, edge: null }];
-
-  const visited = new Set([fromUid]);
-  const queue = [[{ uid: fromUid, edge: null }]];
-
-  while (queue.length > 0) {
-    const path = queue.shift();
-    const current = path[path.length - 1].uid;
-    const digimon = db.digimon[current];
-    if (!digimon) continue;
-
-    const neighbors = [];
-    for (const evoUid of (digimon.evolutions || [])) {
-      if (db.digimon[evoUid] && !(blacklist && blacklist.has(evoUid))) neighbors.push({ uid: evoUid, edge: 'evo' });
-    }
-    for (const devoUid of (digimon.devolutions || [])) {
-      const status = (collectionStatus && collectionStatus[devoUid]) || 0;
-      if (db.digimon[devoUid] && (status >= 1 || extraSeen.has(devoUid))) {
-        neighbors.push({ uid: devoUid, edge: 'devo' });
-      }
-    }
-
-    for (const neighbor of neighbors) {
-      if (visited.has(neighbor.uid)) continue;
-      visited.add(neighbor.uid);
-      const newPath = [...path, neighbor];
-      if (neighbor.uid === toUid) return newPath;
-      queue.push(newPath);
-    }
-  }
-
-  return null;
+  return findPreferredPath(db, fromUid, toUid, uid => {
+    const status = (collectionStatus && collectionStatus[uid]) || 0;
+    return status >= 1 || extraSeen.has(uid);
+  }, blacklist);
 }
 
 // Find shortest path from→to passing through all waypoints (order auto-optimized)
@@ -144,7 +133,7 @@ function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, 
         fullPath = seg;
       }
     }
-    if (valid && fullPath && (!bestIdeal || fullPath.length < bestIdeal.length)) {
+    if (valid && isBetterPath(db, fullPath, bestIdeal)) {
       bestIdeal = fullPath;
     }
   }
@@ -169,7 +158,7 @@ function findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, 
         fullPath = seg;
       }
     }
-    if (valid && fullPath && (!bestConstrained || fullPath.length < bestConstrained.length)) {
+    if (valid && isBetterPath(db, fullPath, bestConstrained)) {
       bestConstrained = fullPath;
     }
   }
@@ -194,18 +183,11 @@ function findSkillRoutePlan(db, fromUid, toUid, waypoints, collectionStatus, bla
   const coveredSkills = [];
   const maxSegments = limit || (requiredDigimon.length + uncovered.size + 2);
 
-  function skillsInPath(path) {
+  function skillsLearnedBy(uid) {
     const matched = [];
-    const seen = new Set();
-    if (!path) return matched;
-    for (const step of path) {
-      for (const skillName of uncovered) {
-        const learners = skillLearnerMap && skillLearnerMap.get(skillName);
-        if (!seen.has(skillName) && learners && learners.has(step.uid)) {
-          seen.add(skillName);
-          matched.push(skillName);
-        }
-      }
+    for (const skillName of uncovered) {
+      const learners = skillLearnerMap && skillLearnerMap.get(skillName);
+      if (learners && learners.has(uid)) matched.push(skillName);
     }
     return matched;
   }
@@ -229,12 +211,6 @@ function findSkillRoutePlan(db, fromUid, toUid, waypoints, collectionStatus, bla
   }
 
   for (let step = 0; step < maxSegments && (requiredDigimon.length > 0 || uncovered.size > 0); step++) {
-    if (requiredDigimon.length === 0 && uncovered.size > 0) {
-      const direct = findPathWithWaypoints(db, currentUid, toUid, [], collectionStatus, blacklist);
-      const directSkills = skillsInPath(direct.ideal);
-      if (direct.ideal && directSkills.length === uncovered.size) break;
-    }
-
     let best = null;
     const candidateUids = new Set(requiredDigimon);
     for (const skillName of uncovered) {
@@ -246,18 +222,23 @@ function findSkillRoutePlan(db, fromUid, toUid, waypoints, collectionStatus, bla
       if (!db.digimon[uid]) continue;
       const path = findPathWithWaypoints(db, currentUid, uid, [], collectionStatus, blacklist);
       if (!path.ideal && !path.constrained) continue;
-      const matchedSkills = skillsInPath(path.ideal);
-      const requiredHit = requiredDigimon.includes(uid) || (path.ideal || []).some(step => requiredDigimon.includes(step.uid));
+      const matchedSkills = skillsLearnedBy(uid);
+      const requiredHit = requiredDigimon.includes(uid);
       if (!requiredHit && matchedSkills.length === 0) continue;
 
-      const routeLength = (path.constrained || path.ideal).length;
-      const candidate = { uid, matchedSkills, ideal: path.ideal, constrained: path.constrained, routeLength, requiredHit };
+      const route = path.constrained || path.ideal;
+      const routeLength = route.length;
+      const learnerStageCost = getStagePenalty(db, uid);
+      const routeStageCost = pathStageCost(db, route);
+      const candidate = { uid, matchedSkills, ideal: path.ideal, constrained: path.constrained, routeLength, learnerStageCost, routeStageCost, requiredHit };
       if (!best
-        || candidate.matchedSkills.length > best.matchedSkills.length
-        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit && !best.requiredHit)
-        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit === best.requiredHit && candidate.routeLength < best.routeLength)
-        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit === best.requiredHit && candidate.routeLength === best.routeLength && !!candidate.constrained && !best.constrained)
-        || (candidate.matchedSkills.length === best.matchedSkills.length && candidate.requiredHit === best.requiredHit && candidate.routeLength === best.routeLength && !!candidate.constrained === !!best.constrained && db.digimon[candidate.uid].dexId < db.digimon[best.uid].dexId)) {
+        || (candidate.requiredHit && !best.requiredHit)
+        || (candidate.requiredHit === best.requiredHit && candidate.learnerStageCost < best.learnerStageCost)
+        || (candidate.requiredHit === best.requiredHit && candidate.learnerStageCost === best.learnerStageCost && candidate.matchedSkills.length > best.matchedSkills.length)
+        || (candidate.requiredHit === best.requiredHit && candidate.learnerStageCost === best.learnerStageCost && candidate.matchedSkills.length === best.matchedSkills.length && candidate.routeStageCost < best.routeStageCost)
+        || (candidate.requiredHit === best.requiredHit && candidate.learnerStageCost === best.learnerStageCost && candidate.matchedSkills.length === best.matchedSkills.length && candidate.routeStageCost === best.routeStageCost && candidate.routeLength < best.routeLength)
+        || (candidate.requiredHit === best.requiredHit && candidate.learnerStageCost === best.learnerStageCost && candidate.matchedSkills.length === best.matchedSkills.length && candidate.routeStageCost === best.routeStageCost && candidate.routeLength === best.routeLength && !!candidate.constrained && !best.constrained)
+        || (candidate.requiredHit === best.requiredHit && candidate.learnerStageCost === best.learnerStageCost && candidate.matchedSkills.length === best.matchedSkills.length && candidate.routeStageCost === best.routeStageCost && candidate.routeLength === best.routeLength && !!candidate.constrained === !!best.constrained && db.digimon[candidate.uid].dexId < db.digimon[best.uid].dexId)) {
         best = candidate;
       }
     }
@@ -268,7 +249,7 @@ function findSkillRoutePlan(db, fromUid, toUid, waypoints, collectionStatus, bla
 
   const finalPath = findPathWithWaypoints(db, currentUid, toUid, [], collectionStatus, blacklist);
   if (finalPath.ideal || finalPath.constrained) {
-    appendSegment({ uid: toUid, matchedSkills: skillsInPath(finalPath.ideal), ideal: finalPath.ideal, constrained: finalPath.constrained, routeLength: (finalPath.constrained || finalPath.ideal).length, final: true });
+    appendSegment({ uid: toUid, matchedSkills: [], ideal: finalPath.ideal, constrained: finalPath.constrained, routeLength: (finalPath.constrained || finalPath.ideal).length, final: true });
   }
 
   return {

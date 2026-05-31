@@ -11,6 +11,7 @@
     <div class="nav-left">
       <a href="#list" class="nav-link active" data-page="list">图鉴</a>
       <a href="#pathfinder" class="nav-link" data-page="pathfinder">路线查询</a>
+      <a href="#skillsearch" class="nav-link" data-page="skillsearch">技能查询</a>
     </div>
     <div class="nav-right">
       <button id="langToggle" class="btn-lang" title="切换简繁">繁</button>
@@ -100,6 +101,20 @@
         <button id="collectBtn" class="btn-primary">生成全收集路线</button>
       </div>
       <div id="collectResult" class="path-result"></div>
+    </div>
+
+    <!-- Skill Search Page -->
+    <div id="skillsearchPage" class="page hidden">
+      <h2>技能查询</h2>
+      <div class="skill-search-form">
+        <div class="path-select">
+          <label>技能</label>
+          <input type="text" id="skillSearchInput" placeholder="搜索技能..." autocomplete="off">
+          <div id="skillSearchDropdown" class="search-dropdown hidden"></div>
+        </div>
+      </div>
+      <div id="skillSearchSummary" class="skill-search-summary"></div>
+      <div id="skillSearchResults" class="digimon-list"></div>
     </div>
   </main>
 

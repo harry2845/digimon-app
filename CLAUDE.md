@@ -98,17 +98,18 @@ Single IIFE containing all application logic:
 - `getStatus(uid)` / `cycleStatus(uid)` — read/toggle collection status (0→1→2→0)
 
 ### Router
-- Hash-based: `#list`, `#detail/{uid}`, `#pathfinder`
+- Hash-based: `#list`, `#detail/{uid}`, `#pathfinder`, `#skillsearch`
 - `navigate()` — reads `location.hash`, shows/hides `.page` divs, calls render function
 
 ### Pages
 - **List** (`renderList()`) — Card grid, stage filter buttons, collection status filter buttons (unseen/seen-only/owned/seen+owned, combinable with stage filter), collection status icons (clickable)
 - **Detail** (`renderDetail(uid)`) — Full info, signature moves, learnable skills, evo/devo lists (side by side), inline editing, status toggle
+- **Skill Search** (`setupSkillSearchPage()` / `renderSkillSearchResults(skillName)`) — Search learnable skill names and render all Digimon that can learn the selected skill using the same card/status UI as the list page.
 - **Pathfinder** (`setupPathfinder()`) — From/to search inputs, waypoint list (add/remove), dual BFS results, collection route planner
   - **Multi-tab**: Up to 20 tabs, each with independent from/to/waypoints/comments/result cache. Tab state in `localStorage['digimonPathTabs']`. Right-click a tab to duplicate it.
   - **Presets**: Save/load named presets (max 10) in `localStorage['digimonPathPresets']`. Load overwrites current tab.
   - **Result caching**: Query results stored as innerHTML string per tab, re-rendered with click handlers on tab switch.
-  - **Skill waypoints**: The final target is always a Digimon. Users can add learnable-skill waypoint requirements; route planning greedily inserts reachable Digimon that cover the most uncovered selected skills, then continues to the final target. Skills acquired in intermediate nodes are treated as retained.
+  - **Skill waypoints**: The final target is always a Digimon. Users can add learnable-skill waypoint requirements; route planning inserts reachable learner Digimon before continuing to the final target. Skill learner selection prioritizes `完全體` and below, then `究極體`, `超究極體`, and finally `裝甲體`; same-stage candidates prefer covering more requested skills. Skills acquired in intermediate nodes are treated as retained.
   - **Waypoint highlight**: Waypoint nodes in path results get `.path-node-waypoint` class (orange border + yellow bg).
   - **Node comments**: Each tab stores a `comments: {uid: string}` map. Waypoint form inputs show comment fields. In path results, comments display as orange labels below the node. Right-click any node in results to add/edit comment via prompt dialog. Comments are saved in tab state, presets, and JSON export.
   - **Evolution blacklist**: Global list of UIDs stored in `localStorage['digimonEvoBlacklist']`. BFS skips evolution edges to blacklisted UIDs (devolution still allowed). If blacklist filtering yields no result but unfiltered does, shows a warning and the unfiltered result.
@@ -124,22 +125,23 @@ Single IIFE containing all application logic:
 
 ### Skills UI
 - `skills.js` must be included before `app.js` in `index.html`.
-- `app.js` builds `skillsByUid` from `window.DIGIMON_SKILLS.records`.
+- `app.js` builds `skillsByUid`, `learnableSkillNames`, and `skillLearnerMap` from `window.DIGIMON_SKILLS.records`.
 - `renderSkillInfo(uid)` renders two sections on the detail page: `必杀技` and `可学习技能`.
+- `#skillsearch` uses `skillLearnerMap` to show all Digimon that can learn a selected skill.
 - Skill text is passed through `t()` for Simplified/Traditional display conversion.
 
 ## pathfinder.js
 
 Standalone functions (not inside the IIFE):
 
-- **`findShortestPath(db, fromUid, toUid, blacklist)`** — Standard BFS, treats evo and devo edges equally (weight 1). Skips evolution edges to blacklisted UIDs if provided. Returns array of `{uid, edge}` or null.
-- **`findConstrainedPath(db, fromUid, toUid, collectionStatus, blacklist)`** — Same BFS but devolution edges are only traversable if the target has status >= 1 (seen or owned). Evolution edges skip blacklisted UIDs.
+- **`findShortestPath(db, fromUid, toUid, blacklist)`** — BFS-like path search, treats evo and devo edges equally (weight 1), but uses stage penalties to prefer lower-cost equal-hop paths. Skips evolution edges to blacklisted UIDs if provided. Returns array of `{uid, edge}` or null.
+- **`findConstrainedPath(db, fromUid, toUid, collectionStatus, blacklist)`** — Same path search but devolution edges are only traversable if the target has status >= 1 (seen or owned). Evolution edges skip blacklisted UIDs.
 - **`findConstrainedPathWithSeen(db, fromUid, toUid, collectionStatus, extraSeen, blacklist)`** — Like `findConstrainedPath` but also allows devolution to nodes in `extraSeen` set. Used for waypoint chains where prior segments' nodes count as seen.
-- **`findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, blacklist)`** — Finds shortest path from→to passing through all waypoint nodes. Enumerates all permutations of waypoints, runs segmented BFS for each, returns the shortest. Returns `{ideal, constrained}` — both the unrestricted and collection-constrained best paths. Constrained version dynamically accumulates seen nodes across segments. Passes blacklist through to all sub-calls.
+- **`findPathWithWaypoints(db, fromUid, toUid, waypoints, collectionStatus, blacklist)`** — Finds a path from→to passing through all waypoint nodes. Enumerates all permutations of waypoints, runs segmented path search for each, and chooses by route length then stage penalty. Returns `{ideal, constrained}` — both the unrestricted and collection-constrained best paths. Constrained version dynamically accumulates seen nodes across segments. Passes blacklist through to all sub-calls.
 - **`findSkillRoutePlan(db, fromUid, toUid, waypoints, collectionStatus, blacklist, skillLearnerMap, limit)`** — Greedy learnable-skill waypoint planner. Final target remains `toUid`; skill waypoint entries are covered by inserting reachable Digimon that learn the most uncovered requested skills before continuing to the final target. Returns chosen segments, covered/uncovered skills, missed Digimon waypoints, and combined ideal/constrained chains.
 - **`findCollectionRoute(db, collectionStatus, startUid)`** — Greedy DFS chain builder for collecting all un-owned Digimon. Starts from an owned node, greedily walks to un-owned neighbors (preferring high-connectivity nodes), bridges through owned nodes via BFS when stuck. Returns `{chains, unreachable}`.
 
-The pathfinder UI shows both "Ideal Path" and "Currently Feasible Path". If the ideal path is already fully feasible, only one is shown.
+The pathfinder UI shows both "Ideal Path" and "Currently Feasible Path". If the ideal path is already fully feasible, only one is shown. Stage penalty order is `完全體` and below = 0, `究極體` = 1, `超究極體` = 2, `裝甲體` = 3.
 
 ## Important Warnings
 

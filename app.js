@@ -32,6 +32,8 @@
     if (listLink) listLink.textContent = t('图鉴');
     const pathLink = document.querySelector('[data-page="pathfinder"]');
     if (pathLink) pathLink.textContent = t('路线查询');
+    const skillSearchLink = document.querySelector('[data-page="skillsearch"]');
+    if (skillSearchLink) skillSearchLink.textContent = t('技能查询');
     const editSpan = document.querySelector('.edit-toggle span');
     if (editSpan) editSpan.textContent = t('编辑模式');
     const menuBtn = document.getElementById('dataMenuBtn');
@@ -87,6 +89,16 @@
       if (blInput) blInput.placeholder = t('搜索数码宝贝...');
       const blBtn = document.getElementById('addBlacklistBtn');
       if (blBtn) blBtn.textContent = '+ ' + t('添加');
+    }
+    const skillSearchPage = document.getElementById('skillsearchPage');
+    if (skillSearchPage) {
+      const h2 = skillSearchPage.querySelector('h2');
+      if (h2) h2.textContent = t('技能查询');
+      const label = skillSearchPage.querySelector('.path-select label');
+      if (label) label.textContent = t('技能');
+      const input = document.getElementById('skillSearchInput');
+      if (input) input.placeholder = t('搜索技能...');
+      renderSkillSearchResults(currentSkillSearch);
     }
     const backBtn = document.getElementById('backBtn');
     if (backBtn) backBtn.innerHTML = '&larr; ' + t('返回');
@@ -169,6 +181,8 @@
   const skillsByUid = new Map(skillRecords.map(s => [s.uid, s]));
   const learnableSkillNames = [...new Set(skillRecords.flatMap(s => s.learnableSkills || []))].sort((a, b) => a.localeCompare(b, 'zh-Hant'));
   const skillLearnerMap = new Map();
+  let currentSkillSearch = null;
+  let skillSearchSetupDone = false;
   for (const record of skillRecords) {
     for (const skillName of (record.learnableSkills || [])) {
       if (!skillLearnerMap.has(skillName)) skillLearnerMap.set(skillName, new Set());
@@ -215,6 +229,11 @@
     } else if (hash === '#pathfinder') {
       $('#pathfinderPage').classList.remove('hidden');
       $('[data-page="pathfinder"]').classList.add('active');
+    } else if (hash === '#skillsearch') {
+      $('#skillsearchPage').classList.remove('hidden');
+      $('[data-page="skillsearch"]').classList.add('active');
+      setupSkillSearchPage();
+      renderSkillSearchResults(currentSkillSearch);
     } else {
       $('#listPage').classList.remove('hidden');
       $('[data-page="list"]').classList.add('active');
@@ -273,20 +292,7 @@
     }
   }
 
-  function renderList() {
-    // Collection stats
-    const allDigimon = Object.values(db.digimon);
-    const total = allDigimon.length;
-    const seen = allDigimon.filter(d => getStatus(d.uid) >= 1).length;
-    const owned = allDigimon.filter(d => getStatus(d.uid) >= 2).length;
-
-    const statsEl = document.getElementById('collectionStats');
-    if (statsEl) statsEl.remove();
-    const statsHtml = `<span id="collectionStats" class="collection-stats">${t('总数')} <strong>${total}</strong> ｜ ${t('已见过')} <strong>${seen}</strong> ｜ ${t('已拥有')} <strong>${owned}</strong></span>`;
-    $('#stageFilter').insertAdjacentHTML('beforeend', statsHtml);
-
-    const container = $('#digimonList');
-    const list = getFiltered();
+  function renderDigimonCards(container, list, onStatusChange) {
     container.innerHTML = list.map(d => {
       const s = getStatus(d.uid);
       const icons = ['○', '◐', '●'];
@@ -302,15 +308,85 @@
       icon.onclick = (e) => {
         e.stopPropagation();
         cycleStatus(icon.dataset.uid);
-        renderList();
+        onStatusChange();
       };
     });
 
     container.querySelectorAll('.digimon-card').forEach(card => {
       card.onclick = () => location.hash = '#detail/' + card.dataset.uid;
     });
+  }
+
+  function renderList() {
+    // Collection stats
+    const allDigimon = Object.values(db.digimon);
+    const total = allDigimon.length;
+    const seen = allDigimon.filter(d => getStatus(d.uid) >= 1).length;
+    const owned = allDigimon.filter(d => getStatus(d.uid) >= 2).length;
+
+    const statsEl = document.getElementById('collectionStats');
+    if (statsEl) statsEl.remove();
+    const statsHtml = `<span id="collectionStats" class="collection-stats">${t('总数')} <strong>${total}</strong> ｜ ${t('已见过')} <strong>${seen}</strong> ｜ ${t('已拥有')} <strong>${owned}</strong></span>`;
+    $('#stageFilter').insertAdjacentHTML('beforeend', statsHtml);
+
+    const container = $('#digimonList');
+    renderDigimonCards(container, getFiltered(), renderList);
 
     $('#addDigimonBtn').classList.toggle('hidden', !editMode);
+  }
+
+  // ── Skill Search Page ──
+  function setupSkillSearchPage() {
+    if (skillSearchSetupDone) return;
+    const input = $('#skillSearchInput');
+    const dropdown = $('#skillSearchDropdown');
+    if (!input || !dropdown) return;
+    skillSearchSetupDone = true;
+
+    input.onfocus = () => renderDropdown(input.value);
+    input.oninput = () => renderDropdown(input.value);
+    document.addEventListener('click', (e) => {
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.add('hidden');
+    });
+
+    function renderDropdown(query) {
+      const q = query.toLowerCase();
+      const qTw = fromInput(q);
+      const matches = learnableSkillNames.filter(name => name.toLowerCase().includes(q) || name.toLowerCase().includes(qTw)).slice(0, 30);
+      dropdown.innerHTML = matches.map(name => `<div class="search-dropdown-item" data-skill="${name.replace(/"/g, '&quot;')}">${t(name)}</div>`).join('') || `<div class="search-dropdown-item path-none">${t('无匹配技能')}</div>`;
+      dropdown.classList.remove('hidden');
+      dropdown.querySelectorAll('.search-dropdown-item[data-skill]').forEach(item => {
+        item.onclick = () => {
+          currentSkillSearch = item.dataset.skill;
+          input.value = t(currentSkillSearch);
+          dropdown.classList.add('hidden');
+          renderSkillSearchResults(currentSkillSearch);
+        };
+      });
+    }
+  }
+
+  function renderSkillSearchResults(skillName) {
+    const summary = $('#skillSearchSummary');
+    const results = $('#skillSearchResults');
+    if (!summary || !results) return;
+
+    if (!skillName) {
+      summary.innerHTML = `<div class="path-none">${t('请选择技能')}</div>`;
+      results.innerHTML = '';
+      return;
+    }
+
+    const input = $('#skillSearchInput');
+    if (input) input.value = t(skillName);
+    const learnerSet = skillLearnerMap.get(skillName) || new Set();
+    const learners = getSorted().filter(d => learnerSet.has(d.uid));
+    summary.innerHTML = `<strong>${t(skillName)}</strong> ｜ ${t('可学习数码宝贝')} <strong>${learners.length}</strong>`;
+    if (learners.length === 0) {
+      results.innerHTML = `<div class="path-none">${t('没有数码宝贝可学习该技能')}</div>`;
+      return;
+    }
+    renderDigimonCards(results, learners, () => renderSkillSearchResults(skillName));
   }
 
   // ── Detail Page ──
