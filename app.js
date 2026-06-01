@@ -1316,7 +1316,6 @@
           const constrainedPath = plan.constrainedChain;
           const idealIsAchievable = !!idealPath && !!constrainedPath && idealPath.length === constrainedPath.length && idealPath.every((step, i) => step.uid === constrainedPath[i].uid && step.edge === constrainedPath[i].edge);
 
-          html += `<div class="path-section"><h3>${t('理想路线')} (${idealPath.length - 1} ${t('步')})${idealIsAchievable ? ' ✓ ' + t('当前可行') : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
           if (!idealIsAchievable) {
             if (!constrainedPath) {
               html += '<div class="path-section"><h3>' + t('当前可行路线') + '</h3><div class="path-none">' + t('无法到达目标（退化目标中有未见过的数码宝贝）') + '</div></div>';
@@ -1324,10 +1323,11 @@
               html += `<div class="path-section"><h3>${t('当前可行路线')} (${constrainedPath.length - 1} ${t('步')})</h3><div class="path-chain" id="constrainedChain"></div></div>`;
             }
           }
+          html += `<div class="path-section"><h3>${t('理想路线')} (${idealPath.length - 1} ${t('步')})${idealIsAchievable ? ' ✓ ' + t('当前可行') : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
 
           result.innerHTML = html;
-          renderChain('idealChain', idealPath, wpSet, targetSkillMap);
           if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath, wpSet, targetSkillMap);
+          renderChain('idealChain', idealPath, wpSet, targetSkillMap);
           result.querySelectorAll('.skill-route-segment').forEach(item => {
             item.onclick = () => { location.hash = '#detail/' + item.dataset.uid; };
           });
@@ -1364,12 +1364,6 @@
         idealIsAchievable = idealPath.every(step => step.edge !== 'devo' || getStatus(step.uid) >= 1);
       }
 
-      if (!idealPath) {
-        html += '<div class="path-section"><h3>' + t('理想路线') + '</h3><div class="path-none">' + t('无法到达目标，没有可用的进化/退化路线') + '</div></div>';
-      } else {
-        html += `<div class="path-section"><h3>${t('理想路线')} (${idealPath.length - 1} ${t('步')})${idealIsAchievable ? ' ✓ ' + t('当前可行') : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
-      }
-
       if (!idealIsAchievable) {
         if (!constrainedPath) {
           html += '<div class="path-section"><h3>' + t('当前可行路线') + '</h3><div class="path-none">' + t('无法到达目标（退化目标中有未见过的数码宝贝）') + '</div></div>';
@@ -1378,9 +1372,15 @@
         }
       }
 
+      if (!idealPath) {
+        html += '<div class="path-section"><h3>' + t('理想路线') + '</h3><div class="path-none">' + t('无法到达目标，没有可用的进化/退化路线') + '</div></div>';
+      } else {
+        html += `<div class="path-section"><h3>${t('理想路线')} (${idealPath.length - 1} ${t('步')})${idealIsAchievable ? ' ✓ ' + t('当前可行') : ''}</h3><div class="path-chain" id="idealChain"></div></div>`;
+      }
+
       result.innerHTML = html;
-      renderChain('idealChain', idealPath, wpSet);
       if (!idealIsAchievable) renderChain('constrainedChain', constrainedPath, wpSet);
+      renderChain('idealChain', idealPath, wpSet);
 
       c.resultHtml = result.innerHTML;
       savePathTabs(tabData);

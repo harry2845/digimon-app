@@ -107,6 +107,7 @@ Single IIFE containing all application logic:
 - **Skill Search** (`setupSkillSearchPage()` / `renderSkillSearchResults(skillName)`) — Search learnable skill names and render all Digimon that can learn the selected skill using the same card/status UI as the list page.
 - **Pathfinder** (`setupPathfinder()`) — Page-level tabs switch between evolution route search and collection route planning.
   - **Mode tabs**: `#pathfinderModeTabs` toggles `#evolutionRouteSection` and `#collectionRouteSection` without persisting the selected mode.
+  - **Desktop route layout**: At `min-width: 1100px`, `#evolutionRouteSection` uses `.evolution-route-layout` to show controls on the left and results on the right; narrower screens stay single-column.
   - **Route query multi-tab**: Up to 20 tabs inside `#pathTabBar`, each with independent from/to/waypoints/comments/result cache. Tab state in `localStorage['digimonPathTabs']`. Right-click a tab to duplicate it.
   - **Presets**: Save/load named presets (max 10) in `localStorage['digimonPathPresets']`. Load overwrites current tab.
   - **Result caching**: Query results stored as innerHTML string per tab, re-rendered with click handlers on tab switch.
@@ -142,7 +143,7 @@ Standalone functions (not inside the IIFE):
 - **`findSkillRoutePlan(db, fromUid, toUid, waypoints, collectionStatus, blacklist, skillLearnerMap, limit)`** — Greedy learnable-skill waypoint planner. Final target remains `toUid`; skill waypoint entries are covered by inserting reachable Digimon that learn the most uncovered requested skills before continuing to the final target. Returns chosen segments, covered/uncovered skills, missed Digimon waypoints, and combined ideal/constrained chains.
 - **`findCollectionRoute(db, collectionStatus, startUid)`** — Greedy DFS chain builder for collecting all un-owned Digimon. Starts from an owned node, greedily walks to un-owned neighbors (preferring high-connectivity nodes), bridges through owned nodes via BFS when stuck. Returns `{chains, unreachable}`.
 
-The pathfinder UI shows both "Ideal Path" and "Currently Feasible Path". If the ideal path is already fully feasible, only one is shown. Stage penalty order is `完全體` and below = 0, `究極體` = 1, `超究極體` = 2, `裝甲體` = 3.
+The pathfinder UI shows "Currently Feasible Path" before "Ideal Path" when both differ. If the ideal path is already fully feasible, only one route is shown with a feasible marker. Stage penalty order is `完全體` and below = 0, `究極體` = 1, `超究極體` = 2, `裝甲體` = 3.
 
 ## Important Warnings
 
