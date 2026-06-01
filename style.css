@@ -354,6 +354,29 @@ body {
 /* Pathfinder */
 #pathfinderPage { padding: 24px 16px; max-width: 700px; margin: 0 auto; }
 #pathfinderPage h2 { margin-bottom: 20px; }
+.pathfinder-mode-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.pathfinder-mode-tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 15px;
+  transition: background .15s, color .15s;
+}
+.pathfinder-mode-tab:hover { background: var(--primary-light); color: var(--primary); }
+.pathfinder-mode-tab.active { background: var(--primary); color: #fff; font-weight: 600; }
 
 /* Path Tabs */
 .path-tab-bar {
@@ -437,7 +460,12 @@ body {
 
 .skill-search-form {
   max-width: 520px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
+}
+
+#skillsearchPage h2,
+.skill-search-summary {
+  text-align: center;
 }
 
 .skill-search-summary {
@@ -657,7 +685,6 @@ body {
 .skill-route-segment span { color: var(--text-secondary); }
 
 /* Collection Route */
-.section-divider { border: none; border-top: 2px solid var(--border); margin: 32px 0 24px; }
 .collect-form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; margin-bottom: 24px; }
 .collect-summary { font-size: 15px; font-weight: 600; margin-bottom: 16px; }
 .collect-chain-section { margin-bottom: 24px; }

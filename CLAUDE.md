@@ -105,8 +105,9 @@ Single IIFE containing all application logic:
 - **List** (`renderList()`) — Card grid, stage filter buttons, collection status filter buttons (unseen/seen-only/owned/seen+owned, combinable with stage filter), collection status icons (clickable)
 - **Detail** (`renderDetail(uid)`) — Full info, signature moves, learnable skills, evo/devo lists (side by side), inline editing, status toggle
 - **Skill Search** (`setupSkillSearchPage()` / `renderSkillSearchResults(skillName)`) — Search learnable skill names and render all Digimon that can learn the selected skill using the same card/status UI as the list page.
-- **Pathfinder** (`setupPathfinder()`) — From/to search inputs, waypoint list (add/remove), dual BFS results, collection route planner
-  - **Multi-tab**: Up to 20 tabs, each with independent from/to/waypoints/comments/result cache. Tab state in `localStorage['digimonPathTabs']`. Right-click a tab to duplicate it.
+- **Pathfinder** (`setupPathfinder()`) — Page-level tabs switch between evolution route search and collection route planning.
+  - **Mode tabs**: `#pathfinderModeTabs` toggles `#evolutionRouteSection` and `#collectionRouteSection` without persisting the selected mode.
+  - **Route query multi-tab**: Up to 20 tabs inside `#pathTabBar`, each with independent from/to/waypoints/comments/result cache. Tab state in `localStorage['digimonPathTabs']`. Right-click a tab to duplicate it.
   - **Presets**: Save/load named presets (max 10) in `localStorage['digimonPathPresets']`. Load overwrites current tab.
   - **Result caching**: Query results stored as innerHTML string per tab, re-rendered with click handlers on tab switch.
   - **Skill waypoints**: The final target is always a Digimon. Users can add learnable-skill waypoint requirements; route planning inserts reachable learner Digimon before continuing to the final target. Skill learner selection prioritizes `完全體` and below, then `究極體`, `超究極體`, and finally `裝甲體`; same-stage candidates prefer covering more requested skills. Skills acquired in intermediate nodes are treated as retained.

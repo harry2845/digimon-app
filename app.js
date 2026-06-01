@@ -24,6 +24,19 @@
     return text;
   }
 
+  let activePathfinderMode = 'evolution';
+
+  function setPathfinderMode(mode) {
+    activePathfinderMode = mode === 'collection' ? 'collection' : 'evolution';
+    document.querySelectorAll('.pathfinder-mode-tab').forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.pathfinderMode === activePathfinderMode);
+    });
+    const evolutionSection = document.getElementById('evolutionRouteSection');
+    const collectionSection = document.getElementById('collectionRouteSection');
+    if (evolutionSection) evolutionSection.classList.toggle('hidden', activePathfinderMode !== 'evolution');
+    if (collectionSection) collectionSection.classList.toggle('hidden', activePathfinderMode !== 'collection');
+  }
+
   function updateStaticText() {
     const btn = document.getElementById('langToggle');
     if (btn) btn.textContent = currentLang === 'tw' ? '繁' : '简';
@@ -53,9 +66,14 @@
     // Pathfinder page static text
     const pfPage = document.getElementById('pathfinderPage');
     if (pfPage) {
-      const h2s = pfPage.querySelectorAll('h2');
-      if (h2s[0]) h2s[0].textContent = t('进化路线查询');
-      if (h2s[1]) h2s[1].textContent = t('全收集路线规划');
+      const evolutionModeTab = pfPage.querySelector('[data-pathfinder-mode="evolution"]');
+      if (evolutionModeTab) evolutionModeTab.textContent = t('进化路线查询');
+      const collectionModeTab = pfPage.querySelector('[data-pathfinder-mode="collection"]');
+      if (collectionModeTab) collectionModeTab.textContent = t('全收集路线规划');
+      const evolutionHeading = document.querySelector('#evolutionRouteSection h2');
+      if (evolutionHeading) evolutionHeading.textContent = t('进化路线查询');
+      const collectionHeading = document.querySelector('#collectionRouteSection h2');
+      if (collectionHeading) collectionHeading.textContent = t('全收集路线规划');
       const labels = pfPage.querySelectorAll('.path-select label');
       labels.forEach(l => {
         if (l.htmlFor === 'pathFrom' || l.closest('.path-select')?.querySelector('#pathFrom'))
@@ -79,8 +97,7 @@
       if (addSkillWaypointBtn) addSkillWaypointBtn.textContent = '+ ' + t('添加技能途经点');
       const collectBtn = document.getElementById('collectBtn');
       if (collectBtn) collectBtn.textContent = t('生成全收集路线');
-      const wpBtn = document.getElementById('addWaypointBtn');
-      if (wpBtn) wpBtn.textContent = '+ ' + t('添加途经点');
+      setPathfinderMode(activePathfinderMode);
       const blLabel = pfPage.querySelector('.blacklist-label');
       if (blLabel) blLabel.textContent = t('进化黑名单');
       const blHint = pfPage.querySelector('.blacklist-hint');
@@ -229,6 +246,7 @@
     } else if (hash === '#pathfinder') {
       $('#pathfinderPage').classList.remove('hidden');
       $('[data-page="pathfinder"]').classList.add('active');
+      setPathfinderMode(activePathfinderMode);
     } else if (hash === '#skillsearch') {
       $('#skillsearchPage').classList.remove('hidden');
       $('[data-page="skillsearch"]').classList.add('active');
@@ -719,6 +737,10 @@
     let presets = loadPathPresets();
     let blacklist = loadBlacklist();
     let waypointCounter = 0;
+
+    $('#pathfinderModeTabs').querySelectorAll('.pathfinder-mode-tab').forEach(tab => {
+      tab.onclick = () => setPathfinderMode(tab.dataset.pathfinderMode);
+    });
 
     // Current tab accessors
     function cur() { return normalizeTab(tabData.tabs[tabData.activeTab]); }
@@ -1437,6 +1459,7 @@
     };
 
     // ── Initial render ──
+    setPathfinderMode(activePathfinderMode);
     renderTabBar();
     restoreForm();
 
